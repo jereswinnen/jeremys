@@ -8,7 +8,7 @@ interface HeaderProps {
 
 const Header = () => {
   return (
-    <header className="bg-slate-400">
+    <header>
       <nav>
         <ul>
           {siteMap.map((page) => (

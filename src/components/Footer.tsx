@@ -10,7 +10,7 @@ const Footer: React.FC<FooterProps> = (
     /* destructure your props here */
   }
 ) => {
-  return <footer className="bg-slate-300">This is the footer</footer>;
+  return <footer>This is the footer</footer>;
 };
 
 export default Footer;

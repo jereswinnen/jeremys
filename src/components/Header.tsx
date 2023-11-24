@@ -1,5 +1,6 @@
 import React from "react";
 import { siteMap } from "../lib/siteMap";
+import { Brand } from "@/assets";
 
 interface HeaderProps {
   // Define your props here
@@ -8,9 +9,12 @@ interface HeaderProps {
 
 const Header = () => {
   return (
-    <header>
+    <header className="flex flex-row justify-between">
+      <a href="/">
+        <Brand /> Jeremy Swinnen
+      </a>
       <nav>
-        <ul>
+        <ul className="flex flex-row gap-5">
           {siteMap.map((page) => (
             <li key={page.path}>
               <a href={page.path}>{page.title}</a>

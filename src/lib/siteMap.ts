@@ -1,12 +1,7 @@
 export const siteMap = [
   {
-    title: "Home",
+    title: "Work",
     path: "/",
-    subpages: []
-  },
-  {
-    title: "Profile",
-    path: "/profile",
     subpages: []
   },
   {
@@ -19,6 +14,11 @@ export const siteMap = [
       },
       // ... more subpages
     ]
+  },
+  {
+    title: "Profile",
+    path: "/profile",
+    subpages: []
   },
   {
     title: "Contact",

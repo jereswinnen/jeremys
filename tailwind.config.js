@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     //modify defaults
     fontFamily: {
-      //sans: ['Georgia, serif'],
+      sans: ['InstrumentSans', 'Georgia', 'serif'],
     },
     extend: {
       //add extras on top of Tailwind defaults
@@ -16,5 +16,11 @@ module.exports = {
         'brandYellow': '#EFD686',
       }
     }
-  }
+  },
+  corePlugins: {
+    fontWeight: false,
+  },
+  plugins: [
+    require("./src/plugins/fontVariationSettingsPlugin.js")
+  ],
 };

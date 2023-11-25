@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className="flex flex-row justify-between">
       <a href="/">
-        <Brand /> Jeremy Swinnen
+        <Brand className="text-brandGreen" /> Jeremy Swinnen
       </a>
       <nav>
         <ul className="flex flex-row gap-5">

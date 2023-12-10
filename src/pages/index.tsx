@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Head from "next/head";
 import React from "react";
 
@@ -9,7 +10,10 @@ const HomePage = () => {
         <meta name="description" content="Personal site" />
       </Head>
       {/* Page body */}
-      <h1>Index page</h1>
+      <section>
+        <Header />
+        <h1>Hero</h1>
+      </section>
     </>
   );
 };

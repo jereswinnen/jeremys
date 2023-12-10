@@ -8,8 +8,8 @@ const HomePage = () => {
         <title>Testing</title>
         <meta name="description" content="Personal site" />
       </Head>
+      {/* Page body */}
       <h1>Index page</h1>
-      {/* Add more content here */}
     </>
   );
 };

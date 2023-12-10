@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className="flex flex-row items-center justify-between">
       <a href="/" className="flex flex-row gap-2.5 items-center font-semibold">
-        <Brand className="text-brandGreen" /> Jeremy Swinnen
+        <Brand /> Jeremy Swinnen
       </a>
       <nav>
         <ul className="flex flex-row gap-5">
@@ -24,8 +24,8 @@ const Header = () => {
                 href={page.path}
                 className={
                   currentPath === page.path
-                    ? "text-white font-semibold"
-                    : "text-white/70 hover:text-white active:text-white/90 active:duration-0 transition-all duration-150"
+                    ? "font-semibold"
+                    : "active:duration-0 transition-all duration-150"
                 }
               >
                 {page.title}

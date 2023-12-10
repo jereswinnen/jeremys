@@ -11,10 +11,11 @@ module.exports = {
     extend: {
       //add extras on top of Tailwind defaults
       colors: {
-        'darkGreen': '#0F2C1C',
-        'brandGreen': '#57C38F',
-        'brandOrange': '#ECB89C',
-        'brandYellow': '#EFD686',
+        'neutral-900': '#1E261D',
+        'neutral-700': '#3A4039',
+        'neutral-500': '#848A83',
+        'neutral-300': '#ABB2AA',
+        'brand-700': '#5E7B5B',
       }
     }
   },

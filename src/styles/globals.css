@@ -2,5 +2,19 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../../public/fonts/InstrumentSans.woff2") format("woff2-variations");
+  font-weight: 400 700;
+  font-stretch: 75% 100%;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../../public/fonts/InstrumentSerif.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../../public/fonts/InstrumentSerifItalic.woff2") format("woff2");
+  font-style: italic;
+}

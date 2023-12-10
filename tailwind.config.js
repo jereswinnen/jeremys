@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     //modify defaults
     fontFamily: {
-      sans: ['InstrumentSans', 'Georgia', 'serif'],
+      sans: ["Instrument Sans", "Georgia", "sans-serif"],
+      serif: ["Instrument Serif", "Arial", "Georgia", "serif"],
     },
     extend: {
       //add extras on top of Tailwind defaults

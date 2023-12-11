@@ -8,10 +8,10 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <main>
+    <main className="mx-auto w-4/5">
       {/* <Header /> */}
       {/* Page wrapper */}
-      <section className="mx-auto w-4/5">{children}</section>
+      <section className="grid grid-cols-8">{children}</section>
       <Footer />
     </main>
   );

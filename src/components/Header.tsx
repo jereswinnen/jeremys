@@ -1,51 +1,59 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { siteMap } from "../lib/siteMap";
-import { Brand } from "@/assets";
-
-interface HeaderProps {
-  // Define your props here
-  // Example: title: string;
-}
+import { gsap } from "gsap";
+import { DotsThreeCircle } from "@phosphor-icons/react";
+import MainNavigation from "./MainNavigation";
 
 const Header = () => {
   const router = useRouter();
-  const currentPath = router.asPath;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    if (isMenuOpen) {
+      // Animate menu opening
+      gsap.to(menuRef.current, { autoAlpha: 1, duration: 0.5 });
+    } else {
+      // Animate menu closing
+      gsap.to(menuRef.current, { autoAlpha: 0, duration: 0.5 });
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
-    <header className="flex flex-row items-center justify-between">
-      <a href="/" className="flex flex-row gap-2.5 items-center font-semibold">
-        <Brand /> Jeremy Swinnen
+    <header className="flex flex-row items-center justify-between text-sm">
+      <a href="/" className="flex flex-row items-center gap-1 font-semibold">
+        Jeremy Swinnen
+        <span className="text-neutral-300 font-normal">
+          / Solving problems since '14
+        </span>
       </a>
-      <nav>
-        <ul className="flex flex-row gap-5">
-          {siteMap.map((page) => (
-            <li key={page.path}>
-              <a
-                href={page.path}
-                className={
-                  currentPath === page.path
-                    ? "font-semibold"
-                    : "active:duration-0 transition-all duration-150"
-                }
-              >
-                {page.title}
-              </a>
-              {/* Uncomment below to include subpages in the menu */}
-              {/* 
-              {page.subpages.length > 0 && (
-                <ul>
-                  {page.subpages.map((subpage) => (
-                    <li key={subpage.path}>
-                      <a href={subpage.path} className={currentPath === subpage.path ? 'current-page-class' : ''}>{subpage.title}</a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              */}
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <button
+        className="flex items-center gap-0.5 font-medium"
+        onClick={toggleMenu}
+      >
+        <DotsThreeCircle weight="bold" size={16} />
+        Menu
+      </button>
+      <section
+        ref={menuRef}
+        className="absolute left-0 top-0 h-full w-full bg-slate-400"
+      >
+        <MainNavigation isMenuOpen={isMenuOpen} />
+      </section>
     </header>
   );
 };

@@ -24,6 +24,9 @@ const HomePage = () => {
           </article>
         </section>
       </section>
+      <section>
+        {/* Main page content which will scroll over the section where Header component resides */}
+      </section>
     </>
   );
 };

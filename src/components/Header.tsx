@@ -50,7 +50,7 @@ const Header = () => {
       </button>
       <section
         ref={menuRef}
-        className="absolute left-0 top-0 h-full w-full bg-slate-400"
+        className="invisible absolute left-0 top-0 h-full w-full bg-slate-400 opacity-0"
       >
         <MainNavigation isMenuOpen={isMenuOpen} />
       </section>

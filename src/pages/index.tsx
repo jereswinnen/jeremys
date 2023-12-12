@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import ProjectGridItem from "@/components/ProjectGridItem";
 import Head from "next/head";
 import React from "react";
 
@@ -24,8 +25,16 @@ const HomePage = () => {
           </article>
         </section>
       </section>
-      <section>
+      <section className="col-span-full inline-grid grid-cols-8 bg-lime-100">
         {/* Main page content which will scroll over the section where Header component resides */}
+        {/* Define rows to create some asymmetry */}
+        <section className="col-span-full inline-grid grid-cols-8">
+          <ProjectGridItem
+            projectName="Yally"
+            imageIndex={1}
+            className="col-span-3 col-start-5"
+          />
+        </section>
       </section>
     </>
   );

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { projects } from "../lib/projects";
 
 type ProjectGridItemProps = {
@@ -13,21 +15,52 @@ const ProjectGridItem: React.FC<ProjectGridItemProps> = ({
   imageIndex,
   className,
 }) => {
-  // Find the project by name
   const project = projects.find((p) => p.name === projectName);
-  if (!project) {
-    return <div>Project not found</div>; // Project not found error state
-  }
-  // Get the specific image from the project
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    if (!gsap || !ScrollTrigger) {
+      console.error("GSAP or ScrollTrigger not found");
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (imageRef.current) {
+      gsap.fromTo(
+        imageRef.current,
+        {
+          clipPath: "inset(0% 0% 0% 100%)", // Start with the image fully hidden (clipped from the right)
+        },
+        {
+          clipPath: "inset(0% 0% 0% 0%)", // Animate to fully reveal the image (no clipping)
+          duration: 1, // Duration of the animation
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top 70%", // Trigger when the top of the image hits 80% from the top of the viewport
+            end: "bottom top", // End when the bottom of the image exits the top of viewport
+            toggleActions: "play none none none", // Play animation once when triggered
+          },
+        },
+      );
+    }
+  }, []);
+
+  if (!project) return <div>Project not found</div>;
   const image = project.images[imageIndex];
-  if (!image) {
-    return <div>Image not found</div>; // Project image not found error state
-  }
+  if (!image) return <div>Image not found</div>;
 
   return (
     <div className={`flex flex-col ${className}`.trim()}>
       <figure className="relative">
-        <Image src={image.src} alt={`Project image`} width={500} height={300} />
+        <div ref={imageRef} className="relative overflow-hidden">
+          <Image
+            src={image.src}
+            alt={`Project image`}
+            width={500}
+            height={300}
+          />
+        </div>
         <figcaption>
           <p>{image.caption}</p>
         </figcaption>

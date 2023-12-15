@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import { DotsThreeCircle } from "@phosphor-icons/react";
 import MainNavigation from "./MainNavigation";
+import ProjectGridItem from "./ProjectGridItem";
 
 const Header = () => {
   const router = useRouter();

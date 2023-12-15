@@ -35,6 +35,74 @@ const HomePage = () => {
             className="col-span-3 col-start-5"
           />
         </section>
+        <article className="col-span-full">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
+            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
+            dolorem molestiae natus quasi.
+          </p>
+        </article>
       </section>
     </>
   );

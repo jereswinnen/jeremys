@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <main className="mx-auto w-4/5">
+    <main>
       <ParallaxDebug />
       {/* <Header /> */}
       {/* Page wrapper */}

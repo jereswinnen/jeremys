@@ -25,84 +25,57 @@ const HomePage = () => {
           </article>
         </section>
       </section>
-      <section className="col-span-full inline-grid grid-cols-8 bg-lime-100">
-        {/* Main page content which will scroll over the section where Header component resides */}
-        {/* Define rows to create some asymmetry */}
-        <section className="col-span-full inline-grid grid-cols-8">
+      <section className="col-span-full inline-grid grid-cols-1 bg-lime-100">
+        <header className="col-span-full inline-grid grid-cols-8 bg-lime-300">
+          <div className="col-span-full flex justify-end">
+            <h2 className="font-serif text-[8vw] text-neutral-900">
+              <em className="italic">Selected</em> work
+            </h2>
+          </div>
+          <div className="col-span-9 col-start-2 grid grid-cols-2 justify-end">
+            <span className="order-2 text-right font-serif text-[8vw] text-neutral-900">
+              2014-2024
+            </span>
+            <article>
+              <p>
+                Throughout the years, I’ve had the please of collaborating with
+                a diverse array of clients from around the globe, primarily in
+                the tech and real estate sectors. These partnerships have been
+                both a professional journey and a source of continuous learning
+                for me.
+              </p>
+              <p>
+                Rather than speaking at length about myself, I prefer to let my
+                work do the talking. Below, you'll find a selection of projects
+                that reflect my commitment to delivering a polished end result.
+              </p>
+            </article>
+          </div>
+        </header>
+        <section id="gridRow" className="col-span-full inline-grid grid-cols-8">
+          <ProjectGridItem
+            projectName="Yally"
+            imageIndex={2}
+            className="col-span-5 mt-[10vh]"
+          />
           <ProjectGridItem
             projectName="Yally"
             imageIndex={1}
-            className="col-span-3 col-start-5"
+            className="col-span-3"
           />
         </section>
-        <article className="col-span-full">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-            nostrum dolor necessitatibus numquam repellat laborum tempore ipsam
-            reiciendis eos? Fugit saepe magni, officiis soluta deserunt porro
-            dolorem molestiae natus quasi.
-          </p>
-        </article>
+        <section id="gridRow" className="col-span-full inline-grid grid-cols-8">
+          <ProjectGridItem
+            projectName="Helpper"
+            imageIndex={1}
+            className="col-span-4"
+          />
+          <ProjectGridItem
+            projectName="Yally"
+            imageIndex={0}
+            className="col-span-4"
+          />
+        </section>
       </section>
     </>
   );

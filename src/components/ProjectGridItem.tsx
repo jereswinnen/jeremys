@@ -29,7 +29,7 @@ const ProjectGridItem: React.FC<ProjectGridItemProps> = ({
         },
         {
           clipPath: "inset(0% 0% 0% 0%)", // Animate to fully reveal the image (no clipping)
-          duration: 0.85, // Duration of the animation
+          duration: 1.25, // Duration of the animation
           ease: "power3.inOut",
           scrollTrigger: {
             trigger: imageRef.current,
@@ -53,8 +53,8 @@ const ProjectGridItem: React.FC<ProjectGridItemProps> = ({
           <Image
             src={image.src}
             alt={`Project image`}
-            width={500}
-            height={300}
+            width={1000}
+            height={600}
           />
         </div>
         <figcaption>

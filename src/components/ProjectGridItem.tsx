@@ -19,11 +19,6 @@ const ProjectGridItem: React.FC<ProjectGridItemProps> = ({
   const imageRef = useRef(null);
 
   useEffect(() => {
-    if (!gsap || !ScrollTrigger) {
-      console.error("GSAP or ScrollTrigger not found");
-      return;
-    }
-
     gsap.registerPlugin(ScrollTrigger);
 
     if (imageRef.current) {

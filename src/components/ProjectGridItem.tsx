@@ -29,11 +29,12 @@ const ProjectGridItem: React.FC<ProjectGridItemProps> = ({
         },
         {
           clipPath: "inset(0% 0% 0% 0%)", // Animate to fully reveal the image (no clipping)
-          duration: 1, // Duration of the animation
+          duration: 0.85, // Duration of the animation
+          ease: "power3.inOut",
           scrollTrigger: {
             trigger: imageRef.current,
-            start: "top 70%", // Trigger when the top of the image hits 80% from the top of the viewport
-            end: "bottom top", // End when the bottom of the image exits the top of viewport
+            start: "top 70%", // Trigger when the top of the image hits 70% from the top of the viewport
+            //end: "bottom top", // End when the bottom of the image exits the top of viewport
             toggleActions: "play none none none", // Play animation once when triggered
           },
         },

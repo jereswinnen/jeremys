@@ -11,7 +11,7 @@ const HomePage = () => {
         <meta name="description" content="Personal site" />
       </Head>
       {/* Page body */}
-      <section className="layoutBleed inline-grid h-screen grid-cols-8 items-center bg-slate-200">
+      <section className="inline-grid h-screen grid-cols-8 items-center gap-8 bg-slate-200">
         <section className="col-span-6 col-start-2 flex flex-col gap-10 bg-slate-100">
           <Header />
           <article className="text-3xl/10">
@@ -25,14 +25,14 @@ const HomePage = () => {
           </article>
         </section>
       </section>
-      <section className="inline-grid grid-cols-1 bg-lime-100">
-        <header className="col-span-full inline-grid grid-cols-8 bg-lime-300">
+      <section className="bg-lime-100">
+        <header className="inline-grid grid-cols-8 gap-8 bg-lime-300">
           <div className="col-span-full flex justify-end">
             <h2 className="font-serif text-[8vw] text-neutral-900">
               <em className="italic">Selected</em> work
             </h2>
           </div>
-          <div className="col-span-9 col-start-2 grid grid-cols-2 justify-end">
+          <div className="col-span-7 col-start-2 inline-grid grid-cols-2 justify-end gap-8">
             <span className="order-2 text-right font-serif text-[8vw] text-neutral-900">
               2014-2024
             </span>
@@ -52,7 +52,7 @@ const HomePage = () => {
             </article>
           </div>
         </header>
-        <section id="gridRow" className="col-span-full inline-grid grid-cols-8">
+        <section id="gridRow" className="inline-grid grid-cols-8 gap-8">
           <ProjectGridItem
             projectName="Yally"
             imageIndex={2}
@@ -64,7 +64,7 @@ const HomePage = () => {
             className="col-span-3"
           />
         </section>
-        <section id="gridRow" className="col-span-full inline-grid grid-cols-8">
+        <section id="gridRow" className="inline-grid grid-cols-8 gap-8">
           <ProjectGridItem
             projectName="Helpper"
             imageIndex={1}

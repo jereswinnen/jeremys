@@ -11,7 +11,7 @@ const HomePage = () => {
         <meta name="description" content="Personal site" />
       </Head>
       {/* Page body */}
-      <section className="col-span-full inline-grid h-screen grid-cols-8 items-center bg-slate-200">
+      <section className="layoutBleed inline-grid h-screen grid-cols-8 items-center bg-slate-200">
         <section className="col-span-6 col-start-2 flex flex-col gap-10 bg-slate-100">
           <Header />
           <article className="text-3xl/10">
@@ -25,7 +25,7 @@ const HomePage = () => {
           </article>
         </section>
       </section>
-      <section className="col-span-full inline-grid grid-cols-1 bg-lime-100">
+      <section className="inline-grid grid-cols-1 bg-lime-100">
         <header className="col-span-full inline-grid grid-cols-8 bg-lime-300">
           <div className="col-span-full flex justify-end">
             <h2 className="font-serif text-[8vw] text-neutral-900">

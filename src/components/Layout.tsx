@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <ParallaxDebug />
       {/* <Header /> */}
       {/* Page wrapper */}
-      <section className="grid grid-cols-8">{children}</section>
+      <section className="layoutMaster">{children}</section>
       <Footer />
     </main>
   );

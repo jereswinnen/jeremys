@@ -30,7 +30,6 @@
 .layoutMaster {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-column-gap: 32px;
   padding: 0 var(--layoutPadding);
 }
 .layoutMaster > * {

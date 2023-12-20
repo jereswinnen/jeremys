@@ -12,8 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <main>
       <ParallaxDebug />
       {/* <Header /> */}
-      {/* Page wrapper */}
-      <section className="layoutMaster">{children}</section>
+      <section className="layoutMaster gap-8">{children}</section>
       <Footer />
     </main>
   );

@@ -29,6 +29,7 @@ module.exports = {
         'neutral-700': '#3A4039',
         'neutral-500': '#848A83',
         'neutral-300': '#ABB2AA',
+        'neutral-100': '#D7D9D7',
         'brand-700': '#5E7B5B',
       }
     }

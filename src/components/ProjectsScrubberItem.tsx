@@ -39,9 +39,10 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
         <figure className="relative">
           <Image
             src={image.src}
-            alt={`Project image`}
-            width={1000}
-            height={600}
+            alt={image.caption}
+            width={image.width}
+            height={image.height}
+            layout="responsive"
           />
           <figcaption>
             <p>{image.caption}</p>

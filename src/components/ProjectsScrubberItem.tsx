@@ -52,7 +52,7 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
           label="View project"
           icon={<ArrowRight weight="bold" size={18} />}
           iconPosition="reverse"
-          className="ease-in-out-circ absolute z-10 translate-y-2.5 opacity-0 duration-[380ms] group-hover:-translate-y-0 group-hover:opacity-100"
+          className="ease-in-out-circ duration-normal absolute z-10 translate-y-2.5 opacity-0 group-hover:-translate-y-0 group-hover:opacity-100"
         />
         <figure>
           <Image
@@ -60,7 +60,7 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
             alt={image.caption}
             width={image.width}
             height={image.height}
-            className="ease-in-out-circ rounded-md shadow-projectImage duration-[380ms] group-hover:opacity-60"
+            className="ease-in-out-circ duration-normal origin-[bottom_center] rounded-md shadow-projectImage group-hover:scale-[1.0225] group-hover:opacity-60"
           />
         </figure>
       </div>

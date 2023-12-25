@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     //modify defaults
+    transitionDuration: {
+      'normal': '380ms',
+    },
     fontFamily: {
       sans: ["Instrument Sans", "Georgia", "sans-serif"],
       serif: ["Instrument Serif", "Arial", "Georgia", "serif"],

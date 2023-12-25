@@ -2,7 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { projects } from "../lib/projects";
 import Action from "./Action";
-import { EyeClosed } from "@phosphor-icons/react";
+import {
+  ArrowRight,
+  CaretCircleRight,
+  Eye,
+  EyeClosed,
+} from "@phosphor-icons/react";
 
 type ProjectsScrubberItemProps = {
   projectName: string;
@@ -45,7 +50,8 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
       <div className="relative -mb-[20px] flex items-center justify-center">
         <Action
           label="View project"
-          icon={<EyeClosed weight="duotone" size={22} />}
+          icon={<ArrowRight weight="bold" size={18} />}
+          iconPosition="reverse"
           className="ease-in-out-circ absolute z-10 translate-y-2.5 opacity-0 duration-[380ms] group-hover:-translate-y-0 group-hover:opacity-100"
         />
         <figure>

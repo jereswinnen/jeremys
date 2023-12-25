@@ -26,7 +26,7 @@ const HomePage = () => {
           </article>
         </section>
       </section>
-      <section className="layoutBleed bg-slate-100">
+      <section className="layoutBleed overflow-hidden bg-slate-100 px-[var(--layoutPadding)] pt-[var(--layoutPadding)]">
         <ProjectsScrubberItem
           projectName="Helpper"
           imageIndex={2}

@@ -25,7 +25,8 @@ module.exports = {
     extend: {
       //add extras on top of Tailwind defaults
       boxShadow: {
-        'projectImage': '0 1px 2px 0 rgba(30, 38, 29, 0.15), 0 10px 20px -10px rgba(30, 38, 29, 0.1), 0 20px 30px 0 rgba(30, 38, 29, 0.08)'
+        'projectImage': '0 1px 2px 0 rgba(30, 38, 29, 0.15), 0 10px 20px -10px rgba(30, 38, 29, 0.1), 0 20px 30px 0 rgba(30, 38, 29, 0.08)',
+        'actionPrimary': '0 1px 2px 0 rgba(30, 38, 29, 0.1), 0 2px 8px 0 rgba(30, 38, 29, 0.06)'
       },
       colors: {
         'neutral-900': '#1E261D',
@@ -36,7 +37,7 @@ module.exports = {
         'brand-700': '#5E7B5B'
       },
       transitionTimingFunction: {
-        'ease-in-out-circ': 'cubic-bezier(0.79, 0.14, 0.15, 0.86);'
+        'in-out-circ': 'cubic-bezier(0.79, 0.14, 0.15, 0.86);'
       },
     },
   },

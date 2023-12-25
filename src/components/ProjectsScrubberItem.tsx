@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { projects } from "../lib/projects";
+import Action from "./Action";
+import { EyeClosed } from "@phosphor-icons/react";
 
 type ProjectsScrubberItemProps = {
   projectName: string;
@@ -25,14 +27,9 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
     return <div>Image not found</div>; // Or handle this case as you see fit
   }
 
-  // Construct the path for the master.webp image
-  const keyArtworkImagePath = `/images/work/${encodeURIComponent(
-    projectName.toLowerCase(),
-  )}/keyArtwork.webp`;
-
   return (
     <div
-      className={`group flex max-w-[520px] cursor-pointer flex-col ${className}`.trim()}
+      className={`group flex max-w-[520px] cursor-pointer flex-col gap-4 ${className}`.trim()}
       onClick={() =>
         (window.location.href = `/work/${encodeURIComponent(
           projectName.toLowerCase(),
@@ -45,15 +42,22 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
           {project.startDate} &#x2192; {project.endDate}
         </p>
       </div>
-      <figure>
-        <Image
-          src={image.src}
-          alt={image.caption}
-          width={image.width}
-          height={image.height}
-          className="rounded-md shadow-projectImage"
+      <div className="relative -mb-[20px] flex items-center justify-center">
+        <Action
+          label="View project"
+          icon={<EyeClosed weight="duotone" size={22} />}
+          className="ease-in-out-circ absolute z-10 translate-y-2.5 opacity-0 duration-[380ms] group-hover:-translate-y-0 group-hover:opacity-100"
         />
-      </figure>
+        <figure>
+          <Image
+            src={image.src}
+            alt={image.caption}
+            width={image.width}
+            height={image.height}
+            className="ease-in-out-circ rounded-md shadow-projectImage duration-[380ms] group-hover:opacity-60"
+          />
+        </figure>
+      </div>
     </div>
   );
 };

@@ -60,7 +60,7 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
             alt={image.caption}
             width={image.width}
             height={image.height}
-            className="ease-in-out-circ duration-normal origin-[bottom_center] rounded-md shadow-projectImage group-hover:scale-[1.0225] group-hover:opacity-60"
+            className="ease-in-out-circ duration-normal origin-[bottom_center] rounded-md shadow-projectImage group-hover:scale-[1.0215] group-hover:opacity-60"
           />
         </figure>
       </div>

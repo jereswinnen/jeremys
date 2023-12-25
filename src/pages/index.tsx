@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import ProjectGridItem from "@/components/ProjectGridItem";
+import ProjectHeroTitle from "@/components/ProjectHeroTitle";
 import ProjectsScrubberItem from "@/components/ProjectsScrubberItem";
 import Head from "next/head";
 import React from "react";
@@ -11,8 +12,7 @@ const HomePage = () => {
         <title>Testing</title>
         <meta name="description" content="Personal site" />
       </Head>
-      {/* Page body */}
-      <section className="inline-grid h-screen grid-cols-8 items-center gap-8">
+      <section className="inline-grid h-fit grid-cols-8 items-center gap-8">
         <section className="col-span-6 col-start-2 flex flex-col gap-10">
           <Header />
           <article className="text-3xl/10">
@@ -25,13 +25,18 @@ const HomePage = () => {
             <p>Currently working as a creative developer at Yally.</p>
           </article>
         </section>
+      </section>
+      <section className="layoutBleed bg-slate-100">
         <ProjectsScrubberItem
-          projectName="Yally"
-          imageIndex={4}
+          projectName="Helpper"
+          imageIndex={2}
           className="col-span-5"
         />
       </section>
       <section className="bg-lime-100">
+        <section className="flex flex-col items-center bg-white py-10">
+          <ProjectHeroTitle projectName="Yally" />
+        </section>
         <header className="inline-grid grid-cols-8 gap-8 bg-lime-300">
           <div className="col-span-full flex justify-end">
             <h2 className="font-serif text-[8vw] text-neutral-900">

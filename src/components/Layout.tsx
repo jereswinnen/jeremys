@@ -10,7 +10,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <main>
-      <ParallaxDebug />
+      {/* <ParallaxDebug /> */}
       {/* <Header /> */}
       <section className="layoutMaster gap-8">{children}</section>
       <Footer />

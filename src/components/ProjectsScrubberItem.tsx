@@ -26,35 +26,34 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
   }
 
   // Construct the path for the master.webp image
-  const masterImagePath = `/images/work/${encodeURIComponent(
+  const keyArtworkImagePath = `/images/work/${encodeURIComponent(
     projectName.toLowerCase(),
-  )}/master.webp`;
+  )}/keyArtwork.webp`;
 
   return (
-    <div className={`flex flex-col ${className}`.trim()}>
-      <div
-        style={{ backgroundImage: `url('${masterImagePath}')` }}
-        className={`bg-cover bg-center p-8`}
-      >
-        <figure className="relative">
-          <Image
-            src={image.src}
-            alt={image.caption}
-            width={image.width}
-            height={image.height}
-            layout="responsive"
-          />
-          <figcaption>
-            <p>{image.caption}</p>
-          </figcaption>
-        </figure>
+    <div
+      className={`group flex max-w-[520px] cursor-pointer flex-col ${className}`.trim()}
+      onClick={() =>
+        (window.location.href = `/work/${encodeURIComponent(
+          projectName.toLowerCase(),
+        )}`)
+      }
+    >
+      <div className="flex flex-col">
+        <h3 className="text-neutral-900 font-medium">{project.name}</h3>
+        <p className="text-sm text-neutral-500">
+          {project.startDate} &#x2192; {project.endDate}
+        </p>
       </div>
-      <footer>
-        <a href={`/projects/${encodeURIComponent(projectName)}`}>
-          {project.name}
-        </a>
-        <p>{project.description}</p>
-      </footer>
+      <figure>
+        <Image
+          src={image.src}
+          alt={image.caption}
+          width={image.width}
+          height={image.height}
+          className="rounded-md shadow-projectImage"
+        />
+      </figure>
     </div>
   );
 };

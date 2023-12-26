@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { projects, Project } from "../lib/projects";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 type ProjectHeroTitleProps = {
   projectName: string;
@@ -7,15 +8,20 @@ type ProjectHeroTitleProps = {
 
 const ProjectHeroTitle: React.FC<ProjectHeroTitleProps> = ({ projectName }) => {
   const project = projects.find((p) => p.name === projectName) as Project;
+  const { scrollYProgress } = useScroll();
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
 
   return (
-    <h1 className="textMask overflow-hidden text-[320px] text-transparent font-bold">
+    <motion.h1 className="textMask overflow-hidden text-[240px] text-transparent font-bold">
       {project.name}
-      <div
+      <motion.div
         className="absolute left-0 top-0 h-full w-full bg-contain mix-blend-overlay brightness-75 saturate-150"
-        style={{ backgroundImage: `url(${project?.keyImage.src})` }}
-      ></div>
-    </h1>
+        style={{
+          backgroundImage: `url(${project?.keyImage.src})`,
+          y: parallaxY,
+        }}
+      ></motion.div>
+    </motion.h1>
   );
 };
 

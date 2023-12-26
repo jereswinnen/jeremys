@@ -5,7 +5,8 @@ import type { AppProps } from "next/app";
 import Lenis from "@studio-freight/lenis";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
+  {
+    /*useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.15,
     });
@@ -16,7 +17,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
 
     requestAnimationFrame(raf);
-  }, []);
+  }, []);*/
+  }
 
   return (
     <>

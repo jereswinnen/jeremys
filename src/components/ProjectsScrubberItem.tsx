@@ -41,10 +41,10 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
         )}`)
       }
     >
-      <div className="flex flex-col">
+      <div className="ease-in-out-circ duration-normal flex translate-y-5 flex-col opacity-0 group-hover:-translate-y-0 group-hover:opacity-100">
         <h3 className="text-neutral-900 font-medium">{project.name}</h3>
         <p className="text-sm text-neutral-500">
-          {project.startDate} &#x2192; {project.endDate}
+          {project.startDate} &#x2192; {project.endDate} {image.caption}
         </p>
       </div>
       <div className="relative -mb-[20px] flex items-center justify-center">
@@ -52,7 +52,7 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
           label="View project"
           icon={<ArrowRight weight="bold" size={18} />}
           iconPosition="reverse"
-          className="ease-in-out-circ duration-normal absolute z-10 translate-y-2.5 opacity-0 group-hover:-translate-y-0 group-hover:opacity-100"
+          className="ease-in-out-circ duration-normal absolute z-10 translate-y-2.5 opacity-0 group-hover:-translate-y-0 group-hover:opacity-100 group-hover:delay-200"
         />
         <figure>
           <Image

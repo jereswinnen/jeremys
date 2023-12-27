@@ -33,6 +33,36 @@ const HomePage = () => {
           imageIndex={2}
           className="col-span-5"
         />
+        <ProjectsScrubberItem
+          projectName="Helpper"
+          imageIndex={2}
+          className="col-span-5"
+        />
+        <ProjectsScrubberItem
+          projectName="Helpper"
+          imageIndex={2}
+          className="col-span-5"
+        />
+        <ProjectsScrubberItem
+          projectName="Helpper"
+          imageIndex={2}
+          className="col-span-5"
+        />
+        <ProjectsScrubberItem
+          projectName="Helpper"
+          imageIndex={2}
+          className="col-span-5"
+        />
+        <ProjectsScrubberItem
+          projectName="Helpper"
+          imageIndex={2}
+          className="col-span-5"
+        />
+        <ProjectsScrubberItem
+          projectName="Helpper"
+          imageIndex={2}
+          className="col-span-5"
+        />
       </ProjectsScrubber>
       <section className="bg-lime-100">
         <section className="flex flex-col items-center bg-white py-10">

@@ -29,7 +29,7 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
 
   return (
     <div
-      className={`group flex max-w-[520px] cursor-pointer flex-col gap-4 ${className}`.trim()}
+      className={`group flex max-w-[520px] shrink-0 cursor-pointer flex-col gap-4 ${className}`.trim()}
       onClick={() =>
         (window.location.href = `/work/${encodeURIComponent(
           projectName.toLowerCase(),

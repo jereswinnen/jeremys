@@ -75,6 +75,6 @@
   mask-image: linear-gradient(to top, rgba(255, 255, 255, .85) 25%, transparent);
   backdrop-filter: blur(2px);
 }
-.progressiveBlur:hover::before {
+.progressiveBlur:hover ::before {
   opacity: 1;
 }

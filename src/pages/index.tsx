@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import ProjectGridItem from "@/components/ProjectGridItem";
 import ProjectHeroTitle from "@/components/ProjectHeroTitle";
+import ProjectsScrubber from "@/components/ProjectsScrubber";
 import ProjectsScrubberItem from "@/components/ProjectsScrubberItem";
 import Head from "next/head";
 import React from "react";
@@ -26,13 +27,13 @@ const HomePage = () => {
           </article>
         </section>
       </section>
-      <section className="layoutBleed overflow-hidden bg-slate-100 px-[var(--layoutPadding)] pt-[var(--layoutPadding)]">
+      <ProjectsScrubber>
         <ProjectsScrubberItem
           projectName="Helpper"
           imageIndex={2}
           className="col-span-5"
         />
-      </section>
+      </ProjectsScrubber>
       <section className="bg-lime-100">
         <section className="flex flex-col items-center bg-white py-10">
           <ProjectHeroTitle projectName="Yally" />

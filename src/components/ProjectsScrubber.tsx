@@ -10,6 +10,15 @@ const ProjectsScrubber: React.FC<ProjectsScrubberProps> = ({ children }) => {
   const animationRef = useRef<gsap.core.Tween>();
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      // Exit the function if the user prefers reduced motion
+      return;
+    }
+
     if (scrollContainerRef.current) {
       const scrollWidth = scrollContainerRef.current.scrollWidth;
       const viewportWidth = scrollContainerRef.current.offsetWidth;

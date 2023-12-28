@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import ProjectGridItem from "@/components/ProjectGridItem";
 import ProjectsScroller from "@/components/ProjectsScroller";
 import ProjectSection from "@/components/ProjectSection";
-import ProjectHeroTitle from "@/components/ProjectHeroTitle";
 
 const HomePage = () => {
   return (

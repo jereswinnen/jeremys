@@ -12,9 +12,9 @@ const HomePage = () => {
         <title>Testing</title>
         <meta name="description" content="Personal site" />
       </Head>
-      <section className="inline-grid grid-cols-8 items-center gap-8">
-        <section className="col-span-6 col-start-2 flex flex-col gap-10">
-          <Header />
+      <section className="layoutInner items-center gap-y-12">
+        <Header />
+        <section className="col-span-4 col-start-5 flex flex-col gap-10">
           <article className="text-3xl/10">
             <p>
               Blending a decade of UX/UI design experience with sharp
@@ -324,7 +324,7 @@ const HomePage = () => {
         <section className="flex flex-col items-center bg-white py-10">
           <ProjectHeroTitle projectName="Yally" />
         </section>
-        <header className="inline-grid grid-cols-8 gap-8 bg-lime-300">
+        <header className="layoutInner bg-lime-300">
           <div className="col-span-full flex justify-end">
             <h2 className="font-serif text-[8vw] text-neutral-900">
               <em className="italic">Selected</em> work
@@ -350,7 +350,7 @@ const HomePage = () => {
             </article>
           </div>
         </header>
-        <section id="gridRow" className="inline-grid grid-cols-8 gap-8">
+        <section id="gridRow" className="layoutInner">
           <ProjectGridItem
             projectName="Yally"
             imageIndex={2}
@@ -362,7 +362,7 @@ const HomePage = () => {
             className="col-span-3"
           />
         </section>
-        <section id="gridRow" className="inline-grid grid-cols-8 gap-8">
+        <section id="gridRow" className="layoutInner">
           <ProjectGridItem
             projectName="Helpper"
             imageIndex={1}

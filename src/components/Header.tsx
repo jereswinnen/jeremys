@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import { DotsThreeCircle } from "@phosphor-icons/react";
 import MainNavigation from "./MainNavigation";
-import ProjectGridItem from "./ProjectGridItem";
 
 const Header = () => {
   const router = useRouter();
@@ -35,7 +34,7 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="flex flex-row items-center justify-between text-sm">
+    <header className="col-span-full flex flex-row items-center justify-between text-sm">
       <a href="/" className="flex flex-row items-center gap-1 font-semibold">
         Jeremy Swinnen
         <span className="text-neutral-300 font-normal">
@@ -51,7 +50,7 @@ const Header = () => {
       </button>
       <section
         ref={menuRef}
-        className="invisible absolute left-0 top-0 h-full w-full bg-slate-400 opacity-0"
+        className="invisible absolute left-0 top-0 z-50 h-full w-full bg-slate-400 opacity-0"
       >
         <MainNavigation isMenuOpen={isMenuOpen} />
       </section>

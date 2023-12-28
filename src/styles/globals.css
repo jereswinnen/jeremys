@@ -5,7 +5,9 @@
 
 /*--- Root variables ---*/
 :root {
+  --layoutColumns: repeat(8, 1fr);
   --layoutPadding: 2vw;
+  --layoutColGap: 32px;
 }
 
 /*--- Typefaces ---*/
@@ -29,11 +31,17 @@
 /*--- Layout ---*/
 .layoutMaster {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: var(--layoutColumns);
+  column-gap: var(--layoutColGap);
   padding: 0 var(--layoutPadding);
 }
 .layoutMaster > * {
   grid-column: span 8;
+}
+.layoutInner {
+  display: inline-grid;
+  grid-template-columns: var(--layoutColumns);
+  column-gap: var(--layoutColGap);
 }
 .layoutBleed {
   margin: 0 calc(var(--layoutPadding) * -1);

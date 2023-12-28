@@ -4,13 +4,13 @@ import { projects } from "../lib/projects";
 import Action from "./Action";
 import { ArrowRight } from "@phosphor-icons/react";
 
-type ProjectsScrubberItemProps = {
+type ProjectsScrollerItemProps = {
   projectName: string;
   imageIndex: number;
   className?: string;
 };
 
-const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
+const ProjectsScrollerItem: React.FC<ProjectsScrollerItemProps> = ({
   projectName,
   imageIndex,
   className = "",
@@ -42,7 +42,7 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
           {project.startDate} &#x2192; {project.endDate} {image.caption}
         </p>
       </div>
-      <div className="relative -mb-[20px] flex items-center justify-center">
+      <div className="relative flex items-center justify-center">
         <Action
           label="View project"
           icon={<ArrowRight weight="bold" size={18} />}
@@ -55,7 +55,7 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
             alt={image.caption}
             width={image.width}
             height={image.height}
-            className="ease-in-out-circ duration-normal origin-[bottom_center] rounded-md shadow-projectImage group-hover:scale-[1.0215] group-hover:opacity-60"
+            className="ease-in-out-circ duration-normal origin-[bottom_center] rounded-md shadow-projectImage group-hover:scale-[1.0215]"
           />
         </figure>
       </div>
@@ -63,4 +63,4 @@ const ProjectsScrubberItem: React.FC<ProjectsScrubberItemProps> = ({
   );
 };
 
-export default ProjectsScrubberItem;
+export default ProjectsScrollerItem;

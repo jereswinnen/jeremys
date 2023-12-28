@@ -1,10 +1,10 @@
+import React from "react";
+import Head from "next/head";
 import Header from "@/components/Header";
 import ProjectGridItem from "@/components/ProjectGridItem";
+import ProjectsScroller from "@/components/ProjectsScroller";
+import ProjectSection from "@/components/ProjectSection";
 import ProjectHeroTitle from "@/components/ProjectHeroTitle";
-import ProjectsScrubber from "@/components/ProjectsScrubber";
-import ProjectsScrubberItem from "@/components/ProjectsScrubberItem";
-import Head from "next/head";
-import React from "react";
 
 const HomePage = () => {
   return (
@@ -13,7 +13,7 @@ const HomePage = () => {
         <title>Testing</title>
         <meta name="description" content="Personal site" />
       </Head>
-      <section className="inline-grid h-fit grid-cols-8 items-center gap-8">
+      <section className="inline-grid grid-cols-8 items-center gap-8">
         <section className="col-span-6 col-start-2 flex flex-col gap-10">
           <Header />
           <article className="text-3xl/10">
@@ -27,7 +27,264 @@ const HomePage = () => {
           </article>
         </section>
       </section>
-      <ProjectsScrubber>
+      <section>
+        <ProjectSection projectName="Helpper" projectImages={[2, 2, 2]} />
+      </section>
+      <section>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+        <p>
+          Oh, space, that vast, dark, possibly cold (who's really checked,
+          right?) expanse that has captivated humans for... well, forever. It's
+          full of stars that are probably just celestial lightbulbs, planets
+          that could be cosmic bowling balls, and black holes that are, let's
+          face it, the universe's way of telling us there's a limit to
+          curiosity.
+        </p>
+        <p>
+          Then there's the Moon, our loyal celestial sidekick, always there,
+          hanging in the sky, reminding us that even in the vast loneliness of
+          the cosmos, we've got a rocky friend. Oh, and let's not forget Mars,
+          the red-faced neighbor who's been the target of our robotic paparazzi
+          for years. Mars, if you're listening, sorry for the rovers, we're just
+          really, really curious.
+        </p>
+        <p>
+          And comets! Those flashy show-offs of the solar system, zipping by
+          with their fancy tails, just begging for attention. You can't deny
+          their flair, though. They're like the universe's way of saying, 'Hey,
+          look at me, I'm fabulous and I know it.'
+        </p>
+        <p>
+          In conclusion, space: it's big, it's mysterious, and it's probably
+          laughing at our tiny attempts to understand it. But hey, we're humans.
+          We're stubborn. We'll keep looking up, dreaming big, and maybe, just
+          maybe, making a little sense of this cosmic joke.
+        </p>
+      </section>
+      {/*<ProjectsScroller>
         <ProjectsScrubberItem
           projectName="Helpper"
           imageIndex={2}
@@ -63,7 +320,7 @@ const HomePage = () => {
           imageIndex={2}
           className="col-span-5"
         />
-      </ProjectsScrubber>
+      </ProjectsScroller>
       <section className="bg-lime-100">
         <section className="flex flex-col items-center bg-white py-10">
           <ProjectHeroTitle projectName="Yally" />
@@ -118,7 +375,7 @@ const HomePage = () => {
             className="col-span-4"
           />
         </section>
-      </section>
+      </section>*/}
     </>
   );
 };

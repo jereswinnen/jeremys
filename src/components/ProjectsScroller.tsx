@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-type ProjectsScrubberProps = {
+type ProjectsScrollerProps = {
   children: React.ReactNode;
 };
 
-const ProjectsScrubber: React.FC<ProjectsScrubberProps> = ({ children }) => {
+const ProjectsScroller: React.FC<ProjectsScrollerProps> = ({ children }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Tween>();
 
@@ -74,4 +74,4 @@ const ProjectsScrubber: React.FC<ProjectsScrubberProps> = ({ children }) => {
   );
 };
 
-export default ProjectsScrubber;
+export default ProjectsScroller;

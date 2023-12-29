@@ -1,30 +1,36 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
 import Header from "@/components/Header";
 import ProjectSection from "@/components/ProjectSection";
+import ProjectNavigation from "@/components/ProjectNavigation";
 import DebugDummyText from "@/components/DebugDummyText";
 
 const HomePage = () => {
+  const [activeProject, setActiveProject] = useState<string | null>(null);
   const portfolioSectionRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     if (portfolioSectionRef.current) {
-      gsap.to(portfolioSectionRef.current, {
-        yPercent: -10,
-        ease: "none", // none to account for Lenis, power1.in for extra easing on top of Lenis
-        scrollTrigger: {
-          trigger: portfolioSectionRef.current,
-          start: "top 80%", // Animation starts when the top of the section hits the bottom of the viewport
-          end: "bottom top", // Animation ends when the bottom of the section exits the top of the viewport
-          scrub: true, // Smooth scrubbing effect
-        },
+      // scrollTriggers for each ProjectSection
+      const projectNames = ["Helpper", "Yally"];
+      projectNames.forEach((name) => {
+        ScrollTrigger.create({
+          trigger: `#${name}`,
+          start: "top center",
+          end: "bottom center",
+          onToggle: (self) => self.isActive && setActiveProject(name),
+        });
       });
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+      ScrollTrigger.refresh();
     }
-  }, []);
+  }, [portfolioSectionRef]);
 
   return (
     <>
@@ -46,7 +52,13 @@ const HomePage = () => {
           </article>
         </section>
       </section>
-      <section ref={portfolioSectionRef}>
+      <section ref={portfolioSectionRef} className="relative">
+        <ProjectNavigation activeProject={activeProject} />
+        <ProjectSection
+          projectName="Yally"
+          projectImages={[1, 1, 1]}
+          className="h-[80vh]"
+        />
         <ProjectSection
           projectName="Helpper"
           projectImages={[2, 2, 2]}

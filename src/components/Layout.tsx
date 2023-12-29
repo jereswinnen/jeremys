@@ -10,7 +10,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <main>
-      <DebugParallax />
+      {/* <DebugParallax /> */}
       {/* <Header /> */}
       <section className="layoutMaster">{children}</section>
       <Footer />

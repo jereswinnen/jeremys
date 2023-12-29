@@ -20,16 +20,16 @@ const ProjectHeroTitle: React.FC<ProjectHeroTitleProps> = ({
   }`;
 
   return (
-    <motion.h1 className={classNames}>
+    <h1 className={classNames}>
       {project.name}
       <motion.div
         className="absolute left-0 top-0 h-full w-full bg-cover bg-center mix-blend-overlay brightness-75 saturate-150"
         style={{
           backgroundImage: `url(${project?.keyImage.src})`,
-          //y: parallaxY,
+          y: parallaxY,
         }}
       ></motion.div>
-    </motion.h1>
+    </h1>
   );
 };
 

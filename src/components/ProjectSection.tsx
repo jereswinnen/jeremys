@@ -18,7 +18,7 @@ const ProjectSection = ({
   const sectionRef = useRef(null);
   const scrollerRef = useRef(null);
 
-  const classNames = `layoutBleed relative flex items-center gap-4 overflow-x-hidden bg-slate-100 pl-[var(--layoutPadding)] ${
+  const classNames = `layoutBleed relative flex items-center gap-4 overflow-x-hidden pl-[var(--layoutPadding)] ${
     className || ""
   }`;
 
@@ -40,7 +40,7 @@ const ProjectSection = ({
   }, []);
 
   return (
-    <section ref={sectionRef} className={classNames}>
+    <section id={projectName} ref={sectionRef} className={classNames}>
       <ProjectHeroTitle projectName={projectName} className="shrink-0" />
       <div ref={scrollerRef} className="flex gap-4">
         {projectImages.map((index) => (

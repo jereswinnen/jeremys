@@ -7,14 +7,20 @@ import ProjectHeroTitle from "./ProjectHeroTitle";
 interface ProjectSectionProps {
   projectName: string;
   projectImages: number[];
+  className?: string;
 }
 
 const ProjectSection = ({
   projectName,
   projectImages,
+  className,
 }: ProjectSectionProps) => {
   const sectionRef = useRef(null);
   const scrollerRef = useRef(null);
+
+  const classNames = `layoutBleed relative flex items-center gap-4 overflow-x-hidden bg-slate-100 pl-[var(--layoutPadding)] ${
+    className || ""
+  }`;
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -29,15 +35,12 @@ const ProjectSection = ({
 
     projectScroller.to(scrollerRef.current, {
       xPercent: -30,
-      ease: "power1.in",
+      ease: "none", // none to account for Lenis, power1.in for extra easing on top of Lenis
     });
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="layoutBleed relative flex items-center gap-4 overflow-x-hidden bg-slate-100 pl-[var(--layoutPadding)]"
-    >
+    <section ref={sectionRef} className={classNames}>
       <ProjectHeroTitle projectName={projectName} className="shrink-0" />
       <div ref={scrollerRef} className="flex gap-4">
         {projectImages.map((index) => (

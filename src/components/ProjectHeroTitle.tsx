@@ -15,7 +15,7 @@ const ProjectHeroTitle: React.FC<ProjectHeroTitleProps> = ({
   const { scrollYProgress } = useScroll();
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
 
-  const classNames = `textMask overflow-hidden text-[240px] text-transparent font-bold ${
+  const classNames = `textMask overflow-hidden text-[240px] font-display text-transparent font-extrabold ${
     className || ""
   }`;
 

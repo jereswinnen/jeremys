@@ -66,8 +66,8 @@ const HomePage = () => {
           className="h-[80vh]"
         />
       </section>
-      <section className="h-80 w-1/2 bg-blue-300">
-        <CanvasNoise className="h-full " />
+      <section className="h-80">
+        <CanvasNoise className="h-full" />
       </section>
       <DebugDummyText />
     </>

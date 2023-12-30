@@ -39,11 +39,13 @@ class NoiseParticle {
 }
 
 interface CanvasNoiseProps {
+  className?: string;
   noiseColor?: string;
 }
 
 const CanvasNoise: React.FC<CanvasNoiseProps> = ({
-  noiseColor = "#ffffff",
+  className,
+  noiseColor = "#000000",
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   let noise: NoiseParticle[] = [];
@@ -133,7 +135,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
     };
   }, [noiseColor]);
 
-  return <canvas ref={canvasRef} />;
+  return <canvas ref={canvasRef} className={className} />;
 };
 
 export default CanvasNoise;

@@ -45,7 +45,7 @@ interface CanvasNoiseProps {
 
 const CanvasNoise: React.FC<CanvasNoiseProps> = ({
   className,
-  noiseColor = "rgba(0, 0, 0, 0.5)",
+  noiseColor = "#ff0000",
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainer = useRef<HTMLDivElement>(null);
@@ -77,7 +77,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
       noise.push(
         new NoiseParticle({
           canvas: canvasRef.current,
-          size: 2,
+          size: 1.5,
           speed: 20,
           color: noiseColor,
         }),
@@ -87,7 +87,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
       noise.push(
         new NoiseParticle({
           canvas: canvasRef.current,
-          size: 3,
+          size: 2,
           speed: 10,
           color: noiseColor,
         }),

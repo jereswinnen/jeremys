@@ -48,14 +48,17 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
   noiseColor = "#000000",
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasContainer = useRef<HTMLDivElement>(null);
   let noise: NoiseParticle[] = [];
   let lastPaintTime = 0;
 
   const initializeNoise = () => {
-    const winArea = window.innerWidth * window.innerHeight;
-    const smallNoiseDensity = 0.0001;
-    const mediumNoiseDensity = 0.00005;
-    const largeNoiseDensity = 0.00002;
+    if (!canvasRef.current) return;
+
+    const winArea = canvasRef.current.width * canvasRef.current.height;
+    const smallNoiseDensity = 0.0004; // was 0.0002
+    const mediumNoiseDensity = 0.0002; // was 0.0001
+    const largeNoiseDensity = 0.00008; // was 0.00004
     const smallNoiseCount = winArea * smallNoiseDensity;
     const mediumNoiseCount = winArea * mediumNoiseDensity;
     const largeNoiseCount = winArea * largeNoiseDensity;
@@ -63,7 +66,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
     for (let i = 0; i < smallNoiseCount; i++) {
       noise.push(
         new NoiseParticle({
-          canvas: canvasRef.current!,
+          canvas: canvasRef.current,
           size: 1,
           speed: 30,
           color: noiseColor,
@@ -73,7 +76,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
     for (let i = 0; i < mediumNoiseCount; i++) {
       noise.push(
         new NoiseParticle({
-          canvas: canvasRef.current!,
+          canvas: canvasRef.current,
           size: 2,
           speed: 20,
           color: noiseColor,
@@ -83,7 +86,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
     for (let i = 0; i < largeNoiseCount; i++) {
       noise.push(
         new NoiseParticle({
-          canvas: canvasRef.current!,
+          canvas: canvasRef.current,
           size: 3,
           speed: 10,
           color: noiseColor,
@@ -113,29 +116,34 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const container = canvasContainer.current;
+    if (!canvas || !container) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (entry.target === container) {
+          const { width, height } = entry.contentRect;
+          canvas.width = width;
+          canvas.height = height;
+          initializeNoise();
+        }
+      }
+    });
 
-    initializeNoise();
+    resizeObserver.observe(container);
+
     requestAnimationFrame(paintLoop);
 
-    const handleResize = () => {
-      if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initializeNoise();
-    };
-
-    window.addEventListener("resize", handleResize);
-
     return () => {
-      window.removeEventListener("resize", handleResize);
+      resizeObserver.disconnect();
     };
   }, [noiseColor]);
 
-  return <canvas ref={canvasRef} className={className} />;
+  return (
+    <div ref={canvasContainer} className={className}>
+      <canvas ref={canvasRef} />
+    </div>
+  );
 };
 
 export default CanvasNoise;

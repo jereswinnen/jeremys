@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import ProjectSection from "@/components/ProjectSection";
 import ProjectNavigation from "@/components/ProjectNavigation";
 import DebugDummyText from "@/components/DebugDummyText";
+import CanvasNoise from "@/components/CanvasNoise";
 
 const HomePage = () => {
   const [activeProject, setActiveProject] = useState<string | null>(null);
@@ -64,6 +65,9 @@ const HomePage = () => {
           projectImages={[2, 2, 2]}
           className="h-[80vh]"
         />
+      </section>
+      <section className="h-80 w-1/2 bg-blue-300">
+        <CanvasNoise className="h-full " />
       </section>
       <DebugDummyText />
     </>

@@ -68,7 +68,7 @@
 }
 
 /*--- Progressive blur ---*/
-.progressiveBlurFull::before {
+.progressiveBlurEngage::before {
   content: "";
   position: absolute;
   bottom: 0;

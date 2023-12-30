@@ -7,6 +7,7 @@ import ProjectSection from "@/components/ProjectSection";
 import ProjectNavigation from "@/components/ProjectNavigation";
 import DebugDummyText from "@/components/DebugDummyText";
 import CanvasNoise from "@/components/CanvasNoise";
+import EngageSection from "@/components/EngageSection";
 
 const HomePage = () => {
   const [activeProject, setActiveProject] = useState<string | null>(null);
@@ -70,6 +71,7 @@ const HomePage = () => {
         <CanvasNoise className="h-full" />
       </section>
       <DebugDummyText />
+      <EngageSection projectName="Helpper" imageIndex={2} />
     </>
   );
 };

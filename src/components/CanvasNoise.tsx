@@ -67,7 +67,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
       noise.push(
         new NoiseParticle({
           canvas: canvasRef.current,
-          size: 1,
+          size: 1.5,
           speed: 30,
           color: noiseColor,
         }),
@@ -77,7 +77,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
       noise.push(
         new NoiseParticle({
           canvas: canvasRef.current,
-          size: 1.5,
+          size: 2,
           speed: 20,
           color: noiseColor,
         }),
@@ -87,7 +87,7 @@ const CanvasNoise: React.FC<CanvasNoiseProps> = ({
       noise.push(
         new NoiseParticle({
           canvas: canvasRef.current,
-          size: 2,
+          size: 2.5,
           speed: 10,
           color: noiseColor,
         }),

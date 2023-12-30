@@ -1,5 +1,5 @@
 // Define the structure for project images
-type ProjectImage = {
+export type ProjectImage = {
   src: string;
   caption: string;
   width: number;  // Original width of the image

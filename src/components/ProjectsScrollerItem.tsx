@@ -48,7 +48,7 @@ const ProjectsScrollerItem: React.FC<ProjectsScrollerItemProps> = ({
           iconPosition="reverse"
           className="ease-in-out-circ duration-normal absolute z-10 translate-y-2.5 opacity-0 group-hover:-translate-y-0 group-hover:opacity-100 group-hover:delay-200"
         />
-        <figure className="progressiveBlur">
+        <figure className="progressiveBlurBefore">
           <Image
             src={image.src}
             alt={image.caption}

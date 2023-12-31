@@ -3,13 +3,15 @@ import { projects, Project } from "../lib/projects";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 type ProjectHeroTitleProps = {
-  projectName: string;
+  projectName?: string;
   className?: string;
+  text?: string;
 };
 
 const ProjectHeroTitle: React.FC<ProjectHeroTitleProps> = ({
   projectName,
   className,
+  text,
 }) => {
   const project = projects.find((p) => p.name === projectName) as Project;
   const { scrollYProgress } = useScroll();
@@ -19,13 +21,16 @@ const ProjectHeroTitle: React.FC<ProjectHeroTitleProps> = ({
     className || ""
   }`;
 
+  const defaultBgImage = "/images/defaultMask.webp";
+  const backgroundImageUrl = text ? defaultBgImage : project?.keyImage.src;
+
   return (
     <h1 className={classNames}>
-      {project.name}
+      {text || project.name}
       <motion.div
         className="absolute left-0 top-0 h-full w-full bg-cover bg-center mix-blend-overlay brightness-75 saturate-150"
         style={{
-          backgroundImage: `url(${project?.keyImage.src})`,
+          backgroundImage: `url(${backgroundImageUrl})`,
           y: parallaxY,
         }}
       ></motion.div>

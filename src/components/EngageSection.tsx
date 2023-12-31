@@ -2,6 +2,7 @@ import React from "react";
 import { projects, ProjectImage } from "../lib/projects";
 import Image from "next/image";
 import CanvasNoise from "./CanvasNoise";
+import ProjectHeroTitle from "./HeroTitle";
 
 type EngageSectionProps = {
   projectName: string;
@@ -22,6 +23,9 @@ const EngageSection: React.FC<EngageSectionProps> = ({
 
   return (
     <section className="layoutInner relative bg-red-200">
+      <div>
+        <ProjectHeroTitle text="Test" />
+      </div>
       <div className="layoutInner progressiveBlurEngage relative col-span-full -mb-[60px] bg-blue-200">
         <div className="col-span-4 col-start-3 bg-blue-300">
           <figure className="perspectiveLarge relative">

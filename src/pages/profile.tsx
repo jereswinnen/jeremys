@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import ProjectGridItem from "@/components/ProjectGridItem";
-import ProjectHeroTitle from "@/components/ProjectHeroTitle";
+import ProjectHeroTitle from "@/components/HeroTitle";
 import ProjectsScroller from "@/components/ProjectsScroller";
 import ProjectsScrollerItem from "@/components/ProjectsScrollerItem";
 

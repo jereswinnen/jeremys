@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ProjectsScrollerItem from "./ProjectsScrollerItem";
-import ProjectHeroTitle from "./HeroTitle";
+import HeroTitle from "./HeroTitle";
 
 interface ProjectSectionProps {
   projectName: string;
@@ -41,7 +41,7 @@ const ProjectSection = ({
 
   return (
     <section id={projectName} ref={sectionRef} className={classNames}>
-      <ProjectHeroTitle projectName={projectName} className="shrink-0" />
+      <HeroTitle projectName={projectName} className="shrink-0" />
       <div ref={scrollerRef} className="flex gap-4">
         {projectImages.map((index) => (
           <ProjectsScrollerItem

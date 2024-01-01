@@ -10,7 +10,7 @@ const ProjectNavigation = forwardRef<HTMLDivElement, ProjectNavigationProps>(
     return (
       <section
         ref={ref}
-        className="absolute -right-[var(--layoutPadding)] top-0 h-full w-[180px]"
+        className="absolute -right-[var(--layoutPadding)] top-0 h-full w-[180px] bg-red-300"
       >
         <nav className="projectsSideNav sticky top-0 z-20 flex h-screen w-full items-center justify-end">
           <ul className="flex flex-col items-end gap-2">

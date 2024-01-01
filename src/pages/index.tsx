@@ -71,7 +71,7 @@ const HomePage = () => {
         <CanvasNoise className="h-full" />
       </section>
       <DebugDummyText />
-      <EngageSection projectName="Helpper" imageIndex={2} />
+      <EngageSection projectName="Helpper" />
     </>
   );
 };

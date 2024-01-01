@@ -6,38 +6,42 @@ import HeroTitle from "./HeroTitle";
 
 type EngageSectionProps = {
   projectName: string;
-  imageIndex: number;
   className?: string;
 };
 
 const EngageSection: React.FC<EngageSectionProps> = ({
   projectName,
-  imageIndex,
   className = "",
 }) => {
   const project = projects.find((p) => p.name === projectName);
-  if (!project || project.images.length <= imageIndex) {
+
+  if (!project || !project.keyEngage) {
     return null;
   }
-  const image: ProjectImage = project.images[imageIndex];
+
+  const { keyEngage } = project;
 
   return (
     <section className="layoutInner relative bg-red-200">
-      <div>
-        <HeroTitle text="Test" />
+      <div className="relative col-span-6 col-start-2 -mb-[var(--engageOverlap)] flex justify-center bg-green-200">
+        <div className="radialGradientMask absolute inset-0 z-[2] h-[calc(100%_-_var(--engageOverlap))]"></div>
+        <div className="absolute inset-0 z-[1] bg-green-400/50">
+          <CanvasNoise className="h-full rounded-md" />
+        </div>
+        <HeroTitle text="Work with me" />
       </div>
-      <div className="layoutInner progressiveBlurEngage relative col-span-full -mb-[60px] bg-blue-200">
-        <div className="col-span-4 col-start-3 bg-blue-300">
-          <figure className="perspectiveLarge relative">
-            <div className="progressiveBlur hidden rounded-md"></div>
-            <div className="absolute inset-0 z-[2]">
+      <div className="layoutInner progressiveBlurEngage relative z-[3] col-span-full -mb-[var(--engageOverlap)] bg-blue-200">
+        <div className="col-span-6 col-start-2 bg-blue-300">
+          <figure className="perspectiveLargo relative">
+            <div className="progressiveBlur rounded-md"></div>
+            <div className="absolute inset-0 z-[2] hidden">
               <CanvasNoise className="h-full rounded-md" />
             </div>
             <Image
-              src={image.src}
-              alt={image.caption}
-              width={image.width}
-              height={image.height}
+              src={keyEngage.src}
+              alt={keyEngage.caption}
+              width={keyEngage.width}
+              height={keyEngage.height}
               className="rounded-md shadow-projectImage"
             />
           </figure>

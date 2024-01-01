@@ -1,5 +1,9 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, MouseEvent } from "react";
 import { projects } from "../lib/projects";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 interface ProjectNavigationProps {
   activeProject: string | null;
@@ -8,6 +12,23 @@ interface ProjectNavigationProps {
 
 const ProjectNavigation = forwardRef<HTMLDivElement, ProjectNavigationProps>(
   ({ activeProject, navRef }, ref) => {
+    const scrollToSection = (
+      event: MouseEvent<HTMLAnchorElement>,
+      projectName: string,
+    ) => {
+      event.preventDefault();
+      const sectionId = projectName.replace(/\s+/g, "-");
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        gsap.to(window, {
+          scrollTo: { y: section, autoKill: true },
+          duration: 0.38,
+          ease: "circ.inOut",
+        });
+      }
+    };
+
     return (
       <section
         ref={ref}
@@ -22,6 +43,7 @@ const ProjectNavigation = forwardRef<HTMLDivElement, ProjectNavigationProps>(
               <li key={project.name} className="group flex items-center gap-2">
                 <a
                   href={`#${project.name.replace(/\s+/g, "-")}`}
+                  onClick={(e) => scrollToSection(e, project.name)}
                   className={`flex items-center gap-1 text-base ${
                     activeProject === project.name
                       ? "text-neutral-900 font-medium"

@@ -12,6 +12,8 @@ import EngageSection from "@/components/EngageSection";
 const HomePage = () => {
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const portfolioSectionRef = useRef(null);
+  const projectNavRef = useRef(null);
+  const navRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -27,12 +29,45 @@ const HomePage = () => {
           onToggle: (self) => self.isActive && setActiveProject(name),
         });
       });
+      // scrollTrigger for ProjectNavigation
+      if (projectNavRef.current) {
+        gsap.fromTo(
+          projectNavRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            ease: "circ.inOut",
+            scrollTrigger: {
+              trigger: projectNavRef.current,
+              start: "top 20%",
+              end: "bottom top",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+      if (navRef.current) {
+        gsap.fromTo(
+          navRef.current,
+          { translateX: "100%" },
+          {
+            translateX: 0,
+            ease: "circ.inOut",
+            scrollTrigger: {
+              trigger: projectNavRef.current,
+              start: "top 20%",
+              end: "bottom top",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
       return () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        ScrollTrigger.refresh();
       };
-      ScrollTrigger.refresh();
     }
-  }, [portfolioSectionRef]);
+  }, [portfolioSectionRef, projectNavRef, navRef]);
 
   return (
     <>
@@ -55,7 +90,11 @@ const HomePage = () => {
         </section>
       </section>
       <section ref={portfolioSectionRef} className="relative">
-        <ProjectNavigation activeProject={activeProject} />
+        <ProjectNavigation
+          ref={projectNavRef}
+          navRef={navRef}
+          activeProject={activeProject}
+        />
         <ProjectSection
           projectName="Yally"
           projectImages={[1, 1, 1]}

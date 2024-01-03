@@ -1,7 +1,7 @@
 import React from "react";
-//import Header from "./Header";
-import Footer from "./Footer";
-import DebugParallax from "./DebugParallax";
+//import Header from "./base/Header";
+import Footer from "./base/Footer";
+import DebugParallax from "./debug/DebugParallax";
 
 interface LayoutProps {
   children: React.ReactNode;

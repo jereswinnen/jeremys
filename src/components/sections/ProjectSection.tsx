@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import ProjectsScrollerItem from "./ProjectsScrollerItem";
-import HeroTitle from "./HeroTitle";
+import ProjectsScrollerItem from "../cards/ProjectsScrollerItem";
+import HeroTitle from "../text/HeroTitle";
 
 interface ProjectSectionProps {
   projectName: string;

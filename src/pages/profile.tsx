@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import ProjectGridItem from "@/components/ProjectGridItem";
-import ProjectHeroTitle from "@/components/HeroTitle";
-import ProjectsScroller from "@/components/ProjectsScroller";
-import ProjectsScrollerItem from "@/components/ProjectsScrollerItem";
+import ProjectGridItem from "@/components/cards/ProjectGridItem";
+import ProjectHeroTitle from "@/components/text/HeroTitle";
+import ProjectsScroller from "@/components/interactive/ProjectsScroller";
+import ProjectsScrollerItem from "@/components/cards/ProjectsScrollerItem";
 
 const Profile = () => {
   return (

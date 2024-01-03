@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import { DotsThreeCircle } from "@phosphor-icons/react";
-import MainNavigation from "./MainNavigation";
+import SiteNavigation from "../navigation/SiteNavigation";
 
 const Header = () => {
   const router = useRouter();
@@ -52,7 +52,7 @@ const Header = () => {
         ref={menuRef}
         className="invisible absolute left-0 top-0 z-50 h-full w-full bg-slate-400 opacity-0"
       >
-        <MainNavigation isMenuOpen={isMenuOpen} />
+        <SiteNavigation isMenuOpen={isMenuOpen} />
       </section>
     </header>
   );

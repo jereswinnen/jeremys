@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { siteMap } from "../lib/siteMap";
+import { siteMap } from "../../lib/siteMap";
 
 interface MainNavigationProps {
   isMenuOpen: boolean;

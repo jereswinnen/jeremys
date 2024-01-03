@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { projects } from "../lib/projects";
+import { projects } from "../../lib/projects";
 
 type ProjectGridItemProps = {
   projectName: string;

@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Head from "next/head";
-import Header from "@/components/Header";
-import ProjectSection from "@/components/ProjectSection";
-import ProjectNavigation from "@/components/ProjectNavigation";
-import DebugDummyText from "@/components/DebugDummyText";
-import CanvasNoise from "@/components/CanvasNoise";
-import EngageSection from "@/components/EngageSection";
+import Header from "@/components/base/Header";
+import ProjectSection from "@/components/sections/ProjectSection";
+import ProjectNavigation from "@/components/navigation/ProjectNavigation";
+import DebugDummyText from "@/components/debug/DebugDummyText";
+import CanvasNoise from "@/components/interactive/CanvasNoise";
+import EngageSection from "@/components/sections/EngageSection";
 
 const HomePage = () => {
   const [activeProject, setActiveProject] = useState<string | null>(null);

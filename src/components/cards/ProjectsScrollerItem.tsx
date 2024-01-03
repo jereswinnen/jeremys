@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { projects } from "../lib/projects";
-import Action from "./Action";
+import { projects } from "../../lib/projects";
+import Action from "../base/Action";
 import { ArrowRight } from "@phosphor-icons/react";
 
 type ProjectsScrollerItemProps = {

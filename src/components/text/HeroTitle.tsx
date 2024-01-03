@@ -1,5 +1,5 @@
 import React from "react";
-import { projects, Project } from "../lib/projects";
+import { projects, Project } from "../../lib/projects";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 type ProjectHeroTitleProps = {

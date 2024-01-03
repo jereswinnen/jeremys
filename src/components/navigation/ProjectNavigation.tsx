@@ -1,5 +1,5 @@
 import React, { forwardRef, MouseEvent } from "react";
-import { projects } from "../lib/projects";
+import { projects } from "../../lib/projects";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 

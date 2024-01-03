@@ -1,8 +1,8 @@
 import React from "react";
-import { projects, ProjectImage } from "../lib/projects";
+import { projects, ProjectImage } from "../../lib/projects";
 import Image from "next/image";
-import CanvasNoise from "./CanvasNoise";
-import HeroTitle from "./HeroTitle";
+import CanvasNoise from "../interactive/CanvasNoise";
+import HeroTitle from "../text/HeroTitle";
 
 type EngageSectionProps = {
   projectName: string;

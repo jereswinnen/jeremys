@@ -10,16 +10,36 @@ $u-layout-break-xl: 90em; //1440
 
 :root {
   // Colour
-  --c-dark: hsl(240, 7%, 10%);
-  --c-accent: hsl(240, 5%, 56%);
-  --c-light: hsl(240, 6%, 93%);
-  --c-alpha: hsla(240, 5%, 56%, 15%);
-  --c-alpha-dark: hsla(240, 7%, 10%, 20%);
+  --c-neutral-10: hsla(60, 33%, 99%);
+  --c-neutral-50: hsla(45, 29%, 97%);
+  --c-neutral-100: hsla(48, 15%, 94%);
+  --c-neutral-200: hsla(51, 14%, 90%);
+  --c-neutral-300: hsla(45, 13%, 87%);
+  --c-neutral-400: hsla(45, 10%, 84%);
+  --c-neutral-500: hsla(43, 7%, 80%);
+  --c-neutral-600: hsla(45, 6%, 73%);
+  --c-neutral-700: hsla(43, 3%, 54%);
+  --c-neutral-800: hsla(51, 3%, 50%);
+  --c-neutral-900: hsla(50, 3%, 38%);
+  --c-neutral-1000: hsla(48, 8%, 12%);
+
+  --c-accent-10: hsla(15, 100%, 99%);
+  --c-accent-50: hsla(13, 100%, 98%);
+  --c-accent-100: hsla(12, 100%, 95%);
+  --c-accent-200: hsla(11, 100%, 91%);
+  --c-accent-300: hsla(11, 100%, 87%);
+  --c-accent-400: hsla(10, 100%, 83%);
+  --c-accent-500: hsla(9, 100%, 79%);
+  --c-accent-600: hsla(9, 91%, 71%);
+  --c-accent-700: hsla(7, 100%, 56%);
+  --c-accent-800: hsla(8, 97%, 48%);
+  --c-accent-900: hsla(9, 100%, 42%);
+  --c-accent-1000: hsla(8, 64%, 24%);
 
   // Typography
-  --f-family-sans: covik-sans, "BlinkMacSystemFont", -apple-system,
+  --f-family-sans: "Satoshi", "BlinkMacSystemFont", -apple-system,
     "Helvetica Neue", Helvetica, sans-serif;
-  --f-family-serif: ohno-blazeface, Georgia, serif;
+  --f-family-serif: "Zodiak", Georgia, serif;
 
   --f-size-body: calc(1.1rem + 0.45vmin);
   --f-size-body-fixed: 1.05rem;

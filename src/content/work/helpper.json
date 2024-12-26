@@ -1,0 +1,25 @@
+{
+  "name": "Helpper",
+  "tagline": "Tagline for Helpper",
+  "externalLink": "https://getgamepal.com",
+  "description": "Full description of the project...",
+  "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
+  "artwork": [
+    {
+      "src": "image1.jpg",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "image2.jpg",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "image3.jpg",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "image4.jpg",
+      "caption": "Main project interface"
+    }
+  ]
+}

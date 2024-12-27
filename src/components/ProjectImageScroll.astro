@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  work: CollectionEntry<"work">[];
+}
+
+const { work } = Astro.props;
+
+if (!Array.isArray(work) || work.length === 0) {
+  return null;
+}
+
+const allImages = work
+  .flatMap((project) =>
+    project.data.artwork.map((art: any) => ({
+      ...art,
+      projectName: project.data.name,
+      projectUrl: `/work/${project.data.name.toLowerCase()}`,
+    }))
+  )
+  .sort(() => Math.random() - 0.5);
+---
+
+<div class="relative w-full overflow-hidden group">
+  <div
+    class="flex gap-4 animate-scroll px-4 group-hover:[animation-play-state:paused] ease-in-out"
+  >
+    {
+      [...allImages, ...allImages].map((image, index) => (
+        <a
+          href={image.projectUrl}
+          class="relative flex-none w-64 aspect-[4/3] transition-all duration-500 ease-in-out hover:opacity-100 group-hover:opacity-30 hover:!opacity-100"
+          aria-label={`View ${image.projectName} project`}
+        >
+          <Image
+            src={`/src/assets/projects/${image.projectName.toLowerCase()}/${image.src}`}
+            alt={image.caption || `Image from ${image.projectName}`}
+            width={256}
+            height={192}
+            class="object-cover w-full h-full rounded-lg shadow-lg"
+          />
+          <p>{image.projectName}</p>
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 480s linear infinite;
+    width: fit-content;
+  }
+</style>

@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 
 // Schema for projects
-const projectsCollection = defineCollection({
+const work = defineCollection({
   type: "data", // Using data since we'll store in JSON
   schema: ({ image }) =>
     z.object({
@@ -24,7 +24,7 @@ const projectsCollection = defineCollection({
 });
 
 // Schema for regular notes/articles
-const notesCollection = defineCollection({
+const notes = defineCollection({
   type: "content", // Using content since we'll write in Markdown
   schema: z.object({
     title: z.string(),
@@ -35,7 +35,7 @@ const notesCollection = defineCollection({
 });
 
 // Schema for link posts
-const linksCollection = defineCollection({
+const links = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
@@ -47,7 +47,7 @@ const linksCollection = defineCollection({
 });
 
 export const collections = {
-  projects: projectsCollection,
-  notes: notesCollection,
-  links: linksCollection,
+  work: work,
+  notes: notes,
+  links: links,
 };

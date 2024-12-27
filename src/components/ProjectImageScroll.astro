@@ -12,12 +12,15 @@ if (!Array.isArray(work) || work.length === 0) {
   return null;
 }
 
+const formatProjectName = (name: string) =>
+  name.toLowerCase().replace(/\s+/g, "");
+
 const allImages = work
   .flatMap((project) =>
     project.data.artwork.map((art: any) => ({
       ...art,
       projectName: project.data.name,
-      projectUrl: `/work/${project.data.name.toLowerCase()}`,
+      projectUrl: `/work/${formatProjectName(project.data.name)}`,
     }))
   )
   .sort(() => Math.random() - 0.5);
@@ -35,11 +38,12 @@ const allImages = work
           aria-label={`View ${image.projectName} project`}
         >
           <Image
-            src={`/src/assets/projects/${image.projectName.toLowerCase()}/${image.src}`}
+            src={`/src/assets/projects/${formatProjectName(image.projectName)}/${image.src}`}
             alt={image.caption || `Image from ${image.projectName}`}
             width={256}
             height={192}
             class="object-cover w-full h-full rounded-lg shadow-lg"
+            loading="lazy"
           />
           <p>{image.projectName}</p>
         </a>

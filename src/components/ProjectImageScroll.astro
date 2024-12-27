@@ -34,15 +34,15 @@ const allImages = work
       [...allImages, ...allImages].map((image, index) => (
         <a
           href={image.projectUrl}
-          class="relative flex-none w-64 aspect-[4/3] transition-all duration-500 ease-in-out hover:opacity-100 group-hover:opacity-30 hover:!opacity-100"
+          class="relative flex-none h-fit transition-all duration-500 ease-in-out hover:opacity-100 group-hover:opacity-60 hover:!opacity-100"
           aria-label={`View ${image.projectName} project`}
         >
           <Image
             src={`/src/assets/projects/${formatProjectName(image.projectName)}/${image.src}`}
             alt={image.caption || `Image from ${image.projectName}`}
-            width={256}
-            height={192}
-            class="object-cover w-full h-full rounded-lg shadow-lg"
+            width={500}
+            height={500}
+            class="h-[500px] w-auto object-contain rounded-lg shadow-lg"
             loading="lazy"
           />
           <p>{image.projectName}</p>
@@ -63,7 +63,7 @@ const allImages = work
   }
 
   .animate-scroll {
-    animation: scroll 480s linear infinite;
+    animation: scroll 300s linear infinite;
     width: fit-content;
   }
 </style>

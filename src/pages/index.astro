@@ -8,11 +8,11 @@ const work = await getCollection("work");
 ---
 
 <MasterLayout>
-  <article class="col-start-1 col-end-4 bg-slate-400">
+  <article class="col-start-1 col-end-4">
     <h1>This is some text for the homepage</h1>
   </article>
 
-  <ProjectImageScroll work={work} />
+  <ProjectImageScroll work={work} class="grid-bleed col-span-full" />
 
   <!-- <ProjectGrid projects={work} /> -->
 </MasterLayout>

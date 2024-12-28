@@ -5,9 +5,10 @@ import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
 
 interface Props {
   work: CollectionEntry<"work">[];
+  class?: string;
 }
 
-const { work } = Astro.props;
+const { work, class: className, ...rest } = Astro.props;
 
 if (!Array.isArray(work) || work.length === 0) {
   return null;
@@ -24,9 +25,7 @@ const allImages = work
   .sort(() => Math.random() - 0.5);
 ---
 
-<div
-  class="bg-red-400 relative w-full overflow-hidden group grid-bleed col-span-full"
->
+<div class:list={["overflow-hidden group", className]} {...rest}>
   <div
     class="flex gap-4 animate-scroll px-4 group-hover:[animation-play-state:paused] ease-in-out"
   >
@@ -42,7 +41,7 @@ const allImages = work
             alt={image.caption || `Image from ${image.projectName}`}
             width={500}
             height={500}
-            class="h-[500px] w-auto object-contain rounded-lg shadow-lg"
+            class="h-[500px] w-auto object-contain"
             loading="lazy"
           />
           <p>{image.projectName}</p>

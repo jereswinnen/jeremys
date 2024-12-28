@@ -92,7 +92,6 @@
 
 /* Column spans */
 .col-span-full {
-  background: green;
   grid-column: 1 / -1;
 }
 

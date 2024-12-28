@@ -3,6 +3,8 @@
   "tagline": "Tagline for Diabetik",
   "externalLink": "https://getgamepal.com",
   "description": "Full description of the project...",
+  "heroImage": "hero.jpg",
+  "themeColor": "#FF6F61",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {

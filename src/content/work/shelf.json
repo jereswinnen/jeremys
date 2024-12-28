@@ -3,6 +3,8 @@
   "tagline": "Tagline for Shelf",
   "externalLink": "https://getgamepal.com",
   "description": "Full description of the project...",
+  "heroImage": "hero.jpg",
+  "themeColor": "#FFD700",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {

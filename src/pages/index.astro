@@ -1,6 +1,7 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
 import ProjectImageScroll from "../components/ProjectImageScroll.astro";
+import ProjectGrid from "../components/ProjectGrid.astro";
 import { getCollection } from "astro:content";
 
 const work = await getCollection("work");
@@ -10,4 +11,6 @@ const work = await getCollection("work");
   <h1>This is some text for the homepage</h1>
 
   <ProjectImageScroll work={work} />
+
+  <ProjectGrid projects={work} />
 </MasterLayout>

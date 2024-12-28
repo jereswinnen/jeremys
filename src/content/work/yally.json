@@ -3,6 +3,8 @@
   "tagline": "Tagline for Yally",
   "externalLink": "https://getgamepal.com",
   "description": "Full description of the project...",
+  "heroImage": "hero.jpg",
+  "themeColor": "#92A8D1",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {

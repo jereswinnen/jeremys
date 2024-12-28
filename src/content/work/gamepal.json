@@ -3,6 +3,8 @@
   "tagline": "Remember your gaming memories",
   "externalLink": "https://getgamepal.com",
   "description": "Full description of the project...",
+  "heroImage": "hero.jpg",
+  "themeColor": "#FF8C00",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
@@ -24,6 +26,16 @@
     {
       "src": "image5.jpg",
       "caption": "Main project interface"
+    }
+  ],
+  "details": [
+    {
+      "title": "Timeline",
+      "content": "6 months, from concept to launch"
+    },
+    {
+      "title": "Tech Stack",
+      "content": "Swift, UIKit, Core Data"
     }
   ]
 }

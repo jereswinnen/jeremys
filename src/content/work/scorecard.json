@@ -3,6 +3,8 @@
   "tagline": "Tagline for Scorecard",
   "externalLink": "https://getgamepal.com",
   "description": "Full description of the project...",
+  "heroImage": "hero.jpg",
+  "themeColor": "#2E8B57",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {

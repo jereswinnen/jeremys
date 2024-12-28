@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
 
 interface Props {
   work: CollectionEntry<"work">[];
@@ -12,15 +13,12 @@ if (!Array.isArray(work) || work.length === 0) {
   return null;
 }
 
-const formatProjectName = (name: string) =>
-  name.toLowerCase().replace(/\s+/g, "");
-
 const allImages = work
   .flatMap((project) =>
     project.data.artwork.map((art: any) => ({
       ...art,
       projectName: project.data.name,
-      projectUrl: `/work/${formatProjectName(project.data.name)}`,
+      projectUrl: `/work/${formatProjectSlug(project.data.name)}`,
     }))
   )
   .sort(() => Math.random() - 0.5);
@@ -38,7 +36,7 @@ const allImages = work
           aria-label={`View ${image.projectName} project`}
         >
           <Image
-            src={`/src/assets/projects/${formatProjectName(image.projectName)}/${image.src}`}
+            src={getProjectImagePath(image.projectName, image.src)}
             alt={image.caption || `Image from ${image.projectName}`}
             width={500}
             height={500}

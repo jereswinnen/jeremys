@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
+
+interface Props {
+  projects: CollectionEntry<"work">[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {
+    projects.map((project) => (
+      <a
+        href={`/work/${formatProjectSlug(project.data.name)}`}
+        class="group block"
+      >
+        <article class="relative overflow-hidden rounded-lg">
+          <Image
+            src={getProjectImagePath(project.data.name, project.data.heroImage)}
+            alt={project.data.name}
+            width={600}
+            height={450}
+            class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            style={`--hover-color: ${project.data.themeColor}`}
+          />
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            <h2 class="text-xl font-bold mb-2">{project.data.name}</h2>
+            <p class="text-sm opacity-90">{project.data.tagline}</p>
+          </div>
+        </article>
+      </a>
+    ))
+  }
+</div>

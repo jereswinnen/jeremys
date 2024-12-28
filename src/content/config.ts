@@ -2,13 +2,15 @@ import { defineCollection, z } from "astro:content";
 
 // Schema for projects
 const work = defineCollection({
-  type: "data", // Using data since we'll store in JSON
+  type: "data",
   schema: ({ image }) =>
     z.object({
       name: z.string(),
       tagline: z.string(),
       externalLink: z.string().url().optional(),
       description: z.string(),
+      heroImage: z.string(),
+      themeColor: z.string(),
       role: z.array(
         z.object({
           tag: z.string(),
@@ -20,12 +22,20 @@ const work = defineCollection({
           caption: z.string().optional(),
         })
       ),
+      details: z
+        .array(
+          z.object({
+            title: z.string(),
+            content: z.string(),
+          })
+        )
+        .optional(),
     }),
 });
 
 // Schema for regular notes/articles
 const notes = defineCollection({
-  type: "content", // Using content since we'll write in Markdown
+  type: "content",
   schema: z.object({
     title: z.string(),
     publishDate: z.date(),

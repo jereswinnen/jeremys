@@ -6,9 +6,11 @@ const navItems = [
 
 // Get current path to highlight active link
 const currentPath = Astro.url.pathname;
+
+const { class: className, ...rest } = Astro.props;
 ---
 
-<header>
+<header class={className} {...rest}>
   <nav class="flex items-center gap-6">
     <a href="/" class="hover:opacity-80 transition-opacity">
       <img src="/branding.svg" alt="Jeremy Swinnen" class="h-7 w-auto" />

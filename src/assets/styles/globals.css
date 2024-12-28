@@ -53,3 +53,153 @@
     font-variation-settings: "wght" 900;
   }
 }
+
+:root {
+  /* Grid configuration */
+  --u-grid-columns: 12;
+  --u-grid-gap: 2rem;
+  --u-container-padding: 2rem;
+  --u-container-max-width: 90rem; /* 1440px */
+
+  /* Breakpoints */
+  --u-breakpoint-sm: 640px;
+  --u-breakpoint-md: 768px;
+  --u-breakpoint-lg: 1024px;
+  --u-breakpoint-xl: 1280px;
+}
+
+/* Container */
+.container {
+  background: wheat;
+  max-width: var(--u-container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--u-container-padding);
+    padding-right: var(--u-container-padding);
+  }
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  gap: var(--u-grid-gap);
+  grid-template-columns: repeat(var(--u-grid-columns), minmax(0, 1fr));
+}
+
+/* Column spans */
+.col-span-full {
+  background: green;
+  grid-column: 1 / -1;
+}
+
+@for $i from 1 through 12 {
+  .col-span-$(i) {
+    grid-column: span $i / span $i;
+  }
+}
+
+/* Responsive column spans */
+@media (min-width: 640px) {
+  @for $i from 1 through 12 {
+    .sm:col-span-$(i) {
+      grid-column: span $i / span $i;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  @for $i from 1 through 12 {
+    .md:col-span-$(i) {
+      grid-column: span $i / span $i;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  @for $i from 1 through 12 {
+    .lg:col-span-$(i) {
+      grid-column: span $i / span $i;
+    }
+  }
+}
+
+/* Grid gap utilities */
+.gap-sm {
+  gap: calc(var(--u-grid-gap) * 0.5);
+}
+.gap-md {
+  gap: var(--u-grid-gap);
+}
+.gap-lg {
+  gap: calc(var(--u-grid-gap) * 2);
+}
+
+/* Grid start/end positions */
+.col-start-1 {
+  grid-column-start: 1;
+}
+.col-start-2 {
+  grid-column-start: 2;
+}
+.col-start-3 {
+  grid-column-start: 3;
+}
+.col-end-13 {
+  grid-column-end: 13;
+}
+.col-end-12 {
+  grid-column-end: 12;
+}
+.col-end-11 {
+  grid-column-end: 11;
+}
+
+/* Grid alignment utilities */
+.grid-align-start {
+  align-items: start;
+}
+.grid-align-center {
+  align-items: center;
+}
+.grid-align-end {
+  align-items: end;
+}
+
+/* Bleed utilities */
+.grid-bleed {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+
+/* Bleed with maintained inner grid */
+.grid-bleed-container {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+
+.grid-bleed-container > .container {
+  padding-left: max(
+    var(--u-container-padding),
+    calc((100vw - var(--u-container-max-width)) / 2)
+  );
+  padding-right: max(
+    var(--u-container-padding),
+    calc((100vw - var(--u-container-max-width)) / 2)
+  );
+}
+
+/* Grid inner containers */
+.grid-inner {
+  display: grid;
+  grid-template-columns: inherit;
+  gap: inherit;
+  grid-column: 1 / -1;
+}

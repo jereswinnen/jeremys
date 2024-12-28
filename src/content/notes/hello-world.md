@@ -1,7 +1,17 @@
 ---
 title: "Hello World"
-publishDate: 2024-01-01
+publishDate: 2024-01-02T10:00:00Z
 description: "My first blog post"
 ---
 
 This is my first blog post! Here's some **markdown** content.
+
+I've been wanting to start a blog for a while now, and finally decided to take the plunge. This site is built with Astro, and I'm really enjoying the experience so far.
+
+## Why blog?
+
+1. Share knowledge
+2. Document my learning
+3. Connect with others
+
+I'm looking forward to sharing more thoughts and experiences here!

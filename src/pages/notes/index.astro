@@ -1,0 +1,107 @@
+---
+import MasterLayout from "../../layouts/MasterLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+type NoteEntry = CollectionEntry<"notes">;
+type LinkEntry = CollectionEntry<"links">;
+type ContentEntry = NoteEntry | LinkEntry;
+
+// Fetch both notes and links
+const notes = await getCollection(
+  "notes",
+  ({ data }: NoteEntry) => !data.draft
+);
+const links = await getCollection(
+  "links",
+  ({ data }: LinkEntry) => !data.draft
+);
+
+// Combine and sort by date
+const allContent = [...notes, ...links].sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
+
+// Group by date
+const contentByDate = allContent.reduce((acc, entry) => {
+  const date = entry.data.publishDate.toLocaleDateString("nl-BE", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "Europe/Brussels",
+  });
+
+  if (!acc[date]) {
+    acc[date] = [];
+  }
+
+  acc[date].push(entry);
+  return acc;
+}, {});
+
+const formatTime = (date: Date) => {
+  return date.toLocaleTimeString("nl-BE", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Brussels",
+  });
+};
+---
+
+<MasterLayout title="Notes">
+  <div class="max-w-2xl mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-12">Notes & Links</h1>
+
+    {
+      Object.entries(contentByDate).map(([date, entries]) => (
+        <section class="mb-12">
+          <h2 class="text-xl font-semibold mb-6 text-gray-800">{date}</h2>
+          <div class="space-y-8">
+            {(entries as ContentEntry[]).map((entry) => (
+              <article class="border-b border-gray-100 pb-8">
+                <div class="flex items-baseline gap-4 mb-2">
+                  <time
+                    datetime={entry.data.publishDate.toISOString()}
+                    class="text-sm text-gray-600"
+                  >
+                    {entry.collection === "links" ? (
+                      <a
+                        href={`/notes/${entry.slug}`}
+                        class="hover:text-blue-600"
+                      >
+                        {formatTime(entry.data.publishDate)}
+                      </a>
+                    ) : (
+                      formatTime(entry.data.publishDate)
+                    )}
+                  </time>
+                  {entry.collection === "links" ? (
+                    <a
+                      href={entry.data.url}
+                      class="text-lg font-medium hover:text-blue-600"
+                    >
+                      {entry.data.title} →
+                    </a>
+                  ) : (
+                    <a
+                      href={`/notes/${entry.slug}`}
+                      class="text-lg font-medium hover:text-blue-600"
+                    >
+                      {entry.data.title}
+                    </a>
+                  )}
+                </div>
+                {entry.collection === "links" && entry.data.note && (
+                  <p class="text-gray-700">{entry.data.note}</p>
+                )}
+                {entry.collection === "notes" && entry.data.description && (
+                  <p class="text-gray-700">{entry.data.description}</p>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</MasterLayout>

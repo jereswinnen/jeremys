@@ -5,14 +5,57 @@ import ProjectGrid from "../components/ProjectGrid.astro";
 import { getCollection } from "astro:content";
 
 const work = await getCollection("work");
+
+const projectLayout = [
+  {
+    project: "gamepal",
+    span: 7,
+    order: 1,
+  },
+  {
+    project: "yally",
+    span: 5,
+    order: 2,
+  },
+  {
+    project: "helpper",
+    span: 6,
+    order: 3,
+  },
+  {
+    project: "scorecard",
+    span: 6,
+    order: 5,
+  },
+  {
+    project: "realo",
+    span: 6,
+    order: 4,
+  },
+  {
+    project: "shelf",
+    span: 6,
+    order: 6,
+  },
+  {
+    project: "immo brown",
+    span: 5,
+    order: 7,
+  },
+  {
+    project: "diabetik",
+    span: 7,
+    order: 8,
+  },
+];
 ---
 
 <MasterLayout>
-  <article class="col-start-1 col-end-4">
+  <article class="col-start-2 col-end-7 bg-slate-400">
     <h1>This is some text for the homepage</h1>
   </article>
 
   <ProjectImageScroll work={work} class="grid-bleed col-span-full" />
 
-  <!-- <ProjectGrid projects={work} /> -->
+  <ProjectGrid projects={work} layout={projectLayout} />
 </MasterLayout>

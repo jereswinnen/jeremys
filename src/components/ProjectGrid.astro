@@ -3,27 +3,74 @@ import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
 
-interface Props {
-  projects: CollectionEntry<"work">[];
+interface ProjectLayout {
+  project: string;
+  span?: number;
+  spanSm?: number;
+  spanMd?: number;
+  spanLg?: number;
+  order?: number;
 }
 
-const { projects } = Astro.props;
+interface Props {
+  projects: CollectionEntry<"work">[];
+  layout?: ProjectLayout[];
+  class?: string;
+}
+
+const { projects, layout, class: className, ...rest } = Astro.props;
+
+// Create a map of project names to their layout configurations
+const layoutMap = new Map(
+  layout?.map((config) => [config.project, config]) ?? []
+);
+
+// Helper function to get span classes for a project
+const getSpanClasses = (project: CollectionEntry<"work">) => {
+  const config = layoutMap.get(project.data.name.toLowerCase());
+  if (!config) return "col-span-12 md:col-span-6"; // Default layout
+
+  const classes = [];
+  if (config.order !== undefined) classes.push(`order-${config.order}`);
+  if (config.span) classes.push(`col-span-${config.span}`);
+  if (config.spanSm) classes.push(`sm:col-span-${config.spanSm}`);
+  if (config.spanMd) classes.push(`md:col-span-${config.spanMd}`);
+  if (config.spanLg) classes.push(`lg:col-span-${config.spanLg}`);
+
+  return classes.join(" ") || "col-span-12 md:col-span-6";
+};
+
+// Sort projects based on layout order first, then alphabetically
+const sortedProjects = [...projects].sort((a, b) => {
+  const configA = layoutMap.get(a.data.name.toLowerCase());
+  const configB = layoutMap.get(b.data.name.toLowerCase());
+
+  // If both have order, use that
+  if (configA?.order !== undefined && configB?.order !== undefined) {
+    return configA.order - configB.order;
+  }
+  // If only one has order, prioritize it
+  if (configA?.order !== undefined) return -1;
+  if (configB?.order !== undefined) return 1;
+  // Otherwise, sort alphabetically
+  return a.data.name.localeCompare(b.data.name);
+});
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class:list={["py-6", className]} {...rest}>
   {
-    projects.map((project) => (
+    sortedProjects.map((project) => (
       <a
         href={`/work/${formatProjectSlug(project.data.name)}`}
-        class="group block"
+        class:list={["group block", getSpanClasses(project)]}
       >
-        <article class="relative overflow-hidden rounded-lg">
+        <article class="relative overflow-hidden rounded-lg h-full">
           <Image
             src={getProjectImagePath(project.data.name, project.data.heroImage)}
             alt={project.data.name}
             width={600}
             height={450}
-            class="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
+            class="w-full h-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"

@@ -4,56 +4,10 @@ import ProjectImageScroll from "../components/ProjectImageScroll.astro";
 import ProjectGrid from "../components/ProjectGrid.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import type { ImageLayout } from "../types/project";
 
 const work = await getCollection("work");
 
-// const projectLayout = [
-//   {
-//     project: "gamepal",
-//     span: 7,
-//     order: 1,
-//   },
-//   {
-//     project: "yally",
-//     span: 5,
-//     order: 2,
-//   },
-//   {
-//     project: "helpper",
-//     span: 6,
-//     order: 3,
-//   },
-//   {
-//     project: "scorecard",
-//     span: 6,
-//     order: 5,
-//   },
-//   {
-//     project: "realo",
-//     span: 6,
-//     order: 4,
-//   },
-//   {
-//     project: "shelf",
-//     span: 6,
-//     order: 6,
-//   },
-//   {
-//     project: "immo brown",
-//     span: 5,
-//     order: 7,
-//   },
-//   {
-//     project: "diabetik",
-//     span: 7,
-//     order: 8,
-//   },
-// ];
-
-// Define image layouts for each project
-
-type Project = CollectionEntry<"work">;
 type ProjectName =
   | "gamepal"
   | "realo"
@@ -64,12 +18,6 @@ type ProjectName =
   | "immo brown"
   | "diabetik";
 
-interface ImageLayout {
-  index: number;
-  span: number;
-  start?: number;
-}
-
 type ProjectLayouts = {
   [K in ProjectName]?: ImageLayout[];
 };
@@ -77,7 +25,7 @@ type ProjectLayouts = {
 // Define image layouts for each project
 const projectImageLayouts: ProjectLayouts = {
   gamepal: [
-    { index: 0, span: 6 },
+    { index: 0, span: 12, spanSm: 6 },
     { index: 1, span: 4, start: 8 },
     { index: 2, span: 4 },
     { index: 3, span: 6, start: 7 },
@@ -128,7 +76,7 @@ const projectImageLayouts: ProjectLayouts = {
   ],
 };
 
-const projectOrder = [
+const projectOrder: ProjectName[] = [
   "gamepal",
   "yally",
   "helpper",
@@ -137,7 +85,7 @@ const projectOrder = [
   "shelf",
   "immo brown",
   "diabetik",
-] as const;
+];
 
 const sortedWork = work.sort((a: any, b: any) => {
   const orderA = projectOrder.indexOf(a.data.name.toLowerCase() as ProjectName);

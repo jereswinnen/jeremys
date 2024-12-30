@@ -2,21 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
-
-interface ImageLayout {
-  index: number;
-  span?: number;
-  start?: number;
-}
-
-interface Role {
-  tag: string;
-}
-
-interface Artwork {
-  src: string;
-  caption?: string;
-}
+import type { ImageLayout, Role, Artwork } from "../types/project";
 
 interface Props {
   project: CollectionEntry<"work">;
@@ -33,9 +19,23 @@ const getImageClasses = (index: number) => {
   const config = imageLayout?.find((layout) => layout.index === index);
   if (!config) return "col-span-6"; // Default layout
 
-  const classes = ["relative overflow-hidden"];
+  const classes = [];
+
+  // Base spans and starts
   if (config.span) classes.push(`col-span-${config.span}`);
   if (config.start) classes.push(`col-start-${config.start}`);
+
+  // Responsive spans
+  if (config.spanSm) classes.push(`sm:col-span-${config.spanSm}`);
+  if (config.spanMd) classes.push(`md:col-span-${config.spanMd}`);
+  if (config.spanLg) classes.push(`lg:col-span-${config.spanLg}`);
+  if (config.spanXl) classes.push(`xl:col-span-${config.spanXl}`);
+
+  // Responsive starts
+  if (config.startSm) classes.push(`sm:col-start-${config.startSm}`);
+  if (config.startMd) classes.push(`md:col-start-${config.startMd}`);
+  if (config.startLg) classes.push(`lg:col-start-${config.startLg}`);
+  if (config.startXl) classes.push(`xl:col-start-${config.startXl}`);
 
   return classes.join(" ");
 };

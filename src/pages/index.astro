@@ -4,6 +4,7 @@ import ProjectImageScroll from "../components/ProjectImageScroll.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import { getCollection } from "astro:content";
 import type { ImageLayout } from "../types/project";
+import SectionHeader from "../components/SectionHeader.astro";
 
 const work = await getCollection("work");
 
@@ -103,6 +104,8 @@ function getProjectLayoutKey(name: string): ProjectName {
   </article>
 
   <ProjectImageScroll class="o-grid-bleed col-span-full" work={work} />
+
+  <SectionHeader text="Mooi!" />
 
   {
     sortedWork.map((project: any) => (

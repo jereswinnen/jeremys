@@ -14,8 +14,8 @@ const { class: className, ...rest } = Astro.props;
 
 <header class:list={["flex justify-between items-center", className]} {...rest}>
   <div class="flex gap-2 items-center">
-    <a href="/" class="hover:opacity-80 transition-opacity">
-      <img src="/branding.svg" alt="Jeremy Swinnen" class="h-7 w-auto" />
+    <a href="/" class="hover:opacity-80 transition-all duration-300 hidden">
+      <img src="/branding.svg" alt="Jeremy Swinnen" class="h-6 w-auto" />
     </a>
     <div class="flex items-center gap-1.5 font-medium">
       <p>Jeremy Swinnen</p>
@@ -24,15 +24,15 @@ const { class: className, ...rest } = Astro.props;
     </div>
   </div>
   <nav>
-    <ul class="flex gap-6">
+    <ul class="flex gap-6 font-medium">
       {
         navItems.map(({ path, label }) => (
           <li>
             <a
               href={path}
               class:list={[
-                "hover:text-blue-600 transition-colors",
-                currentPath === path && "text-blue-600 font-medium",
+                "hover:text-black transition-all duration-300 text-black/60",
+                currentPath === path && "!text-black",
               ]}
             >
               {label}

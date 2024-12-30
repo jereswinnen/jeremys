@@ -85,8 +85,17 @@
 /* Grid Layout */
 .o-grid {
   display: grid;
-  gap: var(--u-grid-gap);
+  column-gap: var(--u-grid-gap);
+  row-gap: calc(var(--u-grid-gap) * 2);
   grid-template-columns: repeat(var(--u-grid-columns), minmax(0, 1fr));
+}
+
+.o-grid-inner {
+  display: grid;
+  grid-template-columns: inherit;
+  column-gap: inherit;
+  row-gap: inherit;
+  grid-column: 1 / -1;
 }
 
 /* Column spans */
@@ -429,12 +438,4 @@
     var(--u-container-padding),
     calc((100vw - var(--u-container-max-width)) / 2)
   );
-}
-
-/* Grid inner containers */
-.o-grid-inner {
-  display: grid;
-  grid-template-columns: inherit;
-  gap: inherit;
-  grid-column: 1 / -1;
 }

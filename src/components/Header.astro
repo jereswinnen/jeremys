@@ -1,7 +1,9 @@
 ---
 const navItems = [
-  { path: "/notes", label: "Notes" },
+  { path: "/", label: "Work" },
+  { path: "/feed", label: "Feed" },
   { path: "/profile", label: "Profile" },
+  { path: "/contact", label: "Contact" },
 ];
 
 // Get current path to highlight active link
@@ -10,15 +12,18 @@ const currentPath = Astro.url.pathname;
 const { class: className, ...rest } = Astro.props;
 ---
 
-<header class={className} {...rest}>
-  <nav class="flex items-center gap-6">
+<header class:list={["flex justify-between items-center", className]} {...rest}>
+  <div class="flex gap-2 items-center">
     <a href="/" class="hover:opacity-80 transition-opacity">
       <img src="/branding.svg" alt="Jeremy Swinnen" class="h-7 w-auto" />
     </a>
-    <div class="flex flex-col">
-      <p class="font-medium">Jeremy Swinnen</p>
-      <p class="opacity-70">UX/UI Designer &amp; Creative Developer</p>
+    <div class="flex items-center gap-1.5 font-medium">
+      <p>Jeremy Swinnen</p>
+      <p class="opacity-20">/</p>
+      <p>Software Designer</p>
     </div>
+  </div>
+  <nav>
     <ul class="flex gap-6">
       {
         navItems.map(({ path, label }) => (

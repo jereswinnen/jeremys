@@ -69,21 +69,21 @@
 }
 
 /* Container */
-.container {
+.o-container {
   max-width: var(--u-container-max-width);
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (max-width: 768px) {
-  .container {
+  .o-container {
     padding-left: var(--u-container-padding);
     padding-right: var(--u-container-padding);
   }
 }
 
 /* Grid Layout */
-.grid {
+.o-grid {
   display: grid;
   gap: var(--u-grid-gap);
   grid-template-columns: repeat(var(--u-grid-columns), minmax(0, 1fr));
@@ -405,7 +405,7 @@
 }
 
 /* Bleed utilities */
-.grid-bleed {
+.o-grid-bleed {
   width: 100vw;
   margin-left: 50%;
   transform: translateX(-50%);
@@ -413,14 +413,14 @@
 }
 
 /* Bleed with maintained inner grid */
-.grid-bleed-container {
+.o-grid-bleed-container {
   width: 100vw;
   margin-left: 50%;
   transform: translateX(-50%);
   position: relative;
 }
 
-.grid-bleed-container > .container {
+.o-grid-bleed-container > .o-container {
   padding-left: max(
     var(--u-container-padding),
     calc((100vw - var(--u-container-max-width)) / 2)
@@ -432,7 +432,7 @@
 }
 
 /* Grid inner containers */
-.grid-inner {
+.o-grid-inner {
   display: grid;
   grid-template-columns: inherit;
   gap: inherit;

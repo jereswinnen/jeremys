@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import NotesLayout from "../../layouts/NotesLayout.astro";
+import FeedEntryLayout from "../../layouts/FeedEntryLayout.astro";
 
 type NoteEntry = CollectionEntry<"notes">;
 type LinkEntry = CollectionEntry<"links">;
@@ -25,4 +25,4 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 ---
 
-<NotesLayout entry={entry} />
+<FeedEntryLayout entry={entry} />

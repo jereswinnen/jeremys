@@ -21,7 +21,6 @@ type ProjectLayouts = {
   [K in ProjectName]?: ImageLayout[];
 };
 
-// Define image layouts for each project
 const projectImageLayouts: ProjectLayouts = {
   gamepal: [
     { index: 0, span: 12, spanSm: 6 },
@@ -103,12 +102,12 @@ function getProjectLayoutKey(name: string): ProjectName {
     <h1>This is some text for the homepage</h1>
   </article>
 
-  <ProjectImageScroll class="grid-bleed col-span-full" work={work} />
+  <ProjectImageScroll class="o-grid-bleed col-span-full" work={work} />
 
   {
     sortedWork.map((project: any) => (
       <ProjectItem
-        class="grid-inner col-span-full"
+        class="o-grid-inner col-span-full"
         project={project}
         imageLayout={
           projectImageLayouts[getProjectLayoutKey(project.data.name)]

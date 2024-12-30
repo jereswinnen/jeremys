@@ -7,7 +7,6 @@ interface ImageLayout {
   index: number;
   span?: number;
   start?: number;
-  order?: number;
 }
 
 interface Role {
@@ -35,7 +34,6 @@ const getImageClasses = (index: number) => {
   if (!config) return "col-span-6"; // Default layout
 
   const classes = ["relative overflow-hidden"];
-  if (config.order !== undefined) classes.push(`order-${config.order}`);
   if (config.span) classes.push(`col-span-${config.span}`);
   if (config.start) classes.push(`col-start-${config.start}`);
 

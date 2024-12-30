@@ -356,7 +356,7 @@
   }
 }
 
-/* Grid start/end positions */
+/* Grid start positions */
 .col-start-1 {
   grid-column-start: 1;
 }
@@ -366,14 +366,32 @@
 .col-start-3 {
   grid-column-start: 3;
 }
-.col-end-13 {
-  grid-column-end: 13;
+.col-start-4 {
+  grid-column-start: 4;
 }
-.col-end-12 {
-  grid-column-end: 12;
+.col-start-5 {
+  grid-column-start: 5;
 }
-.col-end-11 {
-  grid-column-end: 11;
+.col-start-6 {
+  grid-column-start: 6;
+}
+.col-start-7 {
+  grid-column-start: 7;
+}
+.col-start-8 {
+  grid-column-start: 8;
+}
+.col-start-9 {
+  grid-column-start: 9;
+}
+.col-start-10 {
+  grid-column-start: 10;
+}
+.col-start-11 {
+  grid-column-start: 11;
+}
+.col-start-12 {
+  grid-column-start: 12;
 }
 
 /* Grid alignment utilities */

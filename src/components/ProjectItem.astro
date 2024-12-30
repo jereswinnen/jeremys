@@ -1,0 +1,101 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
+
+interface ImageLayout {
+  index: number;
+  span?: number;
+  start?: number;
+  order?: number;
+}
+
+interface Role {
+  tag: string;
+}
+
+interface Artwork {
+  src: string;
+  caption?: string;
+}
+
+interface Props {
+  project: CollectionEntry<"work">;
+  imageLayout?: ImageLayout[];
+  class?: string;
+}
+
+const { project, imageLayout, class: className } = Astro.props;
+const { name, tagline, description, role, externalLink, artwork } =
+  project.data;
+
+// Helper function to get grid classes for an image
+const getImageClasses = (index: number) => {
+  const config = imageLayout?.find((layout) => layout.index === index);
+  if (!config) return "col-span-6"; // Default layout
+
+  const classes = ["relative overflow-hidden"];
+  if (config.order !== undefined) classes.push(`order-${config.order}`);
+  if (config.span) classes.push(`col-span-${config.span}`);
+  if (config.start) classes.push(`col-start-${config.start}`);
+
+  return classes.join(" ");
+};
+---
+
+<article class:list={["py-12 first:pt-0 last:pb-0", className]}>
+  <!-- Project Info -->
+  <div class="col-span-full">
+    <h2 class="text-2xl font-bold mb-3">
+      <a href={`/work/${formatProjectSlug(name)}`} class="hover:text-blue-600">
+        {name}
+      </a>
+    </h2>
+    <p class="text-lg text-gray-600 mb-4">{tagline}</p>
+
+    <div class="flex flex-wrap gap-2 mb-6">
+      {
+        role.map((r: Role) => (
+          <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">
+            {r.tag}
+          </span>
+        ))
+      }
+    </div>
+
+    <p class="text-gray-700 mb-6">{description}</p>
+
+    {
+      externalLink && (
+        <a
+          href={externalLink}
+          class="inline-flex items-center text-blue-600 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Project →
+        </a>
+      )
+    }
+  </div>
+
+  <!-- Project Images -->
+  <div class="col-span-full grid-inner">
+    {
+      artwork.map((art: Artwork, index: number) => (
+        <div class={getImageClasses(index)}>
+          <Image
+            src={getProjectImagePath(name, art.src)}
+            alt={art.caption || name}
+            width={800}
+            height={600}
+            class="w-full"
+          />
+          {art.caption && (
+            <p class="mt-2 text-sm text-gray-500">{art.caption}</p>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</article>

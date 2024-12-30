@@ -3,7 +3,6 @@
   "tagline": "Tagline for Helpper",
   "externalLink": "https://getgamepal.com",
   "description": "Full description of the project...",
-  "heroImage": "hero.jpg",
   "themeColor": "#6B5B95",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [

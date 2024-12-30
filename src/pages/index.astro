@@ -2,52 +2,154 @@
 import MasterLayout from "../layouts/MasterLayout.astro";
 import ProjectImageScroll from "../components/ProjectImageScroll.astro";
 import ProjectGrid from "../components/ProjectGrid.astro";
+import ProjectItem from "../components/ProjectItem.astro";
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 const work = await getCollection("work");
 
-const projectLayout = [
-  {
-    project: "gamepal",
-    span: 7,
-    order: 1,
-  },
-  {
-    project: "yally",
-    span: 5,
-    order: 2,
-  },
-  {
-    project: "helpper",
-    span: 6,
-    order: 3,
-  },
-  {
-    project: "scorecard",
-    span: 6,
-    order: 5,
-  },
-  {
-    project: "realo",
-    span: 6,
-    order: 4,
-  },
-  {
-    project: "shelf",
-    span: 6,
-    order: 6,
-  },
-  {
-    project: "immo brown",
-    span: 5,
-    order: 7,
-  },
-  {
-    project: "diabetik",
-    span: 7,
-    order: 8,
-  },
-];
+// const projectLayout = [
+//   {
+//     project: "gamepal",
+//     span: 7,
+//     order: 1,
+//   },
+//   {
+//     project: "yally",
+//     span: 5,
+//     order: 2,
+//   },
+//   {
+//     project: "helpper",
+//     span: 6,
+//     order: 3,
+//   },
+//   {
+//     project: "scorecard",
+//     span: 6,
+//     order: 5,
+//   },
+//   {
+//     project: "realo",
+//     span: 6,
+//     order: 4,
+//   },
+//   {
+//     project: "shelf",
+//     span: 6,
+//     order: 6,
+//   },
+//   {
+//     project: "immo brown",
+//     span: 5,
+//     order: 7,
+//   },
+//   {
+//     project: "diabetik",
+//     span: 7,
+//     order: 8,
+//   },
+// ];
+
+// Define image layouts for each project
+
+type Project = CollectionEntry<"work">;
+type ProjectName =
+  | "gamepal"
+  | "realo"
+  | "yally"
+  | "helpper"
+  | "scorecard"
+  | "shelf"
+  | "immo brown"
+  | "diabetik";
+
+interface ImageLayout {
+  index: number;
+  span: number;
+  start?: number;
+  order: number;
+}
+
+type ProjectLayouts = {
+  [K in ProjectName]?: ImageLayout[];
+};
+
+// Define image layouts for each project
+const projectImageLayouts: ProjectLayouts = {
+  gamepal: [
+    { index: 0, span: 6, start: 2, order: 1 },
+    { index: 1, span: 4, start: 9, order: 2 },
+    { index: 2, span: 4, order: 3 },
+    { index: 3, span: 6, start: 7, order: 4 },
+    { index: 4, span: 12, order: 5 },
+  ],
+  realo: [
+    { index: 0, span: 12, order: 1 },
+    { index: 1, span: 6, order: 2 },
+    { index: 2, span: 6, start: 7, order: 3 },
+    { index: 3, span: 4, order: 4 },
+    { index: 4, span: 4, start: 5, order: 5 },
+    { index: 5, span: 4, start: 9, order: 6 },
+  ],
+  yally: [
+    { index: 0, span: 12, order: 1 },
+    { index: 1, span: 6, order: 2 },
+    { index: 2, span: 6, start: 7, order: 3 },
+    { index: 3, span: 4, order: 4 },
+  ],
+  helpper: [
+    { index: 0, span: 12, order: 1 },
+    { index: 1, span: 6, order: 2 },
+    { index: 2, span: 6, start: 7, order: 3 },
+    { index: 3, span: 4, order: 4 },
+  ],
+  scorecard: [
+    { index: 0, span: 12, order: 1 },
+    { index: 1, span: 6, order: 2 },
+    { index: 2, span: 6, start: 7, order: 3 },
+    { index: 3, span: 4, order: 4 },
+  ],
+  shelf: [
+    { index: 0, span: 12, order: 1 },
+    { index: 1, span: 6, order: 2 },
+    { index: 2, span: 6, start: 7, order: 3 },
+  ],
+  diabetik: [
+    { index: 0, span: 12, order: 1 },
+    { index: 1, span: 6, order: 2 },
+    { index: 2, span: 6, start: 7, order: 3 },
+    { index: 3, span: 4, order: 4 },
+  ],
+  "immo brown": [
+    { index: 0, span: 12, order: 1 },
+    { index: 1, span: 6, order: 2 },
+    { index: 2, span: 6, start: 7, order: 3 },
+    { index: 3, span: 4, order: 4 },
+  ],
+};
+
+const projectOrder = [
+  "gamepal",
+  "yally",
+  "helpper",
+  "scorecard",
+  "realo",
+  "shelf",
+  "immo brown",
+  "diabetik",
+] as const;
+
+const sortedWork = work.sort((a: any, b: any) => {
+  const orderA = projectOrder.indexOf(a.data.name.toLowerCase() as ProjectName);
+  const orderB = projectOrder.indexOf(b.data.name.toLowerCase() as ProjectName);
+  return orderA - orderB;
+});
+
+function getProjectLayoutKey(name: string): ProjectName {
+  const key = name.toLowerCase() as ProjectName;
+  return key;
+}
 ---
 
 <MasterLayout>
@@ -55,11 +157,23 @@ const projectLayout = [
     <h1>This is some text for the homepage</h1>
   </article>
 
-  <ProjectImageScroll work={work} class="grid-bleed col-span-full" />
+  <ProjectImageScroll class="grid-bleed col-span-full" work={work} />
 
-  <ProjectGrid
+  {
+    sortedWork.map((project: any) => (
+      <ProjectItem
+        class="grid-inner col-span-full bg-emerald-200 "
+        project={project}
+        imageLayout={
+          projectImageLayouts[getProjectLayoutKey(project.data.name)]
+        }
+      />
+    ))
+  }
+
+  <!-- <ProjectGrid
     projects={work}
     layout={projectLayout}
     class="col-span-full grid-inner"
-  />
+  /> -->
 </MasterLayout>

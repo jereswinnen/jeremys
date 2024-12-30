@@ -99,7 +99,7 @@ function getProjectLayoutKey(name: string): ProjectName {
 ---
 
 <MasterLayout>
-  <article class="col-start-2 col-end-7 bg-slate-400">
+  <article class="col-start-2 col-end-7">
     <h1>This is some text for the homepage</h1>
   </article>
 
@@ -108,7 +108,7 @@ function getProjectLayoutKey(name: string): ProjectName {
   {
     sortedWork.map((project: any) => (
       <ProjectItem
-        class="grid-inner col-span-full bg-emerald-200 "
+        class="grid-inner col-span-full"
         project={project}
         imageLayout={
           projectImageLayouts[getProjectLayoutKey(project.data.name)]

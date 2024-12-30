@@ -1,7 +1,6 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
 import ProjectImageScroll from "../components/ProjectImageScroll.astro";
-import ProjectGrid from "../components/ProjectGrid.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import { getCollection } from "astro:content";
 import type { ImageLayout } from "../types/project";
@@ -117,10 +116,4 @@ function getProjectLayoutKey(name: string): ProjectName {
       />
     ))
   }
-
-  <!-- <ProjectGrid
-    projects={work}
-    layout={projectLayout}
-    class="col-span-full grid-inner"
-  /> -->
 </MasterLayout>

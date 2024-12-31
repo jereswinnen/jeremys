@@ -68,6 +68,15 @@
   --u-breakpoint-xl: 1280px;
 }
 
+a {
+  transition: all 300ms ease-in-out;
+}
+
+a:hover {
+  opacity: 0.6;
+  transition: all 300ms ease-in-out;
+}
+
 /* Container */
 .o-container {
   max-width: var(--u-container-max-width);

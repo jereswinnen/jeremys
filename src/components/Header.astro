@@ -14,11 +14,11 @@ const { class: className, ...rest } = Astro.props;
 
 <header class:list={["flex justify-between items-center", className]} {...rest}>
   <div class="flex gap-2 items-center">
-    <a href="/" class="hover:opacity-80 transition-all duration-300 hidden">
+    <a href="/" class="!hover:opacity-80 hidden">
       <img src="/branding.svg" alt="Jeremy Swinnen" class="h-6 w-auto" />
     </a>
     <div class="flex items-center gap-1.5 font-medium">
-      <p>Jeremy Swinnen</p>
+      <a href="/"><p>Jeremy Swinnen</p></a>
       <p class="opacity-20">/</p>
       <p>Software Designer</p>
     </div>
@@ -31,7 +31,7 @@ const { class: className, ...rest } = Astro.props;
             <a
               href={path}
               class:list={[
-                "hover:text-black transition-all duration-300 text-black/60",
+                "!hover:text-black text-black/60",
                 currentPath === path && "!text-black",
               ]}
             >

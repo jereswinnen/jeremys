@@ -3,7 +3,7 @@ import MasterLayout from "../layouts/MasterLayout.astro";
 import ProjectImageScroll from "../components/ProjectImageScroll.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import SectionHeader from "../components/SectionHeader";
-import { Lightning } from "phosphor-react";
+import { ListNumbers } from "phosphor-react";
 import { getCollection } from "astro:content";
 import type { ImageLayout } from "../types/project";
 
@@ -106,7 +106,7 @@ function getProjectLayoutKey(name: string): ProjectName {
 
   <ProjectImageScroll class="o-grid-bleed col-span-full" work={work} />
 
-  <SectionHeader icon={Lightning} text="Mooi!" />
+  <SectionHeader icon={ListNumbers} text="Selected work" />
 
   {
     sortedWork.map((project: any) => (

@@ -31,7 +31,7 @@ const { class: className, ...rest } = Astro.props;
             <a
               href={path}
               class:list={[
-                "!hover:text-black text-black/60",
+                "hover:!text-black hover:!opacity-100 text-black/60",
                 currentPath === path && "!text-black",
               ]}
             >

@@ -1,7 +1,8 @@
 {
   "name": "Diabetik",
   "tagline": "Tagline for Diabetik",
-  "externalLink": "https://getgamepal.com",
+  "linkLabel": "App Store",
+  "linkAction": "https://getgamepal.com",
   "description": "Full description of the project...",
   "themeColor": "#FF6F61",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],

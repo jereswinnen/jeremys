@@ -7,9 +7,9 @@ const work = defineCollection({
     z.object({
       name: z.string(),
       tagline: z.string(),
-      externalLink: z.string().url().optional(),
+      linkLabel: z.string().optional(),
+      linkAction: z.string().url().optional(),
       description: z.string(),
-      heroImage: z.string(),
       themeColor: z.string(),
       role: z.array(
         z.object({

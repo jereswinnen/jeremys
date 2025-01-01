@@ -1,7 +1,8 @@
 {
   "name": "Immo Brown",
   "tagline": "Tagline for Immo Brown",
-  "externalLink": "https://getgamepal.com",
+  "linkLabel": "App Store",
+  "linkAction": "https://getgamepal.com",
   "description": "Full description of the project...",
   "themeColor": "#88B04B",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],

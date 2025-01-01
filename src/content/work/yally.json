@@ -1,7 +1,8 @@
 {
   "name": "Yally",
   "tagline": "Tagline for Yally",
-  "externalLink": "https://getgamepal.com",
+  "linkLabel": "Website",
+  "linkAction": "https://getgamepal.com",
   "description": "Full description of the project...",
   "themeColor": "#92A8D1",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],

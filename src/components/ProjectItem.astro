@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { project, imageLayout, class: className } = Astro.props;
-const { name, tagline, description, role, externalLink, artwork } =
+const { name, tagline, description, role, linkLabel, linkAction, artwork } =
   project.data;
 
 // Helper function to get grid classes for an image
@@ -43,39 +43,42 @@ const getImageClasses = (index: number) => {
 
 <article class:list={["", className]}>
   <!-- Project Info -->
-  <div class="col-span-full">
-    <h2 class="text-2xl font-bold mb-3">
-      <a href={`/work/${formatProjectSlug(name)}`} class="hover:text-blue-600">
-        {name}
-      </a>
+  <header class="col-span-full flex flex-col gap-6">
+    <h2 class="text-4xl font-black">
+      {name}
+      <span aria-hidden="true" class="font-medium opacity-20">/</span>
+      <span class="font-medium">{tagline}</span>
     </h2>
-    <p class="text-lg text-gray-600 mb-4">{tagline}</p>
 
-    <div class="flex flex-wrap gap-2 mb-6">
+    <div class="flex flex-col gap-2">
+      <p class="text-gray-700">{description}</p>
       {
-        role.map((r: Role) => (
-          <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">
-            {r.tag}
-          </span>
-        ))
+        linkAction && (
+          <a
+            href={linkAction}
+            class="inline-flex items-center text-blue-600 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {linkLabel}
+          </a>
+        )
       }
+      <div class="flex flex-col gap-1 mt-4 pt-4 border-t-2 border-bg-black/10">
+        <h3 class="font-medium text-sm">Capabilities</h3>
+        <ul class="flex flex-wrap gap-2">
+          {
+            role.map((r: Role) => (
+              <li class="flex items-center gap-1 text-sm">
+                <span class="opacity-40">#</span>
+                {r.tag}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
-
-    <p class="text-gray-700 mb-6">{description}</p>
-
-    {
-      externalLink && (
-        <a
-          href={externalLink}
-          class="inline-flex items-center text-blue-600 hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit Project →
-        </a>
-      )
-    }
-  </div>
+  </header>
 
   <!-- Project Images -->
   <div class="col-span-full o-grid-inner">

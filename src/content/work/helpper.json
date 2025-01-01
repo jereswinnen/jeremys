@@ -1,7 +1,8 @@
 {
   "name": "Helpper",
   "tagline": "Tagline for Helpper",
-  "externalLink": "https://getgamepal.com",
+  "linkLabel": "App Store",
+  "linkAction": "https://getgamepal.com",
   "description": "Full description of the project...",
   "themeColor": "#6B5B95",
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],

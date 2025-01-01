@@ -1,8 +1,10 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
+import Action from "../components/Action";
 import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
 import type { ImageLayout, Role, Artwork } from "../types/project";
+import { BookmarkSimple } from "phosphor-react";
 
 interface Props {
   project: CollectionEntry<"work">;
@@ -54,14 +56,7 @@ const getImageClasses = (index: number) => {
       <p class="text-gray-700">{description}</p>
       {
         linkAction && (
-          <a
-            href={linkAction}
-            class="inline-flex items-center text-blue-600 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {linkLabel}
-          </a>
+          <Action icon={BookmarkSimple} label={linkLabel} href={linkAction} />
         )
       }
       <div class="flex flex-col gap-1 mt-4 pt-4 border-t-2 border-bg-black/10">

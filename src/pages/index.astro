@@ -100,11 +100,11 @@ function getProjectLayoutKey(name: string): ProjectName {
 ---
 
 <MasterLayout>
-  <article class="col-start-2 col-end-7">
+  <ProjectImageScroll class="o-grid-bleed col-span-full" work={work} />
+
+  <article class="hidden col-start-2 col-end-7">
     <h1>This is some text for the homepage</h1>
   </article>
-
-  <ProjectImageScroll class="o-grid-bleed col-span-full" work={work} />
 
   <SectionHeader icon={ListNumbers} text="Selected work" />
 

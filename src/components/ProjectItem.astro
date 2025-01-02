@@ -45,21 +45,28 @@ const getImageClasses = (index: number) => {
 
 <article class:list={["", className]}>
   <!-- Project Info -->
-  <header class="col-span-full flex flex-col gap-6">
-    <h2 class="text-4xl font-black">
+  <header class="col-span-full flex flex-col gap-6" data-header>
+    <h2 class="blur-animate text-4xl font-black">
       {name}
       <span aria-hidden="true" class="font-medium opacity-20">/</span>
       <span class="font-medium">{tagline}</span>
     </h2>
 
     <div class="flex flex-col gap-2">
-      <p class="text-gray-700">{description}</p>
+      <p class="blur-animate text-gray-700">{description}</p>
       {
         linkAction && (
-          <Action icon={BookmarkSimple} label={linkLabel} href={linkAction} />
+          <Action
+            className="blur-animate"
+            icon={BookmarkSimple}
+            label={linkLabel}
+            href={linkAction}
+          />
         )
       }
-      <div class="flex flex-col gap-1 mt-4 pt-4 border-t-2 border-bg-black/10">
+      <aside
+        class="blur-animate flex flex-col gap-1 mt-4 pt-4 border-t-2 border-bg-black/10"
+      >
         <h3 class="font-medium text-sm">Capabilities</h3>
         <ul class="flex flex-wrap gap-2">
           {
@@ -71,7 +78,7 @@ const getImageClasses = (index: number) => {
             ))
           }
         </ul>
-      </div>
+      </aside>
     </div>
   </header>
 
@@ -116,3 +123,39 @@ const getImageClasses = (index: number) => {
     }
   </div>
 </div> -->
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Select all headers
+  const headers = document.querySelectorAll("[data-header]");
+
+  headers.forEach((header) => {
+    const titleElements = header.querySelectorAll(".blur-animate");
+
+    gsap.fromTo(
+      titleElements,
+      {
+        opacity: 0,
+        filter: "blur(8px)",
+        y: 20,
+      },
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "sine.out",
+        scrollTrigger: {
+          trigger: header,
+          start: "top bottom-=300",
+          toggleActions: "play complete none none",
+          markers: true,
+        },
+      }
+    );
+  });
+</script>

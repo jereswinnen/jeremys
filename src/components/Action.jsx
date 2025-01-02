@@ -1,12 +1,12 @@
 import React from "react";
 import { IconContext } from "phosphor-react";
 
-export default function Action({ icon: Icon, href, label }) {
+export default function Action({ className = "", icon: Icon, href, label }) {
   const transitionClasses = "transition-all duration-300 ease-in-circ";
   return (
     <a
       href={href}
-      className={`font-medium w-fit bg-transparent border border-black/60 hover:border-black rounded-full px-2.5 pr-4 py-1.5 relative overflow-hidden group ${transitionClasses}`}
+      className={`font-medium w-fit bg-transparent border border-black/60 hover:border-black rounded-full px-2.5 pr-4 py-1.5 relative overflow-hidden group ${transitionClasses} ${className}`}
     >
       <span
         className={`absolute inset-0 bg-black scale-x-0 rounded-full origin-left group-hover:scale-x-100 z-0 ${transitionClasses}`}

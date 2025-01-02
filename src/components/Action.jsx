@@ -2,17 +2,28 @@ import React from "react";
 import { IconContext } from "phosphor-react";
 
 export default function Action({ icon: Icon, href, label }) {
+  const transitionClasses = "transition-all duration-300 ease-in-circ";
   return (
     <a
       href={href}
-      className="font-medium flex bg-red-300 rounded-full items-center gap-1.5"
+      className={`font-medium w-fit bg-transparent border border-black/60 hover:border-black rounded-full px-2.5 pr-4 py-1.5 relative overflow-hidden group ${transitionClasses}`}
     >
-      {Icon && (
-        <IconContext.Provider value={{ size: 20, weight: "duotone" }}>
-          <Icon className="opacity-50" />
-        </IconContext.Provider>
-      )}
-      {label}
+      <span
+        className={`absolute inset-0 bg-black scale-x-0 rounded-full origin-left group-hover:scale-x-100 z-0 ${transitionClasses}`}
+        aria-hidden="true"
+      ></span>
+      <div
+        className={`relative z-10 flex gap-1 items-center group-hover:translate-x-1.5 ${transitionClasses}`}
+      >
+        {Icon && (
+          <IconContext.Provider value={{ size: 20, weight: "duotone" }}>
+            <Icon className="opacity-50 group-hover:text-white" />
+          </IconContext.Provider>
+        )}
+        <span className={`group-hover:text-white ${transitionClasses}`}>
+          {label}
+        </span>
+      </div>
     </a>
   );
 }

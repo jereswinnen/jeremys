@@ -86,13 +86,15 @@ const getImageClasses = (index: number) => {
   <div class="col-span-full o-grid-inner">
     {
       artwork.map((art: Artwork, index: number) => (
-        <div class={getImageClasses(index)}>
+        <div
+          class={`${getImageClasses(index)} bg-red-400 p-[calc(1rem+0.75vmax)] h-fit flex flex-col`}
+        >
           <Image
             src={getProjectImagePath(name, art.src)}
             alt={art.caption || name}
             width={800}
             height={600}
-            class="w-full"
+            class="w-full max-h-[60vh] object-contain"
           />
           {art.caption && (
             <p class="mt-2 text-sm text-gray-500">{art.caption}</p>

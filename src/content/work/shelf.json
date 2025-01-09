@@ -8,15 +8,19 @@
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
-      "src": "image1.jpg",
+      "src": "TabletLandscapeSplitscreen.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image2.jpg",
+      "src": "TabletLandscapeSlideoverMain.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image3.jpg",
+      "src": "TabletLandscapeSlideover.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "TabletLandscapeQuicklookVideo.png",
       "caption": "Main project interface"
     }
   ]

@@ -8,19 +8,47 @@
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
-      "src": "image1.jpg",
+      "src": "TabletTimeline.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image2.jpg",
+      "src": "TabletListMenu.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image3.jpg",
+      "src": "TabletJournal.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image4.jpg",
+      "src": "TabletAddEntry.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "TabletAddEntry.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneTimeline.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneListMenu.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneJournal.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneAddMedicine.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneAddMeal.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneAddBloodReading.png",
       "caption": "Main project interface"
     }
   ]

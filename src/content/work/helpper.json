@@ -8,19 +8,23 @@
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
-      "src": "image1.jpg",
+      "src": "PhoneSearch.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image2.jpg",
+      "src": "PhoneRejectPerformance.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image3.jpg",
+      "src": "PhoneProfile.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image4.jpg",
+      "src": "PhonePerformances.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneOverview.png",
       "caption": "Main project interface"
     }
   ]

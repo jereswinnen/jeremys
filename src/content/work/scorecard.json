@@ -8,19 +8,43 @@
   "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
-      "src": "image1.jpg",
+      "src": "TabletGameSessionsDark.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image2.jpg",
+      "src": "TabletGameSessions.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image3.jpg",
+      "src": "TabletGameplay.png",
       "caption": "Main project interface"
     },
     {
-      "src": "image4.jpg",
+      "src": "TabletCreateGame.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhonePlayerDetails.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneGameSessions.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneGameplayEditScore.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneGameplay.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneAddAGameTeam.png",
+      "caption": "Main project interface"
+    },
+    {
+      "src": "PhoneAddAGame.png",
       "caption": "Main project interface"
     }
   ]

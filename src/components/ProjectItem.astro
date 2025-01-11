@@ -54,7 +54,7 @@ const getImageClasses = (index: number) => {
 
     <div class="flex flex-col gap-2">
       <p class="blur-animate text-gray-700">{description}</p>
-      {
+      <!-- {
         linkAction && (
           <Action
             className="blur-animate"
@@ -63,16 +63,14 @@ const getImageClasses = (index: number) => {
             href={linkAction}
           />
         )
-      }
-      <aside
-        class="blur-animate flex flex-col gap-1 mt-4 pt-4 border-t-2 border-bg-black/10"
-      >
+      } -->
+      <aside class="blur-animate flex flex-col gap-1">
         <h3 class="font-medium text-sm">Capabilities</h3>
-        <ul class="flex flex-wrap gap-2">
+        <ul class="flex flex-col gap-1 list-circle list-inside">
           {
             role.map((r: Role) => (
-              <li class="flex items-center gap-1 text-sm">
-                <span class="opacity-40">#</span>
+              <li class="text-sm">
+                {/* <span class="opacity-40">#</span> */}
                 {r.tag}
               </li>
             ))

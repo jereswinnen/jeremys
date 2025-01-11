@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         sans: ["Satoshi", "system-ui", "sans-serif"],
       },
+      listStyleType: {
+        circle: "circle",
+      },
       transitionTimingFunction: {
         "ease-in-circ": "cubic-bezier(0.6, 0.04, 0.98, 0.335)",
       },

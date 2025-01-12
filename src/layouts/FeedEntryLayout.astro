@@ -28,7 +28,7 @@ const formattedTime = date.toLocaleTimeString("nl-BE", {
   <article class="max-w-2xl mx-auto py-8">
     <header class="mb-8">
       <h1 class="text-3xl font-bold mb-2">{title}</h1>
-      <time datetime={date.toISOString()} class="text-gray-600">
+      <time datetime={date.toISOString()} class="opacity-70">
         {formattedDate} at {formattedTime}
       </time>
     </header>
@@ -41,7 +41,7 @@ const formattedTime = date.toLocaleTimeString("nl-BE", {
               Visit linked article →
             </a>
           </p>
-          {entry.data.note && <p class="text-gray-700">{entry.data.note}</p>}
+          {entry.data.note && <p class="opacity-70">{entry.data.note}</p>}
         </div>
       ) : (
         <div class="prose">

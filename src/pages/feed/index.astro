@@ -55,14 +55,14 @@ const formatTime = (date: Date) => {
     {
       Object.entries(contentByDate).map(([date, entries]) => (
         <section class="mb-12">
-          <h2 class="text-xl font-semibold mb-6 text-gray-800">{date}</h2>
+          <h2 class="text-xl font-semibold mb-6 opacity-70">{date}</h2>
           <div class="space-y-8">
             {(entries as ContentEntry[]).map((entry) => (
-              <article class="border-b border-gray-100 pb-8">
+              <article class="border-b border-black/30 dark:border-white/30 pb-8">
                 <div class="flex items-baseline gap-4 mb-2">
                   <time
                     datetime={entry.data.publishDate.toISOString()}
-                    class="text-sm text-gray-600"
+                    class="text-sm opacity-70"
                   >
                     {entry.collection === "links" ? (
                       <a
@@ -92,10 +92,10 @@ const formatTime = (date: Date) => {
                   )}
                 </div>
                 {entry.collection === "links" && entry.data.note && (
-                  <p class="text-gray-700">{entry.data.note}</p>
+                  <p class="opacity-70">{entry.data.note}</p>
                 )}
                 {entry.collection === "notes" && entry.data.description && (
-                  <p class="text-gray-700">{entry.data.description}</p>
+                  <p class="opacity-70">{entry.data.description}</p>
                 )}
               </article>
             ))}

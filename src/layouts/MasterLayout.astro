@@ -15,7 +15,7 @@ const { title, description } = Astro.props;
     <title>{title ? `${title} | My Website` : "My Website"}</title>
     {description && <meta name="description" content={description} />}
   </head>
-  <body class="o-container font-sans pt-8">
+  <body class="o-container font-sans pt-8 dark:bg-black/85 dark:text-white/85">
     <div class="o-grid">
       <Header class="col-span-full" />
 
@@ -23,7 +23,7 @@ const { title, description } = Astro.props;
         <slot />
       </main>
 
-      <footer class="col-span-full text-sm text-gray-600">
+      <footer class="col-span-full text-sm opacity-70">
         <p>&copy; {new Date().getFullYear()} Your Name</p>
       </footer>
     </div>

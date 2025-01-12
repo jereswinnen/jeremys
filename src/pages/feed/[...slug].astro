@@ -16,10 +16,16 @@ export async function getStaticPaths() {
     ({ data }: LinkEntry) => !data.draft
   );
 
-  return [...notes, ...links].map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  return [
+    ...notes.map((entry) => ({
+      params: { slug: entry.slug },
+      props: { entry },
+    })),
+    ...links.map((entry) => ({
+      params: { slug: `links/${entry.slug}` },
+      props: { entry },
+    })),
+  ];
 }
 
 const { entry } = Astro.props;

@@ -23,21 +23,24 @@ const allContent = [...notes, ...links].sort(
 );
 
 // Group by date
-const contentByDate = allContent.reduce((acc, entry) => {
-  const date = entry.data.publishDate.toLocaleDateString("nl-BE", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "Europe/Brussels",
-  });
+const contentByDate = allContent.reduce(
+  (acc: Record<string, ContentEntry[]>, entry) => {
+    const date = entry.data.publishDate.toLocaleDateString("nl-BE", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "Europe/Brussels",
+    });
 
-  if (!acc[date]) {
-    acc[date] = [];
-  }
+    if (!acc[date]) {
+      acc[date] = [];
+    }
 
-  acc[date].push(entry);
-  return acc;
-}, {});
+    acc[date].push(entry);
+    return acc;
+  },
+  {}
+);
 
 const formatTime = (date: Date) => {
   return date.toLocaleTimeString("nl-BE", {
@@ -66,7 +69,7 @@ const formatTime = (date: Date) => {
                   >
                     {entry.collection === "links" ? (
                       <a
-                        href={`/notes/${entry.slug}`}
+                        href={`/feed/links/${entry.slug}`}
                         class="hover:text-blue-600"
                       >
                         {formatTime(entry.data.publishDate)}
@@ -84,7 +87,7 @@ const formatTime = (date: Date) => {
                     </a>
                   ) : (
                     <a
-                      href={`/notes/${entry.slug}`}
+                      href={`/feed/${entry.slug}`}
                       class="text-lg font-medium hover:text-blue-600"
                     >
                       {entry.data.title}

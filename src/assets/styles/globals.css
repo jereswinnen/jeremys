@@ -77,7 +77,7 @@
   --u-grid-columns: 12;
   --u-grid-gap: 2rem;
   --u-container-padding: 2rem;
-  --u-container-max-width: 120rem; /* 1440px */ /*90rem*/
+  --u-container-max-width: 95rem; /* 1520px */
 
   /* Breakpoints */
   --u-breakpoint-sm: 640px;

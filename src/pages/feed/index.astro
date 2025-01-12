@@ -70,7 +70,7 @@ const formatTime = (date: Date) => {
                     {entry.collection === "links" ? (
                       <a
                         href={`/feed/links/${entry.slug}`}
-                        class="hover:text-blue-600"
+                        class="hover:text-brandOrange"
                       >
                         {formatTime(entry.data.publishDate)}
                       </a>
@@ -81,14 +81,14 @@ const formatTime = (date: Date) => {
                   {entry.collection === "links" ? (
                     <a
                       href={entry.data.url}
-                      class="text-lg font-medium hover:text-blue-600"
+                      class="text-lg font-medium hover:text-brandOrange"
                     >
                       {entry.data.title} →
                     </a>
                   ) : (
                     <a
                       href={`/feed/${entry.slug}`}
-                      class="text-lg font-medium hover:text-blue-600"
+                      class="text-lg font-medium hover:text-brandOrange"
                     >
                       {entry.data.title}
                     </a>

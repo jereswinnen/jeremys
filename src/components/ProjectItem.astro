@@ -86,6 +86,7 @@ const getImageClasses = (index: number) => {
       artwork.map((art: Artwork, index: number) => (
         <div
           class={`${getImageClasses(index)} bg-zinc-100 p-[calc(1rem+0.75vmax)] h-fit flex flex-col`}
+          data-image-container
         >
           <Image
             src={getProjectImagePath(name, art.src)}
@@ -103,38 +104,73 @@ const getImageClasses = (index: number) => {
   </div>
 </article>
 
-<script>
+<!-- <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
-  // Select all headers
-  const headers = document.querySelectorAll("[data-header]");
+  // Wait for initial page animations
+  window.addEventListener("load", () => {
+    // Add a small delay to ensure main page animations are complete
+    setTimeout(() => {
+      // Select all headers
+      const headers = document.querySelectorAll("[data-header]");
+      // Select all project image containers
+      const projectContainers = document.querySelectorAll(
+        "[data-image-container]"
+      );
 
-  headers.forEach((header) => {
-    const titleElements = header.querySelectorAll(".blur-animate");
+      // Header animations
+      headers.forEach((header) => {
+        const titleElements = header.querySelectorAll(".blur-animate");
 
-    gsap.fromTo(
-      titleElements,
-      {
-        opacity: 0,
-        filter: "blur(8px)",
-        y: 20,
-      },
-      {
-        opacity: 1,
-        filter: "blur(0px)",
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "sine.out",
-        scrollTrigger: {
-          trigger: header,
-          start: "top bottom-=300",
-          toggleActions: "play complete none none",
-          markers: true,
-        },
-      }
-    );
+        gsap.fromTo(
+          titleElements,
+          {
+            opacity: 0,
+            filter: "blur(8px)",
+            y: 20,
+          },
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            y: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "sine.out",
+            scrollTrigger: {
+              trigger: header,
+              start: "top bottom-=300",
+              toggleActions: "play complete none none",
+              markers: false,
+            },
+          }
+        );
+      });
+
+      // Image container animations
+      projectContainers.forEach((container) => {
+        gsap.fromTo(
+          container,
+          {
+            opacity: 0,
+            filter: "blur(8px)",
+            y: 30,
+          },
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            y: 0,
+            duration: 1,
+            ease: "sine.out",
+            scrollTrigger: {
+              trigger: container,
+              start: "top bottom-=100",
+              toggleActions: "play complete none none",
+            },
+          }
+        );
+      });
+    }, 1500); // Wait 1.5s for main page animations
   });
-</script>
+</script> -->

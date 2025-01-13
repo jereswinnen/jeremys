@@ -45,7 +45,7 @@ export default {
         circle: "circle",
       },
       transitionTimingFunction: {
-        "ease-in-circ": "cubic-bezier(0.6, 0.04, 0.98, 0.335)",
+        "ease-in-circ": "cubic-bezier(0.77, 0, 0.175, 1)", //cubic-bezier(0.6, 0.04, 0.98, 0.335)
       },
     },
   },

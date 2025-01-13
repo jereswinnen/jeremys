@@ -9,17 +9,8 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const {
-  name,
-  tagline,
-  description,
-  heroImage,
-  themeColor,
-  role,
-  artwork,
-  details,
-  externalLink,
-} = project.data;
+const { name, tagline, description, themeColor, role, artwork, details } =
+  project.data;
 ---
 
 <MasterLayout title={name}>
@@ -27,7 +18,7 @@ const {
     <!-- Hero Section -->
     <header class="mb-16">
       <Image
-        src={getProjectImagePath(name, heroImage)}
+        src={getProjectImagePath(name)}
         alt={name}
         width={1200}
         height={800}
@@ -48,17 +39,6 @@ const {
             ))
           }
         </div>
-        {
-          externalLink && (
-            <a
-              href={externalLink}
-              class="inline-flex items-center text-lg font-medium transition-colors"
-              style={`color: ${themeColor}`}
-            >
-              Visit Project →
-            </a>
-          )
-        }
       </div>
     </header>
 

@@ -12,16 +12,10 @@
 const { class: className, ...rest } = Astro.props;
 ---
 
-<header class:list={["flex justify-between items-center", className]} {...rest}>
-  <div class="flex gap-2 items-center">
-    <a href="/" class="!hover:opacity-80 hidden">
-      <img src="/branding.svg" alt="Jeremy Swinnen" class="h-6 w-auto" />
-    </a>
-    <div class="flex items-center gap-1.5 font-medium">
-      <a href="/"><p>Jeremy Swinnen</p></a>
-      <p class="opacity-20">/</p>
-      <p>Software Designer</p>
-    </div>
+<header class:list={["", className]} {...rest}>
+  <div class="z-20 col-span-10 col-start-2 flex-col gap-2">
+    <h1>Jeremy Swinnen</h1>
+    <p class="hidden">Software Designer</p>
   </div>
   <!-- <nav>
     <ul class="flex gap-6 font-medium">

@@ -19,8 +19,11 @@ const { title, description } = Astro.props;
   <body
     class="o-container font-sans pt-8 dark:bg-slate-950 text-slate-950 dark:text-white/85"
   >
-    <div class="o-grid">
-      <Header class="col-span-full" />
+    <div class="o-grid relative">
+      <Header
+        class="backBlur o-grid-inner w-full py-8 fixed left-0 bottom-0 z-10"
+      />
+
       <Nav class="col-span-full" />
 
       <main class="o-grid-inner">

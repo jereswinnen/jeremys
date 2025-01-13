@@ -85,7 +85,7 @@ const getImageClasses = (index: number) => {
     {
       artwork.map((art: Artwork, index: number) => (
         <div
-          class={`${getImageClasses(index)} bg-red-400 p-[calc(1rem+0.75vmax)] h-fit flex flex-col`}
+          class={`${getImageClasses(index)} bg-zinc-100 p-[calc(1rem+0.75vmax)] h-fit flex flex-col`}
         >
           <Image
             src={getProjectImagePath(name, art.src)}

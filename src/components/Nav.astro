@@ -1,0 +1,33 @@
+---
+const navItems = [
+  { path: "/", label: "Work" },
+  { path: "/feed", label: "Feed" },
+  { path: "/profile", label: "Profile" },
+  { path: "/contact", label: "Contact" },
+];
+
+// Get current path to highlight active link
+const currentPath = Astro.url.pathname;
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<nav>
+  <ul class="flex gap-6 font-medium">
+    {
+      navItems.map(({ path, label }) => (
+        <li>
+          <a
+            href={path}
+            class:list={[
+              "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-black/60",
+              currentPath === path && "!text-black dark:!text-white",
+            ]}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

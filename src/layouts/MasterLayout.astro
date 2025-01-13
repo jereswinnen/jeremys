@@ -17,17 +17,17 @@ const { title, description } = Astro.props;
     {description && <meta name="description" content={description} />}
   </head>
   <body
-    class="o-container font-sans pt-8 dark:bg-zinc-950 text-zinc-950 dark:text-white/85"
+    class="o-container font-sans pt-6 dark:bg-zinc-950 text-zinc-950 dark:text-white/85"
   >
     <div class="o-grid">
       <Header
         data-header
-        class="backBlur o-grid-inner w-full py-8 fixed left-0 bottom-0 z-10"
+        class="o-grid-inner z-10"
         style="opacity: 0; filter: blur(8px); transform: translateY(30px);"
       />
       <Nav
         data-nav
-        class="col-span-full"
+        class="col-span-full z-10"
         style="opacity: 0; filter: blur(8px); transform: translateY(-30px);"
       />
       <main

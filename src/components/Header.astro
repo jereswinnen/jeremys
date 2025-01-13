@@ -12,10 +12,17 @@
 const { class: className, ...rest } = Astro.props;
 ---
 
-<header class:list={["", className]} {...rest}>
-  <div class="z-20 col-span-10 col-start-2 flex-col gap-2">
+<header
+  class:list={["backBlur w-full py-8 fixed left-0 bottom-0", className]}
+  {...rest}
+>
+  <div class="z-20 col-span-4 col-start-2 flex-col gap-2">
     <h1>Jeremy Swinnen</h1>
-    <p class="hidden">Software Designer</p>
+    <h3 class="opacity-70">
+      Designer and developer from Belgium with 15+ years of experience in
+      digital product design. Passionate about creating user-focused solutions
+      and collaborating with people around the globe.
+    </h3>
   </div>
   <!-- <nav>
     <ul class="flex gap-6 font-medium">

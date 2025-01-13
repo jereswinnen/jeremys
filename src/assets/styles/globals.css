@@ -53,10 +53,10 @@
     font-variation-settings: "wght" 300;
   }
   .font-normal {
-    font-variation-settings: "wght" 430;
+    font-variation-settings: "wght" 370;
   }
   .font-medium {
-    font-variation-settings: "wght" 550;
+    font-variation-settings: "wght" 500;
   }
   .font-semibold {
     font-variation-settings: "wght" 600;
@@ -98,6 +98,10 @@
 h1 {
   font: 800 6rem var(--t-stack-sans);
   letter-spacing: -0.035em;
+}
+
+h3 {
+  font: 370 1.25rem var(--t-stack-sans);
 }
 
 .backBlur:after {

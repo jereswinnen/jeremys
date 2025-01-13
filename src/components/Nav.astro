@@ -3,7 +3,8 @@ const navItems = [
   { path: "/", label: "Work" },
   { path: "/feed", label: "Feed" },
   { path: "/profile", label: "Profile" },
-  { path: "/contact", label: "Contact" },
+  // { path: "/contact", label: "Contact" },
+  { path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
 ];
 
 // Get current path to highlight active link
@@ -12,16 +13,17 @@ const currentPath = Astro.url.pathname;
 const { class: className, ...rest } = Astro.props;
 ---
 
-<nav class:list={["", className]} {...rest}>
-  <ul class="flex gap-6 font-medium">
+<nav class:list={["sticky py-2 top-0 font-mono", className]} {...rest}>
+  <ul class="flex justify-end gap-6">
     {
       navItems.map(({ path, label }) => (
         <li>
           <a
             href={path}
             class:list={[
-              "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-black/60",
-              currentPath === path && "!text-black dark:!text-white",
+              "uppercase text-sm font-normal hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-black/60",
+              currentPath === path &&
+                "px-1 !text-white !bg-zinc-950 dark:!text-zinc-950 dark:!bg-white",
             ]}
           >
             {label}

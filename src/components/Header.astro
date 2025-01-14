@@ -1,39 +1,35 @@
 ---
-// const navItems = [
-//   { path: "/", label: "Work" },
-//   { path: "/feed", label: "Feed" },
-//   { path: "/profile", label: "Profile" },
-//   { path: "/contact", label: "Contact" },
-// ];
+const navItems = [
+  { path: "/", label: "Work" },
+  { path: "/feed", label: "Feed" },
+  { path: "/profile", label: "Profile" },
+  // { path: "/contact", label: "Contact" },
+  { path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
+];
 
-// // Get current path to highlight active link
-// const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname;
 
 const { class: className, ...rest } = Astro.props;
 ---
 
-<header
-  class:list={["backBlur w-full py-8 fixed left-0 bottom-0", className]}
-  {...rest}
->
-  <div class="z-20 col-span-4 col-start-2 flex-col gap-2">
-    <h1>Jeremy Swinnen</h1>
-    <h3 class="opacity-70">
-      Designer and developer from Belgium with 15+ years of experience in
-      digital product design. Passionate about creating user-focused solutions
-      and collaborating with people around the globe.
-    </h3>
-  </div>
-  <!-- <nav>
-    <ul class="flex gap-6 font-medium">
+<header class:list={["flex-col gap-2", className]} {...rest}>
+  <h1>Jeremy Swinnen</h1>
+  <h3 class="opacity-70">
+    Designer and developer from Belgium with 15+ years of experience in digital
+    product design. Passionate about creating user-focused solutions and
+    collaborating with people around the globe.
+  </h3>
+  <nav class="font-mono">
+    <ul class="flex gap-6">
       {
         navItems.map(({ path, label }) => (
           <li>
             <a
               href={path}
               class:list={[
-                "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-black/60",
-                currentPath === path && "!text-black dark:!text-white",
+                "uppercase text-sm font-normal hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-black/60",
+                currentPath === path &&
+                  "px-1 !text-white !bg-zinc-950 dark:!text-zinc-950 dark:!bg-white",
               ]}
             >
               {label}
@@ -42,5 +38,5 @@ const { class: className, ...rest } = Astro.props;
         ))
       }
     </ul>
-  </nav> -->
+  </nav>
 </header>

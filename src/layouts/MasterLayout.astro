@@ -1,7 +1,6 @@
 ---
 import "../assets/styles/globals.css";
 import Header from "../components/Header.astro";
-import Nav from "../components/Nav.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -22,18 +21,13 @@ const { title, description } = Astro.props;
     <div class="o-grid">
       <Header
         data-header
-        class="o-grid-inner z-10"
-        style="opacity: 0; filter: blur(8px); transform: translateY(30px);"
-      />
-      <Nav
-        data-nav
-        class="col-span-full z-10"
-        style="opacity: 0; filter: blur(8px); transform: translateY(-30px);"
+        class="col-span-full"
+        style="opacity: 1; filter: blur(0px); transform: translateY(30px);"
       />
       <main
         data-main
         class="o-grid-inner"
-        style="opacity: 0; filter: blur(8px); transform: translateY(-30px);"
+        style="opacity: 1; filter: blur(0px); transform: translateY(-30px);"
       >
         <slot />
       </main>
@@ -41,16 +35,15 @@ const { title, description } = Astro.props;
   </body>
 </html>
 
-<script>
+<!-- <script>
   import { gsap } from "gsap";
 
   window.addEventListener("load", () => {
     setTimeout(() => {
       const header = document.querySelector("[data-header]");
-      const nav = document.querySelector("[data-nav]");
       const main = document.querySelector("[data-main]");
 
-      [header, nav, main].forEach((el) => {
+      [header, main].forEach((el) => {
         if (el) el.removeAttribute("style");
       });
 
@@ -66,42 +59,27 @@ const { title, description } = Astro.props;
         {
           y: 30,
           opacity: 0,
-          // filter: "blur(8px)",
+          filter: "blur(8px)",
         },
         {
           y: 0,
           opacity: 1,
-          // filter: "blur(0px)",
+          filter: "blur(0px)",
         }
-      )
-        .fromTo(
-          main,
-          {
-            y: -30,
-            opacity: 0,
-            filter: "blur(8px)",
-          },
-          {
-            y: 0,
-            opacity: 1,
-            filter: "blur(0px)",
-          },
-          "-=0.5"
-        )
-        .fromTo(
-          nav,
-          {
-            y: -30,
-            opacity: 0,
-            filter: "blur(8px)",
-          },
-          {
-            y: 0,
-            opacity: 1,
-            filter: "blur(0px)",
-          },
-          "-=0.5"
-        );
+      ).fromTo(
+        main,
+        {
+          y: -30,
+          opacity: 0,
+          filter: "blur(8px)",
+        },
+        {
+          y: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+        },
+        "-=0.5"
+      );
     }, 300);
   });
-</script>
+</script> -->

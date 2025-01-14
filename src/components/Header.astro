@@ -16,7 +16,7 @@ const { class: className, ...rest } = Astro.props;
   class:list={["mb-12 flex items-center font-display uppercase", className]}
   {...rest}
 >
-  <span class="flex-1 text-zinc-950/60">Software Designer</span>
+  <span class="flex-1 opacity-60">Software Designer</span>
   <a href="/">
     <img class="w-6 h-auto" src="branding.svg" alt="Jeremy Swinnen" />
   </a>
@@ -28,9 +28,9 @@ const { class: className, ...rest } = Astro.props;
             <a
               href={path}
               class:list={[
-                "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-zinc-950/60",
+                "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 opacity-60",
                 currentPath === path &&
-                  "font-medium !text-zinc-950 dark:!text-white",
+                  "font-medium !text-zinc-950 dark:!text-white opacity-100",
               ]}
             >
               {label}

@@ -1,8 +1,7 @@
 ---
 import "../assets/styles/globals.css";
-import Header from "../components/Header.astro";
 
-const { title, description } = Astro.props;
+const { title, description, layout } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,19 +17,8 @@ const { title, description } = Astro.props;
   <body
     class="o-container font-sans pt-6 dark:bg-zinc-950 text-zinc-950 dark:text-white/85"
   >
-    <div class="o-grid">
-      <Header
-        data-header
-        class="col-span-full"
-        style="opacity: 1; filter: blur(0px); transform: translateY(30px);"
-      />
-      <main
-        data-main
-        class="o-grid-inner"
-        style="opacity: 1; filter: blur(0px); transform: translateY(-30px);"
-      >
-        <slot />
-      </main>
+    <div class={`o-grid ${layout}`}>
+      <slot />
     </div>
   </body>
 </html>

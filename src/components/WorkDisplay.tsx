@@ -42,7 +42,7 @@ export default function WorkDisplay({ work, className }: WorkDisplayProps) {
   );
 
   return (
-    <div className={`bg-emerald-100 ${className || ""}`}>
+    <div className={`bg-emerald-10 ${className || ""}`}>
       <div
         ref={ref}
         {...events}

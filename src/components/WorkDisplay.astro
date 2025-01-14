@@ -1,9 +1,0 @@
----
-import { getCollection } from "astro:content";
-import WorkDisplayReact from "./WorkDisplay";
-
-const work = await getCollection("work");
-const { class: className, ...rest } = Astro.props;
----
-
-<WorkDisplayReact work={work} className={className} client:load />

@@ -17,7 +17,6 @@ export default function WorkDisplay({ work, className }: WorkDisplayProps) {
     decayRate: 0.95,
   });
 
-  // Sort work items (keeping your original sorting logic)
   const sortedWork = [...work].sort((a, b) => {
     const orderA = [
       "gamepal",
@@ -40,7 +39,6 @@ export default function WorkDisplay({ work, className }: WorkDisplayProps) {
     return orderA - orderB;
   });
 
-  // Prepare images array
   const allImages = sortedWork.flatMap((project) =>
     project.data.artwork.map((art: any) => ({
       ...art,

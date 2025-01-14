@@ -58,7 +58,7 @@ export default function WorkDisplay({ work, className }: WorkDisplayProps) {
             src={getProjectImagePath(image.projectName, image.src)}
             alt={image.caption || `Image from ${image.projectName}`}
             loading="lazy"
-            className="pointer-events-none max-h-[60vh] object-contain select-none"
+            className="pointer-events-none flex-none max-h-[60vh] object-contain select-none"
           />
         ))}
       </div>

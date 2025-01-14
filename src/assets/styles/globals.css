@@ -86,7 +86,7 @@
   /* Grid configuration */
   --u-grid-columns: 12;
   --u-grid-gap: 2rem;
-  --u-container-padding: 2rem;
+  --u-container-padding: 20px; /* 2rem */
   --u-container-max-width: 95rem; /* 1520px */
 
   /* Breakpoints */

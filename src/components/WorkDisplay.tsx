@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, type RefObject } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 import type { CollectionEntry } from "astro:content";
 import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
@@ -9,10 +9,8 @@ interface WorkDisplayProps {
 }
 
 export default function WorkDisplay({ work, className }: WorkDisplayProps) {
-  const ref = useRef<HTMLDivElement>(
-    null
-  ) as React.MutableRefObject<HTMLDivElement>;
-  const { events } = useDraggable(ref, {
+  const ref = useRef<HTMLDivElement>(null);
+  const { events } = useDraggable(ref as RefObject<HTMLDivElement>, {
     applyRubberBandEffect: true,
     decayRate: 0.95,
   });

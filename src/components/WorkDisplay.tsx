@@ -47,6 +47,11 @@ export default function WorkDisplay({ work, className }: WorkDisplayProps) {
 
   return (
     <div className={`bg-emerald-100 ${className || ""}`}>
+      <div className="pointer-events-none absolute flex items-end h-full">
+        <span className="font-bold text-[130px] text-white mix-blend-difference">
+          Work
+        </span>
+      </div>
       <div
         ref={ref}
         {...events}

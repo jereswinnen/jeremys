@@ -1,6 +1,9 @@
 ---
 import Brand from "./Brand.astro";
 
+const { class: className, ...rest } = Astro.props;
+const currentPath = Astro.url.pathname;
+
 const navItems = [
   { path: "/", label: "Work" },
   { path: "/feed", label: "Feed" },
@@ -8,9 +11,6 @@ const navItems = [
   // { path: "/contact", label: "Contact" },
   { path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
 ];
-
-const { class: className, ...rest } = Astro.props;
-const currentPath = Astro.url.pathname;
 ---
 
 <header

@@ -10,13 +10,14 @@ interface WorkDisplayProps {
 
 export default function WorkDisplay({ work, className }: WorkDisplayProps) {
   const ref = useRef<HTMLDivElement>(null);
+
   const { events } = useDraggable(ref as RefObject<HTMLDivElement>, {
     applyRubberBandEffect: true,
     decayRate: 0.95,
   });
 
   const sortedWork = [...work].sort((a, b) => {
-    const orderA = [
+    const order = [
       "gamepal",
       "helpper",
       "scorecard",
@@ -24,16 +25,11 @@ export default function WorkDisplay({ work, className }: WorkDisplayProps) {
       "shelf",
       "immo brown",
       "diabetik",
-    ].indexOf(a.data.name.toLowerCase());
-    const orderB = [
-      "gamepal",
-      "helpper",
-      "scorecard",
-      "realo",
-      "shelf",
-      "immo brown",
-      "diabetik",
-    ].indexOf(b.data.name.toLowerCase());
+    ];
+
+    const orderA = order.indexOf(a.data.name.toLowerCase());
+    const orderB = order.indexOf(b.data.name.toLowerCase());
+
     return orderA - orderB;
   });
 
@@ -47,25 +43,29 @@ export default function WorkDisplay({ work, className }: WorkDisplayProps) {
 
   return (
     <div className={`bg-emerald-100 ${className || ""}`}>
-      <div className="pointer-events-none absolute flex items-end h-full">
-        <span className="font-bold text-[130px] text-white mix-blend-difference">
-          Work
-        </span>
-      </div>
       <div
         ref={ref}
         {...events}
         className="flex gap-4 no-scrollbar overflow-x-scroll cursor-grab active:cursor-grabbing"
       >
-        {allImages.map((image, index) => (
-          <img
-            key={index}
-            src={getProjectImagePath(image.projectName, image.src)}
-            alt={image.caption || `Image from ${image.projectName}`}
-            loading="lazy"
-            className="pointer-events-none flex-none max-h-[60vh] object-contain select-none"
-          />
-        ))}
+        {allImages.map((image, index) => {
+          const basePath = getProjectImagePath(
+            image.projectName,
+            image.src
+          ).replace(/\.[^/.]+$/, "");
+          return (
+            <picture key={index} className="flex-none">
+              <source srcSet={`${basePath}.avif`} type="image/avif" />
+              <source srcSet={`${basePath}.webp`} type="image/webp" />
+              <img
+                src={`${basePath}.png`}
+                alt={image.caption || `Image from ${image.projectName}`}
+                loading="lazy"
+                className="pointer-events-none max-h-[60vh] object-contain select-none"
+              />
+            </picture>
+          );
+        })}
       </div>
     </div>
   );

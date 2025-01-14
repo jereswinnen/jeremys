@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        brandOrange: "#FF5701",
+        brandLightGreen: "#B6ED3F",
+        brandDarkGreen: "#04704E",
       },
       fontFamily: {
         sans: [

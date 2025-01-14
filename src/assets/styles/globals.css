@@ -127,16 +127,16 @@ a:hover {
 /* Container */
 .o-container {
   max-width: var(--u-container-max-width);
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 0 var(--u-container-padding);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .o-container {
     padding-left: var(--u-container-padding);
     padding-right: var(--u-container-padding);
   }
-}
+} */
 
 /* Grid Layout */
 .o-grid {

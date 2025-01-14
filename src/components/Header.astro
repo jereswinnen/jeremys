@@ -12,14 +12,18 @@ const currentPath = Astro.url.pathname;
 const { class: className, ...rest } = Astro.props;
 ---
 
-<header class:list={["flex-col gap-2", className]} {...rest}>
-  <h1 class="font-display">Jeremy Swinnen</h1>
-  <h3 class="opacity-70">
-    Designer and developer from Belgium with 15+ years of experience in digital
-    product design. Passionate about creating user-focused solutions and
-    collaborating with people around the globe.
-  </h3>
-  <nav class="font-mono">
+<header
+  class:list={[
+    "mb-12 flex justify-between items-center font-display uppercase",
+    className,
+  ]}
+  {...rest}
+>
+  <span>Software Designer</span>
+  <a href="/">
+    <img class="w-6 h-auto" src="branding.svg" alt="Jeremy Swinnen" />
+  </a>
+  <nav>
     <ul class="flex gap-6">
       {
         navItems.map(({ path, label }) => (
@@ -27,9 +31,9 @@ const { class: className, ...rest } = Astro.props;
             <a
               href={path}
               class:list={[
-                "uppercase text-sm font-normal hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-black/60",
+                "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-black/60",
                 currentPath === path &&
-                  "px-1 !text-white !bg-zinc-950 dark:!text-zinc-950 dark:!bg-white",
+                  "font-medium !text-zinc-950 dark:!text-white",
               ]}
             >
               {label}

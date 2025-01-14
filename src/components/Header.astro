@@ -13,17 +13,14 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <header
-  class:list={[
-    "mb-12 flex justify-between items-center font-display uppercase",
-    className,
-  ]}
+  class:list={["mb-12 flex items-center font-display uppercase", className]}
   {...rest}
 >
-  <span>Software Designer</span>
+  <span class="flex-1 text-zinc-950/60">Software Designer</span>
   <a href="/">
     <img class="w-6 h-auto" src="branding.svg" alt="Jeremy Swinnen" />
   </a>
-  <nav>
+  <nav class="flex-1 flex justify-end">
     <ul class="flex gap-6">
       {
         navItems.map(({ path, label }) => (
@@ -31,7 +28,7 @@ const { class: className, ...rest } = Astro.props;
             <a
               href={path}
               class:list={[
-                "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-black/60",
+                "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 text-zinc-950/60",
                 currentPath === path &&
                   "font-medium !text-zinc-950 dark:!text-white",
               ]}

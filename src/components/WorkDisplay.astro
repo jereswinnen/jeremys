@@ -1,54 +1,9 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
+import WorkDisplayReact from "./WorkDisplay";
 
 const work = await getCollection("work");
 const { class: className, ...rest } = Astro.props;
-
-const sortedWork = work.sort((a, b) => {
-  const orderA = [
-    "gamepal",
-    "helpper",
-    "scorecard",
-    "realo",
-    "shelf",
-    "immo brown",
-    "diabetik",
-  ].indexOf(a.data.name.toLowerCase());
-  const orderB = [
-    "gamepal",
-    "helpper",
-    "scorecard",
-    "realo",
-    "shelf",
-    "immo brown",
-    "diabetik",
-  ].indexOf(b.data.name.toLowerCase());
-  return orderA - orderB;
-});
-
-const allImages = sortedWork.flatMap((project) =>
-  project.data.artwork.map((art: any) => ({
-    ...art,
-    projectName: project.data.name,
-    projectUrl: `/work/${formatProjectSlug(project.data.name)}`,
-  }))
-);
 ---
 
-<div class:list={["bg-emerald-100", className]} {...rest}>
-  <div class="flex gap-4 overflow-x-auto cursor-grab active:cursor-grabbing">
-    {
-      allImages.map((image) => (
-        <Image
-          src={getProjectImagePath(image.projectName, image.src)}
-          alt={image.caption || `Image from ${image.projectName}`}
-          width={800}
-          height={600}
-          class="max-h-[60vh] object-contain"
-        />
-      ))
-    }
-  </div>
-</div>
+<WorkDisplayReact work={work} className={className} client:load />

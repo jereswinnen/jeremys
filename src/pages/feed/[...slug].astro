@@ -17,11 +17,11 @@ export async function getStaticPaths() {
   );
 
   return [
-    ...notes.map((entry) => ({
+    ...notes.map((entry: any) => ({
       params: { slug: entry.slug },
       props: { entry },
     })),
-    ...links.map((entry) => ({
+    ...links.map((entry: any) => ({
       params: { slug: `links/${entry.slug}` },
       props: { entry },
     })),

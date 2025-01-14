@@ -4,7 +4,9 @@ import ProjectImageScroll from "../components/ProjectImageScroll.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import { getCollection } from "astro:content";
 import type { ImageLayout } from "../types/project";
-import WorkDisplay from "../components/WorkDisplay.astro";
+import WorkDisplay from "../components/WorkDisplay";
+
+const work = await getCollection("work");
 
 // const work = await getCollection("work");
 
@@ -118,7 +120,7 @@ import WorkDisplay from "../components/WorkDisplay.astro";
 <MasterLayout>
   <!-- <ProjectImageScroll class="o-grid-bleed col-span-full" work={work} /> -->
 
-  <WorkDisplay class="o-grid-bleed col-span-full" />
+  <WorkDisplay work={work} className="o-grid-bleed col-span-full" client:load />
 
   <article class="hidden col-start-2 col-end-7">
     <h1>This is some text for the homepage</h1>

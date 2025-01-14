@@ -5,38 +5,38 @@
 @layer base {
   @supports (font-variation-settings: normal) {
     @font-face {
-      font-family: "GeistSans";
+      font-family: "GolosText";
       font-style: normal;
       font-weight: 100 900;
       font-display: swap;
-      src: url("/fonts/GeistSans.woff2") format("woff2");
+      src: url("/fonts/GolosText.woff2") format("woff2");
       font-named-instance: "Regular";
     }
 
     @font-face {
-      font-family: "GeistSans";
+      font-family: "GolosText";
       font-style: italic;
       font-weight: 100 900;
       font-display: swap;
-      src: url("/fonts/GeistSans.woff2") format("woff2");
+      src: url("/fonts/GolosText.woff2") format("woff2");
       font-named-instance: "Italic";
     }
 
     @font-face {
-      font-family: "GeistMono";
+      font-family: "Secuela";
       font-style: normal;
       font-weight: 100 900;
       font-display: swap;
-      src: url("/fonts/GeistMono.woff2") format("woff2");
+      src: url("/fonts/Secuela.woff2") format("woff2");
       font-named-instance: "Regular";
     }
 
     @font-face {
-      font-family: "GeistMono";
+      font-family: "SecuelaItalic";
       font-style: italic;
       font-weight: 100 900;
       font-display: swap;
-      src: url("/fonts/GeistMono.woff2") format("woff2");
+      src: url("/fonts/SecuelaItalic.woff2") format("woff2");
       font-named-instance: "Italic";
     }
   }
@@ -53,10 +53,10 @@
     font-variation-settings: "wght" 300;
   }
   .font-normal {
-    font-variation-settings: "wght" 370;
+    font-variation-settings: "wght" 400;
   }
   .font-medium {
-    font-variation-settings: "wght" 500;
+    font-variation-settings: "wght" 470;
   }
   .font-semibold {
     font-variation-settings: "wght" 600;
@@ -86,7 +86,11 @@
   --u-breakpoint-xl: 1280px;
 
   /* Typography */
-  --t-stack-sans: "GeistSans", "system-ui", "-apple-system",
+  --t-stack-sans: "GolosText", "system-ui", "-apple-system",
+    "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial",
+    "sans-serif";
+
+  --t-stack-display: "Secuela", "system-ui", "-apple-system",
     "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial",
     "sans-serif";
 
@@ -96,12 +100,9 @@
 
 /* Base Typography */
 h1 {
-  font: 800 6rem var(--t-stack-sans);
-  letter-spacing: -0.035em;
 }
 
 h3 {
-  font: 370 1.25rem var(--t-stack-sans);
 }
 
 .backBlur:after {

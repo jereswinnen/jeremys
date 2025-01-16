@@ -1,7 +1,11 @@
 ---
 import MasterLayout from "../../layouts/MasterLayout.astro";
+import Header from "../../components/Header.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+
+const title = "Notes";
+const theme = "bg-orange-500";
 
 type NoteEntry = CollectionEntry<"notes">;
 type LinkEntry = CollectionEntry<"links">;
@@ -51,60 +55,63 @@ const formatTime = (date: Date) => {
 };
 ---
 
-<MasterLayout title="Notes">
-  <div class="max-w-2xl mx-auto py-8">
-    <h1 class="text-3xl font-bold mb-12">Notes & Links</h1>
+<MasterLayout theme={theme} title={title}>
+  <Header class="col-span-full bg-indigo-40" />
+  <main class="o-grid-inner content-center bg-slate-30">
+    <div class="max-w-2xl mx-auto py-8">
+      <h1 class="text-3xl font-bold mb-12">Notes & Links</h1>
 
-    {
-      Object.entries(contentByDate).map(([date, entries]) => (
-        <section class="mb-12">
-          <h2 class="text-xl font-semibold mb-6 opacity-70">{date}</h2>
-          <div class="space-y-8">
-            {(entries as ContentEntry[]).map((entry) => (
-              <article class="border-b border-black/30 dark:border-white/30 pb-8">
-                <div class="flex items-baseline gap-4 mb-2">
-                  <time
-                    datetime={entry.data.publishDate.toISOString()}
-                    class="text-sm opacity-70"
-                  >
+      {
+        Object.entries(contentByDate).map(([date, entries]) => (
+          <section class="mb-12">
+            <h2 class="text-xl font-semibold mb-6 opacity-70">{date}</h2>
+            <div class="space-y-8">
+              {(entries as ContentEntry[]).map((entry) => (
+                <article class="border-b border-black/30 dark:border-white/30 pb-8">
+                  <div class="flex items-baseline gap-4 mb-2">
+                    <time
+                      datetime={entry.data.publishDate.toISOString()}
+                      class="text-sm opacity-70"
+                    >
+                      {entry.collection === "links" ? (
+                        <a
+                          href={`/feed/links/${entry.slug}`}
+                          class="hover:text-brandOrange"
+                        >
+                          {formatTime(entry.data.publishDate)}
+                        </a>
+                      ) : (
+                        formatTime(entry.data.publishDate)
+                      )}
+                    </time>
                     {entry.collection === "links" ? (
                       <a
-                        href={`/feed/links/${entry.slug}`}
-                        class="hover:text-brandOrange"
+                        href={entry.data.url}
+                        class="text-lg font-medium hover:text-brandOrange"
                       >
-                        {formatTime(entry.data.publishDate)}
+                        {entry.data.title} →
                       </a>
                     ) : (
-                      formatTime(entry.data.publishDate)
+                      <a
+                        href={`/feed/${entry.slug}`}
+                        class="text-lg font-medium hover:text-brandOrange"
+                      >
+                        {entry.data.title}
+                      </a>
                     )}
-                  </time>
-                  {entry.collection === "links" ? (
-                    <a
-                      href={entry.data.url}
-                      class="text-lg font-medium hover:text-brandOrange"
-                    >
-                      {entry.data.title} →
-                    </a>
-                  ) : (
-                    <a
-                      href={`/feed/${entry.slug}`}
-                      class="text-lg font-medium hover:text-brandOrange"
-                    >
-                      {entry.data.title}
-                    </a>
+                  </div>
+                  {entry.collection === "links" && entry.data.note && (
+                    <p class="opacity-70">{entry.data.note}</p>
                   )}
-                </div>
-                {entry.collection === "links" && entry.data.note && (
-                  <p class="opacity-70">{entry.data.note}</p>
-                )}
-                {entry.collection === "notes" && entry.data.description && (
-                  <p class="opacity-70">{entry.data.description}</p>
-                )}
-              </article>
-            ))}
-          </div>
-        </section>
-      ))
-    }
-  </div>
+                  {entry.collection === "notes" && entry.data.description && (
+                    <p class="opacity-70">{entry.data.description}</p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </main>
 </MasterLayout>

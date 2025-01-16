@@ -8,7 +8,10 @@ interface WorkDisplayProps {
   className?: string;
 }
 
-export default function WorkDisplay({ work, className }: WorkDisplayProps) {
+export default function WorkDisplay({
+  work,
+  className = "",
+}: WorkDisplayProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   const { events } = useDraggable(scrollerRef as RefObject<HTMLDivElement>, {
@@ -114,9 +117,9 @@ export default function WorkDisplay({ work, className }: WorkDisplayProps) {
   );
 
   return (
-    <div className={`${className || ""}`}>
+    <div className={`${className} flex flex-col gap-6`}>
       {/* Project Names Array */}
-      <div className="flex flex-wrap gap-4 md:gap-7 mb-4 overflow-x-auto no-scrollbar px-4">
+      <div className="flex flex-wrap justify-center gap-4 md:gap-7 overflow-x-auto no-scrollbar px-4">
         {allProjects.map((project) => (
           <button
             key={project.data.name}

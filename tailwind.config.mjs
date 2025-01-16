@@ -9,7 +9,7 @@ export default {
       },
       fontFamily: {
         sans: [
-          "GolosText",
+          "Commissioner",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",

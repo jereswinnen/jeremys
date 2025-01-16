@@ -5,20 +5,20 @@
 @layer base {
   @supports (font-variation-settings: normal) {
     @font-face {
-      font-family: "GolosText";
+      font-family: "Commissioner";
       font-style: normal;
       font-weight: 100 900;
       font-display: swap;
-      src: url("/fonts/GolosText.woff2") format("woff2");
+      src: url("/fonts/Commissioner.woff2") format("woff2");
       font-named-instance: "Regular";
     }
 
     @font-face {
-      font-family: "GolosText";
+      font-family: "Commissioner";
       font-style: italic;
       font-weight: 100 900;
       font-display: swap;
-      src: url("/fonts/GolosText.woff2") format("woff2");
+      src: url("/fonts/Commissioner.woff2") format("woff2");
       font-named-instance: "Italic";
     }
 

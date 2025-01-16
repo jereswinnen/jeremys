@@ -1,12 +1,14 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
+import Header from "../components/Header.astro";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
+  theme: string;
   entry: CollectionEntry<"notes"> | CollectionEntry<"links">;
 }
 
-const { entry } = Astro.props;
+const { theme, entry } = Astro.props;
 const { Content } = await entry.render();
 
 const title = entry.data.title;
@@ -24,30 +26,33 @@ const formattedTime = date.toLocaleTimeString("nl-BE", {
 });
 ---
 
-<MasterLayout title={title}>
-  <article class="max-w-2xl mx-auto py-8">
-    <header class="mb-8">
-      <h1 class="text-3xl font-bold mb-2">{title}</h1>
-      <time datetime={date.toISOString()} class="opacity-70">
-        {formattedDate} at {formattedTime}
-      </time>
-    </header>
+<MasterLayout theme={theme} title={title}>
+  <Header class="col-span-full bg-indigo-40" />
+  <main class="o-grid-inner content-center bg-slate-30">
+    <article class="max-w-2xl mx-auto py-8">
+      <header class="mb-8">
+        <h1 class="text-3xl font-bold mb-2">{title}</h1>
+        <time datetime={date.toISOString()} class="opacity-70">
+          {formattedDate} at {formattedTime}
+        </time>
+      </header>
 
-    {
-      "url" in entry.data ? (
-        <div class="prose">
-          <p class="mb-4">
-            <a href={entry.data.url} class="text-blue-600 hover:underline">
-              Visit linked article →
-            </a>
-          </p>
-          {entry.data.note && <p class="opacity-70">{entry.data.note}</p>}
-        </div>
-      ) : (
-        <div class="prose">
-          <Content />
-        </div>
-      )
-    }
-  </article>
+      {
+        "url" in entry.data ? (
+          <div class="prose">
+            <p class="mb-4">
+              <a href={entry.data.url} class="text-blue-600 hover:underline">
+                Visit linked article →
+              </a>
+            </p>
+            {entry.data.note && <p class="opacity-70">{entry.data.note}</p>}
+          </div>
+        ) : (
+          <div class="prose">
+            <Content />
+          </div>
+        )
+      }
+    </article>
+  </main>
 </MasterLayout>

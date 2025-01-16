@@ -29,6 +29,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const theme = entry.data.theme ?? "";
 ---
 
-<FeedEntryLayout entry={entry} />
+<FeedEntryLayout theme={theme} entry={entry} />

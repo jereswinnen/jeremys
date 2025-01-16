@@ -37,6 +37,7 @@ const work = defineCollection({
 const notes = defineCollection({
   type: "content",
   schema: z.object({
+    theme: z.string().optional(),
     title: z.string(),
     publishDate: z.date(),
     description: z.string().optional(),
@@ -48,6 +49,7 @@ const notes = defineCollection({
 const links = defineCollection({
   type: "content",
   schema: z.object({
+    theme: z.string().optional(),
     title: z.string(),
     publishDate: z.date(),
     url: z.string().url(),

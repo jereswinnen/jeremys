@@ -23,6 +23,7 @@ export default function WorkDisplay({
     decayRate: 0.96,
   });
 
+  // Sort logic (unchanged)
   const sortedWork = [...work].sort((a, b) => {
     const order = [
       "gamepal",
@@ -33,80 +34,77 @@ export default function WorkDisplay({
       "immo brown",
       "diabetik",
     ];
-
     const orderA = order.indexOf(a.data.name.toLowerCase());
     const orderB = order.indexOf(b.data.name.toLowerCase());
-
     return orderA - orderB;
   });
 
   const allProjects = sortedWork;
-
-  // State to track the currently visible project
   const [currentProject, setCurrentProject] = useState<string>(
     allProjects[0]?.data.name || ""
   );
 
-  // Refs for the first image of each project
+  // Store refs to the first image of each project
   const projectFirstImageRefs = useRef<Record<string, HTMLImageElement | null>>(
     {}
   );
 
+  // Intersection Observer to track the "most visible" project
   useEffect(() => {
     const options = {
       root: scrollerRef.current,
-      rootMargin: "0px",
-      threshold: 0.5, // 50% of the first image should be visible to trigger
+      // Multiple thresholds let us get an accurate intersectionRatio
+      threshold: [0, 0.25, 0.5, 0.75, 1],
     };
 
     const callback: IntersectionObserverCallback = (entries) => {
+      let bestCandidate = currentProject;
+      let maxRatio = 0;
+
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio;
           const projectName = entry.target.getAttribute("data-project-name");
-          if (projectName) {
-            setCurrentProject(projectName);
-          }
+          if (projectName) bestCandidate = projectName;
         }
       });
+
+      if (bestCandidate !== currentProject) {
+        setCurrentProject(bestCandidate);
+      }
     };
 
     const observer = new IntersectionObserver(callback, options);
 
-    // Observe the first image of each project
     allProjects.forEach((project) => {
       const firstImage = projectFirstImageRefs.current[project.data.name];
-      if (firstImage) {
-        observer.observe(firstImage);
-      }
+      if (firstImage) observer.observe(firstImage);
     });
 
     return () => {
       observer.disconnect();
     };
-  }, [allProjects]);
+  }, [allProjects, currentProject]);
 
-  // Function to handle clicking on a project name
+  // Click handler with GSAP for custom speed/easing
   const handleProjectClick = (projectName: string) => {
     const firstImage = projectFirstImageRefs.current[projectName];
     if (firstImage && scrollerRef.current) {
-      // Calculate the scroll position of the first image relative to the scroller
       const scrollerRect = scrollerRef.current.getBoundingClientRect();
       const imageRect = firstImage.getBoundingClientRect();
       const scrollLeft =
         scrollerRef.current.scrollLeft + (imageRect.left - scrollerRect.left);
 
-      // Use GSAP to animate the scroll
+      // GSAP for custom speed/ease
       gsap.to(scrollerRef.current, {
-        duration: 1, // Duration in seconds (adjust as needed)
-        scrollTo: {
-          x: scrollLeft,
-        },
-        ease: "power2.inOut", // Easing function (adjust as needed)
+        scrollTo: { x: scrollLeft },
+        duration: 0.8, // Adjust speed
+        ease: "power2.inOut", // Adjust easing
       });
     }
   };
 
-  // Function to assign refs to the first image of each project
+  // Assign refs to the first image of each project
   const assignFirstImageRef =
     (projectName: string) => (el: HTMLImageElement | null) => {
       if (el) {
@@ -114,19 +112,19 @@ export default function WorkDisplay({
       }
     };
 
-  // Group images by project for easier handling
+  // Gather all images
   const allImages = sortedWork.flatMap((project) =>
     project.data.artwork.map((art: any, index: number) => ({
       ...art,
       projectName: project.data.name,
       projectUrl: `/work/${formatProjectSlug(project.data.name)}`,
-      isFirstImage: index === 0, // Mark the first image of each project
+      isFirstImage: index === 0,
     }))
   );
 
   return (
     <div className={`${className} flex flex-col gap-6`}>
-      {/* Project Names Array */}
+      {/* Project Names */}
       <div className="flex flex-wrap justify-center gap-4 md:gap-7 overflow-x-auto no-scrollbar px-4">
         {allProjects.map((project) => (
           <button
@@ -165,7 +163,7 @@ export default function WorkDisplay({
               <img
                 src={`${basePath}.png`}
                 alt={image.caption || `Image from ${image.projectName}`}
-                loading="lazy"
+                // loading="lazy"
                 className="pointer-events-none max-h-[50vh] object-contain select-none bg-zinc-100 dark:bg-zinc-900 p-7"
                 data-project-name={image.projectName}
                 ref={

@@ -23,7 +23,7 @@ export default function WorkDisplay({
     decayRate: 0.96,
   });
 
-  // Sort logic (unchanged)
+  // Sort logic
   const sortedWork = [...work].sort((a, b) => {
     const order = [
       "gamepal",
@@ -124,7 +124,6 @@ export default function WorkDisplay({
 
   return (
     <div className={`${className} flex flex-col gap-6`}>
-      {/* Project Names */}
       <div className="flex flex-wrap justify-center gap-4 md:gap-7 overflow-x-auto no-scrollbar px-4">
         {allProjects.map((project) => (
           <button
@@ -145,7 +144,6 @@ export default function WorkDisplay({
         ))}
       </div>
 
-      {/* Scroller */}
       <div
         ref={scrollerRef}
         {...events}

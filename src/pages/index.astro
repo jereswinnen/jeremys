@@ -19,9 +19,9 @@ const work = await getCollection("work");
     style="opacity: 1; filter: blur(0px); transform: translateY(0px);"
   >
     <WorkDisplay
+      client:load
       work={work}
       className="o-grid-bleed col-span-full"
-      client:load
     />
   </main>
 </MasterLayout>

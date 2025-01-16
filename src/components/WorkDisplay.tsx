@@ -1,7 +1,11 @@
 import React, { useRef, useEffect, useState, type RefObject } from "react";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useDraggable } from "react-use-draggable-scroll";
 import type { CollectionEntry } from "astro:content";
 import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 interface WorkDisplayProps {
   work: CollectionEntry<"work">[];
@@ -16,7 +20,7 @@ export default function WorkDisplay({
 
   const { events } = useDraggable(scrollerRef as RefObject<HTMLDivElement>, {
     applyRubberBandEffect: true,
-    decayRate: 0.95,
+    decayRate: 0.96,
   });
 
   const sortedWork = [...work].sort((a, b) => {
@@ -91,9 +95,13 @@ export default function WorkDisplay({
       const scrollLeft =
         scrollerRef.current.scrollLeft + (imageRect.left - scrollerRect.left);
 
-      scrollerRef.current.scrollTo({
-        left: scrollLeft,
-        behavior: "smooth",
+      // Use GSAP to animate the scroll
+      gsap.to(scrollerRef.current, {
+        duration: 1, // Duration in seconds (adjust as needed)
+        scrollTo: {
+          x: scrollLeft,
+        },
+        ease: "power2.inOut", // Easing function (adjust as needed)
       });
     }
   };
@@ -132,6 +140,7 @@ export default function WorkDisplay({
             aria-current={
               currentProject === project.data.name ? "page" : undefined
             }
+            aria-label={`View project ${project.data.name}`}
           >
             {project.data.name}
           </button>
@@ -157,7 +166,7 @@ export default function WorkDisplay({
                 src={`${basePath}.png`}
                 alt={image.caption || `Image from ${image.projectName}`}
                 loading="lazy"
-                className="pointer-events-none max-h-[60vh] object-contain select-none bg-zinc-100 dark:bg-zinc-900 p-7"
+                className="pointer-events-none max-h-[50vh] object-contain select-none bg-zinc-100 dark:bg-zinc-900 p-7"
                 data-project-name={image.projectName}
                 ref={
                   image.isFirstImage

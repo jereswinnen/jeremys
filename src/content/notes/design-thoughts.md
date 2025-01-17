@@ -1,4 +1,5 @@
 ---
+theme: "!bg-orange-400"
 title: "Thoughts on Modern Web Design"
 publishDate: 2024-01-02T16:30:00Z
 description: "Reflecting on current web design trends and where we're headed"

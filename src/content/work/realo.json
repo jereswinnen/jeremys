@@ -8,6 +8,7 @@
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
   "themeColor": "#F7CAC9",
+  "heroImage": "HeroImage.png",
   "artwork": [
     {
       "src": "TabletPortraitSearch.png",

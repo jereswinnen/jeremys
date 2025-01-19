@@ -12,7 +12,7 @@ interface WorkDisplayProps {
   className?: string;
 }
 
-export default function WorkDisplay({
+export default function WorkScroller({
   work,
   className = "",
 }: WorkDisplayProps) {

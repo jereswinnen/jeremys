@@ -1,8 +1,8 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
 import Header from "../components/Header.astro";
+import WorkList from "../components/WorkList.tsx";
 import { getCollection } from "astro:content";
-import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
 const title = "Profile";
 
 const projectsOrder = [
@@ -15,10 +15,8 @@ const projectsOrder = [
   "diabetik",
 ];
 
-// Fetch all work projects from the "work" collection
 const work = await getCollection("work");
 
-// Apply custom sorting based on the defined order
 const sortedWork = work.sort((a, b) => {
   const orderA = projectsOrder.indexOf(a.data.name.toLowerCase());
   const orderB = projectsOrder.indexOf(b.data.name.toLowerCase());
@@ -103,43 +101,11 @@ const sortedWork = work.sort((a, b) => {
           <h2>Work experience</h2>
         </div>
       </header>
-      <ul class="col-start-5 col-span-6 bg-violet-300">
-        {
-          sortedWork.map((project) => {
-            const projectSlug = formatProjectSlug(project.data.name);
-            const firstArtwork = project.data.artwork[0];
-            const basePath = getProjectImagePath(
-              project.data.name,
-              firstArtwork.src
-            ).replace(/\.[^/.]+$/, "");
-
-            return (
-              <a
-                href={`/work/${projectSlug}`}
-                class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-              >
-                <picture>
-                  <source srcset={`${basePath}.avif`} type="image/avif" />
-                  <source srcset={`${basePath}.webp`} type="image/webp" />
-                  <img
-                    src={`${basePath}.png`}
-                    alt={
-                      firstArtwork.caption || `Image from ${project.data.name}`
-                    }
-                    class="w-full h-48 object-cover"
-                  />
-                </picture>
-                <div class="p-4">
-                  <h3 class="text-xl font-semibold">{project.data.name}</h3>
-                  <p class="text-gray-600">
-                    {firstArtwork.caption || "View Project"}
-                  </p>
-                </div>
-              </a>
-            );
-          })
-        }
-      </ul>
+      <WorkList
+        client:load
+        className="col-start-5 col-span-6 bg-violet-300"
+        work={sortedWork}
+      />
     </section>
   </main>
 </MasterLayout>

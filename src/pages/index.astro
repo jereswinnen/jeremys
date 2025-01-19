@@ -2,7 +2,7 @@
 import MasterLayout from "../layouts/MasterLayout.astro";
 import { getCollection } from "astro:content";
 import Header from "../components/Header.astro";
-import WorkDisplay from "../components/WorkDisplay";
+import WorkScroller from "../components/WorkScroller";
 
 const work = await getCollection("work");
 ---
@@ -14,7 +14,7 @@ const work = await getCollection("work");
     class="o-grid-inner content-center bg-slate-30"
     style="opacity: 1;"
   >
-    <WorkDisplay
+    <WorkScroller
       client:load
       work={work}
       className="o-grid-bleed col-span-full"

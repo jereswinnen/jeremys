@@ -115,6 +115,10 @@ h1 {
 h3 {
 }
 
+p:not(:last-of-type) {
+  margin-bottom: 1.25rem;
+}
+
 .heroHeadline {
   font: bold 4rem/1.1em var(--t-stack-sans);
   background-image: linear-gradient(

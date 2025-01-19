@@ -1,7 +1,29 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
 import Header from "../components/Header.astro";
+import { getCollection } from "astro:content";
+import { getProjectImagePath, formatProjectSlug } from "../utils/projectUtils";
 const title = "Profile";
+
+const projectsOrder = [
+  "gamepal",
+  "helpper",
+  "scorecard",
+  "realo",
+  "shelf",
+  "immo brown",
+  "diabetik",
+];
+
+// Fetch all work projects from the "work" collection
+const work = await getCollection("work");
+
+// Apply custom sorting based on the defined order
+const sortedWork = work.sort((a, b) => {
+  const orderA = projectsOrder.indexOf(a.data.name.toLowerCase());
+  const orderB = projectsOrder.indexOf(b.data.name.toLowerCase());
+  return orderA - orderB;
+});
 ---
 
 <MasterLayout title={title}>
@@ -23,7 +45,101 @@ const title = "Profile";
       </article>
     </div>
   </section>
-  <main class="o-grid-inner bg-yellow-200">
-    <h1>This is some text for the profile</h1>
+  <main class="o-grid col-span-full">
+    <section class="o-grid-inner">
+      <header class="col-span-3 bg-emerald-300">
+        <div class="flex items-center gap-2">
+          <span class="bg-current w-2 h-2 block rounded-full"></span>
+          <h2>About</h2>
+        </div>
+      </header>
+      <article class="col-start-5 col-span-6 bg-yellow-300">
+        <p>
+          In today's professional landscape, teams grapple with an overwhelming
+          amount of unstructured data—contracts, policies, claims, financial
+          statements—often trapped in formats like PDFs and spreadsheets. While
+          other sectors scale their outputs with advanced software and
+          infrastructure, legal, insurance, and finance teams are limited by
+          manual data processing and headcount constraints. We've witnessed
+          firsthand how this bottleneck leads to inefficiencies and hampers
+          growth within these sectors.
+        </p>
+        <p>
+          V7 Go moves the arduous task of data extraction from the realm of
+          manual labor to automated intelligence, unlocking software-like
+          scalability. This shift lowers barriers for organizations to manage,
+          analyze, and leverage their data more effectively, historically
+          leading to better decision-making and innovation.
+        </p>
+      </article>
+      <section
+        class="col-span-6 col-start-5 o-grid-inner [&>*]:col-span-6 [&>*]:bg-neutral-200 bg-orange-300"
+      >
+        <div class="flex flex-col gap-3">
+          <h3 class="font-medium">Skills</h3>
+          <ul>
+            <li>User Experience Design</li>
+            <li>User Interface Design</li>
+            <li>Web Design</li>
+            <li>Design Systems</li>
+            <li>Front-end Web Development</li>
+            <li>iOS App Development</li>
+          </ul>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h3 class="font-medium">Services</h3>
+          <ul>
+            <li>User Experience Design</li>
+            <li>User Interface Design</li>
+            <li>Web Design</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+    <section class="o-grid-inner">
+      <header class="col-span-3 bg-emerald-300">
+        <div class="flex items-center gap-2">
+          <span class="bg-current w-2 h-2 block rounded-full"></span>
+          <h2>Work experience</h2>
+        </div>
+      </header>
+      <ul class="col-start-5 col-span-6 bg-violet-300">
+        {
+          sortedWork.map((project) => {
+            const projectSlug = formatProjectSlug(project.data.name);
+            const firstArtwork = project.data.artwork[0];
+            const basePath = getProjectImagePath(
+              project.data.name,
+              firstArtwork.src
+            ).replace(/\.[^/.]+$/, "");
+
+            return (
+              <a
+                href={`/work/${projectSlug}`}
+                class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <picture>
+                  <source srcset={`${basePath}.avif`} type="image/avif" />
+                  <source srcset={`${basePath}.webp`} type="image/webp" />
+                  <img
+                    src={`${basePath}.png`}
+                    alt={
+                      firstArtwork.caption || `Image from ${project.data.name}`
+                    }
+                    class="w-full h-48 object-cover"
+                  />
+                </picture>
+                <div class="p-4">
+                  <h3 class="text-xl font-semibold">{project.data.name}</h3>
+                  <p class="text-gray-600">
+                    {firstArtwork.caption || "View Project"}
+                  </p>
+                </div>
+              </a>
+            );
+          })
+        }
+      </ul>
+    </section>
   </main>
 </MasterLayout>

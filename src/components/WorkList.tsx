@@ -93,8 +93,8 @@ const WorkList: React.FC<WorkListProps> = ({ work, className = "" }) => {
                 />
               </picture>
             </div>
-            <div className="relative z-10 block cursor-default">
-              <h3 className="text-xl font-semibold">{work.data.name}</h3>
+            <div className="relative z-10 flex flex-col gap-1 cursor-default">
+              <h3 className="text-4xl font-bold">{work.data.name}</h3>
               <p className="text-gray-600">{work.data.role}</p>
               <div className="flex items-center gap-1">
                 <span className="text-gray-600">{work.data.startDate}</span>

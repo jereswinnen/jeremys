@@ -120,12 +120,12 @@ p:not(:last-of-type) {
 }
 
 .heroHeadline {
-  font: bold 4rem/1.1em var(--t-stack-sans);
+  font: bold 3.65rem/1.3em var(--t-stack-sans);
   background-image: linear-gradient(
     transparent calc(100% - 1px),
     rgba(0, 0, 0, 0.2)
   );
-  background-size: 1px 1.1em;
+  background-size: 1px 1.3em;
   text-indent: 4rem;
 }
 

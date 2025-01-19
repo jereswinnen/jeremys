@@ -30,12 +30,12 @@ const sortedWork = work.sort((a, b) => {
   >
     <div class="o-container">
       <Header class="col-span-full" />
-      <article class="col-span-full o-grid">
+      <article class="py-16 col-span-full o-grid items-center">
         <h1 class="col-span-7 h-fit heroHeadline">
           Designer and developer from Belgium with 15+ years of experience in
           digital product design.
         </h1>
-        <picture class="col-span-4 -mb-[5vh]">
+        <picture class="col-span-4 -mb-[5v]">
           <source srcset="/images/profileShot.avif" type="image/avif" />
           <source srcset="/images/profileShot.webp" type="image/webp" />
           <img src="/images/profileShot.jpg" alt="Hi there!" />
@@ -45,13 +45,15 @@ const sortedWork = work.sort((a, b) => {
   </section>
   <main class="o-grid col-span-full">
     <section class="o-grid-inner">
-      <header class="col-span-3 bg-emerald-300">
+      <header class="col-span-3 bg-emerald-30">
         <div class="flex items-center gap-2">
-          <span class="bg-current w-2 h-2 block rounded-full"></span>
+          <span
+            class="block w-2 h-2 bg-transparent border border-current rounded-full"
+          ></span>
           <h2>About</h2>
         </div>
       </header>
-      <article class="col-start-5 col-span-6 bg-yellow-300">
+      <article class="col-start-5 col-span-6 bg-yellow-30">
         <p>
           In today's professional landscape, teams grapple with an overwhelming
           amount of unstructured data—contracts, policies, claims, financial
@@ -63,15 +65,15 @@ const sortedWork = work.sort((a, b) => {
           growth within these sectors.
         </p>
         <p>
-          V7 Go moves the arduous task of data extraction from the realm of
-          manual labor to automated intelligence, unlocking software-like
-          scalability. This shift lowers barriers for organizations to manage,
-          analyze, and leverage their data more effectively, historically
-          leading to better decision-making and innovation.
+          While other sectors scale their outputs with advanced software and
+          infrastructure, legal, insurance, and finance teams are limited by
+          manual data processing and headcount constraints. We've witnessed
+          firsthand how this bottleneck leads to inefficiencies and hampers
+          growth within these sectors.
         </p>
       </article>
       <section
-        class="col-span-6 col-start-5 o-grid-inner [&>*]:col-span-6 [&>*]:bg-neutral-200 bg-orange-300"
+        class="col-span-6 col-start-5 o-grid-inner [&>*]:col-span-6 [&>*]:bg-neutral-20 bg-orange-30"
       >
         <div class="flex flex-col gap-3">
           <h3 class="font-medium">Skills</h3>
@@ -95,7 +97,7 @@ const sortedWork = work.sort((a, b) => {
       </section>
     </section>
     <section class="o-grid-inner">
-      <header class="col-span-3 bg-emerald-300">
+      <header class="col-span-full bg-emerald-30">
         <div class="flex items-center gap-2">
           <span class="bg-current w-2 h-2 block rounded-full"></span>
           <h2>Work experience</h2>
@@ -103,7 +105,7 @@ const sortedWork = work.sort((a, b) => {
       </header>
       <WorkList
         client:load
-        className="col-start-5 col-span-6 bg-violet-300"
+        className="col-span-full bg-violet-30"
         work={sortedWork}
       />
     </section>

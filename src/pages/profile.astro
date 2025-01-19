@@ -1,6 +1,8 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
 import Header from "../components/Header.astro";
+import BlurHeading from "../components/BlurHeading.tsx";
+import GlitchHeading from "../components/GlitchHeading.tsx";
 import WorkList from "../components/WorkList.tsx";
 import { getCollection } from "astro:content";
 const title = "Profile";
@@ -17,7 +19,7 @@ const projectsOrder = [
 
 const work = await getCollection("work");
 
-const sortedWork = work.sort((a, b) => {
+const sortedWork = work.sort((a: any, b: any) => {
   const orderA = projectsOrder.indexOf(a.data.name.toLowerCase());
   const orderB = projectsOrder.indexOf(b.data.name.toLowerCase());
   return orderA - orderB;
@@ -29,12 +31,26 @@ const sortedWork = work.sort((a, b) => {
     class="bg-brandLightGreen text-brandDarkGreen o-grid-bleed col-span-full"
   >
     <div class="o-container">
-      <Header class="col-span-full" />
-      <article class="py-16 col-span-full o-grid items-center">
+      <Header data-header class="col-span-full" style="opacity: 0;" />
+      <article
+        data-hero
+        class="py-16 col-span-full o-grid items-center"
+        style="opacity: 0;"
+      >
         <h1 class="col-span-7 h-fit heroHeadline">
           Designer and developer from Belgium with 15+ years of experience in
           digital product design.
         </h1>
+        <!-- <BlurHeading
+          client:load
+          text="Designer and developer from Belgium with 15+ years of experience in digital product design."
+          className="col-span-7"
+        /> -->
+        <!-- <GlitchHeading
+          client:load
+          text="Designer and developer from Belgium with 15+ years of experience in digital product design."
+          className="col-span-7"
+        /> -->
         <picture class="col-span-4 -mb-[5v]">
           <source srcset="/images/profileShot.avif" type="image/avif" />
           <source srcset="/images/profileShot.webp" type="image/webp" />
@@ -43,7 +59,7 @@ const sortedWork = work.sort((a, b) => {
       </article>
     </div>
   </section>
-  <main class="o-grid col-span-full">
+  <main data-main class="o-grid col-span-full" style="opacity: 0;">
     <section class="o-grid-inner">
       <header class="col-span-3 bg-emerald-30">
         <div class="flex items-center gap-2">
@@ -111,3 +127,50 @@ const sortedWork = work.sort((a, b) => {
     </section>
   </main>
 </MasterLayout>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Everything runs once the DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const header = document.querySelector("[data-header]");
+      const hero = document.querySelector("[data-hero]");
+      const main = document.querySelector("[data-main]");
+
+      // Remove the inline styles (blur, opacity) once the DOM is ready
+      [header, hero, main].forEach((el) => {
+        if (el) el.removeAttribute("style");
+      });
+
+      // Create a timeline with your default animation settings
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 1,
+          ease: "sine.out",
+        },
+      });
+
+      // Animate the header in from below
+      tl.fromTo(
+        header,
+        { y: 30, opacity: 0, filter: "blur(8px)" },
+        { y: 0, opacity: 1, filter: "blur(0px)" }
+      )
+        // Animate the main in from above, starting half a second sooner
+        .fromTo(
+          hero,
+          { y: -30, opacity: 0, filter: "blur(8px)" },
+          { y: 0, opacity: 1, filter: "blur(0px)" },
+          "-=0.5"
+        )
+
+        .fromTo(
+          main,
+          { y: -30, opacity: 0, filter: "blur(8px)" },
+          { y: 0, opacity: 1, filter: "blur(0px)" },
+          "-=0.5"
+        );
+    }, 300);
+  });
+</script>

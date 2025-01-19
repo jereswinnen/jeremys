@@ -8,11 +8,11 @@ const work = await getCollection("work");
 ---
 
 <MasterLayout layout="bg-red-40 min-h-screen grid-rows-[auto,1fr]">
-  <Header data-header class="col-span-full bg-indigo-40" style="opacity: 1;" />
+  <Header data-header class="col-span-full bg-indigo-40" style="opacity: 0;" />
   <main
     data-main
     class="o-grid-inner content-center bg-slate-30"
-    style="opacity: 1;"
+    style="opacity: 0;"
   >
     <WorkScroller
       client:load
@@ -22,7 +22,7 @@ const work = await getCollection("work");
   </main>
 </MasterLayout>
 
-<!-- <script>
+<script>
   import { gsap } from "gsap";
 
   // Everything runs once the DOM is ready
@@ -59,4 +59,4 @@ const work = await getCollection("work");
         );
     }, 300);
   });
-</script> -->
+</script>

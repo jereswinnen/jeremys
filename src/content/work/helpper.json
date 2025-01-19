@@ -1,11 +1,13 @@
 {
   "name": "Helpper",
   "tagline": "Tagline for Helpper",
+  "description": "Full description of the project...",
+  "role": "Branding, Web & UX/UI design",
+  "startDate": "09/19",
+  "endDate": "12/22",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "description": "Full description of the project...",
   "themeColor": "#6B5B95",
-  "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
       "src": "PhoneSearch.png",

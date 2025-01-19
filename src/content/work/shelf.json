@@ -1,11 +1,13 @@
 {
   "name": "Shelf",
   "tagline": "Tagline for Shelf",
+  "description": "Full description of the project...",
+  "role": "Branding & UX/UI design",
+  "startDate": "09/16",
+  "endDate": "07/17",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "description": "Full description of the project...",
   "themeColor": "#FFD700",
-  "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
       "src": "TabletLandscapeSplitscreen.png",

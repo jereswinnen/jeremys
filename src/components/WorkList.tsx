@@ -54,10 +54,10 @@ const WorkList: React.FC<WorkListProps> = ({ work, className = "" }) => {
     <ul className={`${className}`.trim()}>
       {work.map((work, index) => {
         const projectSlug = formatProjectSlug(work.data.name);
-        const firstArtwork = work.data.artwork[0];
+        const firstArtwork = work.data.artwork?.[0];
         const basePath = getProjectImagePath(
           work.data.name,
-          firstArtwork.src
+          firstArtwork?.src || ""
         ).replace(/\.[^/.]+$/, "");
 
         return (
@@ -75,16 +75,19 @@ const WorkList: React.FC<WorkListProps> = ({ work, className = "" }) => {
                 <source srcSet={`${basePath}.webp`} type="image/webp" />
                 <img
                   src={`${basePath}.png`}
-                  alt={firstArtwork.caption || `Image from ${work.data.name}`}
+                  alt={firstArtwork?.caption || `Image from ${work.data.name}`}
                   className="w-full h-48 object-cover transform-gpu"
                 />
               </picture>
             </div>
             <div className="p-4 project-content transform-gpu">
               <h3 className="text-xl font-semibold">{work.data.name}</h3>
-              <p className="text-gray-600">
-                {firstArtwork.caption || "View Project"}
-              </p>
+              <p className="text-gray-600">{work.data.role}</p>
+              <div className="flex items-center gap-1">
+                <span className="text-gray-600">{work.data.startDate}</span>
+                <span>&#8594;</span>
+                <span className="text-gray-600">{work.data.endDate}</span>
+              </div>
             </div>
           </a>
         );

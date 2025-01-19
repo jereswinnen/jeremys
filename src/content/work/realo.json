@@ -1,11 +1,13 @@
 {
   "name": "Realo",
   "tagline": "Tagline for Realo",
+  "description": "Full description of the project...",
+  "role": "Web & UI design",
+  "startDate": "01/14",
+  "endDate": "11/14",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "description": "Full description of the project...",
   "themeColor": "#F7CAC9",
-  "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
       "src": "TabletPortraitSearch.png",

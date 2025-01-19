@@ -1,11 +1,13 @@
 {
   "name": "GamePal",
   "tagline": "Remember your gaming memories",
+  "description": "Full description of the project...",
+  "role": "UX/UI design & Swift development",
+  "startDate": "07/24",
+  "endDate": "Now",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "description": "Full description of the project...",
   "themeColor": "#FF8C00",
-  "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
       "src": "PhoneYearInPlayStart.png",

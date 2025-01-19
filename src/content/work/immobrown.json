@@ -1,11 +1,13 @@
 {
   "name": "Immo Brown",
   "tagline": "Tagline for Immo Brown",
+  "description": "Full description of the project...",
+  "role": "Web design",
+  "startDate": "03/16",
+  "endDate": "06/16",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "description": "Full description of the project...",
   "themeColor": "#88B04B",
-  "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
       "src": "PhoneListMenu.png",

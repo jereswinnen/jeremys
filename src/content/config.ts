@@ -7,21 +7,21 @@ const work = defineCollection({
     z.object({
       name: z.string(),
       tagline: z.string(),
+      description: z.string(),
+      role: z.string(),
+      startDate: z.string(),
+      endDate: z.string(),
       linkLabel: z.string().optional(),
       linkAction: z.string().url().optional(),
-      description: z.string(),
       themeColor: z.string(),
-      role: z.array(
-        z.object({
-          tag: z.string(),
-        })
-      ),
-      artwork: z.array(
-        z.object({
-          src: z.string(),
-          caption: z.string().optional(),
-        })
-      ),
+      artwork: z
+        .array(
+          z.object({
+            src: z.string(),
+            caption: z.string().optional(),
+          })
+        )
+        .optional(),
       details: z
         .array(
           z.object({

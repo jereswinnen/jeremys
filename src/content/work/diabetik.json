@@ -1,11 +1,13 @@
 {
   "name": "Diabetik",
   "tagline": "Tagline for Diabetik",
+  "description": "Full description of the project...",
+  "role": "Web & UX/UI design",
+  "startDate": "02/15",
+  "endDate": "01/16",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "description": "Full description of the project...",
   "themeColor": "#FF6F61",
-  "role": [{ "tag": "UX/UI Design" }, { "tag": "iOS Development" }],
   "artwork": [
     {
       "src": "TabletTimeline.png",

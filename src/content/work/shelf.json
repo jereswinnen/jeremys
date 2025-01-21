@@ -7,8 +7,6 @@
   "endDate": "07/17",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "themeColor": "#FFD700",
-  "heroImage": "HeroImage.png",
   "artwork": [
     {
       "src": "TabletLandscapeSplitscreen.png",

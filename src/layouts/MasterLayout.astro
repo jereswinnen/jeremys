@@ -1,7 +1,7 @@
 ---
 import "../assets/styles/globals.css";
 
-const { title, description, theme, layout } = Astro.props;
+const { title, description, theme } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,7 +17,7 @@ const { title, description, theme, layout } = Astro.props;
   <body
     class={`${theme ? theme : ""} o-container font-sans pt-6 dark:bg-zinc-950 text-zinc-950 dark:text-white/85`}
   >
-    <div class={`o-grid ${layout}`}>
+    <div class="o-grid">
       <slot />
     </div>
   </body>

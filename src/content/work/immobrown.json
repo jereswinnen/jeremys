@@ -7,8 +7,6 @@
   "endDate": "06/16",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "themeColor": "#88B04B",
-  "heroImage": "HeroImage.png",
   "artwork": [
     {
       "src": "PhoneListMenu.png",

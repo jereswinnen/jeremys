@@ -8,12 +8,8 @@ const work = await getCollection("work");
 ---
 
 <MasterLayout layout="bg-red-40 min-h-screen grid-rows-[auto,1fr]">
-  <Header data-header class="col-span-full bg-indigo-40" style="opacity: 0;" />
-  <main
-    data-main
-    class="o-grid-inner content-center bg-slate-30"
-    style="opacity: 0;"
-  >
+  <Header class="col-span-full bg-indigo-40" />
+  <main class="o-grid-inner content-center bg-slate-30">
     <WorkScroller
       client:load
       work={work}
@@ -21,42 +17,3 @@ const work = await getCollection("work");
     />
   </main>
 </MasterLayout>
-
-<script>
-  import { gsap } from "gsap";
-
-  // Everything runs once the DOM is ready
-  document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-      const header = document.querySelector("[data-header]");
-      const main = document.querySelector("[data-main]");
-
-      // Remove the inline styles (blur, opacity) once the DOM is ready
-      [header, main].forEach((el) => {
-        if (el) el.removeAttribute("style");
-      });
-
-      // Create a timeline with your default animation settings
-      const tl = gsap.timeline({
-        defaults: {
-          duration: 1,
-          ease: "sine.out",
-        },
-      });
-
-      // Animate the header in from below
-      tl.fromTo(
-        header,
-        { y: 30, opacity: 0, filter: "blur(8px)" },
-        { y: 0, opacity: 1, filter: "blur(0px)" }
-      )
-        // Animate the main in from above, starting half a second sooner
-        .fromTo(
-          main,
-          { y: -30, opacity: 0, filter: "blur(8px)" },
-          { y: 0, opacity: 1, filter: "blur(0px)" },
-          "-=0.5"
-        );
-    }, 300);
-  });
-</script>

@@ -13,8 +13,6 @@ const work = defineCollection({
       endDate: z.string(),
       linkLabel: z.string().optional(),
       linkAction: z.string().url().optional(),
-      themeColor: z.string(),
-      heroImage: z.string().optional(),
       artwork: z
         .array(
           z.object({

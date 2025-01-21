@@ -137,35 +137,6 @@ p:not(:last-of-type) {
   margin-bottom: 1.25rem;
 }
 
-.heroHeadline {
-  font: bold 3.65rem/1.3em var(--t-stack-sans);
-  background-image: linear-gradient(
-    transparent calc(100% - 1px),
-    rgba(0, 0, 0, 0.2)
-  );
-  background-size: 1px 1.3em;
-  text-indent: 4rem;
-}
-
-.backBlur:after {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  content: "";
-  mask-image: linear-gradient(to top, rgb(0, 0, 0) 25%, transparent);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  pointer-events: none;
-}
-
-a {
-  transition: all 300ms var(--ease-in-circ);
-}
-
-a:hover {
-  transition: all 300ms var(--ease-in-circ);
-}
-
 /* Container */
 .o-container {
   max-width: var(--u-container-max-width);

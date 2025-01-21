@@ -1,5 +1,6 @@
 ---
 import "../assets/styles/globals.css";
+import Header from "../components/Header.astro";
 
 const { title, description, theme } = Astro.props;
 ---
@@ -11,14 +12,19 @@ const { title, description, theme } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title ? `${title} | My Website` : "My Website"}</title>
+    <title>
+      {title ? `${title} | Jeremy Swinnen` : "Jeremy Swinnen"}
+    </title>
     {description && <meta name="description" content={description} />}
   </head>
   <body
     class={`${theme ? theme : ""} o-container font-sans pt-6 dark:bg-zinc-950 text-zinc-950 dark:text-white/85`}
   >
     <div class="o-grid">
-      <slot />
+      <Header class="col-span-full bg-indigo-40" />
+      <main class="o-grid-inner bg-slate-30">
+        <slot />
+      </main>
     </div>
   </body>
 </html>

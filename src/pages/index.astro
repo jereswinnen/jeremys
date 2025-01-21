@@ -7,13 +7,24 @@ import WorkScroller from "../components/WorkScroller";
 const work = await getCollection("work");
 ---
 
-<MasterLayout layout="bg-red-40 min-h-screen grid-rows-[auto,1fr]">
-  <Header class="col-span-full bg-indigo-40" />
-  <main class="o-grid-inner content-center bg-slate-30">
-    <WorkScroller
-      client:load
-      work={work}
-      className="o-grid-bleed col-span-full"
-    />
-  </main>
+<MasterLayout>
+  <article class="col-span-full">
+    <p>
+      In today's professional landscape, teams grapple with an overwhelming
+      amount of unstructured data—contracts, policies, claims, financial
+      statements—often trapped in formats like PDFs and spreadsheets. While
+      other sectors scale their outputs with advanced software and
+      infrastructure, legal, insurance, and finance teams are limited by manual
+      data processing and headcount constraints. We've witnessed firsthand how
+      this bottleneck leads to inefficiencies and hampers growth within these
+      sectors.
+    </p>
+    <p>
+      While other sectors scale their outputs with advanced software and
+      infrastructure, legal, insurance, and finance teams are limited by manual
+      data processing and headcount constraints. We've witnessed firsthand how
+      this bottleneck leads to inefficiencies and hampers growth within these
+      sectors.
+    </p>
+  </article>
 </MasterLayout>

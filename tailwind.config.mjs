@@ -9,7 +9,8 @@ export default {
       },
       fontFamily: {
         sans: [
-          "Commissioner",
+          "OverusedGrotesk",
+          "Georgia",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",

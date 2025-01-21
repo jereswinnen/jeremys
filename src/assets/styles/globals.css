@@ -114,7 +114,7 @@
   --u-breakpoint-xl: 1280px;
 
   /* Typography */
-  --t-stack-sans: "OverusedGrotesk", "Georgia", "system-ui", "-apple-system",
+  --t-stack-sans: "OverusedGrotesk", "system-ui", "-apple-system",
     "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial",
     "sans-serif";
 

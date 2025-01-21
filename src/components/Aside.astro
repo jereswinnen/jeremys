@@ -1,0 +1,81 @@
+---
+import Brand from "./Brand.astro";
+
+const { class: className, ...rest } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { path: "/", label: "Work" },
+  { path: "/feed", label: "Feed" },
+  { path: "/profile", label: "Profile" },
+  // { path: "/contact", label: "Contact" },
+  { path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
+];
+---
+
+<aside
+  class:list={["h-screen py-7 flex flex-col justify-between", className]}
+  {...rest}
+>
+  <header class="flex flex-col text-sm">
+    <!-- <a href="/">
+    <Brand class="text-current" />
+  </a> -->
+    <h1><a href="/" class="font-semibold">Jeremy Swinnen</a></h1>
+    <em class="opacity-60">Software Designer</em>
+  </header>
+  <article class="[&>*]:indent-8 [&>*]:!mb-0">
+    <p>
+      I'm a designer and developer from Belgium with <em class="font-medium"
+        >15+ years of experience</em
+      >
+      in digital product design.
+    </p>
+    <p>
+      Currently, I'm looking for a full-time UX/UI designer role.Want to work
+      with me? Feel free to reach out via <a
+        href="mailto:hey@jeremys.be"
+        class="font-medium">email</a
+      >.
+    </p>
+  </article>
+  <div class="flex gap-2">
+    <picture>
+      <source srcset="/images/profileShot.avif" type="image/avif" />
+      <source srcset="/images/profileShot.webp" type="image/webp" />
+      <img src="/images/profileShot.jpg" alt="Hi there!" />
+    </picture>
+    <div class="bg-slate-700 flex flex-col gap-2 items-center justify-end">
+      <span class="[writing-mode:vertical-lr] text-right text-sm font-medium"
+        >TOOTIMETOOTIMETOOTIME &mdash; The 1975</span
+      >
+      <div class="relative inline-block overflow-hidden w-7 h-7">
+        <img
+          class="vinylMask block w-full h-full object-cover"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN2eX-KzPS2cTM5A20bdWZ3KQ2--yBTuxgLw&s"
+          alt="Album Cover"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- <nav>
+    <ul class="flex gap-6">
+      {
+        navItems.map(({ path, label }) => (
+          <li>
+            <a
+              href={path}
+              class:list={[
+                "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 opacity-60",
+                currentPath === path &&
+                  "font-medium !text-zinc-950 dark:!text-white !opacity-100",
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav> -->
+</aside>

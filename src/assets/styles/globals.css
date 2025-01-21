@@ -71,10 +71,10 @@
     font-variation-settings: "wght" 300;
   }
   .font-normal {
-    font-variation-settings: "wght" 400;
+    font-variation-settings: "wght" 380;
   }
   .font-medium {
-    font-variation-settings: "wght" 500;
+    font-variation-settings: "wght" 470;
   }
   .font-semibold {
     font-variation-settings: "wght" 600;
@@ -102,7 +102,7 @@
 
 :root {
   /* Grid configuration */
-  --u-grid-columns: 12;
+  --u-grid-columns: 4;
   --u-grid-gap: 2rem;
   --u-container-padding: 20px; /* 2rem */
   --u-container-max-width: 95rem; /* 1520px */
@@ -124,6 +124,27 @@
 
   /* Easing */
   --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+.vinylMask {
+  mask-image: url("vinylMask.svg");
+  -webkit-mask-image: url("vinylMask.svg");
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  animation: rotateImage 7s linear infinite;
+}
+
+@keyframes rotateImage {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Base Typography */
@@ -155,15 +176,17 @@ p:not(:last-of-type) {
 .o-grid {
   display: grid;
   column-gap: var(--u-grid-gap);
-  row-gap: calc(var(--u-grid-gap) * 2);
-  grid-template-columns: repeat(var(--u-grid-columns), minmax(0, 1fr));
+  /* row-gap: calc(var(--u-grid-gap) * 2); */
+  grid-template-columns: 1fr 2.5fr;
+  /* grid-template-columns: repeat(var(--u-grid-columns), minmax(0, 1fr)); */
 }
 
 .o-grid-inner {
   display: grid;
-  grid-template-columns: inherit;
+  /* grid-template-columns: inherit; */
+  grid-template-columns: repeat(4, 1fr);
   column-gap: inherit;
-  row-gap: inherit;
+  /* row-gap: inherit; */
   grid-column: 1 / -1;
 }
 

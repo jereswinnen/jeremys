@@ -1,0 +1,33 @@
+---
+const { class: className, ...rest } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { path: "/", label: "Work" },
+  { path: "/feed", label: "Feed" },
+  { path: "/profile", label: "Profile" },
+  // { path: "/contact", label: "Contact" },
+  { path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
+];
+---
+
+<nav class:list={["bg-orange-300", className]} {...rest}>
+  <ul class="flex gap-6">
+    {
+      navItems.map(({ path, label }) => (
+        <li>
+          <a
+            href={path}
+            class:list={[
+              "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 opacity-60",
+              currentPath === path &&
+                "font-medium !text-zinc-950 dark:!text-white !opacity-100",
+            ]}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

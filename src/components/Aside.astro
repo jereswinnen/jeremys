@@ -1,16 +1,8 @@
 ---
 import Brand from "./Brand.astro";
+import Navigation from "./Navigation.astro";
 
 const { class: className, ...rest } = Astro.props;
-const currentPath = Astro.url.pathname;
-
-const navItems = [
-  { path: "/", label: "Work" },
-  { path: "/feed", label: "Feed" },
-  { path: "/profile", label: "Profile" },
-  // { path: "/contact", label: "Contact" },
-  { path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
-];
 ---
 
 <aside
@@ -23,8 +15,9 @@ const navItems = [
   </a> -->
     <h1><a href="/" class="font-semibold">Jeremy Swinnen</a></h1>
     <em class="opacity-60">Software Designer</em>
+    <!-- <Navigation /> -->
   </header>
-  <article class="[&>*]:indent-8 [&>*]:!mb-0">
+  <article class="[&>*]:indent-8 [&>*]:!mb-0 t--prose">
     <p>
       I'm a designer and developer from Belgium with <em class="font-medium"
         >15+ years of experience</em
@@ -39,11 +32,11 @@ const navItems = [
       >.
     </p>
   </article>
-  <div class="flex gap-2">
+  <div class="flex items-end gap-2">
     <picture>
       <source srcset="/images/profileShot.avif" type="image/avif" />
       <source srcset="/images/profileShot.webp" type="image/webp" />
-      <img src="/images/profileShot.jpg" alt="Hi there!" />
+      <img class="max-h-[45vh]" src="/images/profileShot.jpg" alt="Hi there!" />
     </picture>
     <div class="bg-slate-700 flex flex-col gap-2 items-center justify-end">
       <span class="[writing-mode:vertical-lr] text-right text-sm font-medium"
@@ -58,24 +51,4 @@ const navItems = [
       </div>
     </div>
   </div>
-  <!-- <nav>
-    <ul class="flex gap-6">
-      {
-        navItems.map(({ path, label }) => (
-          <li>
-            <a
-              href={path}
-              class:list={[
-                "hover:!text-black dark:hover:!text-white dark:text-white/60 hover:!opacity-100 opacity-60",
-                currentPath === path &&
-                  "font-medium !text-zinc-950 dark:!text-white !opacity-100",
-              ]}
-            >
-              {label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav> -->
 </aside>

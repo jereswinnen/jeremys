@@ -23,7 +23,7 @@
       "mdColSpan": 3
     },
     {
-      "type": "detail",
+      "type": "context",
       "title": "Project Duration",
       "content": "3 years of continuous development",
       "colSpan": 6

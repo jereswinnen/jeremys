@@ -23,7 +23,7 @@
       "mdColSpan": 3
     },
     {
-      "type": "detail",
+      "type": "context",
       "title": "Timeline",
       "content": "6 months, from concept to launch",
       "colSpan": 6
@@ -71,13 +71,6 @@
       "type": "image",
       "src": "PhoneGameCollection.png",
       "caption": "Main project interface"
-    },
-    {
-      "type": "detail",
-      "title": "Tech Stack",
-      "content": "Swift, UIKit, Core Data",
-      "colSpan": 3,
-      "mdColSpan": 2
     }
   ]
 }

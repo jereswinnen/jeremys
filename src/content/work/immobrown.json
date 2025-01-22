@@ -16,7 +16,7 @@
       "mdColSpan": 3
     },
     {
-      "type": "detail",
+      "type": "context",
       "title": "Project Scope",
       "content": "Complete real estate platform redesign",
       "colSpan": 6

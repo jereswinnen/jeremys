@@ -102,7 +102,7 @@
 
 :root {
   /* Grid configuration */
-  --u-grid-columns: 4;
+  --u-grid-columns: 6;
   --u-grid-gap: 4rem; /* 2rem originally */
   --u-container-padding: 20px; /* 2rem */
   --u-container-max-width: 95rem; /* 1520px */
@@ -186,15 +186,13 @@ p:not(:last-of-type) {
   column-gap: var(--u-grid-gap);
   /* row-gap: calc(var(--u-grid-gap) * 2); */
   grid-template-columns: 1fr 2.5fr;
-  /* grid-template-columns: repeat(var(--u-grid-columns), minmax(0, 1fr)); */
 }
 
 .o-grid-inner {
   display: grid;
-  /* grid-template-columns: inherit; */
-  column-gap: inherit;
-  grid-template-columns: repeat(6, 1fr);
-  /* row-gap: inherit; */
+  column-gap: var(--u-grid-gap);
+  row-gap: calc(var(--u-grid-gap) / 2);
+  grid-template-columns: repeat(var(--u-grid-columns), minmax(0, 1fr));
   grid-column: 1 / -1;
 }
 

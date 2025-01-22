@@ -23,7 +23,7 @@ const work = defineCollection({
           lgColSpan: z.number().optional(),
         }),
         z.object({
-          type: z.literal("detail"),
+          type: z.literal("context"),
           title: z.string(),
           content: z.string(),
           colSpan: z.number().optional(),

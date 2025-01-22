@@ -16,7 +16,7 @@
       "mdColSpan": 3
     },
     {
-      "type": "detail",
+      "type": "context",
       "title": "Platform",
       "content": "Cross-platform real estate solution",
       "colSpan": 6

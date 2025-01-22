@@ -23,7 +23,7 @@
       "mdColSpan": 3
     },
     {
-      "type": "detail",
+      "type": "context",
       "title": "Timeline",
       "content": "1 year of development",
       "colSpan": 6

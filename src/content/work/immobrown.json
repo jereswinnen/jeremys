@@ -7,34 +7,61 @@
   "endDate": "06/16",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "artwork": [
+  "blocks": [
     {
+      "type": "image",
       "src": "PhoneListMenu.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "detail",
+      "title": "Project Scope",
+      "content": "Complete real estate platform redesign",
+      "colSpan": 6
+    },
+    {
+      "type": "image",
       "src": "PhoneListingDetail.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "DesktopSearch.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "DesktopListingDetail.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "DesktopListingDetailScrolled.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "DesktopHome.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "DesktopContact.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     }
   ]
 }

@@ -7,28 +7,39 @@
   "endDate": "12/22",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "artwork": [
+  "blocks": [
     {
+      "type": "image",
       "src": "PhoneSearch.png",
       "caption": "Main project interface",
       "colSpan": 6,
       "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneRejectPerformance.png",
       "caption": "Main project interface",
       "colSpan": 6,
       "mdColSpan": 3
     },
     {
+      "type": "detail",
+      "title": "Project Duration",
+      "content": "3 years of continuous development",
+      "colSpan": 6
+    },
+    {
+      "type": "image",
       "src": "PhoneProfile.png",
       "caption": "Main project interface"
     },
     {
+      "type": "image",
       "src": "PhonePerformances.png",
       "caption": "Main project interface"
     },
     {
+      "type": "image",
       "src": "PhoneOverview.png",
       "caption": "Main project interface"
     }

@@ -7,50 +7,82 @@
   "endDate": "01/16",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "artwork": [
+  "blocks": [
     {
+      "type": "image",
       "src": "TabletTimeline.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "TabletListMenu.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "detail",
+      "title": "Timeline",
+      "content": "1 year of development",
+      "colSpan": 6
+    },
+    {
+      "type": "image",
       "src": "TabletJournal.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "TabletAddEntry.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
-      "src": "TabletAddEntry.png",
-      "caption": "Main project interface"
-    },
-    {
+      "type": "image",
       "src": "PhoneTimeline.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneListMenu.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneJournal.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneAddMedicine.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneAddMeal.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneAddBloodReading.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     }
   ]
 }

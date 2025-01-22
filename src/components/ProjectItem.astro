@@ -9,12 +9,17 @@ interface Props {
 
 const { project } = Astro.props;
 
-// Pre-load all images for this project
-const artworkImages = await Promise.all(
-  project.artwork.map(async (art) => ({
-    ...art,
-    image: await getProjectImage(project.name, art.src),
-  }))
+// Pre-load images for image blocks
+const processedBlocks = await Promise.all(
+  project.blocks.map(async (block) => {
+    if (block.type === "image") {
+      return {
+        ...block,
+        image: await getProjectImage(project.name, block.src),
+      };
+    }
+    return block;
+  })
 );
 ---
 
@@ -26,19 +31,27 @@ const artworkImages = await Promise.all(
 
   <div class="o-grid-inner">
     {
-      artworkImages.map((art) => (
+      processedBlocks.map((block) => (
         <div
-          class={`bg-indigo-900
-            ${art.colSpan ? `col-span-${art.colSpan}` : ""}
-            ${art.mdColSpan ? `md:col-span-${art.mdColSpan}` : ""}
-            ${art.lgColSpan ? `lg:col-span-${art.lgColSpan}` : ""}`.trim()}
+          class={`${block.colSpan ? `col-span-${block.colSpan}` : ""}
+            ${block.mdColSpan ? `md:col-span-${block.mdColSpan}` : ""}
+            ${block.lgColSpan ? `lg:col-span-${block.lgColSpan}` : ""}`.trim()}
         >
-          <Picture
-            src={art.image}
-            alt={art.caption}
-            formats={["avif", "webp"]}
-          />
-          <p>{art.caption}</p>
+          {block.type === "image" ? (
+            <div class="bg-indigo-900">
+              <Picture
+                src={block.image}
+                alt={block.caption}
+                formats={["avif", "webp"]}
+              />
+              <p>{block.caption}</p>
+            </div>
+          ) : (
+            <article class="bg-neutral-900 p-4 h-full">
+              <h3 class="text-lg font-medium mb-2">{block.title}</h3>
+              <p class="text-neutral-400">{block.content}</p>
+            </article>
+          )}
         </div>
       ))
     }

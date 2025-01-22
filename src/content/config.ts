@@ -12,23 +12,26 @@ const work = defineCollection({
     endDate: z.string(),
     linkLabel: z.string(),
     linkAction: z.string(),
-    artwork: z.array(
-      z.object({
-        src: z.string(),
-        caption: z.string(),
-        colSpan: z.number().optional(),
-        mdColSpan: z.number().optional(),
-        lgColSpan: z.number().optional(),
-      })
-    ),
-    details: z
-      .array(
+    blocks: z.array(
+      z.discriminatedUnion("type", [
         z.object({
+          type: z.literal("image"),
+          src: z.string(),
+          caption: z.string(),
+          colSpan: z.number().optional(),
+          mdColSpan: z.number().optional(),
+          lgColSpan: z.number().optional(),
+        }),
+        z.object({
+          type: z.literal("detail"),
           title: z.string(),
           content: z.string(),
-        })
-      )
-      .optional(),
+          colSpan: z.number().optional(),
+          mdColSpan: z.number().optional(),
+          lgColSpan: z.number().optional(),
+        }),
+      ])
+    ),
   }),
 });
 

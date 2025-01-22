@@ -7,22 +7,34 @@
   "endDate": "07/17",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "artwork": [
+  "blocks": [
     {
+      "type": "image",
       "src": "TabletLandscapeSplitscreen.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "TabletLandscapeSlideoverMain.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "TabletLandscapeSlideover.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "TabletLandscapeQuicklookVideo.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     }
   ]
 }

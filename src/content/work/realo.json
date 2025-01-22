@@ -7,46 +7,82 @@
   "endDate": "11/14",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "artwork": [
+  "blocks": [
     {
+      "type": "image",
       "src": "TabletPortraitSearch.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "detail",
+      "title": "Platform",
+      "content": "Cross-platform real estate solution",
+      "colSpan": 6
+    },
+    {
+      "type": "image",
       "src": "TabletPortraitListingDetail.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "TabletPortraitAgency.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "TabletLandscapeSearch.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneSearch.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneListingDetail.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneAgency.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "DesktopSearch.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "DesktopListingDetail.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "DesktopAgency.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     }
   ]
 }

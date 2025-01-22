@@ -7,64 +7,77 @@
   "endDate": "Now",
   "linkLabel": "App Store",
   "linkAction": "https://getgamepal.com",
-  "artwork": [
+  "blocks": [
     {
+      "type": "image",
       "src": "PhoneYearInPlayStart.png",
       "caption": "Main project interface",
       "colSpan": 6,
       "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneYearInPlayMostPlayedGames.png",
       "caption": "Most played games overview",
       "colSpan": 6,
       "mdColSpan": 3
     },
     {
+      "type": "detail",
+      "title": "Timeline",
+      "content": "6 months, from concept to launch",
+      "colSpan": 6
+    },
+    {
+      "type": "image",
       "src": "PhoneShareGameReview.png",
       "caption": "Main project interface",
       "colSpan": 6,
       "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneJournalEntryDetail.png",
       "caption": "Main project interface",
       "colSpan": 6,
       "mdColSpan": 3
     },
     {
+      "type": "image",
       "src": "PhoneJournalAddPlaySession.png",
       "caption": "Main project interface"
     },
     {
+      "type": "image",
       "src": "PhoneJournal.png",
       "caption": "Main project interface"
     },
     {
+      "type": "image",
       "src": "PhoneInsights.png",
       "caption": "Main project interface"
     },
     {
+      "type": "image",
       "src": "PhoneHallOfFame.png",
       "caption": "Main project interface"
     },
     {
+      "type": "image",
       "src": "PhoneGameDetail.png",
       "caption": "Main project interface"
     },
     {
+      "type": "image",
       "src": "PhoneGameCollection.png",
       "caption": "Main project interface"
-    }
-  ],
-  "details": [
-    {
-      "title": "Timeline",
-      "content": "6 months, from concept to launch"
     },
     {
+      "type": "detail",
       "title": "Tech Stack",
-      "content": "Swift, UIKit, Core Data"
+      "content": "Swift, UIKit, Core Data",
+      "colSpan": 3,
+      "mdColSpan": 2
     }
   ]
 }

@@ -10,19 +10,27 @@
   "artwork": [
     {
       "src": "PhoneYearInPlayStart.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
       "src": "PhoneYearInPlayMostPlayedGames.png",
-      "caption": "Main project interface"
+      "caption": "Most played games overview",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
       "src": "PhoneShareGameReview.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
       "src": "PhoneJournalEntryDetail.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
       "src": "PhoneJournalAddPlaySession.png",

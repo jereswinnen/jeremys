@@ -38,7 +38,11 @@ const { class: className, ...rest } = Astro.props;
     <picture>
       <source srcset="/images/profileShot.avif" type="image/avif" />
       <source srcset="/images/profileShot.webp" type="image/webp" />
-      <img class="max-h-[45vh]" src="/images/profileShot.jpg" alt="Hi there!" />
+      <img
+        class="opacity-10 max-h-[45vh]"
+        src="/images/profileShot.jpg"
+        alt="Hi there!"
+      />
     </picture>
     <div class="flex flex-col gap-2 items-center justify-end">
       <span class="[writing-mode:vertical-lr] text-right text-sm font-medium"

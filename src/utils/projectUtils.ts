@@ -1,9 +1,21 @@
-import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 export function formatProjectSlug(name: string) {
   return name.toLowerCase().replace(/\s+/g, "");
 }
 
-export function getProjectImagePath(projectName: string, imageName: string) {
-  return `/src/assets/projects/${formatProjectSlug(projectName)}/${imageName}`;
+export async function getProjectImage(projectName: string, imageName: string) {
+  const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/projects/**/*.{png,jpg,jpeg,webp,avif}"
+  );
+  const imagePath = `/src/assets/projects/${formatProjectSlug(
+    projectName
+  )}/${imageName}`;
+
+  if (!(imagePath in images)) {
+    throw new Error(`Image ${imagePath} not found`);
+  }
+
+  const image = await images[imagePath]();
+  return image.default;
 }

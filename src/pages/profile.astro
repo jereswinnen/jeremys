@@ -1,6 +1,5 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
-import WorkList from "../components/WorkList.tsx";
 import { getCollection } from "astro:content";
 const title = "Profile";
 
@@ -96,10 +95,5 @@ const sortedWork = work.sort((a: any, b: any) => {
         <h2>Work experience</h2>
       </div>
     </header>
-    <!-- <WorkList
-      client:load
-      className="col-span-full bg-violet-30"
-      work={sortedWork}
-    /> -->
   </section>
 </MasterLayout>

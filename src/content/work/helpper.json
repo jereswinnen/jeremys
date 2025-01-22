@@ -10,11 +10,15 @@
   "artwork": [
     {
       "src": "PhoneSearch.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
       "src": "PhoneRejectPerformance.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 6,
+      "mdColSpan": 3
     },
     {
       "src": "PhoneProfile.png",

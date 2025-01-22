@@ -103,7 +103,7 @@
 :root {
   /* Grid configuration */
   --u-grid-columns: 4;
-  --u-grid-gap: 2rem;
+  --u-grid-gap: 4rem; /* 2rem originally */
   --u-container-padding: 20px; /* 2rem */
   --u-container-max-width: 95rem; /* 1520px */
 
@@ -192,8 +192,8 @@ p:not(:last-of-type) {
 .o-grid-inner {
   display: grid;
   /* grid-template-columns: inherit; */
-  grid-template-columns: repeat(4, 1fr);
   column-gap: inherit;
+  grid-template-columns: repeat(6, 1fr);
   /* row-gap: inherit; */
   grid-column: 1 / -1;
 }

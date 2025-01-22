@@ -1,0 +1,66 @@
+---
+import { Picture } from "astro:assets";
+import { getProjectImage } from "../utils/projectUtils";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"work">["data"];
+}
+
+const { project } = Astro.props;
+
+// Pre-load all images for this project
+const artworkImages = await Promise.all(
+  project.artwork.map(async (art) => ({
+    ...art,
+    image: await getProjectImage(project.name, art.src),
+  }))
+);
+---
+
+<article class="flex flex-col gap-4">
+  <header>
+    <h2>{project.name}</h2>
+    <p>{project.tagline}</p>
+  </header>
+
+  <div class="o-grid-inner">
+    {
+      artworkImages.map((art) => (
+        <div
+          class={`bg-indigo-900
+            ${art.colSpan ? `col-span-${art.colSpan}` : ""}
+            ${art.mdColSpan ? `md:col-span-${art.mdColSpan}` : ""}
+            ${art.lgColSpan ? `lg:col-span-${art.lgColSpan}` : ""}`.trim()}
+        >
+          <Picture
+            src={art.image}
+            alt={art.caption}
+            formats={["avif", "webp"]}
+          />
+          <p>{art.caption}</p>
+        </div>
+      ))
+    }
+  </div>
+  <!-- <footer>
+    <div class="project-details">
+      {
+        project.details.map((detail) => (
+          <div class="detail-item">
+            <h3>{detail.title}</h3>
+            <p>{detail.content}</p>
+          </div>
+        ))
+      }
+    </div>
+    <a
+      href={project.linkAction}
+      class="project-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {project.linkLabel}
+    </a>
+  </footer> -->
+</article>

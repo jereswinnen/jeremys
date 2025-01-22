@@ -18,11 +18,11 @@ const { title, description, theme } = Astro.props;
     {description && <meta name="description" content={description} />}
   </head>
   <body
-    class={`${theme ? theme : ""} o-container font-sans dark:bg-stone-950 text-stone-900 dark:text-white/85`}
+    class={`${theme ? theme : ""} o-container font-sans dark:bg-stone-950 text-stone-900 dark:text-white/85 selection:bg-stone-200 selection:dark:bg-stone-400`}
   >
     <div class="o-grid">
-      <Aside class="bg-stone-900 md:sticky md:top-0" />
-      <main class="bg-stone-900">
+      <Aside class="bg-stone-90 md:sticky md:top-0" />
+      <main class="bg-stone-90">
         <section class="o-grid-inner">
           <slot />
         </section>

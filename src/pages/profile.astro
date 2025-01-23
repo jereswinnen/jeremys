@@ -1,4 +1,5 @@
 ---
+import ProfileImage from "../components/profileImage.astro";
 import MasterLayout from "../layouts/MasterLayout.astro";
 import { getCollection } from "astro:content";
 const title = "Profile";
@@ -27,15 +28,18 @@ const sortedWork = work.sort((a: any, b: any) => {
       Designer and developer from Belgium with 15+ years of experience in
       digital product design.
     </h1>
-    <picture class="col-start-4 col-span-3">
+    <div class="col-start-4 col-span-3">
+      <ProfileImage />
+    </div>
+    <!-- <picture class="col-start-4 col-span-3">
       <source srcset="/images/profileShot.avif" type="image/avif" />
       <source srcset="/images/profileShot.webp" type="image/webp" />
       <img src="/images/profileShot.jpg" alt="Hi there!" />
-    </picture>
+    </picture> -->
   </article>
   <section class="col-span-full o-grid-inner">
     <header class="col-span-3">
-      <h2 class="t--hero">About <em>me</em></h2>
+      <h2 class="t--hero dark:text-white">About <em>me</em></h2>
     </header>
     <article class="col-span-3 text-lg">
       <p>
@@ -80,7 +84,7 @@ const sortedWork = work.sort((a: any, b: any) => {
   </section>
   <section class="col-span-full o-grid-inner">
     <header class="col-span-3">
-      <h2 class="t--hero">Work <em>experience</em></h2>
+      <h2 class="t--hero dark:text-white">Work <em>experience</em></h2>
     </header>
     <ul
       class="col-span-3 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between"

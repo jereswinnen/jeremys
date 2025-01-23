@@ -56,7 +56,7 @@ const processedBlocks = await Promise.all(
                 src={block.image}
                 alt={block.caption || project.name}
                 formats={["avif", "webp"]}
-                class="max-h-[70vh] object-contain"
+                class="max-h-[70vh] lg:max-h-[50vh] object-contain"
               />
               {block.caption && (
                 <p class="text-sm font-medium text-center opacity-60">

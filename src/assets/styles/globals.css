@@ -5,24 +5,6 @@
 @layer base {
   @supports (font-variation-settings: normal) {
     @font-face {
-      font-family: "Commissioner";
-      font-style: normal;
-      font-weight: 100 900;
-      font-display: swap;
-      src: url("/fonts/Commissioner.woff2") format("woff2");
-      font-named-instance: "Regular";
-    }
-
-    @font-face {
-      font-family: "Commissioner";
-      font-style: italic;
-      font-weight: 100 900;
-      font-display: swap;
-      src: url("/fonts/Commissioner.woff2") format("woff2");
-      font-named-instance: "Italic";
-    }
-
-    @font-face {
       font-family: "OverusedGrotesk";
       font-style: normal;
       font-weight: 300 900;
@@ -41,20 +23,18 @@
     }
 
     @font-face {
-      font-family: "Secuela";
+      font-family: "InstrumentSerif";
       font-style: normal;
-      font-weight: 100 900;
       font-display: swap;
-      src: url("/fonts/Secuela.woff2") format("woff2");
+      src: url("/fonts/InstrumentSerif.woff2") format("woff2");
       font-named-instance: "Regular";
     }
 
     @font-face {
-      font-family: "SecuelaItalic";
+      font-family: "InstrumentSerifItalic";
       font-style: italic;
-      font-weight: 100 900;
       font-display: swap;
-      src: url("/fonts/SecuelaItalic.woff2") format("woff2");
+      src: url("/fonts/InstrumentSerifItalic.woff2") format("woff2");
       font-named-instance: "Italic";
     }
   }
@@ -108,9 +88,8 @@
     "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial",
     "sans-serif";
 
-  --t-stack-display: "Secuela", "system-ui", "-apple-system",
-    "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial",
-    "sans-serif";
+  --t-stack-serif: "InstrumentSerif", "ui-serif", "Georgia", "Cambria",
+    "Times New Roman", "Times", "serif";
 
   /* Easing */
   --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);

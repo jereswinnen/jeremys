@@ -2,6 +2,7 @@
 import MasterLayout from "../layouts/MasterLayout.astro";
 import { getCollection } from "astro:content";
 const title = "Profile";
+const work = await getCollection("work");
 
 const projectsOrder = [
   "gamepal",
@@ -13,8 +14,6 @@ const projectsOrder = [
   "diabetik",
 ];
 
-const work = await getCollection("work");
-
 const sortedWork = work.sort((a: any, b: any) => {
   const orderA = projectsOrder.indexOf(a.data.name.toLowerCase());
   const orderB = projectsOrder.indexOf(b.data.name.toLowerCase());
@@ -23,29 +22,28 @@ const sortedWork = work.sort((a: any, b: any) => {
 ---
 
 <MasterLayout title={title}>
-  <section class="o-grid-inner">
-    <article class="py-16 col-span-full o-grid items-center">
-      <h1 class="col-span-7">
-        Designer and developer from Belgium with 15+ years of experience in
-        digital product design.
-      </h1>
-      <picture class="col-span-4 -mb-[5v]">
-        <source srcset="/images/profileShot.avif" type="image/avif" />
-        <source srcset="/images/profileShot.webp" type="image/webp" />
-        <img src="/images/profileShot.jpg" alt="Hi there!" />
-      </picture>
-    </article>
-  </section>
-  <section class="o-grid-inner">
-    <header class="col-span-3 bg-emerald-30">
-      <div class="flex items-center gap-2">
+  <article class="col-span-full o-grid-inner">
+    <h1 class="col-span-full">
+      Designer and developer from Belgium with 15+ years of experience in
+      digital product design.
+    </h1>
+    <picture class="col-start-4 col-span-3">
+      <source srcset="/images/profileShot.avif" type="image/avif" />
+      <source srcset="/images/profileShot.webp" type="image/webp" />
+      <img src="/images/profileShot.jpg" alt="Hi there!" />
+    </picture>
+  </article>
+  <section class="col-span-full o-grid-inner">
+    <header class="col-span-3 flex flex-col gap-4">
+      <!-- <div class="flex items-center gap-2">
         <span
           class="block w-2 h-2 bg-transparent border border-current rounded-full"
         ></span>
         <h2>About</h2>
-      </div>
+      </div> -->
+      <h2 class="t--hero">About <em>me</em></h2>
     </header>
-    <article class="col-start-5 col-span-6 bg-yellow-30">
+    <article class="col-span-3 text-lg">
       <p>
         In today's professional landscape, teams grapple with an overwhelming
         amount of unstructured data—contracts, policies, claims, financial
@@ -64,9 +62,7 @@ const sortedWork = work.sort((a: any, b: any) => {
         within these sectors.
       </p>
     </article>
-    <section
-      class="col-span-6 col-start-5 o-grid-inner [&>*]:col-span-6 [&>*]:bg-neutral-20 bg-orange-30"
-    >
+    <section class="col-start-4 col-span-3 o-grid-inner [&>*]:col-span-6">
       <div class="flex flex-col gap-3">
         <h3 class="font-medium">Skills</h3>
         <ul>
@@ -88,12 +84,34 @@ const sortedWork = work.sort((a: any, b: any) => {
       </div>
     </section>
   </section>
-  <section class="o-grid-inner">
-    <header class="col-span-full bg-emerald-30">
+  <section class="col-span-full o-grid-inner">
+    <header class="col-span-3">
       <div class="flex items-center gap-2">
-        <span class="bg-current w-2 h-2 block rounded-full"></span>
+        <span
+          class="block w-2 h-2 bg-transparent border border-current rounded-full"
+        ></span>
         <h2>Work experience</h2>
       </div>
     </header>
+    <ul
+      class="col-span-3 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between"
+    >
+      <li>
+        <p>GamePal</p>
+        <div class="flex gap-1 items-center">
+          <span>07/2024</span>
+          <span class="font-[system-ui,sans-serif]">&rarr;</span>
+          <span>Now</span>
+        </div>
+      </li>
+      <li>
+        <p>Yally</p>
+        <div class="flex gap-1 items-center">
+          <span>07/2024</span>
+          <span class="font-[system-ui,sans-serif]">&rarr;</span>
+          <span>Now</span>
+        </div>
+      </li>
+    </ul>
   </section>
 </MasterLayout>

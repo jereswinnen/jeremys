@@ -31,7 +31,7 @@
     }
 
     @font-face {
-      font-family: "InstrumentSerifItalic";
+      font-family: "InstrumentSerif";
       font-style: italic;
       font-display: swap;
       src: url("/fonts/InstrumentSerifItalic.woff2") format("woff2");
@@ -120,6 +120,19 @@
 h1 {
 }
 
+.t--hero {
+  font-weight: 470;
+  font-size: 6rem;
+  line-height: 1.1em;
+  letter-spacing: -0.025em;
+}
+.t--hero > em {
+  font-family: var(--t-stack-serif);
+  font-size: inherit;
+  line-height: inherit;
+  font-style: italic;
+}
+
 h2,
 .t--prose,
 * > .t--prose {
@@ -129,6 +142,12 @@ h2,
 }
 
 h3 {
+}
+
+h4 {
+  font: 520 0.875rem/1.5em var(--t-stack-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
 }
 
 p:not(:last-of-type) {

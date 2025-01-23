@@ -23,17 +23,17 @@ const processedBlocks = await Promise.all(
 );
 ---
 
-<section class="flex flex-col gap-4">
-  <header>
-    <h2>{project.name}</h2>
-    <p>{project.tagline}</p>
+<section class="flex flex-col gap-y-[calc(var(--u-grid-gap)/5)]">
+  <header class="p-3 bg-stone-100 dark:bg-stone-800">
+    <h2 class="font-semibold text-base">{project.name}</h2>
+    <p class="text-sm opacity-60">{project.tagline}</p>
   </header>
 
-  <div class="o-grid-inner gap-y-[var(--u-grid-gap)]">
+  <div class="o-grid-inner !gap-[calc(var(--u-grid-gap)/5)]">
     {
       processedBlocks.map((block) => (
         <div
-          class={`p-8 bg-stone-800 ${block.colSpan ? `col-span-${block.colSpan}` : ""}
+          class={`p-8 bg-stone-100 dark:bg-stone-800 ${block.colSpan ? `col-span-${block.colSpan}` : ""}
             ${block.mdColSpan ? `md:col-span-${block.mdColSpan}` : ""}
             ${block.lgColSpan ? `lg:col-span-${block.lgColSpan}` : ""}`.trim()}
         >

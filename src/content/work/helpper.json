@@ -26,6 +26,7 @@
       "type": "context",
       "title": "Project Duration",
       "content": "3 years of continuous development",
+      "highlighted": true,
       "colSpan": 6
     },
     {

@@ -17,7 +17,7 @@ const work = defineCollection({
         z.object({
           type: z.literal("image"),
           src: z.string(),
-          caption: z.string(),
+          caption: z.string().optional(),
           colSpan: z.number().optional(),
           mdColSpan: z.number().optional(),
           lgColSpan: z.number().optional(),
@@ -26,6 +26,7 @@ const work = defineCollection({
           type: z.literal("context"),
           title: z.string(),
           content: z.string(),
+          highlighted: z.boolean().optional().default(false),
           colSpan: z.number().optional(),
           mdColSpan: z.number().optional(),
           lgColSpan: z.number().optional(),

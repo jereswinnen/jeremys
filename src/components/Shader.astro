@@ -1,0 +1,21 @@
+---
+import ImageShader from "./ImageShader";
+
+interface Props {
+  sources: {
+    srcset: string;
+    type: string;
+  }[];
+  fallbackSrc: string;
+  alt: string;
+}
+
+const { sources, fallbackSrc, alt } = Astro.props;
+---
+
+<ImageShader
+  client:load
+  sources={sources}
+  fallbackSrc={fallbackSrc}
+  alt={alt}
+/>

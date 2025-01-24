@@ -2,10 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 interface Props {
-  imageSrc: string;
+  sources: {
+    srcset: string;
+    type: string;
+  }[];
+  fallbackSrc: string;
+  alt: string;
 }
 
-const ThreeImageEffect: React.FC<Props> = ({ imageSrc }) => {
+const ImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -55,7 +60,7 @@ const ThreeImageEffect: React.FC<Props> = ({ imageSrc }) => {
     if (!canvasRef.current || !containerRef.current) return;
 
     imageRef.current = new Image();
-    imageRef.current.src = imageSrc;
+    imageRef.current.src = fallbackSrc;
     imageRef.current.onload = () => {
       const width = containerRef.current!.clientWidth;
       const height =
@@ -63,7 +68,7 @@ const ThreeImageEffect: React.FC<Props> = ({ imageSrc }) => {
 
       const textureLoader = new THREE.TextureLoader();
       const texture = textureLoader.load(
-        imageSrc,
+        fallbackSrc,
         (loadedTexture) => {
           setImageLoaded(true);
           initScene(loadedTexture, width, height);
@@ -257,10 +262,16 @@ const ThreeImageEffect: React.FC<Props> = ({ imageSrc }) => {
         rendererRef.current?.dispose();
       };
     };
-  }, [imageSrc]);
+  }, [fallbackSrc]);
 
   return (
     <div ref={containerRef} className="w-full relative">
+      <picture className="hidden">
+        {sources.map((source, index) => (
+          <source key={index} srcSet={source.srcset} type={source.type} />
+        ))}
+        <img src={fallbackSrc} alt={alt} />
+      </picture>
       <canvas ref={canvasRef} className="w-full" />
       {!imageLoaded && <div>Loading...</div>}
     </div>
@@ -270,4 +281,4 @@ const ThreeImageEffect: React.FC<Props> = ({ imageSrc }) => {
 const lerp = (start: number, end: number, damping: number) =>
   start * (1 - damping) + end * damping;
 
-export default ThreeImageEffect;
+export default ImageShader;

@@ -1,5 +1,5 @@
 ---
-import ProfileImage from "../components/profileImage.astro";
+import Shader from "../components/Shader.astro";
 import MasterLayout from "../layouts/MasterLayout.astro";
 import { getCollection } from "astro:content";
 const title = "Profile";
@@ -29,7 +29,14 @@ const sortedWork = work.sort((a: any, b: any) => {
       digital product design.
     </h1>
     <div class="col-start-4 col-span-3">
-      <ProfileImage />
+      <Shader
+        sources={[
+          { srcset: "/images/profileShot.avif", type: "image/avif" },
+          { srcset: "/images/profileShot.webp", type: "image/webp" },
+        ]}
+        fallbackSrc="/images/profileShot.jpg"
+        alt="Hi there!"
+      />
     </div>
     <!-- <picture class="col-start-4 col-span-3">
       <source srcset="/images/profileShot.avif" type="image/avif" />

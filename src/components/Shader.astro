@@ -2,6 +2,7 @@
 import ImageShader from "./ImageShader";
 
 interface Props {
+  constrain?: boolean;
   sources: {
     srcset: string;
     type: string;
@@ -10,7 +11,9 @@ interface Props {
   alt: string;
 }
 
-const { sources, fallbackSrc, alt } = Astro.props;
+const { constrain = false, sources, fallbackSrc, alt } = Astro.props;
+
+const containerClasses = constrain ? "max-h-[45vh] md:max-h-[35vh]" : "";
 ---
 
 <ImageShader

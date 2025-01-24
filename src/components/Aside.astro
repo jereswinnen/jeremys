@@ -1,6 +1,7 @@
 ---
 import Brand from "./Brand.astro";
 import Navigation from "./Navigation.astro";
+import Shader from "./Shader.astro";
 
 const { class: className, ...rest } = Astro.props;
 ---
@@ -35,7 +36,15 @@ const { class: className, ...rest } = Astro.props;
     </p>
   </article>
   <div class="flex items-end gap-2">
-    <picture>
+    <Shader
+      sources={[
+        { srcset: "/images/profileShot.avif", type: "image/avif" },
+        { srcset: "/images/profileShot.webp", type: "image/webp" },
+      ]}
+      fallbackSrc="/images/profileShot.jpg"
+      alt="Hi there!"
+    />
+    <!-- <picture>
       <source srcset="/images/profileShot.avif" type="image/avif" />
       <source srcset="/images/profileShot.webp" type="image/webp" />
       <img
@@ -43,7 +52,7 @@ const { class: className, ...rest } = Astro.props;
         src="/images/profileShot.jpg"
         alt="Hi there!"
       />
-    </picture>
+    </picture> -->
     <div class="flex flex-col gap-2 items-center justify-end">
       <span class="[writing-mode:vertical-lr] text-right text-sm font-medium"
         >TOOTIMETOOTIMETOOTIME &mdash; The 1975</span

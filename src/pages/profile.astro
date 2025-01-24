@@ -31,10 +31,18 @@ const sortedWork = work.sort((a: any, b: any) => {
     <div class="col-start-4 col-span-3">
       <Shader
         sources={[
-          { srcset: "/images/profileShot.avif", type: "image/avif" },
-          { srcset: "/images/profileShot.webp", type: "image/webp" },
+          {
+            srcset:
+              "https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            type: "image/avif",
+          },
+          {
+            srcset:
+              "https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            type: "image/webp",
+          },
         ]}
-        fallbackSrc="/images/profileShot.jpg"
+        fallbackSrc="https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Hi there!"
       />
     </div>
@@ -96,22 +104,29 @@ const sortedWork = work.sort((a: any, b: any) => {
     <ul
       class="col-span-3 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between"
     >
-      <li>
-        <p>GamePal</p>
-        <div class="flex gap-1 items-center">
-          <span>07/2024</span>
-          <span class="font-[system-ui,sans-serif]">&rarr;</span>
-          <span>Now</span>
-        </div>
-      </li>
-      <li>
-        <p>Yally</p>
-        <div class="flex gap-1 items-center">
-          <span>07/2024</span>
-          <span class="font-[system-ui,sans-serif]">&rarr;</span>
-          <span>Now</span>
-        </div>
-      </li>
+      {
+        projectsOrder.map((projectId) => {
+          const project = sortedWork.find(
+            (p) => p.data.name.toLowerCase() === projectId
+          );
+          if (!project) return null;
+          return (
+            <li>
+              <a
+                href={`/#${project.data.name.toLowerCase()}`}
+                class="hover:text-orange-500 transition-colors"
+              >
+                {project.data.name}
+              </a>
+              <div class="flex gap-1 items-center">
+                <span>{project.data.startDate}</span>
+                <span class="font-[system-ui,sans-serif]">&rarr;</span>
+                <span>{project.data.endDate || "Now"}</span>
+              </div>
+            </li>
+          );
+        })
+      }
     </ul>
   </section>
 </MasterLayout>

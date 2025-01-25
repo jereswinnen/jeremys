@@ -24,7 +24,7 @@ const work = defineCollection({
         }),
         z.object({
           type: z.literal("context"),
-          title: z.string(),
+          title: z.string().optional(),
           content: z.string(),
           highlighted: z.boolean().optional().default(false),
           colSpan: z.number().optional(),

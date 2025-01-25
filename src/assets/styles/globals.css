@@ -95,6 +95,10 @@
   --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
+/* body {
+  cursor: url(https://pierre.io/images/cursor.svg), auto;
+} */
+
 .vinylMask {
   mask-image: url("vinylMask.svg");
   -webkit-mask-image: url("vinylMask.svg");

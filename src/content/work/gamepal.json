@@ -24,8 +24,7 @@
     },
     {
       "type": "context",
-      "title": "Timeline",
-      "content": "6 months, from concept to launch",
+      "content": "Over the course of 4 months, I learned Swift and SwiftUI by building my own game collection tracker app for iOS. I've been designing for iOS for almost 12 years now and was always held back by the fact that I needed to learn Objective-C",
       "highlighted": true,
       "colSpan": 6
     },
@@ -33,20 +32,19 @@
       "type": "image",
       "src": "PhoneShareGameReview.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneJournalEntryDetail.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneJournalAddPlaySession.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 2
     },
     {
       "type": "image",

@@ -13,12 +13,14 @@ interface Props {
 
 const { constrain = false, sources, fallbackSrc, alt } = Astro.props;
 
-const containerClasses = constrain ? "max-h-[45vh] md:max-h-[35vh]" : "";
+const containerClasses = constrain
+  ? "max-w-[18vw] bg-orange-200"
+  : "";
 ---
 
-<ImageShader
-  client:load
-  sources={sources}
-  fallbackSrc={fallbackSrc}
-  alt={alt}
-/>
+  <ImageShader
+    client:load
+    sources={sources}
+    fallbackSrc={fallbackSrc}
+    alt={alt}
+  />

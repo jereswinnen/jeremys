@@ -28,14 +28,15 @@ const processedBlocks = await Promise.all(
   class="flex flex-col gap-y-[calc(var(--u-grid-gap)/5)]"
 >
   <header
-    class="stick top- backdrop-blur-l p-3 flex items-center justify-between bg-stone-100/90 dark:bg-stone-800/90"
+    class="p3 flex items-center justify-between bg-stne-100/90 dark:bg-stne-900/90"
   >
     <div class="flex flex-col">
-      <h2 class="font-semibold text-base">{project.name}</h2>
-      <p class="text-sm opacity-60">{project.tagline}</p>
+      <!-- <h2 class="font-semibold text-base">{project.name}</h2> -->
+      <h2 class="t--hero dark:text-white"><em>{project.name}</em></h2>
+      <!-- <p class="text-sm opacity-60">{project.tagline}</p> -->
     </div>
     <a
-      class="inline-block px-2.5 py-1 rounded-full border border-stone-200 font-medium"
+      class="inline-block px-2.5 py-1 rounded-full border border-stone-200 dark:border-stone-700 font-medium"
       href={`#${project.name.toLowerCase()}-case`}>More info</a
     >
   </header>
@@ -44,9 +45,11 @@ const processedBlocks = await Promise.all(
     {
       processedBlocks.map((block) => (
         <div
-          class={`p-8 bg-stone-100 dark:bg-stone-800 ${block.colSpan ? `col-span-${block.colSpan}` : ""}
-            ${block.mdColSpan ? `md:col-span-${block.mdColSpan}` : ""}
-            ${block.lgColSpan ? `lg:col-span-${block.lgColSpan}` : ""}`.trim()}
+          class={`${
+            block.type === "image" ? "p-8" : "p-16"
+          } bg-stone-100 dark:bg-stone-900 ${block.colSpan ? `col-span-${block.colSpan}` : ""}
+    ${block.mdColSpan ? `md:col-span-${block.mdColSpan}` : ""}
+    ${block.lgColSpan ? `lg:col-span-${block.lgColSpan}` : ""}`.trim()}
           id={
             block.type === "context" && block.highlighted
               ? `${project.name.toLowerCase()}-case`
@@ -68,9 +71,10 @@ const processedBlocks = await Promise.all(
               )}
             </div>
           ) : (
-            <article class={`${block.highlighted ? "bg-orange-900" : ""}`}>
-              <h3>{block.title}</h3>
-              <p>{block.content}</p>
+            <article class="text-center text-balance">
+              {block.title && <p class="">{block.title}</p>}
+              {/* <p class="text-3xl leading-snug font-serif">{block.content}</p> */}
+              <p class="t--prose">{block.content}</p>
             </article>
           )}
         </div>

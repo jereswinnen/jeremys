@@ -2,8 +2,16 @@
 import Brand from "./Brand.astro";
 import Navigation from "./Navigation.astro";
 import Shader from "./Shader.astro";
+import MusicModal from "./MusicModal.astro";
+import { getCollection } from "astro:content";
 
 const { class: className, ...rest } = Astro.props;
+
+// Fetch the latest music entry
+const music = await getCollection("music");
+const latestTrack = music.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)[0];
 ---
 
 <aside
@@ -44,26 +52,34 @@ const { class: className, ...rest } = Astro.props;
       fallbackSrc="/images/profileShot.jpg"
       alt="Hi there!"
     />
-    <!-- <picture>
-      <source srcset="/images/profileShot.avif" type="image/avif" />
-      <source srcset="/images/profileShot.webp" type="image/webp" />
-      <img
-        class="max-h-[45v] md:max-h-[35v]"
-        src="/images/profileShot.jpg"
-        alt="Hi there!"
-      />
-    </picture> -->
     <div class="flex flex-col gap-2 items-center justify-end">
       <span class="[writing-mode:vertical-lr] text-right text-sm font-medium"
-        >TOOTIMETOOTIMETOOTIME &mdash; The 1975</span
+        >{latestTrack.data.title} &mdash; {latestTrack.data.artist}</span
       >
       <div class="relative inline-block overflow-hidden w-7 h-7">
         <img
           class="vinylMask block w-full h-full object-cover"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN2eX-KzPS2cTM5A20bdWZ3KQ2--yBTuxgLw&s"
-          alt="Album Cover"
+          src={latestTrack.data.albumCover}
+          alt={`${latestTrack.data.title} album cover`}
         />
       </div>
     </div>
+    <!-- <button
+      onclick="openModal()"
+      class="flex flex-col gap-2 items-center justify-end"
+    >
+      <span class="[writing-mode:vertical-lr] text-right text-sm font-medium"
+        >{latestTrack.data.title} &mdash; {latestTrack.data.artist}</span
+      >
+      <div class="relative inline-block overflow-hidden w-7 h-7">
+        <img
+          class="vinylMask block w-full h-full object-cover"
+          src={latestTrack.data.albumCover}
+          alt={`${latestTrack.data.title} album cover`}
+        />
+      </div>
+    </button> -->
   </div>
+
+  <MusicModal />
 </aside>

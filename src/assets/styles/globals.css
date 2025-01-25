@@ -519,3 +519,21 @@ p:not(:last-of-type) {
 .grid-align-end {
   align-items: end;
 }
+
+dialog {
+  border: none;
+  background: rgb(var(--color-background));
+  margin: auto;
+  padding: 0;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* Add smooth transitions for blur effect */
+main,
+aside {
+  transition: filter 0.3s ease-out;
+}

@@ -1,0 +1,144 @@
+---
+import { getCollection } from "astro:content";
+
+const music = await getCollection("music");
+const sortedMusic = music.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<!-- Modal Wrapper -->
+<div
+  id="modal-wrapper"
+  class="px-10 pointer-events-none fixed w-full h-screen transition-all duration-[850ms] invisible ease inset-0 z-[9000]"
+>
+  <!-- Backdrop/Close Button -->
+  <button
+    id="modal-backdrop"
+    onclick="closeModal()"
+    class="absolute w-full h-full inset-0 bg-black/20 dark:bg-white/10 backdrop-blur-[64px] z-[9001] transition-all duration-[850ms] ease opacity-0"
+    aria-label="Close modal"
+  >
+  </button>
+
+  <!-- Close Icon Button -->
+  <button
+    id="modal-close"
+    onclick="closeModal()"
+    class="fixed right-8 top-8 md:right-10 md:top-10 bg-black/10 dark:bg-white/10 rounded-full p-3 z-[9999] hover:bg-black/20 dark:hover:bg-white/20 transition-all duration-300 ease-out opacity-0"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+    >
+  </button>
+
+  <!-- Content Wrapper -->
+  <div class="w-full h-screen overflow-auto overscroll-contain pb-20">
+    <!-- Modal Content -->
+    <div
+      id="modal-content"
+      class="z-[9002] flex flex-col gap-8 mt-[140px] max-w-[520px] mx-auto p-12 rounded-[40px] bg-black/30 transition-all duration-[850ms] ease-[cubic-bezier(.7,.01,.11,.96)] relative opacity-0 translate-y-[80px]"
+    >
+      <h2 class="text-xl font-semibold">Recently Played</h2>
+
+      <div class="grid gap-4">
+        {
+          sortedMusic.map((track) => (
+            <div class="flex items-center gap-4 p-4 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800">
+              <img
+                src={track.data.albumCover}
+                alt={`${track.data.title} album cover`}
+                class="w-16 h-16 object-cover rounded"
+              />
+              <div>
+                <h3 class="font-medium">{track.data.title}</h3>
+                <p class="text-sm opacity-75">{track.data.artist}</p>
+                <p class="text-xs opacity-60">
+                  {track.data.date.toLocaleDateString()}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const wrapper = document.getElementById("modal-wrapper");
+  const backdrop = document.getElementById("modal-backdrop");
+  const closeBtn = document.getElementById("modal-close");
+  const content = document.getElementById("modal-content");
+
+  const body = document.body;
+
+  // Declare types for window object
+  declare global {
+    interface Window {
+      openModal: () => void;
+      closeModal: () => void;
+    }
+  }
+
+  // Function to open modal
+  function openModal() {
+    if (!wrapper || !backdrop || !closeBtn || !content) {
+      console.error("Modal elements not found");
+      return;
+    }
+
+    wrapper.classList.remove("invisible", "pointer-events-none");
+    wrapper.classList.add("pointer-events-auto", "visible");
+
+    backdrop.classList.remove("opacity-0", "pointer-events-none");
+    backdrop.classList.add("opacity-100", "pointer-events-auto");
+
+    closeBtn.classList.remove("opacity-0");
+    closeBtn.classList.add("opacity-100");
+
+    content.classList.remove("opacity-0", "translate-y-[80px]");
+    content.classList.add("opacity-100", "translate-y-0");
+
+    body.style.overflow = "hidden";
+  }
+
+  // Function to close modal
+  function closeModal() {
+    if (!wrapper || !backdrop || !closeBtn || !content) {
+      console.error("Modal elements not found");
+      return;
+    }
+
+    wrapper.classList.remove("pointer-events-auto", "visible");
+
+    backdrop.classList.remove("opacity-100", "pointer-events-auto");
+    backdrop.classList.add("opacity-0", "pointer-events-none");
+
+    closeBtn.classList.remove("opacity-100");
+    closeBtn.classList.add("opacity-0");
+
+    content.classList.remove("opacity-100", "translate-y-0");
+    content.classList.add("opacity-0", "translate-y-[80px]");
+
+    body.style.overflow = "";
+
+    // Add invisible class after animation
+    setTimeout(() => {
+      wrapper.classList.add("invisible", "pointer-events-none");
+    }, 850);
+  }
+
+  // Expose functions to window
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+</script>

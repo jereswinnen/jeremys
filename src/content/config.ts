@@ -61,8 +61,20 @@ const links = defineCollection({
   }),
 });
 
+// Schema for music entries
+const music = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    artist: z.string(),
+    date: z.date(),
+    albumCover: z.string(),
+  }),
+});
+
 export const collections = {
   work: work,
   notes: notes,
   links: links,
+  music: music,
 };

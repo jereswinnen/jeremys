@@ -1,15 +1,13 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-
-import tailwind from "@astrojs/tailwind";
-
-import react from "@astrojs/react";
+import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [tailwind(), react()],
   vite: {
     ssr: {
-      noExternal: ["gsap"],
+      noExternal: ['gsap'],
     },
   },
 });

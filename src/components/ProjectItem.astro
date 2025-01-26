@@ -11,7 +11,7 @@ const { project } = Astro.props;
 
 // Pre-load images for image blocks
 const processedBlocks = await Promise.all(
-  project.blocks.map(async (block) => {
+  project.blocks.map(async (block:any) => {
     if (block.type === "image") {
       return {
         ...block,

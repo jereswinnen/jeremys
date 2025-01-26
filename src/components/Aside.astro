@@ -10,7 +10,7 @@ const { class: className, ...rest } = Astro.props;
 // Fetch the latest music entry
 const music = await getCollection("music");
 const latestTrack = music.sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  (a: any, b: any) => b.data.date.getTime() - a.data.date.getTime()
 )[0];
 ---
 
@@ -44,14 +44,19 @@ const latestTrack = music.sort(
     </p>
   </article>
   <div class="flex items-end gap-2">
-    <Shader
+    <!-- <Shader
       sources={[
         { srcset: "/images/profileShot.avif", type: "image/avif" },
         { srcset: "/images/profileShot.webp", type: "image/webp" },
       ]}
       fallbackSrc="/images/profileShot.jpg"
       alt="Hi there!"
-    />
+    /> -->
+    <picture>
+      <source srcset="/images/profileShot.avif" type="image/avif" />
+      <source srcset="/images/profileShot.webp" type="image/webp" />
+      <img class="max-h-[45vh]" src="/images/profileShot.jpg" alt="Hi there!" />
+    </picture>
     <div class="flex flex-col gap-2 items-center justify-end">
       <span class="[writing-mode:vertical-lr] text-right text-sm font-medium"
         >{latestTrack.data.title} &mdash; {latestTrack.data.artist}</span

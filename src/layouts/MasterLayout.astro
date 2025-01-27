@@ -21,8 +21,8 @@ const { title, description, theme } = Astro.props;
     class={`${theme ? theme : ""} o-container font-sans dark:bg-stone-950 text-stone-900 dark:text-white/85 selection:bg-stone-200 selection:dark:bg-stone-400`}
   >
     <div class="o-grid">
-      <Aside class="bg-stone-90 md:sticky md:top-0" />
-      <main class="bg-stone-90">
+      <Aside class="md:sticky md:top-0" />
+      <main class="relative md:pt-12">
         <section class="o-grid-inner">
           <slot />
         </section>
@@ -30,3 +30,18 @@ const { title, description, theme } = Astro.props;
     </div>
   </body>
 </html>
+
+<style lang="scss">
+  div.o-grid > main:before {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 2;
+    content: "";
+    background: linear-gradient(to top, transparent, rgb(252, 252, 252));
+    mask-image: linear-gradient(to bottom, rgb(252, 252, 252) 25%, transparent);
+    backdrop-filter: blur(1.5px);
+    pointer-events: none;
+  }
+</style>

@@ -1,0 +1,30 @@
+.t--hero {
+  font-weight: 470;
+  font-size: 5.4rem;
+  line-height: 1em;
+  letter-spacing: -0.025em;
+  em {
+    font-family: var(--t-stack-serif);
+    font-size: inherit;
+    line-height: inherit;
+    font-style: italic;
+  }
+}
+
+h2,
+.t--prose,
+* > .t--prose {
+  font-weight: 350;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+h4 {
+  font: 520 0.875rem/1.5em var(--t-stack-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+}
+
+p:not(:last-of-type) {
+  margin-bottom: 1.25rem;
+}

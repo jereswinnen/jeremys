@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 const music = await getCollection("music");
 const sortedMusic = music.sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  (a: any, b: any) => b.data.date.getTime() - a.data.date.getTime()
 );
 ---
 
@@ -52,7 +52,7 @@ const sortedMusic = music.sort(
 
       <div class="grid gap-4">
         {
-          sortedMusic.map((track) => (
+          sortedMusic.map((track: any) => (
             <div class="flex items-center gap-4 p-4 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800">
               <img
                 src={track.data.albumCover}

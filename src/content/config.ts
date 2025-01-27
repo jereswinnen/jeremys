@@ -31,7 +31,7 @@ const work = defineCollection({
           mdColSpan: z.number().optional(),
           lgColSpan: z.number().optional(),
         }),
-      ])
+      ]),
     ),
   }),
 });
@@ -72,9 +72,28 @@ const music = defineCollection({
   }),
 });
 
+// Schema for story entries
+const stories = defineCollection({
+  type: "content",
+  schema: z.discriminatedUnion("type", [
+    z.object({
+      type: z.literal("image"),
+      content: z.string(),
+      date: z.date(),
+      imageSrc: z.string(),
+    }),
+    z.object({
+      type: z.literal("noImage"),
+      content: z.string(),
+      date: z.date(),
+    }),
+  ]),
+});
+
 export const collections = {
   work: work,
   notes: notes,
   links: links,
   music: music,
+  stories: stories,
 };

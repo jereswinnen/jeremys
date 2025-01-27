@@ -37,11 +37,15 @@ const { title, description, theme } = Astro.props;
     top: 0;
     width: 100%;
     height: 80px;
-    z-index: 2;
+    z-index: 1000;
     content: "";
     background: linear-gradient(to top, transparent, rgb(252, 252, 252));
     mask-image: linear-gradient(to bottom, rgb(252, 252, 252) 25%, transparent);
     backdrop-filter: blur(1.5px);
     pointer-events: none;
+    @media (prefers-color-scheme: dark) {
+      background: linear-gradient(to top, transparent, rgb(0, 0, 0));
+      mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 25%, transparent);
+    }
   }
 </style>

@@ -25,7 +25,7 @@ const sortedWork = work.sort((a: any, b: any) => {
 
 <MasterLayout title={title}>
   <article class="col-span-full o-grid-inner">
-    <div class="col-start-4 col-span-3">
+    <div class="col-start-3 col-span-4 bg-blue-200">
       <StoryWrapper />
       <!-- <Shader
         sources={[
@@ -44,17 +44,12 @@ const sortedWork = work.sort((a: any, b: any) => {
         alt="Hi there!"
       /> -->
     </div>
-    <!-- <picture class="col-start-4 col-span-3">
-      <source srcset="/images/profileShot.avif" type="image/avif" />
-      <source srcset="/images/profileShot.webp" type="image/webp" />
-      <img src="/images/profileShot.jpg" alt="Hi there!" />
-    </picture> -->
   </article>
   <section class="col-span-full o-grid-inner">
-    <header class="col-span-3">
+    <header class="col-span-2 bg-orange-200">
       <h2 class="t--hero dark:text-white">About <em>me</em></h2>
     </header>
-    <article class="col-span-3 text-lg">
+    <article class="col-span-4 text-lg bg-blue-200">
       <p>
         In today's professional landscape, teams grapple with an overwhelming
         amount of unstructured data—contracts, policies, claims, financial
@@ -73,7 +68,9 @@ const sortedWork = work.sort((a: any, b: any) => {
         within these sectors.
       </p>
     </article>
-    <section class="col-start-4 col-span-3 o-grid-inner [&>*]:col-span-6">
+    <section
+      class="col-start-3 col-span-4 o-grid-inner [&>*]:col-span-6 bg-blue-200"
+    >
       <div class="flex flex-col gap-3">
         <h3 class="font-medium">Skills</h3>
         <ul>
@@ -96,11 +93,11 @@ const sortedWork = work.sort((a: any, b: any) => {
     </section>
   </section>
   <section class="col-span-full o-grid-inner">
-    <header class="col-span-3">
+    <header class="col-span-2 bg-orange-200">
       <h2 class="t--hero dark:text-white">Work <em>experience</em></h2>
     </header>
     <ul
-      class="col-span-3 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between"
+      class="col-span-4 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between bg-blue-200"
     >
       {
         projectsOrder.map((projectId) => {

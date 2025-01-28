@@ -7,9 +7,9 @@ const latestStories = stories
   .slice(0, 5);
 ---
 
-<div
+<section
   id="story-wrapper"
-  class="relative w-full h-[600px] bg-black overflow-hidden rounded-lg"
+  class="relative w-full h-[600px] bg-black overflow-hidden rounded-[16px]"
 >
   {
     latestStories.map((story: any, index: any) => (
@@ -26,12 +26,13 @@ const latestStories = stories
                 class="w-full h-full object-cover"
               />
             </div>
-            <div class="absolute bottom-8 left-8 right-8 text-white text-xl z-10 bg-gradient-to-t from-black/70 to-transparent p-8 rounded-lg shadow-lg">
-              {story.data.content}
+            <div class="absolute flex flex-col w-full bottom-0 p-6 text-white z-10 bg-gradient-to-t from-black to-transparent">
+              <p>{story.data.content}</p>
+              <time>{story.data.date}</time>
             </div>
           </>
         ) : story.data.type === "noImage" ? (
-          <div class="absolute inset-0 flex items-center justify-center p-12 bg-gradient-to-b from-neutral-900 to-blue-300">
+          <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-neutral-900 to-blue-300">
             <p class="text-white text-3xl text-center font-medium leading-relaxed">
               {story.data.content}
             </p>
@@ -41,17 +42,27 @@ const latestStories = stories
     ))
   }
 
-  <div
-    class="story-progress absolute top-4 left-4 right-4 flex gap-2 z-10 bg-black/40 p-4"
+  <header
+    class="absolute w-full p-6 z-10 flex flex-col gap-4 bg-gradient-to-b from-black to-transparent"
   >
-    {
-      latestStories.map((_: any, index: any) => (
-        <div class="flex-1 h-[3px] bg-white/30 rounded-full overflow-hidden">
-          <div class="progress-fill h-full w-0 bg-white" data-index={index} />
-        </div>
-      ))
-    }
-  </div>
+    <div class="story-progress flex gap-2">
+      {
+        latestStories.map((_: any, index: any) => (
+          <div class="flex-1 h-[3px] bg-white/30 rounded-full overflow-hidden">
+            <div class="progress-fill h-full w-0 bg-white" data-index={index} />
+          </div>
+        ))
+      }
+    </div>
+    <div class="flex gap-2 items-center text-white">
+      <img
+        class="w-8 h-8 rounded-full"
+        src="/images/profileAvatar.jpg"
+        alt=""
+      />
+      <p class="font-medium">Jeremy</p>
+    </div>
+  </header>
 
   <button
     id="prev-story"
@@ -67,7 +78,7 @@ const latestStories = stories
   >
     <span class="sr-only">Next</span>
   </button>
-</div>
+</section>
 
 <style>
   .story-slide {

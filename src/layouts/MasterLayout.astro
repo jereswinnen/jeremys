@@ -1,6 +1,8 @@
 ---
 import "../assets/styles/global.scss";
 import Aside from "../components/Aside.astro";
+import Brand from "../components/Brand.astro";
+import Navigation from "../components/Navigation.astro";
 
 const { title, description, theme } = Astro.props;
 ---
@@ -22,30 +24,12 @@ const { title, description, theme } = Astro.props;
   >
     <div class="o-grid">
       <Aside class="md:sticky md:top-0" />
-      <main class="relative md:pt-12">
+      <main class="md:pz-12">
         <section class="o-grid-inner">
+          <Navigation class="col-span-full sticky top-0" />
           <slot />
         </section>
       </main>
     </div>
   </body>
 </html>
-
-<style lang="scss">
-  div.o-grid > main:before {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80px;
-    z-index: 1000;
-    content: "";
-    background: linear-gradient(to top, transparent, rgb(252, 252, 252));
-    mask-image: linear-gradient(to bottom, rgb(252, 252, 252) 25%, transparent);
-    backdrop-filter: blur(1.5px);
-    pointer-events: none;
-    @media (prefers-color-scheme: dark) {
-      background: linear-gradient(to top, transparent, rgb(0, 0, 0));
-      mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 25%, transparent);
-    }
-  }
-</style>

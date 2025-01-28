@@ -46,10 +46,19 @@ const sortedWork = work.sort((a: any, b: any) => {
     </div>
   </article> -->
   <section class="col-span-full o-grid-inner">
-    <header class="col-span-2 bg-orange-200">
-      <h2 class="t--hero dark:text-white">About <em>me</em></h2>
+    <header class="col-span-2">
+      <h3 class="font-medium">
+        Profile <span
+          class="font-[system-ui,sans-serif] !font-normal opacity-40"
+          >&searr;</span
+        >
+      </h3>
     </header>
-    <article class="col-span-4 text-lg bg-blue-200">
+    <header class="hidden col-span-2 t--prose bg-orange-20">
+      <h2>About me</h2>
+      <em>Me, myself, and I</em>
+    </header>
+    <article class="col-start-3 col-span-4 text-lg bg-blue-20">
       <p>
         In today's professional landscape, teams grapple with an overwhelming
         amount of unstructured data—contracts, policies, claims, financial
@@ -68,36 +77,45 @@ const sortedWork = work.sort((a: any, b: any) => {
         within these sectors.
       </p>
     </article>
-    <section
-      class="col-start-3 col-span-4 o-grid-inner [&>*]:col-span-6 bg-blue-200"
-    >
-      <div class="flex flex-col gap-3">
-        <h3 class="font-medium">Skills</h3>
-        <ul>
-          <li>User Experience Design</li>
-          <li>User Interface Design</li>
-          <li>Web Design</li>
-          <li>Design Systems</li>
-          <li>Front-end Web Development</li>
-          <li>iOS App Development</li>
-        </ul>
-      </div>
-      <div class="flex flex-col gap-3">
-        <h3 class="font-medium">Services</h3>
-        <ul>
-          <li>User Experience Design</li>
-          <li>User Interface Design</li>
-          <li>Web Design</li>
-        </ul>
-      </div>
-    </section>
   </section>
-  <section class="col-span-full o-grid-inner">
-    <header class="col-span-2 bg-orange-200">
-      <h2 class="t--hero dark:text-white">Work <em>experience</em></h2>
+  <section class="col-span-full o-grid-inner pt-4 border-t border-zinc-950">
+    <header class="col-span-2">
+      <h3 class="font-medium">
+        Skills <span class="font-[system-ui,sans-serif] !font-normal opacity-40"
+          >&searr;</span
+        >
+      </h3>
+    </header>
+    <header class="hidden col-span-2 t--prose bg-orange-20">
+      <h2>Skills</h2>
+      <em>Boom</em>
+    </header>
+    <div class="col-start-3 col-span-4 text-lg bg-blue-20">
+      <ul class="flex flex-col gap-2">
+        <li>User Experience Design</li>
+        <li>User Interface Design</li>
+        <li>Web Design</li>
+        <li>Design Systems</li>
+        <li>Front-end Web Development</li>
+        <li>iOS App Development</li>
+      </ul>
+    </div>
+  </section>
+  <section class="col-span-full o-grid-inner pt-4 border-t border-zinc-950">
+    <header class="col-span-2">
+      <h3 class="font-medium">
+        Experience <span
+          class="font-[system-ui,sans-serif] !font-normal opacity-40"
+          >&searr;</span
+        >
+      </h3>
+    </header>
+    <header class="hidden col-span-2 t--prose bg-orange-20">
+      <h2>Work experience</h2>
+      <em>Since 2013</em>
     </header>
     <ul
-      class="col-span-4 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between bg-blue-200"
+      class="col-start-3 col-span-4 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between bg-blue-20"
     >
       {
         projectsOrder.map((projectId) => {
@@ -106,10 +124,10 @@ const sortedWork = work.sort((a: any, b: any) => {
           );
           if (!project) return null;
           return (
-            <li>
+            <li class="text-lg">
               <a
                 href={`/#${project.data.name.toLowerCase()}`}
-                class="hover:text-orange-500 transition-colors"
+                class="hover:opacity-60"
               >
                 {project.data.name}
               </a>

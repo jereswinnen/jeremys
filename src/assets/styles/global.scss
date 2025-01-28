@@ -1,7 +1,16 @@
+// Helpers
+@use "helpers/variables";
+@use "helpers/layout";
+
+// Components
+@use "components/typography";
+
+// Tailwind
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+// Tailwind Extends
 @layer base {
   @supports (font-variation-settings: normal) {
     @font-face {
@@ -39,7 +48,6 @@
     }
   }
 }
-
 @layer utilities {
   .font-thin {
     font-variation-settings: "wght" 100;
@@ -69,13 +77,6 @@
     font-variation-settings: "wght" 900;
   }
 }
-
-// Helpers
-@import "helpers/variables";
-@import "helpers/layout";
-
-// Components
-@import "components/typography";
 
 /* body {
   cursor: url(https://pierre.io/images/cursor.svg), auto;

@@ -8,6 +8,9 @@
     font-size: inherit;
     line-height: inherit;
   }
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
 }
 
 h2,

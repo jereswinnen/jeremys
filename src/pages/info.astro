@@ -1,0 +1,158 @@
+---
+import { getCollection } from "astro:content";
+import MasterLayout from "../layouts/MasterLayout.astro";
+import Shader from "../components/Shader.astro";
+import StoryWrapper from "../components/StoryWrapper.astro";
+const title = "Profile";
+const work = await getCollection("work");
+
+const projectsOrder = [
+  "gamepal",
+  "helpper",
+  "scorecard",
+  "realo",
+  "shelf",
+  "immo brown",
+  "diabetik",
+];
+
+const sortedWork = work.sort((a: any, b: any) => {
+  const orderA = projectsOrder.indexOf(a.data.name.toLowerCase());
+  const orderB = projectsOrder.indexOf(b.data.name.toLowerCase());
+  return orderA - orderB;
+});
+---
+
+<MasterLayout title={title}>
+  <section
+    data-blurRevealFromBottom
+    class="col-span-full o-grid-inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
+  >
+    <header class="col-span-full">
+      <h2 class="t--hero dark:text-white">
+        <span>Hello, I&rsquo;m Jeremy</span>
+      </h2>
+      <!-- <StoryWrapper /> -->
+      <!-- <Shader
+      sources={[
+        {
+          srcset:
+            "https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          type: "image/avif",
+        },
+        {
+          srcset:
+            "https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          type: "image/webp",
+        },
+      ]}
+      fallbackSrc="https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Hi there!"
+    /> -->
+    </header>
+    <section
+      class="col-span-full o-grid-inner pt-4 border-t border-zinc-950 dark:border-white/20"
+    >
+      <header class="col-span-2">
+        <h3 class="font-medium">
+          Profile <span
+            class="font-[system-ui,sans-serif] !font-normal opacity-40"
+            >&searr;</span
+          >
+        </h3>
+      </header>
+      <header class="hidden col-span-2 t--prose bg-orange-20">
+        <h2>About me</h2>
+        <em>Me, myself, and I</em>
+      </header>
+      <article class="col-start-3 col-span-4 text-lg bg-blue-20">
+        <p>
+          In today's professional landscape, teams grapple with an overwhelming
+          amount of unstructured data—contracts, policies, claims, financial
+          statements—often trapped in formats like PDFs and spreadsheets. While
+          other sectors scale their outputs with advanced software and
+          infrastructure, legal, insurance, and finance teams are limited by
+          manual data processing and headcount constraints. We've witnessed
+          firsthand how this bottleneck leads to inefficiencies and hampers
+          growth within these sectors.
+        </p>
+        <p>
+          While other sectors scale their outputs with advanced software and
+          infrastructure, legal, insurance, and finance teams are limited by
+          manual data processing and headcount constraints. We've witnessed
+          firsthand how this bottleneck leads to inefficiencies and hampers
+          growth within these sectors.
+        </p>
+      </article>
+    </section>
+    <section
+      class="col-span-full o-grid-inner pt-4 border-t border-zinc-950 dark:border-white/20"
+    >
+      <header class="col-span-2">
+        <h3 class="font-medium">
+          Skills <span
+            class="font-[system-ui,sans-serif] !font-normal opacity-40"
+            >&searr;</span
+          >
+        </h3>
+      </header>
+      <header class="hidden col-span-2 t--prose bg-orange-20">
+        <h2>Skills</h2>
+        <em>Boom</em>
+      </header>
+      <div class="col-start-3 col-span-4 text-lg bg-blue-20">
+        <ul class="flex flex-col gap-2">
+          <li>User Experience Design</li>
+          <li>User Interface Design</li>
+          <li>Web Design</li>
+          <li>Design Systems</li>
+          <li>Front-end Web Development</li>
+          <li>iOS App Development</li>
+        </ul>
+      </div>
+    </section>
+    <section
+      class="col-span-full o-grid-inner pt-4 border-t border-zinc-950 dark:border-white/20"
+    >
+      <header class="col-span-2">
+        <h3 class="font-medium">
+          Experience <span
+            class="font-[system-ui,sans-serif] !font-normal opacity-40"
+            >&searr;</span
+          >
+        </h3>
+      </header>
+      <header class="hidden col-span-2 t--prose bg-orange-20">
+        <h2>Work experience</h2>
+        <em>Since 2013</em>
+      </header>
+      <ul
+        class="col-start-3 col-span-4 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between bg-blue-20"
+      >
+        {
+          projectsOrder.map((projectId) => {
+            const project = sortedWork.find(
+              (p: any) => p.data.name.toLowerCase() === projectId
+            );
+            if (!project) return null;
+            return (
+              <li class="text-lg">
+                <a
+                  href={`/#${project.data.name.toLowerCase()}`}
+                  class="hover:opacity-60"
+                >
+                  {project.data.name}
+                </a>
+                <div class="flex gap-2 items-center">
+                  <span>{project.data.startDate}</span>
+                  <span class="font-[system-ui,sans-serif]">&rarr;</span>
+                  <span>{project.data.endDate || "Now"}</span>
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </section>
+</MasterLayout>

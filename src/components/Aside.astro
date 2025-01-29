@@ -45,16 +45,18 @@ const latestTrack = music.sort(
     </p>
   </article>
   <div class="flex items-end gap-2">
-    <Shader
-      sources={[
-        { srcset: "/images/profileShot.avif", type: "image/avif" },
-        { srcset: "/images/profileShot.webp", type: "image/webp" },
-      ]}
-      fallbackSrc="/images/profileShot.jpg"
-      alt="Hi there!"
-    />
+    <!-- <div data-imageClipFromBottom class="max-w-[40vh]">
+      <Shader
+        sources={[
+          { srcset: "/images/profileShot.avif", type: "image/avif" },
+          { srcset: "/images/profileShot.webp", type: "image/webp" },
+        ]}
+        fallbackSrc="/images/profileShot.jpg"
+        alt="Hi there!"
+      />
+    </div> -->
 
-    <!-- <picture>
+    <picture>
       <source srcset="/images/profileShot.avif" type="image/avif" />
       <source srcset="/images/profileShot.webp" type="image/webp" />
       <img
@@ -63,7 +65,7 @@ const latestTrack = music.sort(
         src="/images/profileShot.jpg"
         alt="Hi there!"
       />
-    </picture> -->
+    </picture>
 
     <div
       data-blurRevealFromLeft

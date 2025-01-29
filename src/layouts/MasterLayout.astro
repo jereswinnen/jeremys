@@ -38,13 +38,17 @@ const { title, description, theme } = Astro.props;
 
 <script>
   import {
+    typewriterEffect,
     imageClipFromBottom,
     imageBlurReveal,
     blurRevealFromTop,
+    blurRevealFromBottom,
     blurRevealFromLeft,
   } from "../assets/scripts/gsapAnimations.js";
+  typewriterEffect();
   imageClipFromBottom();
   imageBlurReveal();
   blurRevealFromTop();
+  blurRevealFromBottom();
   blurRevealFromLeft();
 </script>

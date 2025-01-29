@@ -1,7 +1,32 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
+
+export function typewriterEffect() {
+  document.querySelectorAll("[data-typewriter]").forEach((element) => {
+    const finalText = element.textContent.trim();
+
+    element.style.visibility = "hidden";
+    element.textContent = "";
+
+    requestAnimationFrame(() => {
+      gsap.to(element, {
+        duration: finalText.length * 0.025, // Adjust speed per character
+        onStart: () => {
+          element.style.visibility = "visible";
+        },
+        onUpdate: function () {
+          const progress = Math.floor(this.progress() * finalText.length);
+          element.textContent = finalText.slice(0, progress);
+        },
+        ease: "power1.inOut",
+        delay: 3,
+      });
+    });
+  });
+}
 
 export function imageClipFromBottom() {
   const elements = document.querySelectorAll("[data-imageClipFromBottom]");
@@ -47,7 +72,7 @@ export function imageBlurReveal() {
           trigger: el,
           start: "top 75%", // Triggers when the element’s top reaches 75% of the viewport height
           toggleActions: "play none none none", // Plays the animation once when triggered
-          markers: true, // Debug lines to visualize trigger points
+          // markers: true, // Debug lines to visualize trigger points
         },
       },
     );
@@ -86,6 +111,29 @@ export function blurRevealFromTop() {
       {
         opacity: 0,
         y: -30,
+        filter: "blur(5px)",
+      },
+      {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 1,
+        ease: "power2.out",
+        delay: 3, //0.3
+      },
+    );
+  });
+}
+
+export function blurRevealFromBottom() {
+  const elements = document.querySelectorAll("[data-blurRevealFromBottom]");
+
+  elements.forEach((el) => {
+    gsap.fromTo(
+      el,
+      {
+        opacity: 0,
+        y: 30,
         filter: "blur(5px)",
       },
       {

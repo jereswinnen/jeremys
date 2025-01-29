@@ -22,7 +22,10 @@ const sortedProjects = [...work].sort((a, b) => {
 ---
 
 <MasterLayout>
-  <section class="col-span-full flex flex-col gap-12 md:gap-20">
+  <section
+    data-blurRevealFromBottom
+    class="col-span-full flex flex-col gap-12 md:gap-20"
+  >
     {sortedProjects.map((project) => <ProjectItem project={project.data} />)}
   </section>
 </MasterLayout>

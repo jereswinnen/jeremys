@@ -39,10 +39,12 @@ const { title, description, theme } = Astro.props;
 <script>
   import {
     imageClipFromBottom,
+    imageBlurReveal,
     blurRevealFromTop,
     blurRevealFromLeft,
   } from "../assets/scripts/gsapAnimations.js";
   imageClipFromBottom();
+  imageBlurReveal();
   blurRevealFromTop();
   blurRevealFromLeft();
 </script>

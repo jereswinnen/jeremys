@@ -74,13 +74,13 @@ const ImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
           initScene(loadedTexture, width, height);
         },
         undefined,
-        (error) => console.error("Error loading texture:", error)
+        (error) => console.error("Error loading texture:", error),
       );
 
       function initScene(
         loadedTexture: THREE.Texture,
         width: number,
-        height: number
+        height: number,
       ) {
         const CAMERA_POS = 500;
         const scene = new THREE.Scene();
@@ -90,7 +90,7 @@ const ImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
           50,
           width / height,
           10,
-          1000
+          1000,
         );
         cameraRef.current = camera;
 
@@ -116,7 +116,7 @@ const ImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
             uTextureSize: {
               value: new THREE.Vector2(
                 loadedTexture.image.width,
-                loadedTexture.image.height
+                loadedTexture.image.height,
               ),
             },
             uQuadSize: { value: new THREE.Vector2(width, height) },
@@ -237,17 +237,17 @@ const ImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
           material.uniforms.uMouseOverPos.value.x = lerp(
             material.uniforms.uMouseOverPos.value.x,
             mousePos.current.x,
-            0.05
+            0.05,
           );
           material.uniforms.uMouseOverPos.value.y = lerp(
             material.uniforms.uMouseOverPos.value.y,
             mousePos.current.y,
-            0.05
+            0.05,
           );
           material.uniforms.uMouseEnter.value = lerp(
             material.uniforms.uMouseEnter.value,
             mouseEnter.current,
-            0.05
+            0.05,
           );
 
           renderer.render(scene, camera);
@@ -265,7 +265,7 @@ const ImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
   }, [fallbackSrc]);
 
   return (
-    <div ref={containerRef} className="w-full relative">
+    <div ref={containerRef} className="relative w-full">
       <picture className="hidden">
         {sources.map((source, index) => (
           <source key={index} srcSet={source.srcset} type={source.type} />

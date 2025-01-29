@@ -2,6 +2,7 @@
 import "../assets/styles/global.scss";
 import Aside from "../components/Aside.astro";
 import Navigation from "../components/Navigation.astro";
+import { clipIntroAnimation } from "../assets/scripts/gsapAnimations.js";
 
 const { title, description, theme } = Astro.props;
 ---
@@ -22,7 +23,7 @@ const { title, description, theme } = Astro.props;
     class={`${theme ? theme : ""} o-container font-sans dark:bg-stone-950 text-stone-900 dark:text-white/85 selection:bg-stone-200 selection:dark:bg-stone-400`}
   >
     <div class="o-grid">
-      <Aside class="md:sticky md:top-0" />
+      <Aside client:load class="md:sticky md:top-0" />
       <main class="md:pz-12">
         <section class="o-grid-inner">
           <Navigation class="col-span-full sticky top-0" />
@@ -30,5 +31,9 @@ const { title, description, theme } = Astro.props;
         </section>
       </main>
     </div>
+    <script>
+      import { clipIntroAnimation } from "../assets/scripts/gsapAnimations.js";
+      clipIntroAnimation();
+    </script>
   </body>
 </html>

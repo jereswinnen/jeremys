@@ -78,6 +78,27 @@ export function imageBlurReveal() {
   });
 }
 
+export function textBlurFadeIn() {
+  const elements = document.querySelectorAll("[data-textBlurFadeIn]");
+
+  elements.forEach((el) => {
+    gsap.fromTo(
+      el,
+      {
+        opacity: 0,
+        filter: "blur(6px)",
+      },
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1,
+        ease: "expo.out",
+        delay: 2.25, //0.3
+      },
+    );
+  });
+}
+
 export function blurRevealFromLeft() {
   const elements = document.querySelectorAll("[data-blurRevealFromLeft]");
 

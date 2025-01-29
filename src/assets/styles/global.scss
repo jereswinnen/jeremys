@@ -83,8 +83,8 @@
 } */
 
 .vinylMask {
-  mask-image: url("vinylMask.svg");
-  -webkit-mask-image: url("vinylMask.svg");
+  mask-image: url("/images/vinylMask.svg");
+  -webkit-mask-image: url("/images/vinylMask.svg");
   mask-size: contain;
   -webkit-mask-size: contain;
   mask-repeat: no-repeat;

@@ -6,14 +6,7 @@
   display: grid;
   justify-content: space-between;
   column-gap: 5%;
-  // grid-template-columns: minmax(0, 450px) minmax(0, 1200px);
   grid-template-columns: clamp(200px, 27.5%, 450px) clamp(600px, 67.5%, 1200px);
-  // @media (min-width: $u-layout-break-l) {
-  //   column-gap: 15vw;
-  // }
-  // > * {
-  //   background: rgba(255, 0, 0, 0.1);
-  // }
 }
 
 .o-grid-inner {

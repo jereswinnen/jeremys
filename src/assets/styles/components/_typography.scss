@@ -1,16 +1,9 @@
 .t--hero {
+  font-family: var(--t-stack-serif);
   font-weight: 470;
   font-size: 5.8rem;
   line-height: 1em;
   letter-spacing: -0.025em;
-  span {
-    font-family: var(--t-stack-serif);
-    font-size: inherit;
-    line-height: inherit;
-  }
-  @media (prefers-color-scheme: dark) {
-    color: white;
-  }
 }
 
 h2,

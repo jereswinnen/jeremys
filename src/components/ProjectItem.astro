@@ -24,14 +24,12 @@ const processedBlocks = await Promise.all(
 ---
 
 <section id={project.name.toLowerCase()} class="flex flex-col gap-8">
-  <header class="flex items-center gap-4">
-    <h2 class="t--hero dark:text-white">
-      <span>{project.name}</span>
-    </h2>
+  <header class="flex items-center gap-4 t--hero">
+    <h2>{project.name}</h2>
     <a
       href={`#${project.name.toLowerCase()}-case`}
-      class="t--hero italic opacity-50 transition-all duration-500 ease-circ hover:opacity-100 hover:translate-x-1"
-      ><span>info</span></a
+      class="italic opacity-50 transition-all duration-500 ease-circ hover:opacity-100 hover:translate-x-1"
+      >info</a
     >
   </header>
 

@@ -78,9 +78,35 @@
   }
 }
 
-/* body {
-  cursor: url(https://pierre.io/images/cursor.svg), auto;
-} */
+body,
+a {
+  cursor: none;
+}
+
+.animated-cursor {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: url("/images/cursorDouble.png") 0 0 no-repeat;
+  background-size: 500% 200%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: cursorAnimation 1.25s steps(5) infinite;
+  z-index: 9999;
+  @media (prefers-color-scheme: dark) {
+    background-position: 0 -50px;
+    mix-blend-mode: difference;
+  }
+}
+
+@keyframes cursorAnimation {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -250px;
+  }
+}
 
 .vinylMask {
   mask-image: url("/images/vinylMask.svg");

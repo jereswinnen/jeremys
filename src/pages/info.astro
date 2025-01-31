@@ -4,6 +4,7 @@ import MasterLayout from "../layouts/MasterLayout.astro";
 import Shader from "../components/Shader.astro";
 import StoryWrapper from "../components/StoryWrapper.astro";
 const title = "Profile";
+const layout = "info";
 const work = await getCollection("work");
 
 const projectsOrder = [
@@ -23,10 +24,10 @@ const sortedWork = work.sort((a: any, b: any) => {
 });
 ---
 
-<MasterLayout title={title}>
+<MasterLayout title={title} layout={layout}>
   <section
     data-blurRevealFromBottom
-    class="col-span-full o-grid-inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
+    class="!col-start-4 o-grid--inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
   >
     <header class="col-span-full t--hero">
       <h2>Hello, I&rsquo;m Jeremy</h2>
@@ -49,7 +50,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       /> -->
     </header>
     <section
-      class="col-span-full o-grid-inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-span-2">
         <h3 class="font-medium">
@@ -84,7 +85,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       </article>
     </section>
     <section
-      class="col-span-full o-grid-inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-span-2">
         <h3 class="font-medium">
@@ -110,7 +111,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       </div>
     </section>
     <section
-      class="col-span-full o-grid-inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-span-2">
         <h3 class="font-medium">

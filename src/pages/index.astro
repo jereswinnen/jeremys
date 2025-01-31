@@ -13,6 +13,7 @@ const projectOrder = [
   "diabetik",
 ];
 
+const layout = "home";
 const work = await getCollection("work");
 const sortedProjects = [...work].sort((a, b) => {
   const orderA = projectOrder.indexOf(a.data.name.toLowerCase());
@@ -21,7 +22,7 @@ const sortedProjects = [...work].sort((a, b) => {
 });
 ---
 
-<MasterLayout>
+<MasterLayout layout={layout}>
   <section
     data-blurRevealFromBottom
     class="col-span-full flex flex-col gap-12 md:gap-20"

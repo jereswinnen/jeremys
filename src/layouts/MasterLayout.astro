@@ -1,9 +1,9 @@
 ---
 import "../assets/styles/global.scss";
 import Aside from "../components/Aside.astro";
-import Navigation from "../components/Navigation.astro";
+import Header from "../components/Header.astro";
 
-const { title, description, theme } = Astro.props;
+const { title, description, theme, layout } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,16 +21,15 @@ const { title, description, theme } = Astro.props;
   <body
     class={`${theme ? theme : ""} o-container font-sans dark:bg-stone-950 text-stone-900 dark:text-white/85 selection:bg-stone-200 selection:dark:bg-stone-400`}
   >
-    <div class="o-grid">
-      <Aside class="md:sticky md:top-0" />
-      <main class="outline-none">
-        <section class="o-grid-inner">
-          <Navigation
-            data-blurRevealFromTop
-            class="col-span-full sticky top-0"
-          />
-          <slot />
-        </section>
+    <div class={`o-grid o-grid--${layout || "default"}`}>
+      {layout === "home" && <Aside class="md:sticky md:top-0" />}
+      <main class="o-grid--inner outline-none">
+        <Header
+          data-blurRevealFromTop
+          class="md:sticky md:top-0 col-span-full"
+          logo={layout === "home" ? false : true}
+        />
+        <slot />
       </main>
     </div>
   </body>

@@ -5,7 +5,7 @@ import tailwind from "@astrojs/tailwind";
 import swup from "@swup/astro";
 
 export default defineConfig({
-  integrations: [tailwind(), react(), swup()],
+  integrations: [tailwind(), react()],
   vite: {
     ssr: {
       noExternal: ["gsap"],

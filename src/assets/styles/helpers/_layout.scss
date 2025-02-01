@@ -32,9 +32,9 @@
       column-gap: inherit;
       row-gap: inherit;
       grid-template-columns: inherit;
-      &:nth-child(2) {
-        background: wheat;
-      }
+      // &:nth-child(2) {
+      //   background: wheat;
+      // }
     }
   }
 }

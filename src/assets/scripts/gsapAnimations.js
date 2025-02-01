@@ -1,7 +1,12 @@
 import gsap from "gsap";
+import CustomEase from "gsap/dist/CustomEase";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// Register GSAP plugins
+gsap.registerPlugin(CustomEase, ScrollTrigger);
+
+// Define custom easing
+CustomEase.create("ease-cubic-circ", "M0,0 C0.645,0 0.045,1 1,1");
 
 export function typewriterEffect() {
   document.querySelectorAll("[data-typewriter]").forEach((element) => {
@@ -43,7 +48,7 @@ export function imageClipFromBottom() {
         scale: 1,
         opacity: 1,
         duration: 1,
-        ease: "expo.Out",
+        ease: "ease-cubic-circ",
         delay: 2, //0.3
       },
     );
@@ -66,7 +71,7 @@ export function imageBlurReveal() {
         opacity: 1,
         filter: "blur(0px)",
         duration: 1.2,
-        ease: "expo.inOut",
+        ease: "ease-cubic-circ",
         scrollTrigger: {
           trigger: el,
           start: "top 75%", // Triggers when the element’s top reaches 75% of the viewport height
@@ -92,7 +97,7 @@ export function textBlurFadeIn() {
         opacity: 1,
         filter: "blur(0px)",
         duration: 1,
-        ease: "expo.out",
+        ease: "ease-cubic-circ",
         delay: 2.25, //0.3
       },
     );
@@ -115,7 +120,7 @@ export function blurRevealFromLeft() {
         x: 0,
         filter: "blur(0px)",
         duration: 1,
-        ease: "power2.out",
+        ease: "ease-cubic-circ",
         delay: 2.25, //0.3
       },
     );
@@ -138,7 +143,7 @@ export function blurRevealFromTop() {
         y: 0,
         filter: "blur(0px)",
         duration: 1,
-        ease: "power2.out",
+        ease: "ease-cubic-circ",
         delay: 3, //0.3
       },
     );
@@ -161,9 +166,55 @@ export function blurRevealFromBottom() {
         y: 0,
         filter: "blur(0px)",
         duration: 1,
-        ease: "power2.out",
+        ease: "ease-cubic-circ",
         delay: 3, //0.3
       },
     );
+  });
+}
+
+export function projectListImageReveal() {
+  const elements = document.querySelectorAll("[data-projectListImageReveal]");
+
+  elements.forEach((li) => {
+    const figure = li.querySelector("figure");
+    const img = li.querySelector("figure img");
+
+    // Set initial states
+    gsap.set(figure, {
+      height: 0,
+      clipPath: "inset(0 0 100% 0)",
+    });
+
+    gsap.set(img, {
+      scale: 1.05,
+    });
+
+    // Get natural height
+    figure.style.height = "auto";
+    const naturalHeight = figure.offsetHeight;
+    figure.style.height = "";
+
+    // Create hover timeline
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(figure, {
+      height: naturalHeight,
+      clipPath: "inset(0 0 0% 0)",
+      duration: 0.7,
+      ease: "ease-cubic-circ",
+    }).to(
+      img,
+      {
+        scale: 1,
+        duration: 0.7,
+        ease: "ease-cubic-circ",
+      },
+      0,
+    );
+
+    // Add hover listeners
+    li.addEventListener("mouseenter", () => tl.play());
+    li.addEventListener("mouseleave", () => tl.reverse());
   });
 }

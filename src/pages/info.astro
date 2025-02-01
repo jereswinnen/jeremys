@@ -27,7 +27,7 @@ const sortedWork = work.sort((a: any, b: any) => {
 <MasterLayout title={title} layout={layout}>
   <section
     data-blurRevealFromBottom
-    class="!col-start-4 o-grid--inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
+    class="!col-strt-4 o-grid--inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
   >
     <header class="col-span-full t--hero">
       <h2>Hello, I&rsquo;m Jeremy</h2>
@@ -49,6 +49,43 @@ const sortedWork = work.sort((a: any, b: any) => {
         alt="Hi there!"
       /> -->
     </header>
+    <section class="col-span-full o-grid--inner">
+      <ul class="col-span-full text-lg">
+        <li
+          data-projectListImageReveal
+          class="py-5 grid grid-cols-[clamp(200px,_27.5%,_450px)_clamp(200px,_40%,_650px)] items-end justify-between gap-x-[5%] border-b border-stone-900/20 transition-all ease-in-out duration-300 hover:border-stone-900/100"
+        >
+          <aside class="flex flex-col gap-5">
+            <figure class="h-0 overflow-hidden bg-stone-100 dark:bg-stone-900">
+              <img
+                class="object-contain"
+                src="https://images.unsplash.com/photo-1730363113974-499b7ed93d15?q=80&w=4007&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+            </figure>
+            <div class="flex flex-col">
+              <div class="flex gap-1 text-sm opacity-60">
+                <span>06/2024</span>
+                <span class="font-[system-ui,sans-serif] !font-normal"
+                  >&rarr;</span
+                >
+                <span>Now</span>
+              </div>
+              <p class="text-2xl">GamePal</p>
+            </div>
+          </aside>
+          <article class="text-base">
+            <p>
+              I was also thinking about the Remote app for iPhone, which had a
+              play triangle. So I tried one of those too. For a little while
+              there, it seemed like that was the icon we were going with. But
+              after a few new music note outlines, he chose the one that shipped
+              with iTunes 10.
+            </p>
+          </article>
+        </li>
+      </ul>
+    </section>
     <section
       class="col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
     >

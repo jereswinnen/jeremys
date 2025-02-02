@@ -1,6 +1,7 @@
 ---
 import "../assets/styles/global.scss";
 import Aside from "../components/Aside.astro";
+import Button from "../components/Button.astro";
 import Header from "../components/Header.astro";
 
 const { title, description, theme, layout } = Astro.props;
@@ -33,26 +34,23 @@ const { title, description, theme, layout } = Astro.props;
       </main>
       <footer
         data-footerScrollExpand
-        class="o-grid--bleed col-span-full bg-stone-950 text-white py-16"
+        class="o-grid--bleed col-span-full bg-stone-950 text-white dark:bg-white dark:text-stone-900 py-16"
       >
         <div data-footerContent class="o-grid o-grid--default">
           <header class="col-span-full o-grid--inner">
             <p class="col-span-2 text-balance">
-              I'm currently available for new projects. Interested in working
-              together?
+              I&rsquo;m currently available for new projects. Interested in
+              working together?
             </p>
             <div class="col-span-6 flex gap-6 items-center justify-end">
-              <span id="current-time"></span>
+              <span data-currentTime></span>
               <span class="opacity-60">&copy;2025</span>
             </div>
           </header>
-          <article class="col-span-3">
-            <p>This is some footer content</p>
-          </article>
-          <img
-            class="col-span-3"
-            src="https://images.unsplash.com/photo-1735149050406-76f49ced66e1?q=80&w=5232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
+          <Button
+            class="col-span-full mx-auto w-fit text-center tracking-tight !px-[8vw] !pb-[1.5vw] !text-[10vw] !normal-case !border-[0.3vw] !text-white dark:!text-stone-900 hover:!bg-white hover:dark:!bg-stone-900 [&>*:first-child]:hover:!text-stone-900 [&>*:first-child]:hover:dark:!text-white [&>span]:!bg-white [&>span]:dark:!bg-stone-900"
+            href="mailto:hey@jeremys.be"
+            label="Let’s talk"
           />
         </div>
       </footer>
@@ -79,24 +77,32 @@ const { title, description, theme, layout } = Astro.props;
     const options: Intl.DateTimeFormatOptions = {
       hour: "2-digit",
       minute: "2-digit",
-      hour12: true,
+      hour12: false,
       timeZone: "Europe/Brussels",
     };
 
-    // Ensure the element exists and is of the correct type
-    const timeElement = document.getElementById(
-      "current-time"
-    ) as HTMLSpanElement | null;
-    if (timeElement) {
-      const time = new Date().toLocaleString("en-GB", options);
-      timeElement.textContent = time;
-    }
+    const timeElements = document.querySelectorAll("[data-currentTime]");
+
+    timeElements.forEach((el) => {
+      if (el instanceof HTMLElement) {
+        const timeString = new Intl.DateTimeFormat("en-GB", options).format(
+          new Date()
+        );
+        el.innerHTML = timeString.replace(":", `<span class="blink">:</span>`);
+      }
+    });
   }
 
-  // Update time every minute
-  setInterval(updateTime, 60000);
+  function toggleBlink() {
+    document.querySelectorAll(".blink").forEach((colon) => {
+      if (colon instanceof HTMLElement) {
+        colon.style.opacity = colon.style.opacity === "0" ? "1" : "0";
+      }
+    });
+  }
 
-  // Initial call to set time immediately
+  setInterval(updateTime, 60000);
+  setInterval(toggleBlink, 800);
   updateTime();
 </script>
 

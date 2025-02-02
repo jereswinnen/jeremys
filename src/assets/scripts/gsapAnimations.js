@@ -256,7 +256,7 @@ export function footerScrollExpand() {
         scrollTrigger: {
           trigger: el,
           start: "top bottom",
-          end: "top center",
+          end: "bottom bottom",
           scrub: 1,
           invalidateOnRefresh: true,
         },

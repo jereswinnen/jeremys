@@ -3,9 +3,49 @@ import { getCollection } from "astro:content";
 import MasterLayout from "../layouts/MasterLayout.astro";
 import Shader from "../components/Shader.astro";
 import StoryWrapper from "../components/StoryWrapper.astro";
+import Button from "../components/Button.astro";
 const title = "Profile";
 const layout = "info";
 const work = await getCollection("work");
+
+const workExperience = [
+  {
+    startDate: "06/2024",
+    endDate: "Now",
+    projectName: "GamePal",
+    projectArtwork:
+      "https://images.unsplash.com/photo-1525465506244-dbc4f9638b42?q=80&w=5342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    projectDescription:
+      "Over the course of 4 months, I learned Swift and SwiftUI by building my own game collection tracker app for iOS. I've been designing for iOS for almost 12 years now and was always held back by the fact that I needed to learn Objective-C",
+  },
+  {
+    startDate: "08/2023",
+    endDate: "12/2024",
+    projectName: "Yally",
+    projectArtwork:
+      "https://images.unsplash.com/photo-1735194750269-c4597dbb405c?q=80&w=5232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    projectDescription:
+      "Immo Brown is an exclusive real estate agency based in West-Flanders, Belgium. Their website was in dire need of a redesign to reposition the agency back on top in this competitive market. I had around 2 weeks time to redesign their site and marketing direction. From the very beginning, I opted to design their website with a mobile-first approach in mind.",
+  },
+  {
+    startDate: "07/2023",
+    endDate: "09/2022",
+    projectName: "Planticus",
+    projectArtwork:
+      "https://images.unsplash.com/photo-1732077016620-bd945b8be3b2?q=80&w=3136&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    projectDescription:
+      "A crucial aspect of the UI are the file icons. These little squares are dynamic spaces where we can display a little preview of the file (this being a later addition) or simply show a placeholder icon. Since most of the UI has been kept clean and subdued in style, this was the first thing I started working on. Over the course of 2-3 weeks, I created a total of 4 high-fidelity icon sets.",
+  },
+  {
+    startDate: "05/2019",
+    endDate: "11/2022",
+    projectName: "Helpper",
+    projectArtwork:
+      "https://images.unsplash.com/photo-1735942327256-f132d575b7e9?q=80&w=5340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    projectDescription:
+      "During the design process, I communicated primarily with Helpper’s CEO. My designs were presented as a Figma prototype so we could see the flows in action. This proved to be an essential part of the workflow as the team at Helpper could easily provide feedback on the work that has been done. I’d then take that feedback and present the next round.",
+  },
+];
 
 const projectsOrder = [
   "gamepal",
@@ -27,12 +67,16 @@ const sortedWork = work.sort((a: any, b: any) => {
 <MasterLayout title={title} layout={layout}>
   <section
     data-blurRevealFromBottom
-    class="!col-strt-4 o-grid--inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
+    class="mb-[600px] o-grid--inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
   >
-    <header class="col-span-full t--hero">
-      <h2>Hello, I&rsquo;m Jeremy</h2>
-      <!-- <StoryWrapper /> -->
-      <!-- <Shader
+    <section class="col-span-full o-grid--inner !gap-y-8">
+      <header class="col-span-7 t--hero">
+        <h2 class="leading-tight indent-32 text-balance">
+          I design and build digital experiences for web and
+          mobile&mdash;wherever you click or tap.
+        </h2>
+        <!-- <StoryWrapper /> -->
+        <!-- <Shader
         sources={[
           {
             srcset:
@@ -48,48 +92,17 @@ const sortedWork = work.sort((a: any, b: any) => {
         fallbackSrc="https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Hi there!"
       /> -->
-    </header>
-    <section class="col-span-full o-grid--inner">
-      <ul class="col-span-full text-lg">
-        <li
-          data-projectListImageReveal
-          class="py-5 grid grid-cols-[clamp(200px,_27.5%,_450px)_clamp(200px,_40%,_650px)] items-end justify-between gap-x-[5%] border-b border-stone-900/20 transition-all ease-in-out duration-300 hover:border-stone-900/100"
-        >
-          <aside class="flex flex-col gap-5">
-            <figure class="h-0 overflow-hidden bg-stone-100 dark:bg-stone-900">
-              <img
-                class="object-contain"
-                src="https://images.unsplash.com/photo-1730363113974-499b7ed93d15?q=80&w=4007&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-              />
-            </figure>
-            <div class="flex flex-col">
-              <div class="flex gap-1 text-sm opacity-60">
-                <span>06/2024</span>
-                <span class="font-[system-ui,sans-serif] !font-normal"
-                  >&rarr;</span
-                >
-                <span>Now</span>
-              </div>
-              <p class="text-2xl">GamePal</p>
-            </div>
-          </aside>
-          <article class="text-base">
-            <p>
-              I was also thinking about the Remote app for iPhone, which had a
-              play triangle. So I tried one of those too. For a little while
-              there, it seemed like that was the icon we were going with. But
-              after a few new music note outlines, he chose the one that shipped
-              with iTunes 10.
-            </p>
-          </article>
-        </li>
-      </ul>
+      </header>
+      <div class="col-span-full flex items-center gap-6">
+        <Button href="mailto:hey@jeremys.be" label="Email" />
+        <Button href="http://www.porsche.com" label="Threads" />
+        <Button href="http://www.polestar.com" label="Mastodon" />
+      </div>
     </section>
     <section
-      class="col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
     >
-      <header class="col-span-2">
+      <header class="col-start-5 col-span-1">
         <h3 class="font-medium">
           Profile <span
             class="font-[system-ui,sans-serif] !font-normal opacity-40"
@@ -97,11 +110,7 @@ const sortedWork = work.sort((a: any, b: any) => {
           >
         </h3>
       </header>
-      <header class="hidden col-span-2 t--prose bg-orange-20">
-        <h2>About me</h2>
-        <em>Me, myself, and I</em>
-      </header>
-      <article class="col-start-3 col-span-4 text-lg bg-blue-20">
+      <article class="col-start-6 col-span-full text-lg">
         <p>
           In today's professional landscape, teams grapple with an overwhelming
           amount of unstructured data—contracts, policies, claims, financial
@@ -122,9 +131,9 @@ const sortedWork = work.sort((a: any, b: any) => {
       </article>
     </section>
     <section
-      class="col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
     >
-      <header class="col-span-2">
+      <header class="col-start-5 col-span-1">
         <h3 class="font-medium">
           Skills <span
             class="font-[system-ui,sans-serif] !font-normal opacity-40"
@@ -132,23 +141,95 @@ const sortedWork = work.sort((a: any, b: any) => {
           >
         </h3>
       </header>
-      <header class="hidden col-span-2 t--prose bg-orange-20">
-        <h2>Skills</h2>
-        <em>Boom</em>
-      </header>
-      <div class="col-start-3 col-span-4 text-lg bg-blue-20">
-        <ul class="flex flex-col gap-2">
-          <li>User Experience Design</li>
-          <li>User Interface Design</li>
-          <li>Web Design</li>
-          <li>Design Systems</li>
-          <li>Front-end Web Development</li>
-          <li>iOS App Development</li>
+      <div class="col-start-6 col-span-full">
+        <ul
+          class="flex flex-col gap-6 [&>li]:flex [&>li]:flex-col [&>li>h3]:text-2xl [&>li>p]:opacity-70 text-base"
+        >
+          <li>
+            <h3>User Experience Design</h3>
+            <p>
+              Focusing on usability, accessibility, and user needs to create
+              seamless interactions.
+            </p>
+          </li>
+          <li>
+            <h3>User Interface Design</h3>
+            <p>
+              Designing clear, functional, and visually cohesive interfaces for
+              digital products.
+            </p>
+          </li>
+          <li>
+            <h3>Website Design</h3>
+            <p>
+              Structuring layouts, typography, and content to create
+              well-organized web experiences.
+            </p>
+          </li>
+          <li>
+            <h3>Front-end Web Development</h3>
+            <p>
+              Translating designs into responsive, maintainable, and efficient
+              code for the web.
+            </p>
+          </li>
+          <li>
+            <h3>iOS App Development</h3>
+            <p>
+              Building native iOS applications with a focus on performance and
+              platform guidelines.
+            </p>
+          </li>
         </ul>
       </div>
     </section>
     <section
       class="col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
+    >
+      <header class="col-span-full">
+        <h3 class="font-medium">
+          Work experience <span
+            class="font-[system-ui,sans-serif] !font-normal opacity-40"
+            >&searr;</span
+          >
+        </h3>
+      </header>
+      <ul class="col-span-full o-grid--inner !gap-y-0 text-lg">
+        {
+          workExperience.map((work) => (
+            <li
+              data-projectListImageReveal
+              class="pt-8 pb-5 col-span-full o-grid--inner items-end border-b border-stone-900/20 dark:border-white/20 transition-all ease-in-out duration-300 hover:border-stone-900/100 dark:hover:border-white"
+            >
+              <aside class="col-span-2 flex flex-col gap-5">
+                <figure class="h-0 overflow-hidden bg-stone-100 dark:bg-stone-900">
+                  <img
+                    class="object-contain"
+                    src={work.projectArtwork}
+                    alt={`${work.projectName} artwork`}
+                  />
+                </figure>
+                <div class="flex flex-col">
+                  <div class="flex gap-1 text-sm opacity-60">
+                    <span>{work.startDate}</span>
+                    <span class="font-[system-ui,sans-serif] !font-normal">
+                      &rarr;
+                    </span>
+                    <span>{work.endDate}</span>
+                  </div>
+                  <p class="text-2xl">{work.projectName}</p>
+                </div>
+              </aside>
+              <article class="col-start-6 col-span-full text-base">
+                <p>{work.projectDescription}</p>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section
+      class="!hidden col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-span-2">
         <h3 class="font-medium">
@@ -157,10 +238,6 @@ const sortedWork = work.sort((a: any, b: any) => {
             >&searr;</span
           >
         </h3>
-      </header>
-      <header class="hidden col-span-2 t--prose bg-orange-20">
-        <h2>Work experience</h2>
-        <em>Since 2013</em>
       </header>
       <ul
         class="col-start-3 col-span-4 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between bg-blue-20"

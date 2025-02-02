@@ -187,7 +187,7 @@ export function projectListImageReveal() {
     });
 
     gsap.set(img, {
-      scale: 1.05,
+      scale: 1.08,
     });
 
     // Get natural height
@@ -201,13 +201,13 @@ export function projectListImageReveal() {
     tl.to(figure, {
       height: naturalHeight,
       clipPath: "inset(0 0 0% 0)",
-      duration: 0.7,
+      duration: 0.9,
       ease: "ease-cubic-circ",
     }).to(
       img,
       {
         scale: 1,
-        duration: 0.7,
+        duration: 0.9,
         ease: "ease-cubic-circ",
       },
       0,

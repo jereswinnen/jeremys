@@ -76,11 +76,18 @@
   .font-black {
     font-variation-settings: "wght" 900;
   }
+  .ease-in-circ {
+    transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
 }
 
 body,
 a {
   cursor: none;
+}
+
+.cta-interaction {
+  @apply ease-in-circ transition-all duration-[400ms];
 }
 
 .animated-cursor {

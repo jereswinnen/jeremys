@@ -32,12 +32,18 @@ const { title, description, theme, layout } = Astro.props;
         <slot />
       </main>
       <footer
-        class="mb-[600px] o-grid--bleed col-span-full bg-stone-950 text-white py-16"
+        data-footerScrollExpand
+        class="o-grid--bleed col-span-full bg-stone-950 text-white py-16"
       >
-        <div class="o-grid o-grid--default">
-          <article>
+        <div data-footerContent class="o-grid o-grid--default">
+          <article class="col-span-3">
             <p>This is some footer content</p>
           </article>
+          <img
+            class="col-span-3"
+            src="https://images.unsplash.com/photo-1735149050406-76f49ced66e1?q=80&w=5232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
         </div>
       </footer>
     </div>
@@ -64,17 +70,19 @@ const { title, description, theme, layout } = Astro.props;
     // imageClipFromBottom,
     // textBlurFadeIn,
     // imageBlurReveal,
-    projectListImageReveal,
+    // projectListImageReveal,
     // blurRevealFromTop,
     // blurRevealFromBottom,
     // blurRevealFromLeft,
+    footerScrollExpand,
   } from "../assets/scripts/gsapAnimations.js";
   // typewriterEffect();
   // imageClipFromBottom();
   // textBlurFadeIn();
   // imageBlurReveal();
-  projectListImageReveal();
+  // projectListImageReveal();
   // blurRevealFromTop();
   // blurRevealFromBottom();
   // blurRevealFromLeft();
+  footerScrollExpand();
 </script>

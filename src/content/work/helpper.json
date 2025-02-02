@@ -32,17 +32,20 @@
     {
       "type": "image",
       "src": "PhoneProfile.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 3
     },
     {
       "type": "image",
       "src": "PhonePerformances.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 3
     },
     {
       "type": "image",
       "src": "PhoneOverview.png",
-      "caption": "Main project interface"
+      "caption": "Main project interface",
+      "colSpan": 3
     }
   ]
 }

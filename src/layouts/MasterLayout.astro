@@ -31,6 +31,15 @@ const { title, description, theme, layout } = Astro.props;
         />
         <slot />
       </main>
+      <footer
+        class="mb-[600px] o-grid--bleed col-span-full bg-stone-950 text-white py-16"
+      >
+        <div class="o-grid o-grid--default">
+          <article>
+            <p>This is some footer content</p>
+          </article>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

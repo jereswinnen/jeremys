@@ -32,36 +32,13 @@
       column-gap: inherit;
       row-gap: inherit;
       grid-template-columns: inherit;
-      // &:nth-child(2) {
-      //   background: wheat;
-      // }
     }
   }
 }
 
-.o-grid-bleed {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  position: relative;
-}
-
-.o-grid-bleed-container {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  position: relative;
-}
-
-.o-grid-bleed-container > .o-container {
-  padding-left: max(
-    var(--u-container-padding),
-    calc((100vw - var(--u-container-max-width)) / 2)
-  );
-  padding-right: max(
-    var(--u-container-padding),
-    calc((100vw - var(--u-container-max-width)) / 2)
-  );
+.o-grid--bleed {
+  margin: 0 calc(-1 * var(--u-container-padding));
+  padding: 0 var(--u-container-padding);
 }
 
 .col-span-1 {

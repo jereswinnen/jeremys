@@ -5,9 +5,9 @@ const { class: className, logo = true, ...rest } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { path: "/", label: "Works" },
+  { path: "/", label: "Work" },
   { path: "/info", label: "Info" },
-  { path: "/feed", label: "Feed" },
+  // { path: "/feed", label: "Feed" },
   // { path: "/contact", label: "Contact" },
   { isCopyable: true, path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
 ];

@@ -34,7 +34,7 @@ const { title, description, theme, layout } = Astro.props;
       </main>
       <footer
         data-footerScrollExpand
-        class="o-grid--bleed col-span-full bg-stone-950 text-white dark:bg-white dark:text-stone-900 py-16"
+        class="o-grid--bleed col-span-full bg-stone-950 text-white dark:bg-white dark:text-stone-900 py-20"
       >
         <div data-footerContent class="o-grid o-grid--default">
           <header class="col-span-full o-grid--inner">
@@ -49,9 +49,9 @@ const { title, description, theme, layout } = Astro.props;
           </header>
           <Button
             data-copyEmail
-            class="col-span-full mx-auto w-fit text-center tracking-tight !px-[8vw] !pb-[1.5vw] !text-[10vw] !normal-case !border-[0.3vw] !text-white dark:!text-stone-900 hover:!bg-white hover:dark:!bg-stone-900 [&>*:first-child]:hover:!text-stone-900 [&>*:first-child]:hover:dark:!text-white [&>span]:!bg-white [&>span]:dark:!bg-stone-900"
+            class="col-span-full mx-auto w-fit text-center tracking-tight !px-[8vw] !pb-[1.5vw] !text-[8vw] !normal-case !border-[0.3vw] !text-white dark:!text-stone-900 hover:!bg-white hover:dark:!bg-stone-900 [&>*:first-child]:hover:!text-stone-900 [&>*:first-child]:hover:dark:!text-white [&>span]:!bg-white [&>span]:dark:!bg-stone-900"
             href="mailto:hey@jeremys.be"
-            label="Let’s talk"
+            label="hey@jeremys.be"
           />
         </div>
       </footer>
@@ -166,7 +166,7 @@ const { title, description, theme, layout } = Astro.props;
     // imageClipFromBottom,
     // textBlurFadeIn,
     // imageBlurReveal,
-    // projectListImageReveal,
+    projectListImageReveal,
     // blurRevealFromTop,
     // blurRevealFromBottom,
     // blurRevealFromLeft,
@@ -177,7 +177,7 @@ const { title, description, theme, layout } = Astro.props;
   // imageClipFromBottom();
   // textBlurFadeIn();
   // imageBlurReveal();
-  // projectListImageReveal();
+  projectListImageReveal();
   // blurRevealFromTop();
   // blurRevealFromBottom();
   // blurRevealFromLeft();

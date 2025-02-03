@@ -76,22 +76,6 @@ const sortedWork = work.sort((a: any, b: any) => {
           mobile&mdash;wherever you click or tap.
         </h2>
         <!-- <StoryWrapper /> -->
-        <!-- <Shader
-        sources={[
-          {
-            srcset:
-              "https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            type: "image/avif",
-          },
-          {
-            srcset:
-              "https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            type: "image/webp",
-          },
-        ]}
-        fallbackSrc="https://images.unsplash.com/photo-1737490419228-0ba705903a23?q=80&w=2760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Hi there!"
-      /> -->
       </header>
       <div class="col-span-full flex items-center gap-6">
         <Button href="mailto:hey@jeremys.be" label="Email" />
@@ -100,8 +84,24 @@ const sortedWork = work.sort((a: any, b: any) => {
       </div>
     </section>
     <section
-      class="o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
     >
+      <aside data-imageClipFromBottom class="col-start-3 col-span-2">
+        <Shader
+          sources={[
+            {
+              srcset: "/images/profileShot.avif",
+              type: "image/avif",
+            },
+            {
+              srcset: "/images/profileShot.webp",
+              type: "image/webp",
+            },
+          ]}
+          fallbackSrc="/images/profileShot.jpg"
+          alt="Hi there!"
+        />
+      </aside>
       <header class="col-start-5 col-span-1">
         <h3 class="font-medium">
           Profile <span
@@ -131,7 +131,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       </article>
     </section>
     <section
-      class="o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-start-5 col-span-1">
         <h3 class="font-medium">
@@ -184,7 +184,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       </div>
     </section>
     <section
-      class="col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="col-span-full o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-span-full">
         <h3 class="font-medium">
@@ -229,7 +229,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       </ul>
     </section>
     <section
-      class="!hidden col-span-full o-grid--inner pt-4 border-t border-zinc-950 dark:border-white/20"
+      class="!hidden col-span-full o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-span-2">
         <h3 class="font-medium">

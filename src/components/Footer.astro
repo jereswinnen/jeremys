@@ -1,0 +1,65 @@
+---
+import Button from "./Button.astro";
+---
+
+<footer
+  data-footerScrollExpand
+  class="o-grid--bleed col-span-full bg-stone-950 text-white dark:bg-white dark:text-stone-900 py-20"
+>
+  <div data-footerContent class="o-grid o-grid--default">
+    <header class="col-span-full o-grid--inner">
+      <p class="col-span-2 text-balance">
+        I&rsquo;m currently available for new projects. Interested in working
+        together?
+      </p>
+      <div class="col-span-6 flex gap-6 items-center justify-end">
+        <div class="flex items-center gap-1">
+          <span>Local time</span>
+          <span class="font-[system-ui,sans-serif] opacity-60">&rarr;</span>
+          <span data-currentTime></span>
+        </div>
+        <span class="opacity-60">&copy;2025</span>
+      </div>
+    </header>
+    <Button
+      data-copyEmail
+      class="col-span-full mx-auto w-fit text-center tracking-tight !px-[8vw] !pb-[1.5vw] !text-[8vw] !normal-case !border-[0.3vw] !text-white dark:!text-stone-900 hover:!bg-white hover:dark:!bg-stone-900 [&>*:first-child]:hover:!text-stone-900 [&>*:first-child]:hover:dark:!text-white [&>span]:!bg-white [&>span]:dark:!bg-stone-900"
+      href="mailto:hey@jeremys.be"
+      label="hey@jeremys.be"
+    />
+  </div>
+</footer>
+
+<script>
+  function updateTime() {
+    const options: Intl.DateTimeFormatOptions = {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone: "Europe/Brussels",
+    };
+
+    const timeElements = document.querySelectorAll("[data-currentTime]");
+
+    timeElements.forEach((el) => {
+      if (el instanceof HTMLElement) {
+        const timeString = new Intl.DateTimeFormat("en-GB", options).format(
+          new Date()
+        );
+        el.innerHTML = timeString.replace(":", `<span class="blink">:</span>`);
+      }
+    });
+  }
+
+  function toggleBlink() {
+    document.querySelectorAll(".blink").forEach((colon) => {
+      if (colon instanceof HTMLElement) {
+        colon.style.opacity = colon.style.opacity === "0" ? "1" : "0";
+      }
+    });
+  }
+
+  setInterval(updateTime, 60000);
+  setInterval(toggleBlink, 800);
+  updateTime();
+</script>

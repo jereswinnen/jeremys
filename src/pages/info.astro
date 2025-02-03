@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import MasterLayout from "../layouts/MasterLayout.astro";
-import Shader from "../components/Shader.astro";
+import ShaderWrapper from "../components/ShaderWrapper.astro";
 import StoryWrapper from "../components/StoryWrapper.astro";
 import Button from "../components/Button.astro";
 const title = "Profile";
@@ -87,7 +87,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       class="o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
     >
       <aside data-imageClipFromBottom class="col-start-3 col-span-2">
-        <Shader
+        <ShaderWrapper
           sources={[
             {
               srcset: "/images/profileShot.avif",

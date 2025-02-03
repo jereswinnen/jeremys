@@ -1,6 +1,6 @@
 ---
 import Brand from "./Brand.astro";
-import Shader from "./Shader.astro";
+import ShaderWrapper from "./ShaderWrapper.astro";
 import MusicModal from "./MusicModal.astro";
 import { getCollection } from "astro:content";
 
@@ -46,7 +46,7 @@ const latestTrack = music.sort(
   </article>
   <div class="flex items-end gap-2">
     <!-- <div data-imageClipFromBottom class="max-w-[40vh]">
-      <Shader
+      <ShaderWrapper
         sources={[
           { srcset: "/images/profileShot.avif", type: "image/avif" },
           { srcset: "/images/profileShot.webp", type: "image/webp" },

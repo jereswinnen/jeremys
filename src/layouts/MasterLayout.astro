@@ -1,8 +1,8 @@
 ---
 import "../assets/styles/global.scss";
 import Aside from "../components/Aside.astro";
-import Button from "../components/Button.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const { title, description, theme, layout } = Astro.props;
 ---
@@ -32,29 +32,7 @@ const { title, description, theme, layout } = Astro.props;
         />
         <slot />
       </main>
-      <footer
-        data-footerScrollExpand
-        class="o-grid--bleed col-span-full bg-stone-950 text-white dark:bg-white dark:text-stone-900 py-20"
-      >
-        <div data-footerContent class="o-grid o-grid--default">
-          <header class="col-span-full o-grid--inner">
-            <p class="col-span-2 text-balance">
-              I&rsquo;m currently available for new projects. Interested in
-              working together?
-            </p>
-            <div class="col-span-6 flex gap-6 items-center justify-end">
-              <span data-currentTime></span>
-              <span class="opacity-60">&copy;2025</span>
-            </div>
-          </header>
-          <Button
-            data-copyEmail
-            class="col-span-full mx-auto w-fit text-center tracking-tight !px-[8vw] !pb-[1.5vw] !text-[8vw] !normal-case !border-[0.3vw] !text-white dark:!text-stone-900 hover:!bg-white hover:dark:!bg-stone-900 [&>*:first-child]:hover:!text-stone-900 [&>*:first-child]:hover:dark:!text-white [&>span]:!bg-white [&>span]:dark:!bg-stone-900"
-            href="mailto:hey@jeremys.be"
-            label="hey@jeremys.be"
-          />
-        </div>
-      </footer>
+      <Footer />
     </div>
   </body>
 </html>
@@ -103,11 +81,10 @@ const { title, description, theme, layout } = Astro.props;
             input.style.opacity = "0";
             document.body.appendChild(input);
             input.select();
-            input.setSelectionRange(0, 99999); // Ensures mobile compatibility
+            input.setSelectionRange(0, 99999);
             document.body.removeChild(input);
           }
 
-          // Show "Copied!" feedback
           if (labelElement) {
             labelElement.textContent = "Copied!";
             setTimeout(() => {
@@ -119,45 +96,10 @@ const { title, description, theme, layout } = Astro.props;
         }
       };
 
-      // Attach both click and touchend for mobile support
       button.addEventListener("click", copyEmail);
       button.addEventListener("touchend", copyEmail, { passive: true });
     });
   });
-</script>
-
-<script>
-  function updateTime() {
-    const options: Intl.DateTimeFormatOptions = {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "Europe/Brussels",
-    };
-
-    const timeElements = document.querySelectorAll("[data-currentTime]");
-
-    timeElements.forEach((el) => {
-      if (el instanceof HTMLElement) {
-        const timeString = new Intl.DateTimeFormat("en-GB", options).format(
-          new Date()
-        );
-        el.innerHTML = timeString.replace(":", `<span class="blink">:</span>`);
-      }
-    });
-  }
-
-  function toggleBlink() {
-    document.querySelectorAll(".blink").forEach((colon) => {
-      if (colon instanceof HTMLElement) {
-        colon.style.opacity = colon.style.opacity === "0" ? "1" : "0";
-      }
-    });
-  }
-
-  setInterval(updateTime, 60000);
-  setInterval(toggleBlink, 800);
-  updateTime();
 </script>
 
 <script>

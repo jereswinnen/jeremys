@@ -1,14 +1,21 @@
 ---
 interface Props {
+  "data-copyEmail"?: boolean;
   href: string;
   label: string;
   class?: string;
 }
 
-const { href, label, class: className = "" } = Astro.props;
+const {
+  "data-copyEmail": copyEmail,
+  href,
+  label,
+  class: className = "",
+} = Astro.props;
 ---
 
 <a
+  {...copyEmail ? { "data-copyEmail": "" } : {}}
   href={href}
   class:list={[
     " group relative px-5 pt-1 pb-2 rounded-full dark:text-white uppercase text-5xl border-2 border-current",

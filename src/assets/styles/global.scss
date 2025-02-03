@@ -81,10 +81,12 @@
   }
 }
 
-body,
-a {
-  cursor: none;
-}
+// @media (min-width: 46em) {
+//   body,
+//   a {
+//     cursor: none;
+//   }
+// }
 
 .cta-interaction {
   @apply ease-in-circ transition-all duration-[400ms];
@@ -132,5 +134,21 @@ a {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+[data-copyEmail].copied {
+  animation: flash 0.3s ease-in-out;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }

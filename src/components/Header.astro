@@ -9,7 +9,7 @@ const navItems = [
   { path: "/info", label: "Info" },
   { path: "/feed", label: "Feed" },
   // { path: "/contact", label: "Contact" },
-  { path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
+  { isCopyable: true, path: "mailto:hey@jeremys.be", label: "hey@jeremys.be" },
 ];
 ---
 
@@ -42,16 +42,17 @@ const navItems = [
   <nav>
     <ul class="flex gap-6">
       {
-        navItems.map(({ path, label }) => (
+        navItems.map(({ isCopyable, path, label }) => (
           <li class="flex flex-col flex-1 group">
             <a
+              {...(isCopyable ? { "data-copyEmail": "" } : {})}
               href={path}
               class:list={[
                 "relative flex-1 justify-between pb-8 font-medium text-sm",
                 currentPath === path && "font-semibold",
               ]}
             >
-              {label}
+              <span>{label}</span>
             </a>
             <div class="relative bottom-0 left-0 w-full h-[1px] [&>*]:absolute [&>*]:block [&>*]:h-full">
               <span class="w-0 bg-stone-950 dark:bg-white transition-all duration-500 ease-circ group-hover:w-full" />

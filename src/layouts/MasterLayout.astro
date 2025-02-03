@@ -48,6 +48,7 @@ const { title, description, theme, layout } = Astro.props;
             </div>
           </header>
           <Button
+            data-copyEmail
             class="col-span-full mx-auto w-fit text-center tracking-tight !px-[8vw] !pb-[1.5vw] !text-[10vw] !normal-case !border-[0.3vw] !text-white dark:!text-stone-900 hover:!bg-white hover:dark:!bg-stone-900 [&>*:first-child]:hover:!text-stone-900 [&>*:first-child]:hover:dark:!text-white [&>span]:!bg-white [&>span]:dark:!bg-stone-900"
             href="mailto:hey@jeremys.be"
             label="Let’s talk"
@@ -58,7 +59,7 @@ const { title, description, theme, layout } = Astro.props;
   </body>
 </html>
 
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", () => {
     const cursor = document.createElement("div");
     cursor.classList.add("animated-cursor");
@@ -68,6 +69,59 @@ const { title, description, theme, layout } = Astro.props;
     document.addEventListener("mousemove", (e) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
+    });
+  });
+</script> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const emailButtons = document.querySelectorAll("[data-copyEmail]");
+
+    emailButtons.forEach((button) => {
+      const copyEmail = async (e: any) => {
+        e.preventDefault();
+
+        const href =
+          button instanceof HTMLAnchorElement
+            ? button.getAttribute("href")
+            : null;
+        if (!href) return;
+
+        const emailAddress = href.replace("mailto:", "");
+        const labelElement = button.querySelector("span");
+        const originalLabel = labelElement?.textContent || "";
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(emailAddress);
+          } else {
+            // Fallback for older browsers
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = emailAddress;
+            input.style.position = "absolute";
+            input.style.opacity = "0";
+            document.body.appendChild(input);
+            input.select();
+            input.setSelectionRange(0, 99999); // Ensures mobile compatibility
+            document.body.removeChild(input);
+          }
+
+          // Show "Copied!" feedback
+          if (labelElement) {
+            labelElement.textContent = "Copied!";
+            setTimeout(() => {
+              labelElement.textContent = originalLabel;
+            }, 2000);
+          }
+        } catch (err) {
+          console.error("Clipboard copy failed:", err);
+        }
+      };
+
+      // Attach both click and touchend for mobile support
+      button.addEventListener("click", copyEmail);
+      button.addEventListener("touchend", copyEmail, { passive: true });
     });
   });
 </script>
@@ -117,6 +171,7 @@ const { title, description, theme, layout } = Astro.props;
     // blurRevealFromBottom,
     // blurRevealFromLeft,
     footerScrollExpand,
+    // emailCopyEffect,
   } from "../assets/scripts/gsapAnimations.js";
   // typewriterEffect();
   // imageClipFromBottom();
@@ -127,4 +182,5 @@ const { title, description, theme, layout } = Astro.props;
   // blurRevealFromBottom();
   // blurRevealFromLeft();
   footerScrollExpand();
+  // emailCopyEffect();
 </script>

@@ -23,7 +23,7 @@ const { title, description, theme, layout } = Astro.props;
   <body
     class={`${theme ? theme : ""} o-container font-sans bg-white dark:bg-stone-950 text-stone-900 dark:text-white/85 selection:bg-stone-200 selection:dark:bg-stone-400`}
   >
-    <IntroOverlay />
+    <!-- <IntroOverlay /> -->
     <div data-mainContent class={`o-grid o-grid--${layout || "default"}`}>
       {layout === "home" && <Aside class="md:sticky md:top-0" />}
       <main class="o-grid--inner outline-none">
@@ -106,7 +106,7 @@ const { title, description, theme, layout } = Astro.props;
 
 <script>
   import {
-    introAnimation,
+    // introAnimation,
     // typewriterEffect,
     // imageClipFromBottom,
     // textBlurFadeIn,
@@ -119,7 +119,7 @@ const { title, description, theme, layout } = Astro.props;
     footerScrollExpand,
     // emailCopyEffect,
   } from "../assets/scripts/gsapAnimations.js";
-  introAnimation();
+  // introAnimation();
   // typewriterEffect();
   // imageClipFromBottom();
   // textBlurFadeIn();

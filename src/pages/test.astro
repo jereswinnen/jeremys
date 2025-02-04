@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import MasterLayout from "../layouts/MasterLayout.astro";
+import Button from "../components/Button.astro";
+import ProjectCell from "../components/ProjectCell.astro";
+const title = "Test";
+const layout = "info";
+const work = await getCollection("work");
+
+const projectOrder = [
+  "gamepal",
+  "helpper",
+  "scorecard",
+  "realo",
+  "shelf",
+  "immo brown",
+  "diabetik",
+];
+
+const sortedProjects = [...work].sort((a, b) => {
+  const orderA = projectOrder.indexOf(a.data.name.toLowerCase());
+  const orderB = projectOrder.indexOf(b.data.name.toLowerCase());
+  return orderA - orderB;
+});
+---
+
+<MasterLayout title={title} layout={layout}>
+  <section
+    data-blurRevealFromBottom
+    class="o-grid--inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
+  >
+    <section class="col-span-full o-grid--inner !gap-y-8">
+      <header class="col-span-7 t--hero">
+        <h2 class="leading-tight indent-32 text-balance">
+          I design and build digital experiences for web and
+          mobile&mdash;wherever you click or tap.
+        </h2>
+      </header>
+      <div class="col-span-full flex items-center gap-6">
+        <Button href="mailto:hey@jeremys.be" label="Email" />
+        <Button href="http://www.porsche.com" label="Threads" />
+        <Button href="http://www.polestar.com" label="Mastodon" />
+      </div>
+    </section>
+    {sortedProjects.map((project) => <ProjectCell project={project.data} />)}
+  </section>
+</MasterLayout>

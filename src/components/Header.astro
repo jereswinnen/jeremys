@@ -15,7 +15,7 @@ const navItems = [
   class:list={["grid grid-cols-subgrid gap-y-0 z-[500] text-sm", className]}
   {...rest}
 >
-  <a href="/" class="col-span-2 pt-8 font-medium uppercase tracking-wide"
+  <a href="/" class="col-span-2 pt-4 font-medium uppercase tracking-wide"
     >Jeremys</a
   >
   <nav class="col-span-6 col-start-6 grid grid-cols-subgrid">
@@ -27,7 +27,7 @@ const navItems = [
               {...(isCopyable ? { "data-copyEmail": "" } : {})}
               href={path}
               class:list={[
-                "flex pl-3 pt-8 opacity-70 transition-all duration-500 ease-circ hover:opacity-100",
+                "flex pl-3 pt-4 opacity-70 transition-all duration-500 ease-circ hover:opacity-100",
                 currentPath === path && "font-medium",
               ]}
             >

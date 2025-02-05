@@ -34,10 +34,10 @@ const processedImages = await Promise.all(
 ---
 
 <section
-  class="o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
+  class="col-span-full grid grid-cols-subgrid !gap-[calc(var(--u-grid-gap)/2)] pt-6 border-t border-zinc-950 dark:border-white/20"
 >
   <header
-    class="col-span-full o-grid--inner text-sm [&>*]:flex [&>*]:flex-col [&>*]:gap-1 [&>*>*:first-child]:mb-0 [&>*>*:first-child]:opacity-70 [&>*>*:last-child]:font-medium"
+    class="col-span-full grid grid-cols-subgrid text-sm [&>*]:flex [&>*]:flex-col [&>*]:gap-1 [&>*>*:first-child]:mb-0 [&>*>*:first-child]:opacity-70 [&>*>*:last-child]:font-medium"
   >
     <div><p>Name</p><p>{project.name}</p></div>
     <div><p>Role</p><p>{project.role}</p></div>
@@ -55,7 +55,9 @@ const processedImages = await Promise.all(
     </div>
   </header>
 
-  <div class="col-span-full o-grid--inner !gap-[calc(var(--u-grid-gap)/5)]">
+  <div
+    class="col-span-full grid grid-cols-subgrid !gap-[calc(var(--u-grid-gap)/5)]"
+  >
     {
       processedImages.map((item) => (
         <div

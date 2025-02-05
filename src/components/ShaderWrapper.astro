@@ -3,7 +3,6 @@ import ImageShader from "./ImageShader";
 import ReverseImageShader from "./ReverseImageShader";
 
 interface Props {
-  constrain?: boolean;
   sources: {
     srcset: string;
     type: string;
@@ -12,9 +11,7 @@ interface Props {
   alt: string;
 }
 
-const { constrain = false, sources, fallbackSrc, alt } = Astro.props;
-
-const containerClasses = constrain ? "max-w-[18vw] bg-orange-200" : "";
+const { sources, fallbackSrc, alt } = Astro.props;
 ---
 
 <ReverseImageShader

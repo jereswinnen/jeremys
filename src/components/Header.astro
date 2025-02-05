@@ -1,7 +1,5 @@
 ---
-import Brand from "./Brand.astro";
-
-const { class: className, logo = true, ...rest } = Astro.props;
+const { class: className, ...rest } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 const navItems = [
@@ -14,51 +12,32 @@ const navItems = [
 ---
 
 <header
-  class:list={[
-    "relative z-[1000] pt-2",
-    className,
-    logo &&
-      "grid grid-cols-[clamp(200px,_27.5%,_450px)_clamp(600px,_67.5%,_1200px)] justify-between gap-x-[5%] gap-y-0",
-  ]}
+  class:list={["grid grid-cols-subgrid gap-y-0 z-[500] text-sm", className]}
   {...rest}
 >
-  {
-    logo && (
-      <div class="z-[1001] flex gap-4 items-center">
-        <a href="/">
-          <Brand class="text-current dark:text-white" />
-        </a>
-        <div class="flex flex-col text-sm">
-          <h1>
-            <a href="/" class="font-medium">
-              Jeremy Swinnen
-            </a>
-          </h1>
-          <em class="opacity-60">Software Designer</em>
-        </div>
-      </div>
-    )
-  }
-  <nav>
-    <ul class="flex gap-6">
+  <a href="/" class="col-span-2 pt-8 font-medium uppercase tracking-wide"
+    >Jeremys</a
+  >
+  <nav class="col-span-6 col-start-6 grid grid-cols-subgrid">
+    <ul class="col-span-full grid grid-cols-subgrid">
       {
         navItems.map(({ isCopyable, path, label }) => (
-          <li class="flex flex-col flex-1 group">
+          <li class="group relative">
             <a
               {...(isCopyable ? { "data-copyEmail": "" } : {})}
               href={path}
               class:list={[
-                "relative flex-1 justify-between pb-8 font-medium text-sm",
-                currentPath === path && "font-semibold",
+                "flex pl-3 pt-8 opacity-70 transition-all duration-500 ease-circ hover:opacity-100",
+                currentPath === path && "font-medium",
               ]}
             >
               <span>{label}</span>
             </a>
-            <div class="relative bottom-0 left-0 w-full h-[1px] [&>*]:absolute [&>*]:block [&>*]:h-full">
-              <span class="w-0 bg-stone-950 dark:bg-white transition-all duration-500 ease-circ group-hover:w-full" />
+            <div class="absolute top-0 left-0 w-[1px] h-full [&>*]:absolute [&>*]:block [&>*]:w-[1px]">
+              <span class="h-0 bg-stone-950 dark:bg-white transition-all duration-500 ease-circ group-hover:h-full" />
               <span
                 class:list={[
-                  "w-full bg-stone-950/20 dark:bg-white/20",
+                  "h-full bg-stone-950/20 dark:bg-white/20",
                   currentPath === path && "!bg-stone-950 dark:!bg-white",
                 ]}
               />
@@ -69,28 +48,3 @@ const navItems = [
     </ul>
   </nav>
 </header>
-
-<style lang="scss">
-  header {
-    width: 100%;
-    &:before {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: 100px;
-      content: "";
-      background: linear-gradient(to top, transparent, rgb(252, 252, 252));
-      mask-image: linear-gradient(
-        to bottom,
-        rgb(252, 252, 252) 25%,
-        transparent
-      );
-      backdrop-filter: blur(1.5px);
-      pointer-events: none;
-      @media (prefers-color-scheme: dark) {
-        background: linear-gradient(to top, transparent, rgb(0, 0, 0));
-        mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 25%, transparent);
-      }
-    }
-  }
-</style>

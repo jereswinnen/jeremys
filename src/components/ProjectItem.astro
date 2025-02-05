@@ -7,68 +7,81 @@ interface Props {
   project: CollectionEntry<"work">["data"];
 }
 
+interface ImageBlock {
+  type: "image";
+  src: string;
+  caption?: string;
+  colSpan?: number;
+  mdColSpan?: number;
+  lgColSpan?: number;
+}
+
 const { project } = Astro.props;
 
-// Pre-load images for image blocks
-const processedBlocks = await Promise.all(
-  project.blocks.map(async (block: any) => {
-    if (block.type === "image") {
-      return {
-        ...block,
-        image: await getProjectImage(project.name, block.src),
-      };
-    }
-    return block;
-  })
+// Get all images from blocks
+const imageBlocks = project.blocks.filter(
+  (block: any): block is ImageBlock => block.type === "image"
+);
+const processedImages = await Promise.all(
+  imageBlocks.map(async (block: ImageBlock) => ({
+    image: await getProjectImage(project.name, block.src),
+    caption: block.caption,
+    colSpan: block.colSpan,
+    mdColSpan: block.mdColSpan,
+    lgColSpan: block.lgColSpan,
+  }))
 );
 ---
 
-<section id={project.name.toLowerCase()} class="flex flex-col gap-8">
-  <header class="flex items-center gap-4 t--hero">
-    <h2>{project.name}</h2>
-    <a
-      href={`#${project.name.toLowerCase()}-case`}
-      class="italic opacity-50 transition-all duration-500 ease-circ hover:opacity-100 hover:translate-x-1"
-      >info</a
-    >
+<section
+  class="col-span-full grid grid-cols-subgrid !gap-[calc(var(--u-grid-gap)/2)] pt-6 border-t border-stone-900 dark:border-white/20"
+>
+  <header
+    class="col-span-full grid grid-cols-subgrid text-sm [&>*]:flex [&>*]:flex-col [&>*]:gap-1 [&>*>*:first-child]:mb-0 [&>*>*:first-child]:opacity-70 [&>*>*:last-child]:font-medium"
+  >
+    <div><p>Name</p><p>{project.name}</p></div>
+    <div class="col-span-2">
+      <p>Info</p><p class="!font-normal">{project.description}</p>
+    </div>
+    <div class="col-start-7">
+      <p>Role</p><p>{project.role}</p>
+    </div>
+    <div class="col-start-8">
+      <p>Timeframe</p>
+      <div class="flex gap-1">
+        <span>{project.startDate}</span>
+        <span class="font-[system-ui,sans-serif] font-normal opacity-50"
+          >&rarr;</span
+        >
+        <span>{project.endDate}</span>
+      </div>
+    </div>
   </header>
 
-  <div class="o-grid--inner !gap-[calc(var(--u-grid-gap)/5)]">
+  <div
+    class="col-span-full grid grid-cols-subgrid !gap-[calc(var(--u-grid-gap)/5)]"
+  >
     {
-      processedBlocks.map((block) => (
+      processedImages.map((item) => (
         <div
-          class={`${
-            block.type === "image" ? "p-8" : "p-16"
-          } bg-stone-100 dark:bg-stone-900 ${block.colSpan ? `col-span-${block.colSpan}` : ""}
-    ${block.mdColSpan ? `md:col-span-${block.mdColSpan}` : ""}
-    ${block.lgColSpan ? `lg:col-span-${block.lgColSpan}` : ""}`.trim()}
-          id={
-            block.type === "context" && block.highlighted
-              ? `${project.name.toLowerCase()}-case`
-              : undefined
-          }
+          class={`p-8 bg-stone-100 dark:bg-stone-900
+            ${item.colSpan ? `col-span-${item.colSpan}` : ""}
+            ${item.mdColSpan ? `md:col-span-${item.mdColSpan}` : ""}
+            ${item.lgColSpan ? `lg:col-span-${item.lgColSpan}` : ""}`}
         >
-          {block.type === "image" ? (
-            <div class="flex flex-col items-center">
-              <Picture
-                data-imageBlurReveal
-                src={block.image}
-                alt={block.caption || project.name}
-                formats={["avif", "webp"]}
-                class="max-h-[70vh] lg:max-h-[50vh] object-contain"
-              />
-              {block.caption && (
-                <p class="text-sm font-medium text-center opacity-60">
-                  {block.caption}
-                </p>
-              )}
-            </div>
-          ) : (
-            <article class="text-center text-balance">
-              {block.title && <p class="">{block.title}</p>}
-              <p class="t--prose">{block.content}</p>
-            </article>
-          )}
+          <div class="flex flex-col items-center">
+            <Picture
+              src={item.image}
+              alt={item.caption || project.name}
+              formats={["avif", "webp"]}
+              class="max-h-[70vh] lg:max-h-[45vh] object-contain"
+            />
+            {item.caption && (
+              <p class="text-sm font-medium text-center opacity-60">
+                {item.caption}
+              </p>
+            )}
+          </div>
         </div>
       ))
     }

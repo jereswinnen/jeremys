@@ -1,32 +1,82 @@
 ---
+import { getCollection } from "astro:content";
 import Button from "./Button.astro";
+
+// Fetch the latest music entry
+const music = await getCollection("music");
+const latestTrack = music.sort(
+  (a: any, b: any) => b.data.date.getTime() - a.data.date.getTime()
+)[0];
 ---
 
 <footer
   data-footerScrollExpand
-  class="h-screen o-grid--bleed col-span-full bg-stone-950 text-white dark:bg-white dark:text-stone-900 py-20"
+  class="col-span-full o-grid--bleed pt-6 pb-16 h-[50vh] border-t border-stone-900 dark:border-white/20 bg-stne-950 text-whte dark:bg-whte dark:text-stne-900"
 >
-  <div data-footerContent class="o-grid o-grid--default">
-    <header class="col-span-full o-grid--inner">
-      <p class="col-span-2 text-balance">
-        I&rsquo;m currently available for new projects. Interested in working
-        together?
-      </p>
-      <div class="col-span-6 flex gap-6 items-center justify-end">
+  <div
+    data-footerContent
+    class="o-grid o-grid--default h-full justify-items-stretch"
+  >
+    <header class="col-span-full grid grid-cols-subgrid">
+      <article class="col-span-2 flex flex-col gap-3 text-balance">
+        <p>
+          Thanks for visiting! Interested in collaborating on your app or
+          website? Feel free to contact me.
+        </p>
+        <div class="col-span-full flex items-center gap-6">
+          <!-- <Button
+            data-copyEmail
+            class="!text-2xl"
+            href="mailto:hey@jeremys.be"
+            label="hey@jeremys.be"
+          /> -->
+          <!-- <Button
+            data-copyEmail
+            class="col-span-full mx-auto w-fit text-center tracking-tight !px-[8vw] !pb-[1.5vw] !text-[8vw] !normal-case"
+            href="mailto:hey@jeremys.be"
+            label="hey@jeremys.be"
+          /> -->
+        </div>
+      </article>
+      <div class="col-span-6 flex items-center gap-6 justify-end">
         <div class="flex items-center gap-1">
           <span>Local time</span>
-          <span class="font-[system-ui,sans-serif] opacity-60">&rarr;</span>
+          <span class="font-[system-ui,sans-serif] opacity-50">&rarr;</span>
           <span data-currentTime></span>
         </div>
-        <span class="opacity-60">&copy;2025</span>
+        <span class="opacity-70">&copy; 2025</span>
       </div>
     </header>
-    <Button
-      data-copyEmail
-      class="col-span-full mx-auto w-fit text-center tracking-tight !px-[8vw] !pb-[1.5vw] !text-[8vw] !normal-case !border-[0.3vw] !text-white dark:!text-stone-900 hover:!bg-white hover:dark:!bg-stone-900 [&>*:first-child]:hover:!text-stone-900 [&>*:first-child]:hover:dark:!text-white [&>*>span]:hover:dark:!text-white [&>span]:!bg-white [&>span]:dark:!bg-stone-900"
-      href="mailto:hey@jeremys.be"
-      label="hey@jeremys.be"
-    />
+    <div class="col-span-full grid grid-cols-subgrid content-end">
+      <!-- <a
+        data-copyEmail
+        href="mailto:hey@jeremys.be"
+        class="col-span-7 font-medium text-[8vw] leading-none content-end"
+        >hey@jeremys.be</a
+      > -->
+      <Button
+        data-copyEmail
+        class="col-span-7 self-end w-fit h-fit tracking-tight !px-[8vw] !pb-[1.5vw] !text-[8vw] !normal-case"
+        href="mailto:hey@jeremys.be"
+        label="hey@jeremys.be"
+      />
+
+      <div class="col-span-1 flex justify-end">
+        <div class="flex flex-col gap-2 items-center">
+          <span
+            class="[writing-mode:vertical-lr] text-right text-sm font-medium"
+            >{latestTrack.data.title} &mdash; {latestTrack.data.artist}</span
+          >
+          <div class="relative inline-block overflow-hidden w-7 h-7">
+            <img
+              class="vinylMask block w-full h-full object-cover"
+              src={latestTrack.data.albumCover}
+              alt={`${latestTrack.data.title} album cover`}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 

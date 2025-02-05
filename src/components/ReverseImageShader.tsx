@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 interface Props {
+  hover?: boolean;
   sources: {
     srcset: string;
     type: string;
@@ -10,7 +11,12 @@ interface Props {
   alt: string;
 }
 
-const ReverseImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
+const ReverseImageShader: React.FC<Props> = ({
+  hover = true,
+  sources,
+  fallbackSrc,
+  alt,
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -106,6 +112,7 @@ const ReverseImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
         const geometry = new THREE.PlaneGeometry(1, 1, 100, 100);
         const material = new THREE.ShaderMaterial({
           uniforms: {
+            uEnableHover: { value: hover ? 1.0 : 0.0 },
             uTexture: { value: loadedTexture },
             uTextureSize: {
               value: new THREE.Vector2(
@@ -156,6 +163,7 @@ const ReverseImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
             uniform float uMouseEnter;
             uniform vec2 uQuadSize;
             uniform float uTime;
+            uniform float uEnableHover;
 
             vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
             vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -206,7 +214,7 @@ const ReverseImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
               ) * 15.0;
 
               // Invert the effect by applying it when NOT hovering
-              float invertedMouseEnter = 1.0 - uMouseEnter;
+              float invertedMouseEnter = uEnableHover == 1.0 ? 1.0 - uMouseEnter : 1.0;
               
               float noise = snoise(gl_FragCoord.xy);
               texCoords.x += mix(0.0, circle * noise * 0.01, invertedMouseEnter);
@@ -228,6 +236,7 @@ const ReverseImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
         scene.add(mesh);
 
         const handleMouseMove = (e: MouseEvent) => {
+          if (!hover) return;
           const rect = canvasRef.current?.getBoundingClientRect();
           if (!rect) return;
           mousePos.current = {
@@ -237,9 +246,11 @@ const ReverseImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
         };
 
         const handleMouseEnter = () => {
+          if (!hover) return;
           mouseEnter.current = 1;
         };
         const handleMouseLeave = () => {
+          if (!hover) return;
           mouseEnter.current = 0;
         };
 
@@ -281,7 +292,7 @@ const ReverseImageShader: React.FC<Props> = ({ sources, fallbackSrc, alt }) => {
         rendererRef.current?.dispose();
       };
     };
-  }, [fallbackSrc]);
+  }, [hover, fallbackSrc]);
 
   return (
     <div ref={containerRef} className="relative w-full">

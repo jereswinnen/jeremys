@@ -3,6 +3,7 @@ import ImageShader from "./ImageShader";
 import ReverseImageShader from "./ReverseImageShader";
 
 interface Props {
+  hover?: boolean;
   sources: {
     srcset: string;
     type: string;
@@ -11,11 +12,12 @@ interface Props {
   alt: string;
 }
 
-const { sources, fallbackSrc, alt } = Astro.props;
+const { hover = true, sources, fallbackSrc, alt } = Astro.props;
 ---
 
 <ReverseImageShader
   client:load
+  hover={hover}
   sources={sources}
   fallbackSrc={fallbackSrc}
   alt={alt}

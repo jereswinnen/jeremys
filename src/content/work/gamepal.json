@@ -1,7 +1,7 @@
 {
   "name": "GamePal",
   "tagline": "Remember your gaming memories",
-  "description": "Full description of the project...",
+  "description": "A crucial aspect of the UI are the file icons. These little squares are dynamic spaces where we can display a little preview of the file (this being a later addition) or simply show a placeholder icon. Since most of the UI has been kept clean and subdued in style, this was the first thing I started working on. Over the course of 2-3 weeks, I created a total of 4 high-fidelity icon sets.",
   "role": "UX/UI design & Swift development",
   "startDate": "07/24",
   "endDate": "Now",
@@ -12,33 +12,35 @@
       "type": "image",
       "src": "PhoneYearInPlayStart.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneYearInPlayMostPlayedGames.png",
       "caption": "Most played games overview",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "context",
       "content": "Over the course of 4 months, I learned Swift and SwiftUI by building my own game collection tracker app for iOS. I've been designing for iOS for almost 12 years now and was always held back by the fact that I needed to learn Objective-C",
       "highlighted": true,
-      "colSpan": 6
+      "colSpan": 8
     },
     {
       "type": "image",
       "src": "PhoneShareGameReview.png",
       "caption": "Main project interface",
-      "colSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneJournalEntryDetail.png",
       "caption": "Main project interface",
-      "colSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",

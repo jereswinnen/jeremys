@@ -94,6 +94,25 @@ export function introAnimation() {
   return tl;
 }
 
+export function parallaxScroll() {
+  const elements = document.querySelectorAll("[data-speed]");
+
+  elements.forEach((el) => {
+    let speed = parseFloat(el.dataset.speed) || 1; // Default speed is 1 (normal scroll)
+
+    gsap.to(el, {
+      y: () => (1 - speed) * 100, // Moves element up/down based on speed
+      ease: "none",
+      scrollTrigger: {
+        trigger: el,
+        start: "top bottom", // When top element touches bottom viewport
+        end: "bottom bottom", // When bottom element touches bottom viewport
+        scrub: true, // Smooth animation
+      },
+    });
+  });
+}
+
 export function typewriterEffect() {
   document.querySelectorAll("[data-typewriter]").forEach((element) => {
     const finalText = element.textContent.trim();

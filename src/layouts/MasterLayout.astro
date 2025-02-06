@@ -36,6 +36,18 @@ const { title, description, theme, layout } = Astro.props;
   </body>
 </html>
 
+<script>
+  import Lenis from "lenis";
+
+  const lenis = new Lenis({
+    autoRaf: true,
+  });
+
+  lenis.on("scroll", (e) => {
+    console.log(e);
+  });
+</script>
+
 <!-- <script>
   document.addEventListener("DOMContentLoaded", () => {
     const cursor = document.createElement("div");
@@ -104,6 +116,7 @@ const { title, description, theme, layout } = Astro.props;
 <script>
   import {
     // introAnimation,
+    parallaxScroll,
     // typewriterEffect,
     // imageClipFromBottom,
     // textBlurFadeIn,
@@ -116,6 +129,7 @@ const { title, description, theme, layout } = Astro.props;
     // emailCopyEffect,
   } from "../assets/scripts/gsapAnimations.js";
   // introAnimation();
+  parallaxScroll();
   // typewriterEffect();
   // imageClipFromBottom();
   // textBlurFadeIn();

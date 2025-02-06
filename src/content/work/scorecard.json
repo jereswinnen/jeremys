@@ -1,7 +1,7 @@
 {
   "name": "Scorecard",
   "tagline": "Tagline for Scorecard",
-  "description": "Full description of the project...",
+  "description": "Scorecard was an exciting challenge that pushed me to design a UI that was both intuitive and scalable. Beyond making the interface easily reachable, the project required a flexible design system that could adapt seamlessly from iPhone to iPad. Through careful placement of UI elements and countless iterations, we crafted an efficient interface that makes keeping score fun and effortless.",
   "role": "Branding & UX/UI design",
   "startDate": "XX/XX",
   "endDate": "XX/XX",
@@ -12,71 +12,64 @@
       "type": "image",
       "src": "TabletGameSessionsDark.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletGameSessions.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletGameplay.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletCreateGame.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhonePlayerDetails.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneGameSessions.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneGameplayEditScore.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneGameplay.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneAddAGameTeam.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "PhoneAddAGame.png",
-      "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     }
   ]
 }

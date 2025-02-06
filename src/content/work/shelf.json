@@ -1,7 +1,7 @@
 {
   "name": "Shelf",
   "tagline": "Tagline for Shelf",
-  "description": "Full description of the project...",
+  "description": "Designing Shelf for iPad at Lickability was an exercise in iteration and refinement. I explored bold color palettes, file previews, and scalable iconography to balance aesthetics with usability. Through multiple design phases, I refined the icons—adjusting size, shape, and saturation—to achieve a professional look that suited the target market. Despite the app not launching due to resource constraints, the project was a success. In just six weeks, I designed a full-fledged UI supporting Split Screen, Slide Over, and multiple orientations, delivering a polished and adaptable experience.",
   "role": "Branding & UX/UI design",
   "startDate": "09/16",
   "endDate": "07/17",
@@ -12,29 +12,29 @@
       "type": "image",
       "src": "TabletLandscapeSplitscreen.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletLandscapeSlideoverMain.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletLandscapeSlideover.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletLandscapeQuicklookVideo.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     }
   ]
 }

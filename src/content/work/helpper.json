@@ -1,7 +1,7 @@
 {
   "name": "Helpper",
   "tagline": "Tagline for Helpper",
-  "description": "Full description of the project...",
+  "description": "Helpper is a platform that connects people with disabilities to those willing to help, making everyday tasks more accessible. At Helpper, I was the Lead Product Designer, responsible for the entire UX/UI of the website, mobile app, and web dashboard. I also led user testing and worked closely with our development team to bring the best possible experience to life.",
   "role": "Branding, Web & UX/UI design",
   "startDate": "09/19",
   "endDate": "12/22",
@@ -12,40 +12,36 @@
       "type": "image",
       "src": "PhoneSearch.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneRejectPerformance.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "context",
-      "title": "Project Duration",
-      "content": "3 years of continuous development",
-      "highlighted": true,
-      "colSpan": 6
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneProfile.png",
       "caption": "Main project interface",
-      "colSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhonePerformances.png",
       "caption": "Main project interface",
-      "colSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneOverview.png",
       "caption": "Main project interface",
-      "colSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     }
   ]
 }

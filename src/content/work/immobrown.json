@@ -1,7 +1,7 @@
 {
   "name": "Immo Brown",
   "tagline": "Tagline for Immo Brown",
-  "description": "Full description of the project...",
+  "description": "Immo Brown, a high-end real estate agency in Belgium, needed a modern website to stay competitive. In just two weeks, I crafted a mobile-first website with a luxury aesthetic, using dark colors and minimalist iconography to highlight their exclusive portfolio. I maintained close communication with the client, iterating on feedback to refine the design. The final result was a responsive, visually striking site that elevated their brand. Once developed, the launch received positive feedback from both new and existing clients.",
   "role": "Web design",
   "startDate": "03/16",
   "endDate": "06/16",
@@ -12,56 +12,50 @@
       "type": "image",
       "src": "PhoneListMenu.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "context",
-      "title": "Project Scope",
-      "content": "Complete real estate platform redesign",
-      "colSpan": 6
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneListingDetail.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "DesktopSearch.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "DesktopListingDetail.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "DesktopListingDetailScrolled.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "DesktopHome.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "DesktopContact.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     }
   ]
 }

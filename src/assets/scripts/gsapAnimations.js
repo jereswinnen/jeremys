@@ -160,7 +160,7 @@ export function imageClipFromBottom() {
   });
 }
 
-export function imageBlurReveal() {
+export function imageReveal() {
   const elements = document.querySelectorAll("[data-imageBlurReveal]");
 
   elements.forEach((el) => {
@@ -169,19 +169,16 @@ export function imageBlurReveal() {
       {
         scale: 1.05,
         opacity: 0,
-        // filter: "blur(12px)",
       },
       {
         scale: 1,
         opacity: 1,
-        // filter: "blur(0px)",
         duration: 1.2,
         ease: "ease-cubic-circ",
         scrollTrigger: {
           trigger: el,
           start: "top 75%", // Triggers when the element’s top reaches 75% of the viewport height
           toggleActions: "play none none none", // Plays the animation once when triggered
-          // markers: true, // Debug lines to visualize trigger points
         },
       },
     );

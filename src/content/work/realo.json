@@ -1,8 +1,8 @@
 {
   "name": "Realo",
   "tagline": "Tagline for Realo",
-  "description": "Full description of the project...",
-  "role": "Web & UI design",
+  "description": "As Realo’s first designer, I shaped the platform from the ground up—researching real estate platforms, refining data-heavy interfaces, and ensuring clarity across charts, maps, and widgets. I championed a responsive design approach, reducing load times and streamlining the codebase. After months of iteration and user testing, we launched to widespread acclaim, praised for its speed and intuitive design. Working in a fast-paced startup taught me how to balance hands-on design with cross-team collaboration.",
+  "role": "Web & UX/UI design",
   "startDate": "01/14",
   "endDate": "11/14",
   "linkLabel": "App Store",
@@ -12,77 +12,64 @@
       "type": "image",
       "src": "TabletPortraitSearch.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "context",
       "title": "Platform",
       "content": "Cross-platform real estate solution",
-      "colSpan": 6
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletPortraitListingDetail.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "TabletPortraitAgency.png",
-      "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletLandscapeSearch.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneSearch.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneListingDetail.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneAgency.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "DesktopSearch.png",
-      "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "DesktopListingDetail.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "DesktopAgency.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     }
   ]
 }

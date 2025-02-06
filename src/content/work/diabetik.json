@@ -1,7 +1,7 @@
 {
   "name": "Diabetik",
   "tagline": "Tagline for Diabetik",
-  "description": "Full description of the project...",
+  "description": "Diabetik was created to make diabetes management easier, and I had the privilege of designing its user experience. Working with Nial, the app’s developer, we focused on simplifying data entry with Smart Input—learning user habits to predict and autofill medication logs. After launching in 2013, we quickly redesigned the app for iOS 7, ensuring it felt native to Apple’s new design language. The result was overwhelming: Diabetik was featured by Apple as one of the ‘Best Apps for Diabetics’ and praised by the American Diabetes Association for its intuitive and delightful interface. As my first major App Store launch, it remains a deeply meaningful project.",
   "role": "Web & UX/UI design",
   "startDate": "02/15",
   "endDate": "01/16",
@@ -12,77 +12,50 @@
       "type": "image",
       "src": "TabletTimeline.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "TabletListMenu.png",
-      "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "context",
-      "title": "Timeline",
-      "content": "1 year of development",
-      "colSpan": 6
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletJournal.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "TabletAddEntry.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneTimeline.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "PhoneListMenu.png",
-      "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneJournal.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneAddMedicine.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "PhoneAddMeal.png",
-      "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     },
     {
       "type": "image",
       "src": "PhoneAddBloodReading.png",
       "caption": "Main project interface",
-      "colSpan": 6,
-      "mdColSpan": 3
+      "colSpan": 8,
+      "mdColSpan": 2
     }
   ]
 }

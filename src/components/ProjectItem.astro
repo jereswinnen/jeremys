@@ -18,7 +18,6 @@ interface ImageBlock {
 
 const { project } = Astro.props;
 
-// Get all images from blocks
 const imageBlocks = project.blocks.filter(
   (block: any): block is ImageBlock => block.type === "image"
 );
@@ -32,7 +31,7 @@ const imageBlocks = project.blocks.filter(
 //   }))
 // );
 const processedImages = imageBlocks.map((block: ImageBlock) => ({
-  imageSrc: block.src, // Pass raw src
+  imageSrc: block.src,
   caption: block.caption,
   colSpan: block.colSpan,
   mdColSpan: block.mdColSpan,
@@ -48,7 +47,7 @@ const processedImages = imageBlocks.map((block: ImageBlock) => ({
   >
     <div><p>Name</p><p>{project.name}</p></div>
     <div class="col-span-2">
-      <p>Info</p><p class="!font-normal">{project.description}</p>
+      <p>Info</p><p class="!font-normal text-base">{project.description}</p>
     </div>
     <div class="col-start-7">
       <p>Role</p><p>{project.role}</p>
@@ -73,7 +72,7 @@ const processedImages = imageBlocks.map((block: ImageBlock) => ({
         const image = await getProjectImage(project.name, item.imageSrc);
         return (
           <div
-            class={`p-8 bg-stone-50 dark:bg-stone-900
+            class={`flex items-center p-8 bg-stone-50 dark:bg-stone-900/50
             ${item.colSpan ? `col-span-${item.colSpan}` : ""}
             ${item.mdColSpan ? `md:col-span-${item.mdColSpan}` : ""}
             ${item.lgColSpan ? `lg:col-span-${item.lgColSpan}` : ""}`}

@@ -1,7 +1,7 @@
 {
   "name": "GamePal",
   "tagline": "Remember your gaming memories",
-  "description": "A crucial aspect of the UI are the file icons. These little squares are dynamic spaces where we can display a little preview of the file (this being a later addition) or simply show a placeholder icon. Since most of the UI has been kept clean and subdued in style, this was the first thing I started working on. Over the course of 2-3 weeks, I created a total of 4 high-fidelity icon sets.",
+  "description": "Creating my own iPhone app has been a goal of mine since the launch of the iPhone. In the summer of 2024, I made that a reality by learning Swift and SwiftUI. My background in UX/UI design played a key role in crafting an experience that feels right at home on iOS. The result is GamePal, an app designed to help gamers organize and track their game collection effortlessly.",
   "role": "UX/UI design & Swift development",
   "startDate": "07/24",
   "endDate": "Now",
@@ -10,7 +10,28 @@
   "blocks": [
     {
       "type": "image",
+      "src": "PhoneGameCollection.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 2
+    },
+    {
+      "type": "image",
+      "src": "PhoneGameDetail.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 2
+    },
+    {
+      "type": "image",
       "src": "PhoneYearInPlayStart.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 2
+    },
+    {
+      "type": "image",
+      "src": "PhoneJournal.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
@@ -23,12 +44,6 @@
       "mdColSpan": 2
     },
     {
-      "type": "context",
-      "content": "Over the course of 4 months, I learned Swift and SwiftUI by building my own game collection tracker app for iOS. I've been designing for iOS for almost 12 years now and was always held back by the fact that I needed to learn Objective-C",
-      "highlighted": true,
-      "colSpan": 8
-    },
-    {
       "type": "image",
       "src": "PhoneShareGameReview.png",
       "caption": "Main project interface",
@@ -37,46 +52,10 @@
     },
     {
       "type": "image",
-      "src": "PhoneJournalEntryDetail.png",
+      "src": "PhoneHallOfFame.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
-    },
-    {
-      "type": "image",
-      "src": "PhoneJournalAddPlaySession.png",
-      "caption": "Main project interface",
-      "colSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "PhoneJournal.png",
-      "caption": "Main project interface",
-      "colSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "PhoneInsights.png",
-      "caption": "Main project interface",
-      "colSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "PhoneHallOfFame.png",
-      "caption": "Main project interface",
-      "colSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "PhoneGameDetail.png",
-      "caption": "Main project interface",
-      "colSpan": 3
-    },
-    {
-      "type": "image",
-      "src": "PhoneGameCollection.png",
-      "caption": "Main project interface",
-      "colSpan": 3
     }
   ]
 }

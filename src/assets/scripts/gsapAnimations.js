@@ -169,12 +169,12 @@ export function imageBlurReveal() {
       {
         scale: 1.05,
         opacity: 0,
-        filter: "blur(12px)",
+        // filter: "blur(12px)",
       },
       {
         scale: 1,
         opacity: 1,
-        filter: "blur(0px)",
+        // filter: "blur(0px)",
         duration: 1.2,
         ease: "ease-cubic-circ",
         scrollTrigger: {

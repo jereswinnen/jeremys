@@ -67,9 +67,11 @@ const sortedWork = work.sort((a: any, b: any) => {
 <MasterLayout title={title} layout={layout}>
   <section
     data-blurRevealFromBottom
-    class="o-grid--inner gap-[calc(var(--u-grid-gap)_*_1.25)]"
+    class="col-span-full grid grid-cols-subgrid gap-y-[calc(var(--u-grid-gap)_*_1.25)]"
   >
-    <section class="col-span-full o-grid--inner !gap-y-8 h-[40vh] content-end">
+    <section
+      class="col-span-full grid grid-cols-subgrid !gap-y-8 h-[40vh] content-end"
+    >
       <header class="col-span-7 t--hero">
         <h2 class="leading-tight indent-32 text-balance">
           I design and build digital experiences for web and
@@ -84,7 +86,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       </div>
     </section>
     <section
-      class="o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
+      class="col-span-full grid grid-cols-subgrid pt-6 border-t border-stone-950 dark:border-white/20"
     >
       <aside data-imageClipFromBottom class="col-start-3 col-span-2">
         <ShaderWrapper
@@ -131,7 +133,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       </article>
     </section>
     <section
-      class="o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
+      class="col-span-full grid grid-cols-subgrid pt-6 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-start-5 col-span-1">
         <h3 class="font-medium">
@@ -184,7 +186,7 @@ const sortedWork = work.sort((a: any, b: any) => {
       </div>
     </section>
     <section
-      class="col-span-full o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
+      class="col-span-full grid grid-cols-subgrid pt-6 border-t border-zinc-950 dark:border-white/20"
     >
       <header class="col-span-full">
         <h3 class="font-medium">
@@ -194,12 +196,12 @@ const sortedWork = work.sort((a: any, b: any) => {
           >
         </h3>
       </header>
-      <ul class="col-span-full o-grid--inner !gap-y-0 text-lg">
+      <ul class="col-span-full grid grid-cols-subgrid !gap-y-0 text-lg">
         {
           workExperience.map((work) => (
             <li
               data-projectListImageReveal
-              class="pt-8 pb-5 col-span-full o-grid--inner items-end border-b border-stone-900/20 dark:border-white/20 transition-all ease-in-out duration-300 hover:border-stone-900/100 dark:hover:border-white"
+              class="pt-8 pb-5 col-span-full grid grid-cols-subgrid items-end border-b border-stone-900/20 dark:border-white/20 transition-all ease-in-out duration-300 hover:border-stone-900/100 dark:hover:border-white"
             >
               <aside class="col-span-2 flex flex-col gap-5">
                 <figure class="h-0 overflow-hidden bg-stone-100 dark:bg-stone-900">
@@ -225,45 +227,6 @@ const sortedWork = work.sort((a: any, b: any) => {
               </article>
             </li>
           ))
-        }
-      </ul>
-    </section>
-    <section
-      class="!hidden col-span-full o-grid--inner pt-6 border-t border-zinc-950 dark:border-white/20"
-    >
-      <header class="col-span-2">
-        <h3 class="font-medium">
-          Experience <span
-            class="font-[system-ui,sans-serif] !font-normal opacity-40"
-            >&searr;</span
-          >
-        </h3>
-      </header>
-      <ul
-        class="col-start-3 col-span-4 divide-y divide-neutral-200 dark:divide-neutral-800 [&>li]:py-3 [&>li]:flex [&>li]:items-center [&>li]:justify-between bg-blue-20"
-      >
-        {
-          projectsOrder.map((projectId) => {
-            const project = sortedWork.find(
-              (p: any) => p.data.name.toLowerCase() === projectId
-            );
-            if (!project) return null;
-            return (
-              <li class="text-lg">
-                <a
-                  href={`/#${project.data.name.toLowerCase()}`}
-                  class="hover:opacity-60"
-                >
-                  {project.data.name}
-                </a>
-                <div class="flex gap-2 items-center">
-                  <span>{project.data.startDate}</span>
-                  <span class="font-[system-ui,sans-serif]">&rarr;</span>
-                  <span>{project.data.endDate || "Now"}</span>
-                </div>
-              </li>
-            );
-          })
         }
       </ul>
     </section>

@@ -1,7 +1,6 @@
 ---
 import "../assets/styles/global.scss";
 import IntroOverlay from "../components/IntroOverlay.astro";
-import Aside from "../components/Aside.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -24,12 +23,11 @@ const { title, description, theme, layout } = Astro.props;
     class={`${theme ? theme : ""} o-container font-sans bg-white dark:bg-stone-950 text-stone-900 dark:text-white/85 selection:bg-stone-200 selection:dark:bg-stone-400`}
   >
     <!-- <IntroOverlay /> -->
-    <div data-mainContent class={`o-grid o-grid--${layout || "default"}`}>
-      {layout === "home" && <Aside class="md:sticky md:top-0" />}
-      <main class="o-grid--inner outline-none">
+    <div data-mainContent class="o-grid">
+      <main class="col-span-full grid grid-cols-subgrid outline-none">
         <Header
           data-blurRevealFromTop
-          class="md:sticky md:top-0 col-span-full"
+          class="col-span-full md:sticky md:top-0"
         />
         <slot />
       </main>
@@ -110,12 +108,11 @@ const { title, description, theme, layout } = Astro.props;
     // imageClipFromBottom,
     // textBlurFadeIn,
     // imageBlurReveal,
-    // projectListImageReveal,
+    projectListImageReveal,
     // blurRevealFromTop,
     // blurRevealFromBottom,
     // blurRevealFromLeft,
     // blurRevealFromRight,
-    footerScrollExpand,
     // emailCopyEffect,
   } from "../assets/scripts/gsapAnimations.js";
   // introAnimation();
@@ -123,11 +120,11 @@ const { title, description, theme, layout } = Astro.props;
   // imageClipFromBottom();
   // textBlurFadeIn();
   // imageBlurReveal();
-  // projectListImageReveal();
+  projectListImageReveal();
   // blurRevealFromTop();
   // blurRevealFromBottom();
   // blurRevealFromLeft();
   // blurRevealFromRight();
-  footerScrollExpand();
+  // footerScrollExpand();
   // emailCopyEffect();
 </script>

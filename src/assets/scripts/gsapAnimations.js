@@ -37,7 +37,7 @@ export function introAnimation() {
   const tl = gsap.timeline({
     delay: 1,
     onComplete: () => {
-      gsap.set(intro, { pointerEvents: "none" });
+      gsap.set(intro, { pointerEvents: "none", display: "none" });
     },
   });
 

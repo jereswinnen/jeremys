@@ -22,7 +22,7 @@ const { title, description, theme, layout } = Astro.props;
   <body
     class={`${theme ? theme : ""} o-container font-sans bg-white dark:bg-stone-950 text-stone-900 dark:text-white/85 selection:bg-stone-200 selection:dark:bg-stone-400`}
   >
-    <!-- <IntroOverlay /> -->
+    <IntroOverlay />
     <div data-mainContent class="o-grid">
       <main class="col-span-full grid grid-cols-subgrid outline-none">
         <Header
@@ -115,27 +115,27 @@ const { title, description, theme, layout } = Astro.props;
 
 <script>
   import {
-    // introAnimation,
+    introAnimation,
     parallaxScroll,
     // typewriterEffect,
     // imageClipFromBottom,
     // textBlurFadeIn,
     // imageBlurReveal,
     projectListImageReveal,
-    // blurRevealFromTop,
+    blurRevealFromTop,
     // blurRevealFromBottom,
     // blurRevealFromLeft,
     // blurRevealFromRight,
     // emailCopyEffect,
   } from "../assets/scripts/gsapAnimations.js";
-  // introAnimation();
+  introAnimation();
   parallaxScroll();
   // typewriterEffect();
   // imageClipFromBottom();
   // textBlurFadeIn();
   // imageBlurReveal();
   projectListImageReveal();
-  // blurRevealFromTop();
+  blurRevealFromTop();
   // blurRevealFromBottom();
   // blurRevealFromLeft();
   // blurRevealFromRight();

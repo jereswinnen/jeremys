@@ -72,6 +72,8 @@ const processedImages = await Promise.all(
           <div class="flex flex-col items-center">
             <Picture
               data-imageBlurReveal
+              loading="lazy"
+              decoding="async"
               src={item.image}
               alt={item.caption || project.name}
               formats={["avif", "webp"]}

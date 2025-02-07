@@ -36,8 +36,12 @@ const latestTrack = music.sort(
     />
   </div>
 
-  <div class="col-span-full grid grid-cols-subgrid h-fit content-start">
-    <div class="col-span-3 flex gap-2 items-center">
+  <div
+    class="col-span-full grid grid-cols-subgrid gap-y-2 md:gap-y-0 h-fit content-start"
+  >
+    <div
+      class="col-span-full md:!col-span-3 flex gap-2 items-center justify-center md:justify-start"
+    >
       <div class="relative inline-block overflow-hidden w-7 h-7">
         <img
           class="vinylMask block w-full h-full object-cover"
@@ -49,8 +53,10 @@ const latestTrack = music.sort(
         >{latestTrack.data.title} &mdash; {latestTrack.data.artist}</span
       >
     </div>
-    <div class="col-span-2 col-start-7 text-right">
-      <span class="opacity-70">&copy; 2025</span>
+    <div
+      class="bg-blue-500 col-span-full md:!col-span-2 md:!col-start-7 text-right flex justify-center md:justify-end"
+    >
+      <span class="opacity-70">&copy; JS.2025</span>
     </div>
   </div>
 </footer>

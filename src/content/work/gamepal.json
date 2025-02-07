@@ -1,7 +1,7 @@
 {
   "name": "GamePal",
   "tagline": "Remember your gaming memories",
-  "description": "Creating my own iPhone app has been a goal of mine since the launch of the iPhone. In the summer of 2024, I made that a reality by learning Swift and SwiftUI. My background in UX/UI design played a key role in crafting an experience that feels right at home on iOS. The result is GamePal, an app designed to help gamers organize and track their game collection effortlessly.",
+  "description": "GamePal is an iPhone app designed to help gamers organize and track their game collections effortlessly. Building my own app had been a long-time goal, and in 2024, I made it a reality by learning Swift and SwiftUI. My background in UX/UI design played a key role in crafting an experience that feels intuitive and at home on iOS. From concept to launch, I focused on seamless navigation, polished interactions, and a design that enhances the joy of managing a game library.",
   "role": "UX/UI design & Swift development",
   "startDate": "07/24",
   "endDate": "Now",

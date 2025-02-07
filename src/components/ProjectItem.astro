@@ -21,15 +21,7 @@ const { project } = Astro.props;
 const imageBlocks = project.blocks.filter(
   (block: any): block is ImageBlock => block.type === "image"
 );
-// const processedImages = await Promise.all(
-//   imageBlocks.map(async (block: ImageBlock) => ({
-//     image: await getProjectImage(project.name, block.src),
-//     caption: block.caption,
-//     colSpan: block.colSpan,
-//     mdColSpan: block.mdColSpan,
-//     lgColSpan: block.lgColSpan,
-//   }))
-// );
+
 const processedImages = imageBlocks.map((block: ImageBlock) => ({
   imageSrc: block.src,
   caption: block.caption,
@@ -43,16 +35,16 @@ const processedImages = imageBlocks.map((block: ImageBlock) => ({
   class="col-span-full grid grid-cols-subgrid !gap-[calc(var(--u-grid-gap)/2)] pt-6 border-t border-stone-900 dark:border-white/20"
 >
   <header
-    class="col-span-full grid grid-cols-subgrid text-sm [&>*]:flex [&>*]:flex-col [&>*]:gap-1 [&>*>*:first-child]:mb-0 [&>*>*:first-child]:opacity-70 [&>*>*:last-child]:font-medium"
+    class="col-span-full grid grid-cols-subgrid text-sm divide-y divide-stone-900/20 dark:divide-white/20 md:divide-none [&>*]:flex [&>*]:flex-col [&>*]:gap-1 [&>*]:py-4 [&>*]:md:py-0 [&>*:first-child]:pt-0 [&>*:last-child]:pb-0 [&>*>*:first-child]:mb-0 [&>*>*:first-child]:opacity-70 [&>*>*:last-child]:font-medium"
   >
     <div><p>Name</p><p>{project.name}</p></div>
     <div class="col-span-2">
       <p>Info</p><p class="!font-normal text-base">{project.description}</p>
     </div>
-    <div class="col-start-7">
+    <div class="col-span-full md:col-span-1 md:col-start-7">
       <p>Role</p><p>{project.role}</p>
     </div>
-    <div class="col-start-8">
+    <div class="col-span-full md:col-span-1 md:col-start-8">
       <p>Timeframe</p>
       <div class="flex gap-1">
         <span>{project.startDate}</span>

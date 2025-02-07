@@ -11,7 +11,7 @@ const latestTrack = music.sort(
 
 <footer
   data-speed="1.5"
-  class="col-span-full grid grid-cols-subgrid pt-6 pb-16 h-[50vh] border-t border-stone-900 dark:border-white/20"
+  class="col-span-full grid grid-cols-subgrid pt-6 md:pb-16 h-[50vh] border-t border-stone-900 dark:border-white/20"
 >
   <div
     class="col-span-full grid grid-cols-subgrid h-full justify-items-stretch"
@@ -23,7 +23,9 @@ const latestTrack = music.sort(
           website? Feel free to contact me.
         </p>
       </article>
-      <div class="col-span-6 flex items-center gap-6 justify-end">
+      <div
+        class="col-span-full hidden md:flex md:col-span-6 fex items-center gap-6 md:justify-end"
+      >
         <div class="flex items-center gap-1">
           <span>Local time</span>
           <span class="font-[system-ui,sans-serif] opacity-50">&rarr;</span>
@@ -35,13 +37,13 @@ const latestTrack = music.sort(
     <div class="col-span-full grid grid-cols-subgrid content-end">
       <Button
         data-copyEmail
-        class="col-span-7 self-end w-fit h-fit tracking-tight !px-[6vw] !pb-[1.5vw] !text-[8vw] !normal-case !border-[0.2vw]"
+        class="col-span-full md:col-span-7 self-end w-fit h-fit tracking-tight !px-[6vw] !pb-[1.5vw] !text-[8vw] !normal-case !border-[0.2vw]"
         href="mailto:hey@jeremys.be"
         label="hey@jeremys.be"
       />
 
-      <div class="col-span-1 flex justify-end">
-        <div class="flex flex-col gap-2 items-center">
+      <div class="col-span-full md:col-span-1 flex justify-end">
+        <div class="flex flx-row-reverse flex-col gap-2 items-center">
           <span
             class="[writing-mode:vertical-lr] text-right text-sm font-medium"
             >{latestTrack.data.title} &mdash; {latestTrack.data.artist}</span

@@ -12,7 +12,7 @@
       "type": "image",
       "src": "PhoneGameCollection.png",
       "caption": "Main project interface",
-      "colSpan": "8",
+      "colSpan": 8,
       "mdColSpan": 2
     },
     {

@@ -15,10 +15,12 @@ const navItems = [
   class:list={["grid grid-cols-subgrid gap-y-0 z-[500] text-sm", className]}
   {...rest}
 >
-  <a href="/" class="md:col-span-2 pt-4 font-medium uppercase tracking-wide"
+  <a
+    href="/"
+    class="col-span-1 md:!col-span-2 pt-4 font-medium uppercase tracking-wide"
     >Jeremys</a
   >
-  <nav class="md:col-span-6 col-start-6 grid grid-cols-subgrid">
+  <nav class="col-span-1 md:!col-span-4 md:!col-start-5 grid grid-cols-subgrid">
     <ul class="col-span-full grid grid-cols-subgrid">
       {
         navItems.map(({ isCopyable, path, label }) => (

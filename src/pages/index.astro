@@ -1,26 +1,12 @@
 ---
 import { getCollection } from "astro:content";
+import { sortProjects } from "../utils/projectUtils";
 import MasterLayout from "../layouts/MasterLayout.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import ShaderWrapper from "../components/ShaderWrapper.astro";
 
 const work = await getCollection("work");
-
-const projectOrder = [
-  "gamepal",
-  "helpper",
-  "scorecard",
-  "realo",
-  "shelf",
-  "immo brown",
-  "diabetik",
-];
-
-const sortedProjects = [...work].sort((a, b) => {
-  const orderA = projectOrder.indexOf(a.data.name.toLowerCase());
-  const orderB = projectOrder.indexOf(b.data.name.toLowerCase());
-  return orderA - orderB;
-});
+const sortedWork = sortProjects(work);
 ---
 
 <MasterLayout>
@@ -60,7 +46,7 @@ const sortedProjects = [...work].sort((a, b) => {
     <section
       class="col-span-full grid grid-cols-subgrid gap-[calc(var(--u-grid-gap)*1.5)]"
     >
-      {sortedProjects.map((project) => <ProjectItem project={project.data} />)}
+      {sortedWork.map((project) => <ProjectItem project={project.data} />)}
     </section>
   </section>
 </MasterLayout>

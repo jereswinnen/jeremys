@@ -10,6 +10,7 @@ const work = defineCollection({
     role: z.string(),
     startDate: z.string(),
     endDate: z.string(),
+    heroArtwork: z.string().optional(),
     linkLabel: z.string(),
     linkAction: z.string(),
     blocks: z.array(

@@ -3,6 +3,8 @@ import { Picture } from "astro:assets";
 import { getProjectImage } from "../utils/projectUtils";
 import type { CollectionEntry } from "astro:content";
 
+const { project } = Astro.props;
+
 interface Props {
   project: CollectionEntry<"work">["data"];
 }
@@ -15,8 +17,6 @@ interface ImageBlock {
   mdColSpan?: number;
   lgColSpan?: number;
 }
-
-const { project } = Astro.props;
 
 const imageBlocks = project.blocks.filter(
   (block: any): block is ImageBlock => block.type === "image"

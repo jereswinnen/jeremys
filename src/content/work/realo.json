@@ -5,67 +5,50 @@
   "role": "Web & UX/UI design",
   "startDate": "01/14",
   "endDate": "11/14",
-  "linkLabel": "App Store",
-  "linkAction": "https://getgamepal.com",
-  "blocks": [
+  "artwork": [
     {
-      "type": "image",
       "src": "TabletPortraitSearch.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "context",
-      "title": "Platform",
-      "content": "Cross-platform real estate solution",
-      "colSpan": 8,
-      "mdColSpan": 2
-    },
-    {
-      "type": "image",
       "src": "TabletPortraitListingDetail.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletLandscapeSearch.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneSearch.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneListingDetail.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneAgency.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "DesktopListingDetail.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "DesktopAgency.png",
       "caption": "Main project interface",
       "colSpan": 8,

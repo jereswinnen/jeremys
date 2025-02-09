@@ -5,53 +5,44 @@
   "role": "Web design",
   "startDate": "03/16",
   "endDate": "06/16",
-  "linkLabel": "App Store",
-  "linkAction": "https://getgamepal.com",
-  "blocks": [
+  "artwork": [
     {
-      "type": "image",
       "src": "PhoneListMenu.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneListingDetail.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "DesktopSearch.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "DesktopListingDetail.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "DesktopListingDetailScrolled.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "DesktopHome.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "DesktopContact.png",
       "caption": "Main project interface",
       "colSpan": 8,

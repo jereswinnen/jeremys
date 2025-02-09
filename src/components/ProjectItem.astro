@@ -18,16 +18,12 @@ interface ImageBlock {
   lgColSpan?: number;
 }
 
-const imageBlocks = project.blocks.filter(
-  (block: any): block is ImageBlock => block.type === "image"
-);
-
-const processedImages = imageBlocks.map((block: ImageBlock) => ({
-  imageSrc: block.src,
-  caption: block.caption,
-  colSpan: block.colSpan,
-  mdColSpan: block.mdColSpan,
-  lgColSpan: block.lgColSpan,
+const processedImages = project.artwork.map((item) => ({
+  imageSrc: item.src,
+  caption: item.caption,
+  colSpan: item.colSpan,
+  mdColSpan: item.mdColSpan,
+  lgColSpan: item.lgColSpan,
 }));
 ---
 

@@ -11,28 +11,14 @@ const work = defineCollection({
     startDate: z.string(),
     endDate: z.string(),
     heroArtwork: z.string().optional(),
-    linkLabel: z.string(),
-    linkAction: z.string(),
-    blocks: z.array(
-      z.discriminatedUnion("type", [
-        z.object({
-          type: z.literal("image"),
-          src: z.string(),
-          caption: z.string().optional(),
-          colSpan: z.number().optional(),
-          mdColSpan: z.number().optional(),
-          lgColSpan: z.number().optional(),
-        }),
-        z.object({
-          type: z.literal("context"),
-          title: z.string().optional(),
-          content: z.string(),
-          highlighted: z.boolean().optional().default(false),
-          colSpan: z.number().optional(),
-          mdColSpan: z.number().optional(),
-          lgColSpan: z.number().optional(),
-        }),
-      ]),
+    artwork: z.array(
+      z.object({
+        src: z.string(),
+        caption: z.string().optional(),
+        colSpan: z.number().optional(),
+        mdColSpan: z.number().optional(),
+        lgColSpan: z.number().optional(),
+      }),
     ),
   }),
 });

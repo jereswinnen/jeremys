@@ -5,32 +5,26 @@
   "role": "Branding & UX/UI design",
   "startDate": "09/16",
   "endDate": "07/17",
-  "linkLabel": "App Store",
-  "linkAction": "https://getgamepal.com",
-  "blocks": [
+  "artwork": [
     {
-      "type": "image",
       "src": "TabletLandscapeSplitscreen.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletLandscapeSlideoverMain.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletLandscapeSlideover.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletLandscapeQuicklookVideo.png",
       "caption": "Main project interface",
       "colSpan": 8,

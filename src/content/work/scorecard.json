@@ -5,67 +5,56 @@
   "role": "Branding & UX/UI design",
   "startDate": "XX/XX",
   "endDate": "XX/XX",
-  "linkLabel": "App Store",
-  "linkAction": "https://getgamepal.com",
-  "blocks": [
+  "artwork": [
     {
-      "type": "image",
       "src": "TabletGameSessionsDark.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletGameSessions.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletGameplay.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletCreateGame.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhonePlayerDetails.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneGameSessions.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneGameplayEditScore.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneGameplay.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneAddAGameTeam.png",
       "caption": "Main project interface",
       "colSpan": 8,

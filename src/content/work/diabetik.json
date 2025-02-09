@@ -5,53 +5,44 @@
   "role": "Web & UX/UI design",
   "startDate": "02/15",
   "endDate": "01/16",
-  "linkLabel": "App Store",
-  "linkAction": "https://getgamepal.com",
-  "blocks": [
+  "artwork": [
     {
-      "type": "image",
       "src": "TabletTimeline.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletJournal.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "TabletAddEntry.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneTimeline.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneJournal.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneAddMedicine.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneAddBloodReading.png",
       "caption": "Main project interface",
       "colSpan": 8,

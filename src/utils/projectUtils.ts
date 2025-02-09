@@ -54,3 +54,20 @@ export async function getProjectImage(projectName: string, imageName: string) {
   const image = await images[imagePath]();
   return image.default;
 }
+
+export async function getProjectHeroImage(
+  projectName: string,
+  heroArtwork: string,
+) {
+  const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/projects/**/*.{png,jpg,jpeg,webp,avif}",
+  );
+  const imagePath = `/src/assets/projects/${formatProjectSlug(projectName)}/${heroArtwork}`;
+
+  if (!(imagePath in images)) {
+    throw new Error(`Hero image ${imagePath} not found`);
+  }
+
+  const image = await images[imagePath]();
+  return image.default;
+}

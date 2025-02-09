@@ -5,54 +5,45 @@
   "role": "UX/UI design & Swift development",
   "startDate": "07/24",
   "endDate": "Now",
-  "linkLabel": "App Store",
-  "linkAction": "https://getgamepal.com",
-  "heroArtwork": "/images/gamepalHero.jpeg",
-  "blocks": [
+  "heroArtwork": "gamepalHero.jpeg",
+  "artwork": [
     {
-      "type": "image",
       "src": "PhoneGameCollection.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneGameDetail.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneYearInPlayStart.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneJournal.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneYearInPlayMostPlayedGames.png",
       "caption": "Most played games overview",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneShareGameReview.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "type": "image",
       "src": "PhoneHallOfFame.png",
       "caption": "Main project interface",
       "colSpan": 8,

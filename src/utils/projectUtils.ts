@@ -11,8 +11,24 @@ const projectsOrder = [
   "diabetik",
 ];
 
-export function sortProjects(projects: CollectionEntry<"work">[]) {
-  return projects.sort((a, b) => {
+interface SortProjectsOptions {
+  exclude?: string[];
+}
+
+export function sortProjects(
+  projects: CollectionEntry<"work">[],
+  options: SortProjectsOptions = {},
+) {
+  // First filter out excluded projects if any
+  const filteredProjects = options.exclude
+    ? projects.filter(
+        (project) =>
+          !options.exclude?.includes(project.data.name.toLowerCase()),
+      )
+    : projects;
+
+  // Then sort the remaining projects
+  return filteredProjects.sort((a, b) => {
     const orderA = projectsOrder.indexOf(a.data.name.toLowerCase());
     const orderB = projectsOrder.indexOf(b.data.name.toLowerCase());
     return orderA - orderB;

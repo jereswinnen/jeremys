@@ -2,6 +2,8 @@ import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
+import { animate, scroll } from "motion";
+
 // Register GSAP plugins
 gsap.registerPlugin(CustomEase, ScrollTrigger);
 
@@ -162,21 +164,74 @@ export function introAnimation() {
   });
 }
 
+// export function parallaxScroll() {
+//   const elements = document.querySelectorAll("[data-speed]");
+
+//   elements.forEach((element) => {
+//     const speed = parseFloat(element.dataset.speed) || 1;
+
+//     // Create the animation definition
+//     const animation = animate(
+//       element,
+//       {
+//         // Move opposite to scroll direction based on speed
+//         // For speed < 1, element moves slower than scroll
+//         // For speed > 1, element moves faster than scroll
+//         transform: ["translateY(0px)", `translateY(${(1 - speed) * 100}px)`],
+//       },
+//       {
+//         ease: "linear",
+//         duration: 1,
+//       },
+//     );
+
+//     scroll(animation, {
+//       target: element,
+//       offset: ["start end", "end center"], // Start when top meets bottom, end when bottom meets center
+//     });
+//   });
+// }
+
 export function parallaxScroll() {
   const elements = document.querySelectorAll("[data-speed]");
 
-  elements.forEach((el) => {
-    let speed = parseFloat(el.dataset.speed) || 1; // Default speed is 1 (normal scroll)
+  elements.forEach((element) => {
+    const speed = parseFloat(element.dataset.speed) || 1;
+    let startScrollPosition = null;
 
-    gsap.to(el, {
-      y: () => (1 - speed) * 100, // Moves element up/down based on speed
-      ease: "none",
-      scrollTrigger: {
-        trigger: el,
-        start: "top bottom", // When top element touches bottom viewport
-        end: "bottom bottom", // When bottom element touches bottom viewport
-        scrub: true, // Smooth animation
-      },
+    // Add debug info
+    const debugLabel = document.createElement("div");
+    debugLabel.style.position = "absolute";
+    debugLabel.style.top = "4px";
+    debugLabel.style.left = "4px";
+    debugLabel.style.background = "red";
+    debugLabel.style.color = "white";
+    debugLabel.style.padding = "2px 6px";
+    debugLabel.style.fontSize = "12px";
+    debugLabel.style.zIndex = "1000";
+    element.style.position = "relative";
+    element.appendChild(debugLabel);
+
+    scroll((progress, info) => {
+      const rect = element.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Start when element's top hits viewport bottom,
+      // End when element's bottom hits viewport top
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        // Set start position only once when element first enters viewport
+        if (startScrollPosition === null) {
+          startScrollPosition = info.y.current;
+        }
+
+        // Calculate offset relative to when element entered viewport
+        const relativeScroll = info.y.current - startScrollPosition;
+        const yOffset = relativeScroll * (1 - speed);
+
+        element.style.transform = `translate3d(0, ${yOffset}px, 0)`;
+        debugLabel.textContent = `Speed: ${speed}, Offset: ${Math.round(yOffset)}px`;
+      }
+      // No else block - we don't reset startScrollPosition anymore
     });
   });
 }
@@ -229,7 +284,7 @@ export function imageClipFromBottom() {
 }
 
 export function imageReveal() {
-  const elements = document.querySelectorAll("[data-imageBlurReveal]");
+  const elements = document.querySelectorAll("[data-imageReveal]");
 
   elements.forEach((el) => {
     gsap.fromTo(

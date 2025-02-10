@@ -9,38 +9,35 @@
     {
       "src": "PhoneTimeline.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "TabletTimeline.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 3
     },
     {
       "src": "TabletJournal.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 3
     },
     {
       "src": "TabletAddEntry.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "PhoneJournal.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneAddBloodReading.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     }
   ]
 }

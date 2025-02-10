@@ -9,49 +9,46 @@
     {
       "src": "DesktopAgency.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "TabletLandscapeSearch.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "TabletPortraitSearch.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 3
     },
     {
       "src": "TabletPortraitListingDetail.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 3
     },
     {
       "src": "PhoneSearch.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneListingDetail.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneAgency.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "DesktopListingDetail.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     }
   ]

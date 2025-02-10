@@ -10,44 +10,37 @@
     {
       "src": "PhoneGameCollection.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneGameDetail.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneYearInPlayStart.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneJournal.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneYearInPlayMostPlayedGames.webp",
       "caption": "Most played games overview",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneShareGameReview.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneHallOfFame.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     }
   ]
 }

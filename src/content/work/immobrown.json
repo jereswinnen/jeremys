@@ -9,44 +9,42 @@
     {
       "src": "DesktopSearch.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "PhoneListMenu.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneListingDetail.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
 
     {
       "src": "DesktopListingDetail.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "DesktopListingDetailScrolled.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "DesktopHome.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "DesktopContact.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     }
   ]

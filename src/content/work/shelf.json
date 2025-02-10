@@ -9,25 +9,25 @@
     {
       "src": "TabletLandscapeSplitscreen.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "TabletLandscapeSlideoverMain.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "TabletLandscapeSlideover.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     },
     {
       "src": "TabletLandscapeQuicklookVideo.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
+      "colSpan": 2,
       "mdColSpan": 4
     }
   ]

@@ -9,32 +9,27 @@
     {
       "src": "PhoneSearch.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneRejectPerformance.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneProfile.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhonePerformances.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     },
     {
       "src": "PhoneOverview.webp",
       "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "colSpan": 2
     }
   ]
 }

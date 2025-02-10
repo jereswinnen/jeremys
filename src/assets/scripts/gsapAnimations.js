@@ -9,89 +9,157 @@ gsap.registerPlugin(CustomEase, ScrollTrigger);
 CustomEase.create("ease-cubic-circ", "M0,0 C0.645,0 0.045,1 1,1");
 
 export function introAnimation() {
+  const mm = gsap.matchMedia();
   const intro = document.querySelector("[data-introOverlay]");
   const figure = document.querySelector("[data-introImage]");
   const leftText = document.querySelector("[data-introTextLeft]");
   const rightText = document.querySelector("[data-introTextRight]");
   const content = document.querySelector("[data-mainContent]");
 
-  // Set initial states
-  gsap.set(figure, {
-    clipPath: "inset(100% 0 0 0)",
-    scale: 1.05,
-    opacity: 0,
-  });
+  // Mobile animation (base styles)
+  mm.add("(max-width: 735px)", () => {
+    gsap.set(figure, {
+      clipPath: "inset(100% 0 0 0)",
+      opacity: 0,
+    });
 
-  gsap.set([leftText, rightText], {
-    opacity: 0,
-    filter: "blur(5px)",
-    x: (index) => (index === 0 ? 20 : -20), // Left text moves from right, right text from left
-  });
+    gsap.set([leftText, rightText], {
+      opacity: 0,
+      filter: "blur(5px)",
+      x: (index) => (index === 0 ? 10 : -10), // Left text moves from right, right text from left
+    });
 
-  gsap.set(content, {
-    opacity: 0,
-    y: 30,
-  });
+    gsap.set(content, {
+      opacity: 0,
+      y: 20,
+    });
 
-  // Create timeline with delay
-  const tl = gsap.timeline({
-    delay: 1,
-    onComplete: () => {
-      gsap.set(intro, { pointerEvents: "none", display: "none" });
-    },
-  });
+    const tlMobile = gsap.timeline({
+      delay: 0.5,
+      onComplete: () => {
+        gsap.set(intro, { pointerEvents: "none", display: "none" });
+      },
+    });
 
-  // Add animations to timeline
-  tl.to(figure, {
-    clipPath: "inset(0% 0 0 0)",
-    scale: 1,
-    opacity: 1,
-    duration: 1,
-    ease: "ease-cubic-circ",
-  })
-    .to(
-      leftText,
-      {
+    tlMobile
+      .to(figure, {
+        clipPath: "inset(0% 0 0 0)",
         opacity: 1,
-        x: 0,
-        filter: "blur(0px)",
-        duration: 1,
+        duration: 0.8,
         ease: "ease-cubic-circ",
-      },
-      ">-0.7",
-    )
-    .to(
-      rightText,
-      {
-        opacity: 0.7,
-        x: 0,
-        filter: "blur(0px)",
-        duration: 1,
-        ease: "ease-cubic-circ",
-      },
-      "<",
-    )
-    .to(
-      intro,
-      {
-        clipPath: "inset(0 0 100% 0)",
-        duration: 1,
-        ease: "ease-cubic-circ",
-      },
-      "+=1.0",
-    )
-    .to(
-      content,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "ease-cubic-circ",
-      },
-      ">-0.7",
-    );
+      })
+      .to(
+        [leftText, rightText],
+        {
+          opacity: (i) => (i === 0 ? 1 : 0.7),
+          x: 0,
+          filter: "blur(0px)",
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "ease-cubic-circ",
+        },
+        ">-0.4",
+      )
+      .to(
+        intro,
+        {
+          clipPath: "inset(0 0 100% 0)",
+          duration: 0.8,
+          ease: "ease-cubic-circ",
+        },
+        "+=0.8",
+      )
+      .to(
+        content,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "ease-cubic-circ",
+        },
+        ">-0.4",
+      );
 
-  return tl;
+    return tlMobile;
+  });
+
+  // Desktop animation (min-width: 736px)
+  mm.add("(min-width: 736px)", () => {
+    gsap.set(figure, {
+      clipPath: "inset(100% 0 0 0)",
+      scale: 1.05,
+      opacity: 0,
+    });
+
+    gsap.set([leftText, rightText], {
+      opacity: 0,
+      filter: "blur(5px)",
+      x: (index) => (index === 0 ? 20 : -20), // Left text moves from right, right text from left
+    });
+
+    gsap.set(content, {
+      opacity: 0,
+      y: 30,
+    });
+
+    const tl = gsap.timeline({
+      delay: 1,
+      onComplete: () => {
+        gsap.set(intro, { pointerEvents: "none", display: "none" });
+      },
+    });
+
+    tl.to(figure, {
+      clipPath: "inset(0% 0 0 0)",
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      ease: "ease-cubic-circ",
+    })
+      .to(
+        leftText,
+        {
+          opacity: 1,
+          x: 0,
+          filter: "blur(0px)",
+          duration: 1,
+          ease: "ease-cubic-circ",
+        },
+        ">-0.7",
+      )
+      .to(
+        rightText,
+        {
+          opacity: 0.7,
+          x: 0,
+          filter: "blur(0px)",
+          duration: 1,
+          ease: "ease-cubic-circ",
+        },
+        "<",
+      )
+      .to(
+        intro,
+        {
+          clipPath: "inset(0 0 100% 0)",
+          duration: 1,
+          ease: "ease-cubic-circ",
+        },
+        "+=1.0",
+      )
+      .to(
+        content,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "ease-cubic-circ",
+        },
+        ">-0.7",
+      );
+
+    return tl;
+  });
 }
 
 export function parallaxScroll() {

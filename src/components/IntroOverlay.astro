@@ -3,17 +3,21 @@
   class="absolute z-[9999] inset-0 w-full h-full bg-stone-950 dark:bg-white text-white dark:text-stone-900"
 >
   <section
-    class="grid grid-cols-[42.5fr_15fr_42.5fr] gap-[1vw] h-screen [&>*]:flex [&>*]:items-center [&>*]:text-sm"
+    class="grid grid-cols-[10fr_50fr_10fr] md:grid-cols-[42.5fr_15fr_42.5fr] place-content-center gap-3 md:gap-[1vw] h-screen [&>*]:flex [&>*]:text-sm"
   >
-    <span data-introTextLeft class="font-medium justify-end"
+    <span
+      data-introTextLeft
+      class="font-medium items-end md:items-center justify-end [writing-mode:vertical-lr] md:[writing-mode:horizontal-tb]"
       >Jeremy Swinnen</span
     >
-    <picture>
+    <picture class="items-center">
       <source srcset="/images/profileShot.avif" type="image/avif" />
       <source srcset="/images/profileShot.webp" type="image/webp" />
       <img data-introImage src="/images/profileShot.jpg" alt="Hi there!" />
     </picture>
-    <span data-introTextRight class="opacity-70"
+    <span
+      data-introTextRight
+      class="items-start md:items-center opacity-70 [writing-mode:vertical-lr] md:[writing-mode:horizontal-tb]"
       >Designer and creative developer</span
     >
   </section>

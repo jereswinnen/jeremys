@@ -7,55 +7,55 @@
   "endDate": "02/18",
   "artwork": [
     {
-      "src": "TabletGameSessionsDark.png",
+      "src": "TabletGameSessionsDark.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "PhonePlayerDetails.png",
+      "src": "PhonePlayerDetails.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneGameSessions.png",
+      "src": "PhoneGameSessions.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "TabletGameplay.png",
+      "src": "TabletGameplay.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 3
     },
     {
-      "src": "PhoneGameplay.png",
+      "src": "PhoneGameplay.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "TabletGameSessions.png",
+      "src": "TabletGameSessions.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 3
     },
     {
-      "src": "PhoneGameplayEditScore.png",
+      "src": "PhoneGameplayEditScore.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneAddAGameTeam.png",
+      "src": "PhoneAddAGameTeam.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "TabletCreateGame.png",
+      "src": "TabletCreateGame.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4

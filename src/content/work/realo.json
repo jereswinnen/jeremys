@@ -7,49 +7,49 @@
   "endDate": "11/14",
   "artwork": [
     {
-      "src": "DesktopAgency.png",
+      "src": "DesktopAgency.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "TabletLandscapeSearch.png",
+      "src": "TabletLandscapeSearch.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "TabletPortraitSearch.png",
+      "src": "TabletPortraitSearch.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 3
     },
     {
-      "src": "TabletPortraitListingDetail.png",
+      "src": "TabletPortraitListingDetail.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 3
     },
     {
-      "src": "PhoneSearch.png",
+      "src": "PhoneSearch.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneListingDetail.png",
+      "src": "PhoneListingDetail.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneAgency.png",
+      "src": "PhoneAgency.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "DesktopListingDetail.png",
+      "src": "DesktopListingDetail.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4

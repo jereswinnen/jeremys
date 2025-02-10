@@ -8,43 +8,43 @@
   "heroArtwork": "gamepalHero.jpeg",
   "artwork": [
     {
-      "src": "PhoneGameCollection.png",
+      "src": "PhoneGameCollection.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneGameDetail.png",
+      "src": "PhoneGameDetail.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneYearInPlayStart.png",
+      "src": "PhoneYearInPlayStart.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneJournal.png",
+      "src": "PhoneJournal.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneYearInPlayMostPlayedGames.png",
+      "src": "PhoneYearInPlayMostPlayedGames.webp",
       "caption": "Most played games overview",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneShareGameReview.png",
+      "src": "PhoneShareGameReview.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneHallOfFame.png",
+      "src": "PhoneHallOfFame.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2

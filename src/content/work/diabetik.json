@@ -7,37 +7,37 @@
   "endDate": "01/16",
   "artwork": [
     {
-      "src": "PhoneTimeline.png",
+      "src": "PhoneTimeline.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "TabletTimeline.png",
+      "src": "TabletTimeline.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 3
     },
     {
-      "src": "TabletJournal.png",
+      "src": "TabletJournal.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 3
     },
     {
-      "src": "TabletAddEntry.png",
+      "src": "TabletAddEntry.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "PhoneJournal.png",
+      "src": "PhoneJournal.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneAddBloodReading.png",
+      "src": "PhoneAddBloodReading.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2

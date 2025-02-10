@@ -7,25 +7,25 @@
   "endDate": "07/17",
   "artwork": [
     {
-      "src": "TabletLandscapeSplitscreen.png",
+      "src": "TabletLandscapeSplitscreen.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "TabletLandscapeSlideoverMain.png",
+      "src": "TabletLandscapeSlideoverMain.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "TabletLandscapeSlideover.png",
+      "src": "TabletLandscapeSlideover.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "TabletLandscapeQuicklookVideo.png",
+      "src": "TabletLandscapeQuicklookVideo.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4

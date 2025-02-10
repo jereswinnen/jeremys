@@ -7,44 +7,44 @@
   "endDate": "06/16",
   "artwork": [
     {
-      "src": "DesktopSearch.png",
+      "src": "DesktopSearch.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "PhoneListMenu.png",
+      "src": "PhoneListMenu.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneListingDetail.png",
+      "src": "PhoneListingDetail.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
 
     {
-      "src": "DesktopListingDetail.png",
+      "src": "DesktopListingDetail.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "DesktopListingDetailScrolled.png",
+      "src": "DesktopListingDetailScrolled.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "DesktopHome.png",
+      "src": "DesktopHome.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4
     },
     {
-      "src": "DesktopContact.png",
+      "src": "DesktopContact.webp",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 4

@@ -61,7 +61,7 @@ const processedImages =
               data-imageBlurReveal
               class="max-h-[60vh] lg:max-h-[40vh] object-contain"
               loading="lazy"
-              src={image.src.replace(/\.\w+$/, ".webp")}
+              src={image.src}
               alt={item.caption || project.name}
             />
             {/* <Picture

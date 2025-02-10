@@ -3,12 +3,17 @@ import type { CollectionEntry } from "astro:content";
 
 const projectsOrder = [
   "gamepal",
+  "yally",
+  "koopr",
+  "planticus",
   "helpper",
+  "opensesame",
+  "digipolis",
   "scorecard",
-  "realo",
   "shelf",
   "immo brown",
   "diabetik",
+  "realo",
 ];
 
 interface SortProjectsOptions {

@@ -6,7 +6,9 @@ import ProjectItem from "../components/ProjectItem.astro";
 import ShaderWrapper from "../components/ShaderWrapper.astro";
 
 const work = await getCollection("work");
-const sortedWork = sortProjects(work);
+const sortedWork = sortProjects(work, {
+  exclude: ["digipolis", "koopr", "opensesame", "planticus", "yally"],
+});
 ---
 
 <MasterLayout>

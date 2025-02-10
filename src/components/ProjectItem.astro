@@ -18,13 +18,14 @@ interface ImageBlock {
   lgColSpan?: number;
 }
 
-const processedImages = project.artwork.map((item) => ({
-  imageSrc: item.src,
-  caption: item.caption,
-  colSpan: item.colSpan,
-  mdColSpan: item.mdColSpan,
-  lgColSpan: item.lgColSpan,
-}));
+const processedImages =
+  project.artwork?.map((item) => ({
+    imageSrc: item.src,
+    caption: item.caption,
+    colSpan: item.colSpan,
+    mdColSpan: item.mdColSpan,
+    lgColSpan: item.lgColSpan,
+  })) ?? [];
 ---
 
 <section

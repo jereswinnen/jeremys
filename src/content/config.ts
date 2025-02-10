@@ -5,21 +5,23 @@ const work = defineCollection({
   type: "data",
   schema: z.object({
     name: z.string(),
-    tagline: z.string(),
-    description: z.string(),
+    tagline: z.string().optional(),
+    description: z.string().optional(),
     role: z.string(),
     startDate: z.string(),
     endDate: z.string(),
     heroArtwork: z.string().optional(),
-    artwork: z.array(
-      z.object({
-        src: z.string(),
-        caption: z.string().optional(),
-        colSpan: z.number().optional(),
-        mdColSpan: z.number().optional(),
-        lgColSpan: z.number().optional(),
-      }),
-    ),
+    artwork: z
+      .array(
+        z.object({
+          src: z.string(),
+          caption: z.string().optional(),
+          colSpan: z.number().optional(),
+          mdColSpan: z.number().optional(),
+          lgColSpan: z.number().optional(),
+        }),
+      )
+      .optional(),
   }),
 });
 

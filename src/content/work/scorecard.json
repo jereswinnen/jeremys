@@ -10,25 +10,7 @@
       "src": "TabletGameSessionsDark.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
-    },
-    {
-      "src": "TabletGameSessions.png",
-      "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
-    },
-    {
-      "src": "TabletGameplay.png",
-      "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
-    },
-    {
-      "src": "TabletCreateGame.png",
-      "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     },
     {
       "src": "PhonePlayerDetails.png",
@@ -43,13 +25,25 @@
       "mdColSpan": 2
     },
     {
-      "src": "PhoneGameplayEditScore.png",
+      "src": "TabletGameplay.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 3
+    },
+    {
+      "src": "PhoneGameplay.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
     },
     {
-      "src": "PhoneGameplay.png",
+      "src": "TabletGameSessions.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 3
+    },
+    {
+      "src": "PhoneGameplayEditScore.png",
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
@@ -59,6 +53,12 @@
       "caption": "Main project interface",
       "colSpan": 8,
       "mdColSpan": 2
+    },
+    {
+      "src": "TabletCreateGame.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 4
     }
   ]
 }

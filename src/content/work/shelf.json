@@ -10,25 +10,25 @@
       "src": "TabletLandscapeSplitscreen.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     },
     {
       "src": "TabletLandscapeSlideoverMain.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     },
     {
       "src": "TabletLandscapeSlideover.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     },
     {
       "src": "TabletLandscapeQuicklookVideo.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     }
   ]
 }

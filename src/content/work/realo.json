@@ -7,22 +7,28 @@
   "endDate": "11/14",
   "artwork": [
     {
-      "src": "TabletPortraitSearch.png",
+      "src": "DesktopAgency.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
-    },
-    {
-      "src": "TabletPortraitListingDetail.png",
-      "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     },
     {
       "src": "TabletLandscapeSearch.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
+    },
+    {
+      "src": "TabletPortraitSearch.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 3
+    },
+    {
+      "src": "TabletPortraitListingDetail.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 3
     },
     {
       "src": "PhoneSearch.png",
@@ -46,13 +52,7 @@
       "src": "DesktopListingDetail.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
-    },
-    {
-      "src": "DesktopAgency.png",
-      "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     }
   ]
 }

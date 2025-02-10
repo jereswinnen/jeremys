@@ -7,6 +7,12 @@
   "endDate": "06/16",
   "artwork": [
     {
+      "src": "DesktopSearch.png",
+      "caption": "Main project interface",
+      "colSpan": 8,
+      "mdColSpan": 4
+    },
+    {
       "src": "PhoneListMenu.png",
       "caption": "Main project interface",
       "colSpan": 8,
@@ -18,35 +24,30 @@
       "colSpan": 8,
       "mdColSpan": 2
     },
-    {
-      "src": "DesktopSearch.png",
-      "caption": "Main project interface",
-      "colSpan": 8,
-      "mdColSpan": 2
-    },
+
     {
       "src": "DesktopListingDetail.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     },
     {
       "src": "DesktopListingDetailScrolled.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     },
     {
       "src": "DesktopHome.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     },
     {
       "src": "DesktopContact.png",
       "caption": "Main project interface",
       "colSpan": 8,
-      "mdColSpan": 2
+      "mdColSpan": 4
     }
   ]
 }

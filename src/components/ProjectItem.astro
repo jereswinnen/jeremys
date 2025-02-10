@@ -10,7 +10,7 @@ interface Props {
 }
 
 const processedImages =
-  project.artwork?.map((item) => ({
+  project.artwork?.map((item: any) => ({
     imageSrc: item.src,
     caption: item.caption,
     colSpan: item.colSpan,
@@ -48,7 +48,7 @@ const processedImages =
     class="col-span-full grid grid-cols-subgrid !gap-[calc(var(--u-grid-gap)/5)]"
   >
     {
-      processedImages.map(async (item) => {
+      processedImages.map(async (item: any) => {
         const image = await getProjectImage(project.name, item.imageSrc);
         return (
           <figure
@@ -58,7 +58,6 @@ const processedImages =
             ${item.lgColSpan ? `lg:col-span-${item.lgColSpan}` : ""}`}
           >
             <img
-              data-imageBlurReveal
               class="max-h-[60vh] lg:max-h-[40vh] object-contain"
               loading="lazy"
               src={image.src}

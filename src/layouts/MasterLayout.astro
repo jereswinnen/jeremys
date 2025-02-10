@@ -43,12 +43,16 @@ const { title, description, theme, layout } = Astro.props;
     autoRaf: true,
   });
 
-  lenis.on("scroll", (e) => {
-    console.log(e);
-  });
+  // lenis.on("scroll", ScrollTrigger.update);
+
+  // gsap.ticker.add((time) => {
+  //   lenis.raf(time * 1000);
+  // });
+
+  // gsap.ticker.lagSmoothing(0);
 </script>
 
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", () => {
     const cursor = document.createElement("div");
     cursor.classList.add("cursor");
@@ -60,7 +64,7 @@ const { title, description, theme, layout } = Astro.props;
       cursor.style.top = `${e.clientY}px`;
     });
   });
-</script>
+</script> -->
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {

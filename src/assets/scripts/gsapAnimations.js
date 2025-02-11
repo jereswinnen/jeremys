@@ -164,34 +164,6 @@ export function introAnimation() {
   });
 }
 
-// export function parallaxScroll() {
-//   const elements = document.querySelectorAll("[data-speed]");
-
-//   elements.forEach((element) => {
-//     const speed = parseFloat(element.dataset.speed) || 1;
-
-//     // Create the animation definition
-//     const animation = animate(
-//       element,
-//       {
-//         // Move opposite to scroll direction based on speed
-//         // For speed < 1, element moves slower than scroll
-//         // For speed > 1, element moves faster than scroll
-//         transform: ["translateY(0px)", `translateY(${(1 - speed) * 100}px)`],
-//       },
-//       {
-//         ease: "linear",
-//         duration: 1,
-//       },
-//     );
-
-//     scroll(animation, {
-//       target: element,
-//       offset: ["start end", "end center"], // Start when top meets bottom, end when bottom meets center
-//     });
-//   });
-// }
-
 export function parallaxScroll() {
   const elements = document.querySelectorAll("[data-speed]");
 
@@ -199,18 +171,17 @@ export function parallaxScroll() {
     const speed = parseFloat(element.dataset.speed) || 1;
     let startScrollPosition = null;
 
-    // Add debug info
-    const debugLabel = document.createElement("div");
-    debugLabel.style.position = "absolute";
-    debugLabel.style.top = "4px";
-    debugLabel.style.left = "4px";
-    debugLabel.style.background = "red";
-    debugLabel.style.color = "white";
-    debugLabel.style.padding = "2px 6px";
-    debugLabel.style.fontSize = "12px";
-    debugLabel.style.zIndex = "1000";
-    element.style.position = "relative";
-    element.appendChild(debugLabel);
+    // const debugLabel = document.createElement("div");
+    // debugLabel.style.position = "absolute";
+    // debugLabel.style.top = "4px";
+    // debugLabel.style.left = "4px";
+    // debugLabel.style.background = "red";
+    // debugLabel.style.color = "white";
+    // debugLabel.style.padding = "2px 6px";
+    // debugLabel.style.fontSize = "12px";
+    // debugLabel.style.zIndex = "1000";
+    // element.style.position = "relative";
+    // element.appendChild(debugLabel);
 
     scroll((progress, info) => {
       const rect = element.getBoundingClientRect();
@@ -229,9 +200,8 @@ export function parallaxScroll() {
         const yOffset = relativeScroll * (1 - speed);
 
         element.style.transform = `translate3d(0, ${yOffset}px, 0)`;
-        debugLabel.textContent = `Speed: ${speed}, Offset: ${Math.round(yOffset)}px`;
+        // debugLabel.textContent = `Speed: ${speed}, Offset: ${Math.round(yOffset)}px`;
       }
-      // No else block - we don't reset startScrollPosition anymore
     });
   });
 }

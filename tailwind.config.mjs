@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         sans: [
+          "Briolage",
           "OverusedGrotesk",
           "system-ui",
           "-apple-system",

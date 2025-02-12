@@ -25,14 +25,23 @@ const work = defineCollection({
   }),
 });
 
-// Schema for regular notes/articles
+// Schema for articles
+const articles = defineCollection({
+  type: "content",
+  schema: z.object({
+    theme: z.string().optional(),
+    publishDate: z.date(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+// Schema for notes
 const notes = defineCollection({
   type: "content",
   schema: z.object({
     theme: z.string().optional(),
     title: z.string(),
     publishDate: z.date(),
-    description: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
@@ -42,10 +51,24 @@ const links = defineCollection({
   type: "content",
   schema: z.object({
     theme: z.string().optional(),
-    title: z.string(),
     publishDate: z.date(),
+    title: z.string(),
     url: z.string().url(),
-    note: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+// Schema for book posts
+const books = defineCollection({
+  type: "content",
+  schema: z.object({
+    theme: z.string().optional(),
+    publishDate: z.date(),
+    title: z.string(),
+    author: z.string(),
+    cover: z.string(),
+    rating: z.string().optional(),
+    url: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
@@ -63,7 +86,9 @@ const music = defineCollection({
 
 export const collections = {
   work: work,
+  articles: articles,
   notes: notes,
   links: links,
+  books: books,
   music: music,
 };

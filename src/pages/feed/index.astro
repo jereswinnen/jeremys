@@ -97,12 +97,6 @@ const formatTime = (date: Date) => {
                     </a>
                   )}
                 </div>
-                {entry.collection === "links" && entry.data.note && (
-                  <p class="opacity-70">{entry.data.note}</p>
-                )}
-                {entry.collection === "notes" && entry.data.description && (
-                  <p class="opacity-70">{entry.data.description}</p>
-                )}
               </article>
             ))}
           </div>

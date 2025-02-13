@@ -293,10 +293,11 @@ export function textBlurFadeIn() {
       y: 0,
       opacity: 1,
       filter: "blur(0px)",
+      color: "red",
       duration: 1,
       delay: 2,
       ease: "ease-cubic-circ",
-      clearProps: "all",
+      clearProps: "y,opacity,filter",
     });
   });
 }

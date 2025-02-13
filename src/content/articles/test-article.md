@@ -1,7 +1,7 @@
 ---
 theme: "!bg-orange-400"
-title: "Test article"
-publishDate: 2024-01-02T16:30:00Z
+title: "Regular article post"
+date: 2024-01-02T16:30:00Z
 ---
 
 ARTICLE

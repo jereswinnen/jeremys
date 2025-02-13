@@ -1,9 +1,9 @@
 ---
 title: "2023 Year in Review"
-publishDate: 2023-12-28T12:00:00Z
+date: 2023-12-28T12:00:00Z
 ---
 
-NOTE
+THIS IS A NOTE POST
 As we wrap up 2023, I wanted to take some time to reflect on the past year and share some key learnings.
 
 ## Highlights

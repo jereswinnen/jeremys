@@ -1,0 +1,204 @@
+---
+import MasterLayout from "../../layouts/MasterLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const title = "Blog";
+const theme = "bg-orange-500";
+
+type NoteEntry = CollectionEntry<"notes">;
+type LinkEntry = CollectionEntry<"links">;
+type ArticleEntry = CollectionEntry<"articles">;
+type BookEntry = CollectionEntry<"books">;
+type ContentEntry = NoteEntry | LinkEntry | ArticleEntry | BookEntry;
+
+// Fetch all content types
+const notes = await getCollection(
+  "notes",
+  ({ data }: NoteEntry) => !data.draft
+);
+const links = await getCollection(
+  "links",
+  ({ data }: LinkEntry) => !data.draft
+);
+const articles = await getCollection(
+  "articles",
+  ({ data }: ArticleEntry) => !data.draft
+);
+const books = await getCollection(
+  "books",
+  ({ data }: BookEntry) => !data.draft
+);
+
+// Process entries to include their rendered content
+const processedEntries = await Promise.all([
+  ...notes.map(async (entry: NoteEntry) => {
+    const { Content } = await entry.render();
+    return { entry, Content };
+  }),
+  ...links.map(async (entry: LinkEntry) => {
+    const { Content } = await entry.render();
+    return { entry, Content };
+  }),
+]);
+
+// Create a map of entry IDs to their Content components
+const contentMap = new Map(
+  processedEntries.map(({ entry, Content }) => [entry.id, Content])
+);
+
+// Combine and sort by date
+const allContent = [...notes, ...links, ...articles, ...books].sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+// Group by date
+const contentByDate = allContent.reduce(
+  (acc: Record<string, ContentEntry[]>, entry) => {
+    const date = entry.data.date.toLocaleDateString("nl-BE", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "Europe/Brussels",
+    });
+
+    if (!acc[date]) {
+      acc[date] = [];
+    }
+
+    acc[date].push(entry);
+    return acc;
+  },
+  {}
+);
+
+const formatTime = (date: Date) => {
+  return date.toLocaleTimeString("nl-BE", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Brussels",
+  });
+};
+---
+
+<MasterLayout theme={theme} title={title}>
+  <div class="max-w-2xl mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-12">{title}</h1>
+
+    {
+      Object.entries(contentByDate).map(([date, entries]) => (
+        <section class="mb-12">
+          <h2 class="text-xl font-semibold mb-6 opacity-70">{date}</h2>
+          <div class="space-y-8">
+            {entries.map((entry) => {
+              const datetime = entry.data.date.toISOString();
+              const time = formatTime(entry.data.date);
+              const Content = contentMap.get(entry.id);
+
+              return (
+                <article class="border-b border-black/30 dark:border-white/30 pb-8">
+                  {entry.collection === "articles" && (
+                    <div class="flex items-baseline gap-4 mb-2">
+                      <time datetime={datetime} class="text-sm opacity-70">
+                        {time}
+                      </time>
+                      <a
+                        href={`/blog/articles/${entry.slug}`}
+                        class="text-lg font-medium hover:text-brandOrange"
+                      >
+                        {entry.data.title}
+                      </a>
+                    </div>
+                  )}
+
+                  {entry.collection === "notes" && (
+                    <div class="space-y-2">
+                      <div class="flex items-baseline gap-4">
+                        <time datetime={datetime} class="text-sm opacity-70">
+                          {time}
+                        </time>
+                        <a
+                          href={`/blog/notes/${entry.slug}`}
+                          class="text-lg font-medium hover:text-brandOrange"
+                        >
+                          {entry.data.title}
+                        </a>
+                      </div>
+                      {Content && (
+                        <div class="prose">
+                          <Content />
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {entry.collection === "links" && (
+                    <div class="space-y-2">
+                      <div class="flex items-baseline gap-4">
+                        <a
+                          href={`/blog/links/${entry.slug}`}
+                          class="text-sm opacity-70 hover:text-brandOrange"
+                        >
+                          <time datetime={datetime}>{time}</time>
+                        </a>
+                        <a
+                          href={entry.data.url}
+                          class="text-lg font-medium hover:text-brandOrange"
+                        >
+                          {entry.data.title} →
+                        </a>
+                      </div>
+                      {Content && (
+                        <div class="prose">
+                          <Content />
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {entry.collection === "books" && (
+                    <div class="flex gap-6">
+                      <div class="flex-shrink-0 w-24">
+                        <img
+                          src={entry.data.cover}
+                          alt={`Cover of ${entry.data.title}`}
+                          class="w-full h-auto rounded"
+                        />
+                      </div>
+                      <div class="space-y-2">
+                        <div class="flex items-baseline gap-4">
+                          <a
+                            href={`/blog/books/${entry.slug}`}
+                            class="text-sm opacity-70 hover:text-brandOrange"
+                          >
+                            <time datetime={datetime}>{time}</time>
+                          </a>
+                          <h3 class="text-lg font-medium">
+                            {entry.data.title} by {entry.data.author}
+                          </h3>
+                        </div>
+                        {entry.data.rating && (
+                          <div class="text-sm opacity-70">
+                            Rating: {entry.data.rating}
+                          </div>
+                        )}
+                        {entry.data.url && (
+                          <a
+                            href={entry.data.url}
+                            class="text-sm text-blue-600 hover:underline"
+                          >
+                            More info →
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</MasterLayout>

@@ -1,0 +1,143 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import MasterLayout from "../../layouts/MasterLayout.astro";
+
+type NoteEntry = CollectionEntry<"notes">;
+type LinkEntry = CollectionEntry<"links">;
+type ArticleEntry = CollectionEntry<"articles">;
+type BookEntry = CollectionEntry<"books">;
+
+interface Props {
+  entry: NoteEntry | LinkEntry | ArticleEntry | BookEntry;
+  type: "notes" | "links" | "articles" | "books";
+}
+
+export async function getStaticPaths() {
+  const notes = await getCollection(
+    "notes",
+    ({ data }: NoteEntry) => !data.draft
+  );
+  const links = await getCollection(
+    "links",
+    ({ data }: LinkEntry) => !data.draft
+  );
+  const articles = await getCollection(
+    "articles",
+    ({ data }: ArticleEntry) => !data.draft
+  );
+  const books = await getCollection(
+    "books",
+    ({ data }: BookEntry) => !data.draft
+  );
+
+  return [
+    ...notes.map((entry: NoteEntry) => ({
+      params: { slug: `notes/${entry.slug}` },
+      props: { entry, type: "notes" } as Props,
+    })),
+    ...links.map((entry: LinkEntry) => ({
+      params: { slug: `links/${entry.slug}` },
+      props: { entry, type: "links" } as Props,
+    })),
+    ...articles.map((entry: ArticleEntry) => ({
+      params: { slug: `articles/${entry.slug}` },
+      props: { entry, type: "articles" } as Props,
+    })),
+    ...books.map((entry: BookEntry) => ({
+      params: { slug: `books/${entry.slug}` },
+      props: { entry, type: "books" } as Props,
+    })),
+  ];
+}
+
+const { entry, type } = Astro.props;
+const { Content } = await entry.render();
+
+const theme = entry.data.theme ?? "";
+const title = entry.data.title;
+const date = entry.data.date;
+
+const formattedDate = date.toLocaleDateString("nl-BE", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "Europe/Brussels",
+});
+
+const formattedTime = date.toLocaleTimeString("nl-BE", {
+  hour: "2-digit",
+  minute: "2-digit",
+  timeZone: "Europe/Brussels",
+});
+
+// Type guard for book entries
+const isBookEntry = (entry: Props["entry"]): entry is BookEntry =>
+  entry.collection === "books";
+
+// Type guard for link entries
+const isLinkEntry = (entry: Props["entry"]): entry is LinkEntry =>
+  entry.collection === "links";
+---
+
+<MasterLayout theme={theme} title={title}>
+  <article class="max-w-2xl mx-auto py-8">
+    <header class="mb-8">
+      {
+        type === "books" && isBookEntry(entry) ? (
+          <div class="flex gap-8 items-start">
+            <img
+              src={entry.data.cover}
+              alt={`Cover of ${title}`}
+              class="w-32 h-auto rounded"
+            />
+            <div>
+              <h1 class="text-3xl font-bold mb-2">{title}</h1>
+              <p class="text-xl mb-2">by {entry.data.author}</p>
+              <time datetime={date.toISOString()} class="block opacity-70 mb-2">
+                {formattedDate} at {formattedTime}
+              </time>
+              {entry.data.rating && (
+                <p class="opacity-70">Rating: {entry.data.rating}</p>
+              )}
+              {entry.data.url && (
+                <a
+                  href={entry.data.url}
+                  class="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  More info →
+                </a>
+              )}
+            </div>
+          </div>
+        ) : (
+          <>
+            <h1 class="text-3xl font-bold mb-2">{title}</h1>
+            <time datetime={date.toISOString()} class="block opacity-70">
+              {formattedDate} at {formattedTime}
+            </time>
+          </>
+        )
+      }
+    </header>
+
+    {
+      isLinkEntry(entry) ? (
+        <div class="prose">
+          <p class="mb-4">
+            <a href={entry.data.url} class="text-blue-600 hover:underline">
+              Visit linked article →
+            </a>
+          </p>
+          <Content />
+        </div>
+      ) : (
+        <div class="prose">
+          <Content />
+        </div>
+      )
+    }
+  </article>
+</MasterLayout>

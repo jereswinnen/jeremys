@@ -1,9 +1,9 @@
 ---
 title: "Hello World"
-publishDate: 2024-01-02T10:00:00Z
+date: 2024-01-02T10:00:00Z
 ---
 
-NOTE
+THIS IS A NOTE POST
 This is my first blog post! Here's some **markdown** content.
 
 I've been wanting to start a blog for a while now, and finally decided to take the plunge. This site is built with Astro, and I'm really enjoying the experience so far.

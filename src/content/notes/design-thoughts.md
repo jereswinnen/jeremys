@@ -1,10 +1,10 @@
 ---
 theme: "!bg-orange-400"
 title: "Thoughts on Modern Web Design"
-publishDate: 2024-01-02T16:30:00Z
+date: 2024-01-02T16:30:00Z
 ---
 
-NOTE
+THIS IS A NOTE POST
 After spending the last few years working on various web projects, I've noticed some interesting trends in how we approach design.
 
 ## Minimalism vs. Maximalism

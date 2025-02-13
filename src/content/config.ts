@@ -30,7 +30,8 @@ const articles = defineCollection({
   type: "content",
   schema: z.object({
     theme: z.string().optional(),
-    publishDate: z.date(),
+    title: z.string(),
+    date: z.date(),
     draft: z.boolean().default(false),
   }),
 });
@@ -41,7 +42,7 @@ const notes = defineCollection({
   schema: z.object({
     theme: z.string().optional(),
     title: z.string(),
-    publishDate: z.date(),
+    date: z.date(),
     draft: z.boolean().default(false),
   }),
 });
@@ -51,7 +52,7 @@ const links = defineCollection({
   type: "content",
   schema: z.object({
     theme: z.string().optional(),
-    publishDate: z.date(),
+    date: z.date(),
     title: z.string(),
     url: z.string().url(),
     draft: z.boolean().default(false),
@@ -63,7 +64,7 @@ const books = defineCollection({
   type: "content",
   schema: z.object({
     theme: z.string().optional(),
-    publishDate: z.date(),
+    date: z.date(),
     title: z.string(),
     author: z.string(),
     cover: z.string(),

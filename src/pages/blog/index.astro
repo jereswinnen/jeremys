@@ -2,6 +2,10 @@
 import MasterLayout from "../../layouts/MasterLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import ArticleEntry from "../../components/blog/ArticleEntry.astro";
+import NoteEntry from "../../components/blog/NoteEntry.astro";
+import LinkEntry from "../../components/blog/LinkEntry.astro";
+import BookEntry from "../../components/blog/BookEntry.astro";
 
 const title = "Blog";
 const theme = "bg-orange-500";
@@ -83,7 +87,7 @@ const formatTime = (date: Date) => {
 
 <MasterLayout theme={theme} title={title}>
   <div class="max-w-2xl mx-auto py-8">
-    <h1 class="text-3xl font-bold mb-12">{title}</h1>
+    <h1 class="text-3xl font-bold mb-12">Blog</h1>
 
     {
       Object.entries(contentByDate).map(([date, entries]) => (
@@ -98,100 +102,37 @@ const formatTime = (date: Date) => {
               return (
                 <article class="border-b border-black/30 dark:border-white/30 pb-8">
                   {entry.collection === "articles" && (
-                    <div class="flex items-baseline gap-4 mb-2">
-                      <time datetime={datetime} class="text-sm opacity-70">
-                        {time}
-                      </time>
-                      <a
-                        href={`/blog/articles/${entry.slug}`}
-                        class="text-lg font-medium hover:text-brandOrange"
-                      >
-                        {entry.data.title}
-                      </a>
-                    </div>
+                    <ArticleEntry
+                      entry={entry as CollectionEntry<"articles">}
+                      datetime={datetime}
+                      time={time}
+                    />
                   )}
 
                   {entry.collection === "notes" && (
-                    <div class="space-y-2">
-                      <div class="flex items-baseline gap-4">
-                        <time datetime={datetime} class="text-sm opacity-70">
-                          {time}
-                        </time>
-                        <a
-                          href={`/blog/notes/${entry.slug}`}
-                          class="text-lg font-medium hover:text-brandOrange"
-                        >
-                          {entry.data.title}
-                        </a>
-                      </div>
-                      {Content && (
-                        <div class="prose">
-                          <Content />
-                        </div>
-                      )}
-                    </div>
+                    <NoteEntry
+                      entry={entry as CollectionEntry<"notes">}
+                      datetime={datetime}
+                      time={time}
+                      Content={Content}
+                    />
                   )}
 
                   {entry.collection === "links" && (
-                    <div class="space-y-2">
-                      <div class="flex items-baseline gap-4">
-                        <a
-                          href={`/blog/links/${entry.slug}`}
-                          class="text-sm opacity-70 hover:text-brandOrange"
-                        >
-                          <time datetime={datetime}>{time}</time>
-                        </a>
-                        <a
-                          href={entry.data.url}
-                          class="text-lg font-medium hover:text-brandOrange"
-                        >
-                          {entry.data.title} →
-                        </a>
-                      </div>
-                      {Content && (
-                        <div class="prose">
-                          <Content />
-                        </div>
-                      )}
-                    </div>
+                    <LinkEntry
+                      entry={entry as CollectionEntry<"links">}
+                      datetime={datetime}
+                      time={time}
+                      Content={Content}
+                    />
                   )}
 
                   {entry.collection === "books" && (
-                    <div class="flex gap-6">
-                      <div class="flex-shrink-0 w-24">
-                        <img
-                          src={entry.data.cover}
-                          alt={`Cover of ${entry.data.title}`}
-                          class="w-full h-auto rounded"
-                        />
-                      </div>
-                      <div class="space-y-2">
-                        <div class="flex items-baseline gap-4">
-                          <a
-                            href={`/blog/books/${entry.slug}`}
-                            class="text-sm opacity-70 hover:text-brandOrange"
-                          >
-                            <time datetime={datetime}>{time}</time>
-                          </a>
-                          <h3 class="text-lg font-medium">
-                            {entry.data.title} by {entry.data.author}
-                          </h3>
-                        </div>
-                        {entry.data.rating && (
-                          <div class="text-sm opacity-70">
-                            Rating: {entry.data.rating}
-                          </div>
-                        )}
-                        {entry.data.url && (
-                          <a
-                            href={entry.data.url}
-                            class="text-sm text-blue-600 hover:underline"
-                          >
-                            More info →
-                          </a>
-                        )}
-                      </div>
-                    </div>
+                    <BookEntry
+                      entry={entry as CollectionEntry<"books">}
+                      datetime={datetime}
+                      time={time}
+                    />
                   )}
                 </article>
               );

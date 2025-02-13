@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"books">;
+  datetime: string;
+  time: string;
+}
+
+const { entry, datetime, time } = Astro.props;
+---
+
+<div class="flex gap-6">
+  <div class="flex-shrink-0 w-24">
+    <img
+      src={entry.data.cover}
+      alt={`Cover of ${entry.data.title}`}
+      class="w-full h-auto rounded"
+    />
+  </div>
+  <div class="space-y-2">
+    <div class="flex items-baseline gap-4">
+      <a
+        href={`/blog/books/${entry.slug}`}
+        class="text-sm opacity-70 hover:text-brandOrange"
+      >
+        <time datetime={datetime}>{time}</time>
+      </a>
+      <h3 class="text-lg font-medium">
+        {entry.data.title} by {entry.data.author}
+      </h3>
+    </div>
+    {
+      entry.data.rating && (
+        <div class="text-sm opacity-70">Rating: {entry.data.rating}</div>
+      )
+    }
+    {
+      entry.data.url && (
+        <a href={entry.data.url} class="text-sm text-blue-600 hover:underline">
+          More info →
+        </a>
+      )
+    }
+  </div>
+</div>
+

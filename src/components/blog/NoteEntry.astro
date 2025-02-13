@@ -11,24 +11,25 @@ interface Props {
 const { entry, datetime, time, Content } = Astro.props;
 ---
 
-<div class="space-y-2">
-  <div class="flex items-baseline gap-4">
+<>
+  <section class="bg-indigo-100 flex items-baseline gap-4">
     <time datetime={datetime} class="text-sm opacity-70">
       {time}
     </time>
-    <a
-      href={`/blog/notes/${entry.slug}`}
-      class="text-lg font-medium hover:text-brandOrange"
-    >
-      {entry.data.title}
-    </a>
-  </div>
+  </section>
   {
     Content && (
-      <div class="prose">
+      <section class="bg-green-100 flex flex-col">
+        <header>
+          <a
+            href={`/blog/notes/${entry.slug}`}
+            class="text-lg font-medium hover:text-brandOrange"
+          >
+            {entry.data.title}
+          </a>
+        </header>
         <Content />
-      </div>
+      </section>
     )
   }
-</div>
-
+</>

@@ -11,6 +11,22 @@ gsap.registerPlugin(CustomEase, ScrollTrigger);
 CustomEase.create("ease-cubic-circ", "M0,0 C0.645,0 0.045,1 1,1");
 
 export function introAnimation() {
+  // First, check if we've already run the animation in this session
+  if (sessionStorage.getItem("introAnimationPlayed")) {
+    // If already played, immediately hide the intro overlay
+    const intro = document.querySelector("[data-introOverlay]");
+    if (intro) {
+      gsap.set(intro, { pointerEvents: "none", display: "none" });
+
+      // Set content to visible immediately
+      const content = document.querySelector("[data-mainContent]");
+      if (content) {
+        gsap.set(content, { opacity: 1, y: 0 });
+      }
+    }
+    return;
+  }
+
   const mm = gsap.matchMedia();
   const intro = document.querySelector("[data-introOverlay]");
   const figure = document.querySelector("[data-introImage]");
@@ -40,6 +56,8 @@ export function introAnimation() {
       delay: 0.5,
       onComplete: () => {
         gsap.set(intro, { pointerEvents: "none", display: "none" });
+        // Mark animation as played when complete
+        sessionStorage.setItem("introAnimationPlayed", "true");
       },
     });
 
@@ -108,6 +126,8 @@ export function introAnimation() {
       delay: 1,
       onComplete: () => {
         gsap.set(intro, { pointerEvents: "none", display: "none" });
+        // Mark animation as played when complete
+        sessionStorage.setItem("introAnimationPlayed", "true");
       },
     });
 

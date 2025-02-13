@@ -59,11 +59,10 @@ const allContent = [...notes, ...links, ...articles, ...books].sort(
 // Group by date
 const contentByDate = allContent.reduce(
   (acc: Record<string, ContentEntry[]>, entry) => {
-    const date = entry.data.date.toLocaleDateString("nl-BE", {
+    const date = entry.data.date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
-      timeZone: "Europe/Brussels",
     });
 
     if (!acc[date]) {
@@ -86,60 +85,81 @@ const formatTime = (date: Date) => {
 ---
 
 <MasterLayout theme={theme} title={title}>
-  <div class="max-w-2xl mx-auto py-8">
-    <h1 class="text-3xl font-bold mb-12">Blog</h1>
+  <section
+    data-blurRevealFromBottom
+    class="col-span-full grid grid-cols-subgrid gap-y-[calc(var(--u-grid-gap)_*_1.25)]"
+  >
+    <section
+      data-speed="0.8"
+      class="col-span-full grid grid-cols-subgrid h-[30vh] content-end"
+    >
+      <header class="col-span-full md:!col-span-5">
+        <h2
+          data-textlurFadeIn
+          class="font-serif text-[clamp(40px,6vw,100px)] tracking-tight leading-tight indent-8 md:indent-32 text-balance"
+        >
+          {title}
+        </h2>
+      </header>
+    </section>
+    <section class="col-span-full grid grid-cols-subgrid">
+      {
+        Object.entries(contentByDate).map(([date, entries]) => (
+          <section class="col-span-full md:!col-start-3 md:!col-span-3">
+            <time
+              class="text-2xl font-semibold"
+              datetime={entries[0].data.date.toISOString()}
+            >
+              {date}
+            </time>
+            <div class="space-y-8">
+              {entries.map((entry) => {
+                const datetime = entry.data.date.toISOString();
+                const time = formatTime(entry.data.date);
+                const Content = contentMap.get(entry.id);
 
-    {
-      Object.entries(contentByDate).map(([date, entries]) => (
-        <section class="mb-12">
-          <h2 class="text-xl font-semibold mb-6 opacity-70">{date}</h2>
-          <div class="space-y-8">
-            {entries.map((entry) => {
-              const datetime = entry.data.date.toISOString();
-              const time = formatTime(entry.data.date);
-              const Content = contentMap.get(entry.id);
+                return (
+                  <article class="border-b border-black/30 dark:border-white/30 pb-8">
+                    {entry.collection === "articles" && (
+                      <ArticleEntry
+                        entry={entry as CollectionEntry<"articles">}
+                        datetime={datetime}
+                        time={time}
+                      />
+                    )}
 
-              return (
-                <article class="border-b border-black/30 dark:border-white/30 pb-8">
-                  {entry.collection === "articles" && (
-                    <ArticleEntry
-                      entry={entry as CollectionEntry<"articles">}
-                      datetime={datetime}
-                      time={time}
-                    />
-                  )}
+                    {entry.collection === "notes" && (
+                      <NoteEntry
+                        entry={entry as CollectionEntry<"notes">}
+                        datetime={datetime}
+                        time={time}
+                        Content={Content}
+                      />
+                    )}
 
-                  {entry.collection === "notes" && (
-                    <NoteEntry
-                      entry={entry as CollectionEntry<"notes">}
-                      datetime={datetime}
-                      time={time}
-                      Content={Content}
-                    />
-                  )}
+                    {entry.collection === "links" && (
+                      <LinkEntry
+                        entry={entry as CollectionEntry<"links">}
+                        datetime={datetime}
+                        time={time}
+                        Content={Content}
+                      />
+                    )}
 
-                  {entry.collection === "links" && (
-                    <LinkEntry
-                      entry={entry as CollectionEntry<"links">}
-                      datetime={datetime}
-                      time={time}
-                      Content={Content}
-                    />
-                  )}
-
-                  {entry.collection === "books" && (
-                    <BookEntry
-                      entry={entry as CollectionEntry<"books">}
-                      datetime={datetime}
-                      time={time}
-                    />
-                  )}
-                </article>
-              );
-            })}
-          </div>
-        </section>
-      ))
-    }
-  </div>
+                    {entry.collection === "books" && (
+                      <BookEntry
+                        entry={entry as CollectionEntry<"books">}
+                        datetime={datetime}
+                        time={time}
+                      />
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        ))
+      }
+    </section>
+  </section>
 </MasterLayout>

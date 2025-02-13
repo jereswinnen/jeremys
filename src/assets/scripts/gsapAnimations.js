@@ -270,7 +270,7 @@ export function imageReveal() {
         ease: "ease-cubic-circ",
         scrollTrigger: {
           trigger: el,
-          start: "top 75%", // Triggers when the element’s top reaches 75% of the viewport height
+          start: "top 75%", // Triggers when the element's top reaches 75% of the viewport height
           toggleActions: "play none none none", // Plays the animation once when triggered
         },
       },
@@ -281,21 +281,23 @@ export function imageReveal() {
 export function textBlurFadeIn() {
   const elements = document.querySelectorAll("[data-textBlurFadeIn]");
 
-  elements.forEach((el) => {
-    gsap.fromTo(
-      el,
-      {
-        opacity: 0,
-        filter: "blur(6px)",
-      },
-      {
-        opacity: 1,
-        filter: "blur(0px)",
-        duration: 1,
-        ease: "ease-cubic-circ",
-        delay: 2.25, //0.3
-      },
-    );
+  elements.forEach((element) => {
+    gsap.killTweensOf(element);
+    gsap.set(element, {
+      y: 20,
+      opacity: 0,
+      filter: "blur(8px)",
+    });
+
+    gsap.to(element, {
+      y: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1,
+      delay: 2,
+      ease: "ease-cubic-circ",
+      clearProps: "all",
+    });
   });
 }
 

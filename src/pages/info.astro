@@ -1,12 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import { sortProjects, getProjectHeroImage } from "../utils/projectUtils";
 import MasterLayout from "../layouts/MasterLayout.astro";
 import ShaderWrapper from "../components/ShaderWrapper.astro";
 import Button from "../components/Button.astro";
 
-const title = "Profile";
+const title = "Info";
 const layout = "info";
 const work = await getCollection("work");
 const sortedWork = sortProjects(work);
@@ -23,6 +22,7 @@ const sortedWork = sortProjects(work);
     >
       <header class="col-span-full md:!col-span-5">
         <h2
+          data-textBlurFadeIn
           class="font-serif text-[clamp(40px,6vw,100px)] tracking-tight leading-tight indent-8 md:indent-32 text-balance"
         >
           I design and build digital experiences for web and

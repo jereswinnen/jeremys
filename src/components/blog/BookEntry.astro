@@ -5,42 +5,43 @@ interface Props {
   entry: CollectionEntry<"books">;
   datetime: string;
   time: string;
+  Content: any;
 }
 
-const { entry, datetime, time } = Astro.props;
+const { entry, datetime, time, Content } = Astro.props;
 ---
 
 <>
-  <section class="bg-indigo-100 flex-shrink-0">
-    <img
-      src={entry.data.cover}
-      alt={`Cover of ${entry.data.title}`}
-      class="w-full h-auto rounded"
-    />
+  <section class="flex justify-end">
+    <a
+      href={`/blog/books/${entry.slug}`}
+      class="text-sm opacity-70 hover:opacity-100"
+    >
+      <time datetime={datetime}>{time}</time>
+    </a>
   </section>
-  <section class="bg-green-100 flex flex-col">
-    <div class="flex items-baseline gap-4">
+  <section class="flex flex-col gap-3">
+    <header>
       <a
-        href={`/blog/books/${entry.slug}`}
-        class="text-sm opacity-70 hover:text-brandOrange"
+        href={entry.data.url}
+        class="flex gap-2 px-2 py-1 bg-stone-100 rounded"
       >
-        <time datetime={datetime}>{time}</time>
+        <img
+          src={entry.data.cover}
+          alt={`${entry.data.title} by ${entry.data.author}`}
+          class="w-8 h-auto rounded"
+        />
+        <div class="flex flex-col">
+          <span class="font-semibold">{entry.data.title}</span>
+          <span class="text-sm opacity-70">{entry.data.author}</span>
+        </div>
+        {
+          entry.data.rating && (
+            <div class="text-sm opacity-70">Rating: {entry.data.rating}</div>
+          )
+        }
       </a>
-      <h3 class="text-lg font-medium">
-        {entry.data.title} by {entry.data.author}
-      </h3>
-    </div>
-    {
-      entry.data.rating && (
-        <div class="text-sm opacity-70">Rating: {entry.data.rating}</div>
-      )
-    }
-    {
-      entry.data.url && (
-        <a href={entry.data.url} class="text-sm text-blue-600 hover:underline">
-          More info →
-        </a>
-      )
-    }
+    </header>
+    {Content && <Content />}
   </section>
 </>

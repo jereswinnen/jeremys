@@ -12,21 +12,26 @@ const { entry, datetime, time, Content } = Astro.props;
 ---
 
 <>
-  <section class="bg-indigo-100 flex items-baseline gap-4">
-    <time datetime={datetime} class="text-sm opacity-70">
-      {time}
-    </time>
+  <section class="flex justify-end">
+    <a
+      href={`/blog/notes/${entry.slug}`}
+      class="text-sm opacity-70 hover:opacity-100"
+    >
+      <time datetime={datetime}>{time}</time>
+    </a>
   </section>
   {
     Content && (
-      <section class="bg-green-100 flex flex-col">
+      <section class="flex flex-col">
         <header>
-          <a
-            href={`/blog/notes/${entry.slug}`}
-            class="text-lg font-medium hover:text-brandOrange"
-          >
-            {entry.data.title}
-          </a>
+          <h3>
+            <a
+              href={`/blog/notes/${entry.slug}`}
+              class="text-base font-semibold hover:underline"
+            >
+              {entry.data.title}
+            </a>
+          </h3>
         </header>
         <Content />
       </section>

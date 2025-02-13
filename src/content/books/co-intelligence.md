@@ -8,4 +8,4 @@ rating: "4"
 url: "https://literal.club/book/ethan-mollick-co-intelligence-61zfh"
 ---
 
-This is a note attached to the book entry
+This is an optional note attached to the **book** entry

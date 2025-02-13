@@ -44,6 +44,10 @@ const processedEntries = await Promise.all([
     const { Content } = await entry.render();
     return { entry, Content };
   }),
+  ...books.map(async (entry: BookEntry) => {
+    const { Content } = await entry.render();
+    return { entry, Content };
+  }),
 ]);
 
 // Create a map of entry IDs to their Content components
@@ -153,6 +157,7 @@ const formatTime = (date: Date) => {
                         entry={entry as CollectionEntry<"books">}
                         datetime={datetime}
                         time={time}
+                        Content={Content}
                       />
                     )}
                   </article>

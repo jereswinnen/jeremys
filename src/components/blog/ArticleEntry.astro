@@ -11,17 +11,14 @@ const { entry, datetime, time } = Astro.props;
 ---
 
 <>
-  <section class="bg-indigo-100">
+  <section class="flex justify-end">
     <time datetime={datetime} class="text-sm opacity-70">
       {time}
     </time>
   </section>
-  <section class="bg-green-100 flex flex-col">
-    <a
-      href={`/blog/articles/${entry.slug}`}
-      class="text-lg font-medium hover:text-brandOrange"
-    >
-      {entry.data.title}
-    </a>
+  <section class="flex flex-col">
+    <h3 class="text-lg font-medium hover:underline">
+      <a href={`/blog/articles/${entry.slug}`}>{entry.data.title}</a>
+    </h3>
   </section>
 </>
